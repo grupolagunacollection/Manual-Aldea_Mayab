@@ -1,22 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Manual Operativo - Aldea Mayab</title>
+<meta charset="UTF-8">
+<title>Sistema Institucional de Gestión - Aldea Mayab</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #0f3b3b;
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.container {
+    padding: 40px;
+    text-align: center;
+}
+
+.button {
+    display: block;
+    width: 300px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: #1f6f6f;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #145454;
+}
+
+.emergency {
+    background-color: #b30000;
+}
+
+.footer {
+    margin-top: 50px;
+    padding: 15px;
+    background-color: #e0e0e0;
+    font-size: 12px;
+}
+</style>
 </head>
-<body style="font-family: Arial; text-align:center; margin-top:50px;">
 
-    <h1>Manual Operativo</h1>
+<body>
+
+<div class="header">
+    <h1>Sistema Institucional de Gestión</h1>
     <h2>Aldea Mayab</h2>
+</div>
 
-    <p>Bienvenido al Sistema Institucional de Gestión</p>
+<div class="container">
 
-    <a href="libro1_completo.html" 
-       style="display:inline-block; padding:15px 30px; 
-       background-color:#0f3b3b; color:white; 
-       text-decoration:none; border-radius:6px;">
-       Ingresar al Libro 1 – Administración
+    <a class="button" href="libro1_completo.html">
+        Libro 1 – Administración
     </a>
+
+    <a class="button" href="#">
+        Libro 2 – Operación (Próximamente)
+    </a>
+
+    <a class="button" href="#">
+        Libro 3 – Mantenimiento (Próximamente)
+    </a>
+
+    <a class="button emergency" href="#">
+        Libro 4 – Seguridad y Emergencias
+    </a>
+
+</div>
+
+<div class="footer">
+Versión 01 | Sistema Institucional de Gestión | Uso Interno
+</div>
 
 </body>
 </html>
