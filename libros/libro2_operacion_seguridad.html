@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libro II — Operación y Seguridad | Aldea Mayab</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;500;600&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap');
+
+  :root {
+    --cream: #F5F6F4;
+    --warm-white: #FBFCFB;
+    --ink: #17201A;
+    --ink-soft: #2E3D32;
+    --ink-muted: #6A7A6E;
+    --accent: #3A6B4A;
+    --accent-light: #5A9B6A;
+    --accent-pale: #E8F2EA;
+    --rule: #CDD8CF;
+    --sidebar-bg: #17201A;
+    --sidebar-w: 300px;
+    --header-h: 64px;
+    --red: #B94040;
+    --red-pale: #F8ECEC;
+    --gold: #8A6B35;
+    --gold-pale: #F2EAD8;
+    --blue: #2A5A8A;
+    --blue-pale: #E8EFF8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    display: flex;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    width: var(--sidebar-w);
+    min-height: 100vh;
+    background: var(--sidebar-bg);
+    position: fixed;
+    top: 0; left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-y: auto;
+    border-right: 1px solid #253028;
+  }
+
+  .sidebar-header {
+    padding: 28px 24px 20px;
+    border-bottom: 1px solid #253028;
+    position: sticky;
+    top: 0;
+    background: var(--sidebar-bg);
+    z-index: 10;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .logo-mark {
+    width: 28px; height: 28px;
+    border: 1.5px solid var(--accent-light);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .logo-mark span {
+    width: 10px; height: 10px;
+    border-radius: 2px;
+    background: var(--accent-light);
+    display: block;
+  }
+
+  .logo-text {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #7A9A80;
+  }
+
+  .book-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 4px;
+  }
+
+  .book-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #DDE8DF;
+    line-height: 1.4;
+  }
+
+  .search-wrap {
+    padding: 12px 16px;
+    border-bottom: 1px solid #253028;
+  }
+
+  .search-input {
+    width: 100%;
+    background: #202B22;
+    border: 1px solid #2E3D32;
+    border-radius: 3px;
+    padding: 7px 10px;
+    font-size: 11.5px;
+    color: #B0C8B5;
+    font-family: 'Source Sans 3', sans-serif;
+    outline: none;
+  }
+
+  .search-input::placeholder { color: #4A5E4E; }
+  .search-input:focus { border-color: var(--accent-light); }
+
+  nav { padding: 12px 0 40px; flex: 1; }
+
+  .nav-section { margin-bottom: 2px; }
+
+  .nav-chapter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 20px;
+    cursor: pointer;
+    transition: background 0.15s;
+    border-left: 2px solid transparent;
+  }
+
+  .nav-chapter:hover { background: rgba(90,155,106,0.08); }
+  .nav-chapter.active {
+    border-left-color: var(--accent-light);
+    background: rgba(90,155,106,0.12);
+  }
+
+  .nav-chapter-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    color: #B0C8B5;
+    text-transform: uppercase;
+  }
+
+  .nav-chapter.active .nav-chapter-label { color: var(--accent-light); }
+
+  .nav-arrow {
+    font-size: 9px;
+    color: #3A4E3E;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .nav-section.open .nav-arrow { transform: rotate(90deg); }
+
+  .nav-sub { display: none; padding-bottom: 6px; }
+  .nav-section.open .nav-sub { display: block; }
+
+  .nav-item {
+    display: block;
+    padding: 5px 20px 5px 32px;
+    font-size: 11.5px;
+    color: #5A7A60;
+    cursor: pointer;
+    transition: color 0.15s;
+    border-left: 2px solid transparent;
+  }
+
+  .nav-item:hover { color: var(--accent-light); background: rgba(90,155,106,0.04); }
+  .nav-item.active { color: var(--accent-light); background: rgba(90,155,106,0.08); }
+
+  .nav-sub-item {
+    display: block;
+    padding: 4px 20px 4px 46px;
+    font-size: 10.5px;
+    color: #3A5040;
+    cursor: pointer;
+    transition: color 0.15s;
+  }
+
+  .nav-sub-item:hover { color: #5A9B6A; }
+  .nav-sub-item.active { color: var(--accent-light); }
+
+  .nav-divider {
+    height: 1px;
+    background: #253028;
+    margin: 8px 20px;
+  }
+
+  /* ── MAIN ── */
+  #main {
+    margin-left: var(--sidebar-w);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  #topbar {
+    height: var(--header-h);
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+  }
+
+  .breadcrumb {
+    font-size: 12px;
+    color: var(--ink-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
+  }
+
+  .breadcrumb strong { color: var(--ink-soft); font-weight: 600; }
+
+  .doc-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 11px;
+    color: var(--ink-muted);
+    flex-shrink: 0;
+  }
+
+  .doc-code {
+    font-family: monospace;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* ── CONTENT ── */
+  #content { padding: 48px 64px 80px; max-width: 880px; }
+
+  .page { display: none; }
+  .page.active { display: block; animation: fadeIn 0.25s ease; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-eyebrow {
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  h1.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .section-subtitle {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--ink-muted);
+    margin-bottom: 28px;
+    line-height: 1.5;
+  }
+
+  .rule { width: 48px; height: 2px; background: var(--accent); margin-bottom: 32px; }
+
+  /* Proc header */
+  .proc-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--rule);
+    margin-bottom: 36px;
+    background: var(--warm-white);
+  }
+
+  .proc-cell {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--rule);
+    border-right: 1px solid var(--rule);
+    font-size: 12px;
+  }
+
+  .proc-cell:nth-child(even) { border-right: none; }
+
+  .proc-label {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .proc-value { font-weight: 500; color: var(--ink); font-size: 12px; }
+
+  /* Headings */
+  h2.heading-2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+    margin-top: 32px;
+  }
+
+  h2.heading-2:first-child { margin-top: 0; }
+
+  h3.heading-3 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    margin-top: 20px;
+  }
+
+  p.body-text {
+    font-family: 'Source Serif 4', serif;
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin-bottom: 12px;
+    font-weight: 300;
+  }
+
+  /* Tables */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+
+  .data-table th {
+    background: var(--ink);
+    color: #DDE8DF;
+    padding: 9px 14px;
+    text-align: left;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .data-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    font-size: 13.5px;
+  }
+
+  .data-table tr:hover td { background: var(--accent-pale); }
+  .data-table .term { font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: var(--ink); font-size: 13px; }
+
+  /* Alerts */
+  .alert { padding: 13px 16px; margin: 16px 0; font-size: 13px; line-height: 1.6; }
+  .alert strong { font-weight: 700; }
+  .alert-green { border-left: 3px solid var(--accent); background: var(--accent-pale); color: var(--ink-soft); }
+  .alert-green strong { color: var(--accent); }
+  .alert-red { border-left: 3px solid var(--red); background: var(--red-pale); color: #5c1f1f; }
+  .alert-red strong { color: var(--red); }
+  .alert-gold { border-left: 3px solid var(--gold); background: var(--gold-pale); color: #4A3820; }
+  .alert-gold strong { color: var(--gold); }
+  .alert-blue { border-left: 3px solid var(--blue); background: var(--blue-pale); color: #1A3050; }
+  .alert-blue strong { color: var(--blue); }
+
+  /* Steps */
+  .steps { margin-top: 12px; }
+  .step {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .step:last-child { border-bottom: none; }
+  .step-num {
+    flex-shrink: 0;
+    width: 26px; height: 26px;
+    border: 1.5px solid var(--accent);
+    border-radius: 3px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 700; color: var(--accent);
+    font-family: 'Source Sans 3', sans-serif;
+    margin-top: 1px;
+  }
+  .step-body { flex: 1; }
+  .step-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 3px; }
+  .step-desc { font-size: 13px; color: var(--ink-muted); line-height: 1.55; font-family: 'Source Serif 4', serif; font-weight: 300; }
+
+  /* Escalation */
+  .level-block { border: 1px solid var(--rule); margin-bottom: 10px; overflow: hidden; }
+  .level-header { padding: 8px 14px; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+  .level-1 .level-header { background: var(--accent-pale); color: var(--accent); }
+  .level-2 .level-header { background: var(--gold-pale); color: #7A5C2A; }
+  .level-3 .level-header { background: var(--red-pale); color: var(--red); }
+  .level-body { padding: 10px 14px; font-size: 13px; color: var(--ink-soft); line-height: 1.6; font-family: 'Source Serif 4', serif; font-weight: 300; }
+
+  /* Check lists */
+  .check-list { list-style: none; padding: 0; }
+  .check-list li { padding: 5px 0 5px 22px; position: relative; font-size: 13.5px; color: var(--ink-soft); line-height: 1.5; font-family: 'Source Serif 4', serif; font-weight: 300; border-bottom: 1px solid #EAF0EB; }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list li.yes::before { content: "✓"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+  .check-list li.no::before { content: "✕"; position: absolute; left: 0; color: var(--red); font-weight: 700; }
+
+  /* Inline list */
+  .inline-list { padding-left: 0; list-style: none; margin-bottom: 12px; }
+  .inline-list li {
+    padding: 5px 0 5px 16px;
+    position: relative;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    font-family: 'Source Serif 4', serif;
+    font-weight: 300;
+    line-height: 1.5;
+    border-bottom: 1px solid #EAF0EB;
+  }
+  .inline-list li:last-child { border-bottom: none; }
+  .inline-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent); }
+
+  /* Shift badge */
+  .shift-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    border-radius: 2px;
+  }
+  .shift-day { background: var(--gold-pale); color: var(--gold); }
+  .shift-night { background: #E8E8F5; color: #3A3A7A; }
+  .shift-always { background: var(--accent-pale); color: var(--accent); }
+
+  /* Time indicator */
+  .time-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .time-block:last-child { border-bottom: none; }
+  .time-tag {
+    flex-shrink: 0;
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-pale);
+    padding: 3px 8px;
+    border-radius: 2px;
+    min-width: 80px;
+    text-align: center;
+    margin-top: 1px;
+  }
+  .time-content { flex: 1; font-size: 13.5px; color: var(--ink-soft); font-family: 'Source Serif 4', serif; font-weight: 300; line-height: 1.6; }
+  .time-content strong { font-family: 'Source Sans 3', sans-serif; font-weight: 600; color: var(--ink); }
+
+  /* Incident card */
+  .incident-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
+  .incident-card {
+    border: 1px solid var(--rule);
+    background: var(--warm-white);
+    padding: 14px 16px;
+  }
+  .incident-name { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .incident-body { font-size: 12.5px; color: var(--ink-muted); line-height: 1.5; font-family: 'Source Serif 4', serif; font-weight: 300; }
+
+  /* Page footer */
+  .page-footer {
+    margin-top: 56px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    font-size: 10.5px;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+  }
+
+  .highlight { background: rgba(90,155,106,0.12) !important; }
+</style>
+</head>
+<body>
+
+<!-- ════════════ SIDEBAR -->
+<aside id="sidebar">
+  <div class="sidebar-header">
+    <div class="logo-area">
+      <div class="logo-mark"><span></span></div>
+      <div class="logo-text">Aldea Mayab · Bacalar</div>
+    </div>
+    <div class="book-label">Libro II</div>
+    <div class="book-title">Operación y Seguridad</div>
+  </div>
+
+  <div class="search-wrap">
+    <input class="search-input" type="text" placeholder="Buscar en este libro..." oninput="searchNav(this.value)" />
+  </div>
+
+  <nav id="nav-tree">
+
+    <!-- 1.0 Seguridad -->
+    <div class="nav-section open">
+      <div class="nav-chapter active" onclick="toggleSection(this)">
+        <span class="nav-chapter-label">1.0 Sistema de Seguridad</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-sub">
+        <a class="nav-item active" onclick="showPage('p-sca-intro')">Visión General y Herramientas</a>
+        <div class="nav-divider"></div>
+        <a class="nav-item" onclick="showPage('p-sca01')">SCA-01 Pre-Registro de Accesos</a>
+        <a class="nav-item" onclick="showPage('p-sca02')">SCA-02 Recepción Diurna</a>
+        <a class="nav-sub-item" onclick="showPage('p-sca02')">Check-in 07:00–21:00</a>
+        <a class="nav-sub-item" onclick="showPage('p-sca02')">Manejo de Morosidad Silenciosa</a>
+        <a class="nav-item" onclick="showPage('p-sca03')">SCA-03 Seguridad Nocturna</a>
+        <a class="nav-sub-item" onclick="showPage('p-sca03')">Turno 21:00–06:59</a>
+        <a class="nav-sub-item" onclick="showPage('p-sca03')">Modo Offline</a>
+        <a class="nav-item" onclick="showPage('p-sca04')">SCA-04 Digitalización Matutina</a>
+        <a class="nav-item" onclick="showPage('p-sca05')">SCA-05 Paquetería</a>
+        <a class="nav-sub-item" onclick="showPage('p-sca05')">Recepción en Caseta</a>
+        <a class="nav-sub-item" onclick="showPage('p-sca05')">Traslado y Entrega</a>
+        <a class="nav-item" onclick="showPage('p-sca06')">SCA-06 Pluma Vehicular</a>
+        <a class="nav-sub-item" onclick="showPage('p-sca06')">Operación Diurna y Nocturna</a>
+        <a class="nav-sub-item" onclick="showPage('p-sca06')">Protocolo de Falla Mecánica</a>
+        <div class="nav-divider"></div>
+        <a class="nav-item" onclick="showPage('p-cctv')">CCTV y Videovigilancia</a>
+        <a class="nav-item" onclick="showPage('p-estacionamiento')">Estacionamiento y Vialidad</a>
+      </div>
+    </div>
+
+    <!-- 1.3 Incidentes con personas -->
+    <div class="nav-section">
+      <div class="nav-chapter" onclick="toggleSection(this)">
+        <span class="nav-chapter-label">1.3 Gestión de Incidentes</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-sub">
+        <a class="nav-item" onclick="showPage('p-inc-intro')">Principios y Registro</a>
+        <a class="nav-item" onclick="showPage('p-inc-sinqr')">9.9.1 Sin Identificación</a>
+        <a class="nav-item" onclick="showPage('p-inc-agresivo')">9.9.2 Huésped Agresivo</a>
+        <a class="nav-item" onclick="showPage('p-inc-camara')">9.9.3 Grabación al Personal</a>
+        <a class="nav-item" onclick="showPage('p-inc-sinacceso')">9.9.4 Acceso sin Registro</a>
+        <a class="nav-item" onclick="showPage('p-inc-pm')">9.9.5 Incumplimiento de PMs</a>
+        <a class="nav-item" onclick="showPage('p-inc-conductas')">9.9.6 Conductas Prohibidas</a>
+      </div>
+    </div>
+
+    <!-- 2.0 Atención a Residentes -->
+    <div class="nav-section">
+      <div class="nav-chapter" onclick="toggleSection(this)">
+        <span class="nav-chapter-label">2.0 Atención a Residentes</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-sub">
+        <a class="nav-item" onclick="showPage('p-atencion')">Solicitudes y Quejas</a>
+        <a class="nav-item" onclick="showPage('p-comunicacion')">Comunicación Oficial</a>
+      </div>
+    </div>
+
+  </nav>
+</aside>
+
+<!-- ════════════ MAIN -->
+<div id="main">
+  <div id="topbar">
+    <div class="breadcrumb" id="breadcrumb">
+      Libro II &rsaquo; 1.0 Sistema de Seguridad &rsaquo; <strong>Visión General</strong>
+    </div>
+    <div class="doc-meta">
+      <span class="doc-code">OP-ALDEA-001</span>
+      <span>Enero 2026</span>
+      <span>v1.0</span>
+    </div>
+  </div>
+
+  <div id="content">
+
+<!-- ══════════ PAGE: INTRO SEGURIDAD -->
+<div class="page active" id="p-sca-intro">
+  <div class="section-eyebrow">Libro II · Sección 1.0</div>
+  <h1 class="section-title">Sistema Integral de Seguridad</h1>
+  <div class="section-subtitle">Control de accesos 24/7, herramientas digitales y principios operativos</div>
+  <div class="rule"></div>
+
+  <div class="proc-header">
+    <div class="proc-cell"><span class="proc-label">Código</span><span class="proc-value">OP-ALDEA-001 · SCA</span></div>
+    <div class="proc-cell"><span class="proc-label">Versión</span><span class="proc-value">1.0</span></div>
+    <div class="proc-cell"><span class="proc-label">Responsable</span><span class="proc-value">Jefe de Seguridad</span></div>
+    <div class="proc-cell"><span class="proc-label">Cobertura</span><span class="proc-value">24 / 7 / 365</span></div>
+    <div class="proc-cell"><span class="proc-label">Elaboró</span><span class="proc-value">Consultoría Administrativa</span></div>
+    <div class="proc-cell"><span class="proc-label">Aprobó</span><span class="proc-value">Asamblea de Condóminos</span></div>
+  </div>
+
+  <h2 class="heading-2">Principio Rector</h2>
+  <div class="alert alert-red">
+    <strong>"Si no está en el sistema, no entró."</strong> — Sin excepciones. El registro digital es el único medio de validación oficial de ingresos al residencial.
+  </div>
+
+  <h2 class="heading-2">Herramientas del Sistema de Seguridad</h2>
+  <table class="data-table">
+    <thead><tr><th>Herramienta</th><th>Rol</th><th>Operado por</th><th>Turno</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="term">Vivook</td>
+        <td>Generación de QRs de acceso, padrón de propietarios, estatus de adeudos. Única fuente de verdad.</td>
+        <td>PM / Propietario (genera QR) · Recepcionista (escanea)</td>
+        <td><span class="shift-always">24/7</span></td>
+      </tr>
+      <tr>
+        <td class="term">AppSheet (Bitácora Digital)</td>
+        <td>Captura de foto de ID, firma digital, estatus Moroso, registro de paquetes. Tablet en recepción.</td>
+        <td>Recepcionista Diurno</td>
+        <td><span class="shift-day">07:00–21:00</span></td>
+      </tr>
+      <tr>
+        <td class="term">Bitácora Física</td>
+        <td>Registro nocturno de ingresos cuando AppSheet no está disponible. Temporal — se digitaliza antes de las 10:00 AM.</td>
+        <td>Guardia Nocturno</td>
+        <td><span class="shift-night">21:00–07:00</span></td>
+      </tr>
+      <tr>
+        <td class="term">Google Drive "ACCESOS"</td>
+        <td>Almacén de fotos de ID y placas tomadas durante el turno nocturno. Nomenclatura estandarizada obligatoria.</td>
+        <td>Guardia Nocturno / Recepcionista</td>
+        <td><span class="shift-always">24/7</span></td>
+      </tr>
+      <tr>
+        <td class="term">CCTV (8 cámaras)</td>
+        <td>Vigilancia continua de accesos, estacionamientos, muelle y áreas comunes. Retención mínima 30 días.</td>
+        <td>Guardia Nocturno (monitor en caseta)</td>
+        <td><span class="shift-always">24/7</span></td>
+      </tr>
+      <tr>
+        <td class="term">Pluma Vehicular</td>
+        <td>Control remoto de acceso vehicular. Control manual de respaldo en caseta (llave en caja fuerte).</td>
+        <td>Guardia en Caseta</td>
+        <td><span class="shift-always">24/7</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2 class="heading-2">Políticas Críticas de Seguridad</h2>
+  <ul class="check-list">
+    <li class="yes">La identificación oficial (INE/Pasaporte) es obligatoria para autorizar el acceso — sin excepciones y las 24 horas</li>
+    <li class="yes">El QR debe coincidir exactamente con las fechas de la reserva</li>
+    <li class="yes">El sistema de morosidad opera en modo silencioso — nunca mencionar el adeudo al huésped</li>
+    <li class="yes">Fotos de ID enviadas a Google Drive antes de permitir el acceso siempre que sea posible</li>
+    <li class="yes">Fotos de ID eliminadas 72 horas posteriores al check-out</li>
+    <li class="no">Prohibido generar QRs "abiertos" o con vigencia mayor a la estancia</li>
+    <li class="no">Prohibido usar WhatsApp como único respaldo de datos biométricos</li>
+    <li class="no">Prohibido apagar el sistema de grabación CCTV bajo ninguna circunstancia (salvo falla eléctrica)</li>
+    <li class="no">Prohibido permitir acceso "de palabra" o por presión del huésped</li>
+  </ul>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · SCA — Visión General</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: SCA-01 PRE-REGISTRO -->
+<div class="page" id="p-sca01">
+  <div class="section-eyebrow">Libro II · SCA-01</div>
+  <h1 class="section-title">Pre-Registro y Generación de Accesos</h1>
+  <div class="section-subtitle">Procedimiento previo al check-in — Responsable: Property Manager / Propietario</div>
+  <div class="rule"></div>
+
+  <div class="proc-header">
+    <div class="proc-cell"><span class="proc-label">Código</span><span class="proc-value">SCA-01</span></div>
+    <div class="proc-cell"><span class="proc-label">Frecuencia</span><span class="proc-value">Cada nueva reserva o visita</span></div>
+    <div class="proc-cell"><span class="proc-label">Responsable</span><span class="proc-value">Property Manager / Propietario</span></div>
+    <div class="proc-cell"><span class="proc-label">Anticipación mínima</span><span class="proc-value">24 horas antes del check-in</span></div>
+  </div>
+
+  <h2 class="heading-2">Procedimiento</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Recopilar datos del huésped — 24h antes</div>
+        <div class="step-desc">Nombre completo · Número de acompañantes (adultos y niños) · Placas del vehículo</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Generar QR en Vivook</div>
+        <div class="step-desc">Acceder a Vivook → Módulo "Invitaciones" → Seleccionar fechas exactas de check-in y check-out. El QR debe coincidir exactamente con las fechas de reserva.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Enviar al huésped</div>
+        <div class="step-desc">QR de acceso + Kit de Bienvenida Digital (Ubicación, Reglamento, Horarios de recepción y amenidades)</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Confirmar recepción</div>
+        <div class="step-desc">Verificar que el huésped recibió el mensaje y el QR antes de su llegada. El PM es responsable solidario si el huésped llega sin QR por falta de envío oportuno.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-red">
+    <strong>RIESGO CRÍTICO</strong> — PROHIBIDO generar QRs "Abiertos" (sin fecha de vencimiento) o con vigencia mayor a la estancia confirmada. Esta acción constituye una violación de seguridad y será registrada como incidencia del PM.
+  </div>
+
+  <h2 class="heading-2">Responsabilidad del PM ante Incumplimientos</h2>
+  <table class="data-table">
+    <thead><tr><th>Incumplimiento</th><th>Registro</th><th>Consecuencia acumulada</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Envío tardío de registro</td><td>Bitácora digital de incidencias</td><td>A la 3ª incidencia en 30 días → notificación formal</td></tr>
+      <tr><td class="term">QRs abiertos o mal generados</td><td>Bitácora digital de incidencias</td><td>Suspensión temporal de generación de QRs</td></tr>
+      <tr><td class="term">Huéspedes no reportados</td><td>Bitácora digital de incidencias</td><td>Accesos gestionados directamente con Administración</td></tr>
+      <tr><td class="term">Datos incompletos</td><td>Bitácora digital de incidencias</td><td>Escalamiento administrativo progresivo</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · SCA-01</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: SCA-02 RECEPCIÓN DIURNA -->
+<div class="page" id="p-sca02">
+  <div class="section-eyebrow">Libro II · SCA-02</div>
+  <h1 class="section-title">Protocolo de Recepción Diurna</h1>
+  <div class="section-subtitle">Check-in 07:00–21:00 hrs — Responsable: Recepcionista en Turno</div>
+  <div class="rule"></div>
+
+  <div class="proc-header">
+    <div class="proc-cell"><span class="proc-label">Código</span><span class="proc-value">SCA-02</span></div>
+    <div class="proc-cell"><span class="proc-label">Horario</span><span class="proc-value"><span class="shift-day">07:00 – 21:00 hrs</span></span></div>
+    <div class="proc-cell"><span class="proc-label">Responsable</span><span class="proc-value">Recepcionista en Turno</span></div>
+    <div class="proc-cell"><span class="proc-label">Frecuencia</span><span class="proc-value">Cada check-in</span></div>
+  </div>
+
+  <h2 class="heading-2">Procedimiento de Check-in</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Saludo y solicitud de QR</div>
+        <div class="step-desc">Saludar al huésped y solicitar el código QR. Escanear con el lector Vivook para validar vigencia y datos de la unidad.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Abrir registro en AppSheet</div>
+        <div class="step-desc">Abrir AppSheet en tablet → "Nuevo Registro". <strong>Seleccionar Torre y Departamento desde las listas desplegables — NO escribir manualmente.</strong></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Fotografiar identificación oficial</div>
+        <div class="step-desc">Fotografiar INE/Pasaporte original con la cámara de la tablet. La captura es obligatoria sin excepciones. Si el huésped se niega, ver frase oficial abajo.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Verificar estatus de morosidad</div>
+        <div class="step-desc">Revisar en pantalla si aparece la alerta "Status: Moroso". Si hay morosidad: <strong>NO mencionar al huésped</strong>, marcar "Notificación Admin Pendiente" y continuar normalmente.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">Firma digital y brazaletes</div>
+        <div class="step-desc">Solicitar firma digital del huésped en pantalla. Entregar brazaletes según aforo de la unidad. Registro completado en AppSheet.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="heading-3">Frase oficial ante negativa a presentar identificación</h3>
+  <div style="border-left:3px solid var(--red); background:var(--red-pale); padding:14px 18px; font-family:'Source Serif 4',serif; font-size:14px; line-height:1.7; color:#5c1f1f; font-style:italic; margin:12px 0;">
+    "Por normativa de seguridad y reglamento interno del residencial, la identificación oficial es obligatoria para autorizar el acceso. Sin ella no podemos permitir el ingreso."
+  </div>
+
+  <div class="alert alert-red">
+    <strong>Sin identificación NO se autoriza el acceso.</strong> Aplica 24/7 sin excepciones. Si el huésped insiste: no debatir, no improvisar soluciones. Notificar inmediatamente al Jefe de Seguridad.
+  </div>
+
+  <h2 class="heading-2">Manejo de Morosidad en Check-in</h2>
+  <table class="data-table">
+    <thead><tr><th>Situación</th><th>Acción del Recepcionista</th><th>Acción del Sistema</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Alerta "Moroso" visible</td><td>NO mencionar el adeudo al huésped. Marcar "Notificación Admin Pendiente" en AppSheet. Continuar check-in normalmente.</td><td>AppSheet registra el ingreso con alerta interna para el Administrador</td></tr>
+      <tr><td class="term">Propietario paga y se desbloquea</td><td>El Administrador actualiza el Master Control. El cambio de estatus se refleja en AppSheet el mismo día.</td><td>Alerta "Moroso" desaparece tras actualización del Master Control</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="heading-2">Protocolo ante Falla de Tablet / Cámara</h2>
+  <div class="level-block level-2">
+    <div class="level-header">Falla de tablet o cámara durante turno diurno</div>
+    <div class="level-body">Usar celular de respaldo para tomar fotos de ID. Registrar en bitácora física como "Modo Offline". Digitalizar en AppSheet en cuanto se recupere la conexión o el equipo. Notificar al Jefe de Seguridad para gestionar reposición.</div>
+  </div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · SCA-02</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: SCA-03 NOCTURNO -->
+<div class="page" id="p-sca03">
+  <div class="section-eyebrow">Libro II · SCA-03</div>
+  <h1 class="section-title">Protocolo de Seguridad Nocturna</h1>
+  <div class="section-subtitle">Turno 21:01–06:59 hrs — Responsable: Guardia de Seguridad</div>
+  <div class="rule"></div>
+
+  <div class="proc-header">
+    <div class="proc-cell"><span class="proc-label">Código</span><span class="proc-value">SCA-03</span></div>
+    <div class="proc-cell"><span class="proc-label">Horario</span><span class="proc-value"><span class="shift-night">21:01 – 06:59 hrs</span></span></div>
+    <div class="proc-cell"><span class="proc-label">Responsable</span><span class="proc-value">Guardia de Seguridad</span></div>
+    <div class="proc-cell"><span class="proc-label">Frecuencia</span><span class="proc-value">Turno nocturno — cada ingreso</span></div>
+  </div>
+
+  <h2 class="heading-2">Actividades por Horario</h2>
+
+  <div class="time-block">
+    <div class="time-tag">18:45 hrs</div>
+    <div class="time-content">
+      <strong>Revisión del estado operativo de las 8 cámaras CCTV</strong><br>
+      Verificar que cámaras 1 (acceso vehicular) y 2 (acceso peatonal) tengan visibilidad clara, sin obstrucciones por vegetación o iluminación deficiente. Reportar cámaras fuera de servicio al Jefe de Seguridad antes de iniciar el turno. Grabación continua — prohibido apagar el sistema.
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-tag">19:00 hrs</div>
+    <div class="time-content">
+      <strong>Recibir de Recepción la "Hoja de Ingresos Pendientes"</strong><br>
+      Lista de huéspedes esperados durante el turno nocturno con sus datos de unidad y QR.
+    </div>
+  </div>
+
+  <h2 class="heading-2">Procedimiento por Cada Ingreso Nocturno</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Detener el vehículo y solicitar QR</div>
+        <div class="step-desc">Detener totalmente el vehículo. Solicitar nombre y código QR. Verificar validez.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Anotar en Bitácora Física</div>
+        <div class="step-desc">Registrar: Hora de ingreso · Nombre del huésped · Unidad (Torre y Depto) · Placas del vehículo</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Fotografiar ID y placa</div>
+        <div class="step-desc">Solicitar identificación oficial al conductor. Tomar foto clara de la ID con el celular de caseta. Tomar foto de la placa del vehículo.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Enviar a Google Drive inmediatamente</div>
+        <div class="step-desc">Enviar ambas fotos a la carpeta Google Drive "ACCESOS" con el texto: <em>"Ingreso Torre [X] Depto [Y] – [Nombre]"</em></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">Permitir ingreso</div>
+        <div class="step-desc">Devolver identificación. Indicar la ubicación del cajón de estacionamiento asignado. Operar la pluma vehicular desde caseta (ver SCA-06).</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-2">Protocolo Modo Offline (Sin Conexión a Internet)</h2>
+  <div class="alert alert-red"><strong>RIESGO CRÍTICO</strong> — Si no hay conexión a internet durante el turno nocturno, seguir este protocolo estrictamente.</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Registrar en bitácora física</div>
+        <div class="step-desc">Anotar: "SIN CONEXIÓN – [Hora]" en la bitácora física para cada ingreso afectado.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Almacenar fotos localmente</div>
+        <div class="step-desc">Guardar fotos en carpeta local del celular con nombre: <em>"RETRASADO_TorreX_DeptoY_Fecha"</em></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Reintentar cada 15 minutos</div>
+        <div class="step-desc">Intentar subir las fotos a Google Drive cada 15 minutos hasta lograr conexión.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Entrega al término del turno</div>
+        <div class="step-desc">Al finalizar el turno, entregar el celular al Jefe de Seguridad para descarga segura de las fotos almacenadas localmente.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-gold">
+    <strong>Importante:</strong> Las fotos deben enviarse a Google Drive antes de permitir el acceso, siempre que sea posible. Verificar que todas las fotos sean nítidas y legibles. Prohibido usar WhatsApp como único respaldo de datos biométricos.
+  </div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · SCA-03</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: SCA-04 DIGITALIZACIÓN -->
+<div class="page" id="p-sca04">
+  <div class="section-eyebrow">Libro II · SCA-04</div>
+  <h1 class="section-title">Regularización y Digitalización Matutina</h1>
+  <div class="section-subtitle">Cierre digital del turno nocturno — Responsable: Recepcionista Matutino</div>
+  <div class="rule"></div>
+
+  <div class="proc-header">
+    <div class="proc-cell"><span class="proc-label">Código</span><span class="proc-value">SCA-04</span></div>
+    <div class="proc-cell"><span class="proc-label">Horario de inicio</span><span class="proc-value">07:00 AM diariamente</span></div>
+    <div class="proc-cell"><span class="proc-label">Responsable</span><span class="proc-value">Recepcionista Matutino</span></div>
+    <div class="proc-cell"><span class="proc-label">Meta</span><span class="proc-value">100% digitalizado antes de 10:00 AM</span></div>
+  </div>
+
+  <div class="alert alert-red">
+    <strong>META OBLIGATORIA:</strong> El 100% de los registros nocturnos debe estar digitalizado en AppSheet antes de las 10:00 AM. Sin excepciones.
+  </div>
+
+  <h2 class="heading-2">Procedimiento</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">07:00 AM — Recibir bitácora y acceder a Drive</div>
+        <div class="step-desc">Recibir la bitácora física del turno nocturno. Acceder a Google Drive carpeta "ACCESOS" para localizar las fotos del turno.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Crear registro retroactivo en AppSheet</div>
+        <div class="step-desc">Ingresar a AppSheet → Crear un registro retroactivo por cada ingreso nocturno, en orden cronológico (priorizar los más antiguos primero).</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Adjuntar fotos como evidencia</div>
+        <div class="step-desc">Adjuntar las fotos de ID y placa desde Google Drive como evidencia en cada registro creado.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Confirmar en Google Drive</div>
+        <div class="step-desc">Responder en Google Drive a cada foto con: <em>"REGISTRADO EN SISTEMA"</em>. No eliminar archivos hasta confirmar digitalización completa.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-2">Protocolo para Registros "SIN CONEXIÓN"</h2>
+  <div class="level-block level-2">
+    <div class="level-header">Registros marcados como "SIN CONEXIÓN" en la bitácora</div>
+    <div class="level-body">1. Solicitar al guardia las fotos almacenadas en su celular.<br>2. Subirlas manualmente a Google Drive con etiqueta "[RETRASADO]".<br>3. Crear el registro retroactivo en AppSheet con esas fotos.<br>4. Notificar inmediatamente al Jefe de Seguridad si el retraso supera las 12 horas.</div>
+  </div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · SCA-04</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: SCA-05 PAQUETERÍA -->
+<div class="page" id="p-sca05">
+  <div class="section-eyebrow">Libro II · SCA-05</div>
+  <h1 class="section-title">Recepción y Entrega de Paquetes</h1>
+  <div class="section-subtitle">Gestión completa de paquetería desde caseta hasta entrega al destinatario</div>
+  <div class="rule"></div>
+
+  <div class="proc-header">
+    <div class="proc-cell"><span class="proc-label">Código</span><span class="proc-value">SCA-05</span></div>
+    <div class="proc-cell"><span class="proc-label">Frecuencia</span><span class="proc-value">Según llegada de paquetes</span></div>
+    <div class="proc-cell"><span class="proc-label">Responsable Fase 1</span><span class="proc-value">Guardia de Seguridad</span></div>
+    <div class="proc-cell"><span class="proc-label">Responsable Fase 2–3</span><span class="proc-value">Recepcionista</span></div>
+  </div>
+
+  <h2 class="heading-2">Fase 1 — Recepción en Caseta (Guardia)</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Verificar datos del paquete</div>
+        <div class="step-desc">Confirmar: Nombre completo del destinatario · Torre y Departamento (ej: "Torre 1 Chaká – 102") · Nombre del remitente o empresa</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Registrar en Bitácora Física de Paquetes</div>
+        <div class="step-desc">Anotar: Fecha y hora de recepción · Descripción breve (tamaño y tipo de empaque)</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Fotografiar el paquete</div>
+        <div class="step-desc">Tomar foto clara del frente y de la etiqueta con el celular de caseta. Subir inmediatamente a Google Drive "PAQUETES" con nombre: <em>"PAQ_TorreX_DeptoY_Fecha_Hora"</em></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Almacenar en área segura</div>
+        <div class="step-desc">Guardar en área segura de caseta. Máximo 2 horas antes del traslado a recepción.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-2">Fase 2 — Traslado a Recepción</h2>
+  <p class="body-text">El Guardia traslada el paquete a recepción dentro de las 2 horas posteriores a su recepción. Hace entrega física al Recepcionista con la bitácora física actualizada. El Recepcionista firma acuse de recepción en bitácora física.</p>
+
+  <h2 class="heading-2">Fase 3 — Notificación y Entrega (Recepcionista)</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Registrar en Vivook</div>
+        <div class="step-desc">Módulo "Paquetes" → Nueva Entrada → Capturar: Torre y departamento (desde lista desplegable), Fecha/hora de recepción, Foto adjunta desde Google Drive. Vivook envía notificación automática al propietario/PM registrado.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Almacenar en locker de recepción</div>
+        <div class="step-desc">Guardar el paquete en el locker seguro de recepción hasta que sea reclamado.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Verificar identidad al entregar</div>
+        <div class="step-desc">Verificar identidad del receptor (INE/Pasaporte o QR de acceso vigente). Registrar entrega en Vivook con firma digital del receptor. Eliminar el registro de la lista "Pendientes".</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-2">Políticas Críticas de Paquetería</h2>
+  <table class="data-table">
+    <thead><tr><th>Situación</th><th>Acción requerida</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Paquete no reclamado en 72 horas</td><td>Segunda notificación al propietario/PM</td></tr>
+      <tr><td class="term">Paquete perecedero (alimentos, flores)</td><td>Notificación inmediata vía llamada telefónica</td></tr>
+      <tr><td class="term">Paquete sin datos claros de destinatario</td><td>Retener 24 horas; si no hay reclamo, devolver al remitente o desechar según tamaño</td></tr>
+      <tr><td class="term">Abrir el paquete</td><td>PROHIBIDO bajo cualquier circunstancia — salvo orden judicial</td></tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-green"><strong>Regla de oro:</strong> "Paquete sin registro = paquete no recibido." Todo paquete debe tener registro en Vivook + foto en Google Drive.</div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · SCA-05</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: SCA-06 PLUMA -->
+<div class="page" id="p-sca06">
+  <div class="section-eyebrow">Libro II · SCA-06</div>
+  <h1 class="section-title">Operación de Pluma de Acceso Vehicular</h1>
+  <div class="section-subtitle">Control remoto y manual del acceso vehicular principal — 24/7</div>
+  <div class="rule"></div>
+
+  <div class="proc-header">
+    <div class="proc-cell"><span class="proc-label">Código</span><span class="proc-value">SCA-06</span></div>
+    <div class="proc-cell"><span class="proc-label">Cobertura</span><span class="proc-value">24/7 continua</span></div>
+    <div class="proc-cell"><span class="proc-label">Responsable</span><span class="proc-value">Guardia en turno correspondiente</span></div>
+    <div class="proc-cell"><span class="proc-label">Verificación diaria</span><span class="proc-value">06:30 AM — 3 ciclos completos</span></div>
+  </div>
+
+  <h2 class="heading-2">Infraestructura</h2>
+  <ul class="inline-list">
+    <li>Pluma automática en acceso principal vehicular</li>
+    <li>Monitor en caseta con vista en tiempo real de las 8 cámaras perimetrales</li>
+    <li>Control remoto de pluma (subir/bajar) en caseta</li>
+    <li>Comunicación directa con recepción vía intercomunicador</li>
+    <li>Botón de emergencia para liberación manual (lado izquierdo de caseta)</li>
+    <li>Llave física de control manual en caja fuerte de caseta (código con Jefe de Seguridad)</li>
+  </ul>
+
+  <h2 class="heading-2">Procedimiento Diurno <span class="shift-day">07:00–21:00</span></h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Recepcionista valida QR / identidad</div>
+        <div class="step-desc">El Recepcionista verifica la identidad del conductor desde su tablet en recepción.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Notificar a caseta por intercomunicador</div>
+        <div class="step-desc">Al validar: <em>"Pluma autorizada para Torre [X] Depto [Y]."</em> El Guardia observa en cámaras que el vehículo coincida con el registro.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Bajar pluma y monitorear paso</div>
+        <div class="step-desc">Operar control remoto para bajar la pluma. Una vez que el vehículo cruza el sensor: <strong>subir pluma inmediatamente (máximo 15 segundos después del paso).</strong></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Verificar posición final del vehículo</div>
+        <div class="step-desc">Usar cámara 3 (estacionamiento A) para confirmar que el vehículo se estacionó en el cajón correcto.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-gold">Si el vehículo no avanza en 30 segundos tras bajar la pluma: verificar vía cámaras si hay problema mecánico o colisión. Notificar al Jefe de Seguridad si requiere asistencia.</div>
+
+  <h2 class="heading-2">Procedimiento Nocturno <span class="shift-night">21:01–06:59</span></h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Detectar aproximación en cámara 1</div>
+        <div class="step-desc">El Guardia observa la aproximación del vehículo en la cámara 1 (acceso principal).</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Salir a realizar registro físico</div>
+        <div class="step-desc">Salir de caseta con tablet para completar el registro nocturno (SCA-03): solicitar QR, tomar foto de ID y placa, enviar a Google Drive.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Regresar a caseta antes de operar pluma</div>
+        <div class="step-desc"><strong>Obligatorio regresar a caseta antes de bajar la pluma.</strong> Bajar pluma solo después de confirmar que el conductor está dentro del vehículo.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Monitorear y subir pluma</div>
+        <div class="step-desc">Monitorear en cámaras hasta que el vehículo complete el ingreso. Subir pluma inmediatamente tras paso confirmado por sensor.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-2">Protocolo de Falla Mecánica de la Pluma</h2>
+  <div class="alert alert-red"><strong>RIESGO CRÍTICO</strong> — Si la pluma no responde al control remoto, activar el siguiente protocolo:</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Activar botón de emergencia</div>
+        <div class="step-desc">Presionar el botón de emergencia (lado izquierdo de caseta) para liberación manual de la pluma.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Usar llave física</div>
+        <div class="step-desc">Bajar la pluma manualmente con la llave física ubicada en la caja fuerte de caseta (código únicamente con el Jefe de Seguridad).</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Señalizar y notificar</div>
+        <div class="step-desc">Colocar cono de seguridad "PLUMA FUERA DE SERVICIO" frente al acceso. Notificar inmediatamente al Jefe de Seguridad y a Administración.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Control manual durante contingencia</div>
+        <div class="step-desc">Un guardia permanecerá físicamente en el acceso controlando el paso vehicular. Registrar cada ingreso/egreso en bitácora especial "Contingencia Pluma".</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <div class="step-title">Reportar al proveedor</div>
+        <div class="step-desc">Reportar la falla al proveedor de mantenimiento dentro de las 2 horas hábiles siguientes.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-2">Verificación Diaria — 06:30 AM</h2>
+  <ul class="check-list">
+    <li class="yes">Probar funcionamiento de subida/bajada (3 ciclos completos)</li>
+    <li class="yes">Probar sensor de paso (colocar vehículo de prueba)</li>
+    <li class="yes">Probar comunicación con recepción vía intercomunicador</li>
+    <li class="yes">Registrar resultado en AppSheet: "Pluma Operativa / Fuera de Servicio – [Hora]"</li>
+  </ul>
+  <div class="alert alert-red">Si presenta fallas: activar protocolo de contingencia antes de las 07:00 AM.</div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · SCA-06</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: CCTV -->
+<div class="page" id="p-cctv">
+  <div class="section-eyebrow">Libro II · Sección 1.2.7</div>
+  <h1 class="section-title">CCTV y Videovigilancia</h1>
+  <div class="section-subtitle">Sistema de 8 cámaras — retención mínima 30 días — monitoreo continuo</div>
+  <div class="rule"></div>
+
+  <h2 class="heading-2">Distribución de Cámaras</h2>
+  <table class="data-table">
+    <thead><tr><th>Cámara</th><th>Ubicación</th><th>Uso principal</th><th>Prioridad</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Cámara 1</td><td>Acceso vehicular principal</td><td>Monitoreo activo al aproximar vehículos. Verificación obligatoria de visibilidad al inicio de turno nocturno.</td><td>CRÍTICA</td></tr>
+      <tr><td class="term">Cámara 2</td><td>Acceso peatonal</td><td>Control de ingreso peatonal. Verificación obligatoria al inicio de turno nocturno.</td><td>CRÍTICA</td></tr>
+      <tr><td class="term">Cámara 3</td><td>Estacionamiento A</td><td>Verificar ubicación final del vehículo tras ingreso diurno y nocturno.</td><td>Alta</td></tr>
+      <tr><td class="term">Cámaras 4–8</td><td>Estacionamiento B, Muelle, Áreas Comunes</td><td>Vigilancia general de instalaciones. Monitoreo continuo desde caseta.</td><td>Media</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="heading-2">Políticas de Operación</h2>
+  <ul class="check-list">
+    <li class="yes">Retención mínima de grabación: 30 días continuos</li>
+    <li class="yes">Verificar visibilidad de cámaras 1 y 2 al inicio de cada turno nocturno (18:45 hrs)</li>
+    <li class="yes">Reportar cámaras fuera de servicio al Jefe de Seguridad antes de iniciar el turno</li>
+    <li class="yes">Monitoreo activo en cámara 1 durante la aproximación de vehículos</li>
+    <li class="no">PROHIBIDO apagar el sistema de grabación bajo ninguna circunstancia (salvo falla eléctrica)</li>
+    <li class="no">PROHIBIDO obstruir o mover cámaras sin autorización del Jefe de Seguridad</li>
+  </ul>
+
+  <div class="alert alert-blue"><strong>Activación de Nivel de Seguridad Elevado:</strong> El Jefe de Seguridad puede activar vigilancia reforzada con revisión más frecuente de todas las cámaras ante situaciones de riesgo identificado (huéspedes problemáticos recurrentes, eventos masivos, alertas previas).</div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · CCTV</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: ESTACIONAMIENTO -->
+<div class="page" id="p-estacionamiento">
+  <div class="section-eyebrow">Libro II · EV-01</div>
+  <h1 class="section-title">Estacionamiento y Vialidad</h1>
+  <div class="section-subtitle">Asignación y control de espacios vehiculares por fase del residencial</div>
+  <div class="rule"></div>
+
+  <h2 class="heading-2">Política de Cajones</h2>
+  <table class="data-table">
+    <thead><tr><th>Tipo de usuario</th><th>Zona</th><th>Tiempo permitido</th><th>Condición</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Propietario / Residente</td><td>Estacionamiento A (Fase 1) o B (Fase 2)</td><td>Sin límite</td><td>1 cajón asignado según padrón Vivook</td></tr>
+      <tr><td class="term">Huésped de renta temporal</td><td>Zona de visitantes</td><td>2 horas gratuitas</td><td>Cajón de visitantes, no el asignado al propietario</td></tr>
+      <tr><td class="term">Proveedores</td><td>Área designada de proveedores</td><td>Duración del servicio</td><td>Sólo en el área específica de proveedores</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="heading-2">Procedimiento de Asignación</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Identificar la torre del huésped</div>
+        <div class="step-desc">Usar los nombres reales de las torres para Fase 1: Chaká, Chechén, Yaxché, Balché. Para Fase 2: según nomenclatura que se defina.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Dirigir al estacionamiento correspondiente</div>
+        <div class="step-desc">Fase 1 → Estacionamiento A (principal, cercano al lobby y casa club). Fase 2 → Estacionamiento B (posterior, cercano a las plantas de tratamiento).</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Indicar cajón exacto</div>
+        <div class="step-desc">Consultar el padrón de Vivook para el cajón asignado a la unidad. Ejemplo: "Torre Chaká, Edificio 3, Unidad 302 → Cajón A-37".</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Registrar en AppSheet</div>
+        <div class="step-desc">Registrar el número de cajón asignado y las placas del vehículo en el registro de ingreso de AppSheet.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · EV-01</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: INCIDENTES INTRO -->
+<div class="page" id="p-inc-intro">
+  <div class="section-eyebrow">Libro II · Sección 1.3</div>
+  <h1 class="section-title">Gestión de Incidentes con Personas</h1>
+  <div class="section-subtitle">Principios rectores y registro obligatorio de incidentes</div>
+  <div class="rule"></div>
+
+  <div class="alert alert-green">
+    <strong>Principio rector:</strong> El personal no discute reglas, no negocia seguridad y no toma decisiones discrecionales fuera del manual. Ante cualquier situación difícil: mantener calma, aplicar el protocolo y documentar.
+  </div>
+
+  <h2 class="heading-2">Tipos de Incidente Cubiertos</h2>
+  <div class="incident-grid">
+    <div class="incident-card">
+      <div class="incident-name">9.9.1 Sin identificación</div>
+      <div class="incident-body">Huésped que se niega a presentar INE/Pasaporte para registro de ingreso.</div>
+    </div>
+    <div class="incident-card">
+      <div class="incident-name">9.9.2 Huésped agresivo</div>
+      <div class="incident-body">Gritos, insultos, amenazas, conducta errática o bajo influencia de sustancias.</div>
+    </div>
+    <div class="incident-card">
+      <div class="incident-name">9.9.3 Grabación al personal</div>
+      <div class="incident-body">Huésped que filma al personal para ejercer presión o intimidar.</div>
+    </div>
+    <div class="incident-card">
+      <div class="incident-name">9.9.4 Sin QR / no registrado</div>
+      <div class="incident-body">Huésped que exige acceso sin registro previo, sin QR o fuera de horario.</div>
+    </div>
+    <div class="incident-card">
+      <div class="incident-name">9.9.5 Incumplimiento de PM</div>
+      <div class="incident-body">Envíos tardíos, QRs mal generados, huéspedes no reportados, datos incompletos.</div>
+    </div>
+    <div class="incident-card">
+      <div class="incident-name">9.9.6 Conductas prohibidas</div>
+      <div class="incident-body">Fiestas en zona de laguna, vidrio en muelle, daños a infraestructura, conducta violenta.</div>
+    </div>
+  </div>
+
+  <h2 class="heading-2">Registro Obligatorio de Incidentes</h2>
+  <p class="body-text">Todo evento debe registrarse en AppSheet o bitácora física con:</p>
+  <ul class="inline-list">
+    <li>Fecha y hora exacta del incidente</li>
+    <li>Unidad involucrada (Torre y Departamento)</li>
+    <li>Descripción objetiva de los hechos (sin opiniones personales)</li>
+    <li>Acciones tomadas por el personal</li>
+    <li>Nombre del personal que intervino</li>
+  </ul>
+  <div class="alert alert-green"><strong>"Lo que no se documenta, no ocurrió operativamente."</strong></div>
+
+  <h2 class="heading-2">Protección al Personal</h2>
+  <p class="body-text">El residencial respalda al personal cuando aplica el manual correctamente, mantiene trato profesional y documenta incidentes. El personal NO será sancionado por negar accesos o aplicar reglas establecidas del manual.</p>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · Incidentes — Intro</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: INC 9.9.1 SIN ID -->
+<div class="page" id="p-inc-sinqr">
+  <div class="section-eyebrow">Libro II · Sección 9.9.1</div>
+  <h1 class="section-title">Huésped que se Niega a Presentar Identificación</h1>
+  <div class="section-subtitle">Protocolo de acceso denegado por falta de identificación oficial</div>
+  <div class="rule"></div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Mantener calma y tono profesional</div>
+        <div class="step-desc">No elevar la voz ni mostrar impaciencia. Mantener distancia y postura neutral.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Repetir la frase oficial</div>
+        <div class="step-desc"><em>"Por normativa de seguridad y reglamento interno del residencial, la identificación oficial es obligatoria para autorizar el acceso."</em></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Si continúa la negativa: no debatir</div>
+        <div class="step-desc">No discutir, no improvisar soluciones alternativas. Notificar inmediatamente al Jefe de Seguridad. El Jefe puede contactar al PM/Propietario si el huésped ya está físicamente en acceso.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Negar el acceso y registrar el incidente</div>
+        <div class="step-desc">Sin identificación NO se autoriza el acceso. Aplica 24/7 sin excepciones. Documentar el incidente en AppSheet o bitácora con todos los datos requeridos.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-red"><strong>Sin identificación NO se autoriza el acceso — 24/7 sin excepciones.</strong> La seguridad del residencial prevalece sobre la urgencia o molestia del huésped.</div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · Sección 9.9.1</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: INC 9.9.2 AGRESIVO -->
+<div class="page" id="p-inc-agresivo">
+  <div class="section-eyebrow">Libro II · Sección 9.9.2</div>
+  <h1 class="section-title">Huésped Agresivo o Alterado</h1>
+  <div class="section-subtitle">Escalamiento por niveles ante conductas de gritos, insultos, amenazas o intoxicación</div>
+  <div class="rule"></div>
+
+  <h2 class="heading-2">Señales de Alerta</h2>
+  <ul class="inline-list">
+    <li>Gritos, insultos o amenazas directas al personal</li>
+    <li>Conducta errática o movimientos impredecibles</li>
+    <li>Negativa a seguir instrucciones básicas del procedimiento</li>
+    <li>Indicios visibles de intoxicación por alcohol o drogas</li>
+  </ul>
+
+  <h2 class="heading-2">Protocolo de Escalamiento por Niveles</h2>
+
+  <div class="level-block level-1">
+    <div class="level-header">Nivel 1 — Huésped molesto pero cooperativo</div>
+    <div class="level-body">
+      Mantener calma y distancia prudente.<br>
+      Escuchar brevemente sin discutir ni interrumpir.<br>
+      Reiterar la norma aplicable con firmeza y profesionalismo.<br>
+      <em>Objetivo: desescalar sin ceder en el procedimiento.</em>
+    </div>
+  </div>
+
+  <div class="level-block level-2">
+    <div class="level-header">Nivel 2 — Huésped que grita o se niega a cooperar</div>
+    <div class="level-body">
+      No confrontar ni elevar la voz bajo ninguna circunstancia.<br>
+      Mantener distancia física segura (mínimo 2 metros).<br>
+      Notificar inmediatamente al Jefe de Seguridad.<br>
+      Solicitar apoyo de segundo elemento si está disponible en el turno.
+    </div>
+  </div>
+
+  <div class="level-block level-3">
+    <div class="level-header">Nivel 3 — Amenazas verbales, agresión física o riesgo inminente</div>
+    <div class="level-body">
+      Alejarse del huésped manteniendo siempre una ruta de escape visible.<br>
+      Llamar al 911 inmediatamente.<br>
+      Activar la alarma de seguridad del residencial si corresponde.<br>
+      Documentar el incidente en bitácora una vez garantizada la seguridad del personal.
+    </div>
+  </div>
+
+  <div class="alert alert-red">
+    <strong>RIESGO CRÍTICO</strong> — El personal NO está autorizado a usar fuerza física, salvo en defensa propia inminente ante una agresión física directa e inevitable.
+  </div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · Sección 9.9.2</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: INC 9.9.3 CÁMARA -->
+<div class="page" id="p-inc-camara">
+  <div class="section-eyebrow">Libro II · Sección 9.9.3</div>
+  <h1 class="section-title">Huésped que Graba al Personal</h1>
+  <div class="section-subtitle">Situación común en entornos turísticos — respuesta profesional estandarizada</div>
+  <div class="rule"></div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Mantener calma y profesionalismo absoluto</div>
+        <div class="step-desc">No tapar cámaras ni reaccionar de manera defensiva o agresiva. La reacción al ser grabado es parte del registro.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Repetir únicamente la frase oficial</div>
+        <div class="step-desc"><em>"Estamos aplicando el reglamento interno del residencial."</em> No dar opiniones personales, no justificar decisiones propias, no improvisar explicaciones adicionales.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Notificar al Jefe de Seguridad</div>
+        <div class="step-desc">Informar al Jefe de Seguridad del incidente para que esté en conocimiento y pueda dar seguimiento si el video se utiliza con fines de presión o reclamo.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Registrar el incidente</div>
+        <div class="step-desc">Todo incidente grabado debe registrarse en AppSheet o bitácora para respaldo institucional del residencial ante posibles reclamaciones.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-green"><strong>Principio de protección:</strong> El personal que aplica el manual correctamente y mantiene trato profesional cuenta con el respaldo institucional del residencial, independientemente de lo que se publique o comparta.</div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · Sección 9.9.3</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: INC 9.9.4 SIN ACCESO -->
+<div class="page" id="p-inc-sinacceso">
+  <div class="section-eyebrow">Libro II · Sección 9.9.4</div>
+  <h1 class="section-title">Huésped que Exige Acceso sin Registro</h1>
+  <div class="section-subtitle">Sin QR, fuera de horario o sin registro previo en el sistema</div>
+  <div class="rule"></div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Verificar en Vivook / AppSheet</div>
+        <div class="step-desc">Consultar el sistema para confirmar si existe un registro activo o QR vigente para el huésped y la unidad solicitada.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Si no existe registro: aplicar frase oficial</div>
+        <div class="step-desc"><em>"Sin registro previo en el sistema no es posible autorizar el acceso. Su Property Manager debe generar el código correspondiente."</em></div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Contactar al PM si el huésped está físicamente en acceso</div>
+        <div class="step-desc">Si el huésped ya llegó al residencial, contactar al PM únicamente para que genere el QR correctamente. No permitir ingreso mientras no se valide en el sistema.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">No ceder ante la presión</div>
+        <div class="step-desc">No permitir ingreso "de palabra", por lástima ni por presión del huésped. La seguridad del residencial prevalece sobre la urgencia del huésped.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-red"><strong>La seguridad del residencial prevalece sobre la urgencia del huésped en todo momento.</strong></div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · Sección 9.9.4</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: INC 9.9.5 PM -->
+<div class="page" id="p-inc-pm">
+  <div class="section-eyebrow">Libro II · Sección 9.9.5</div>
+  <h1 class="section-title">Incumplimientos de Property Managers</h1>
+  <div class="section-subtitle">Procedimiento administrativo ante incidencias recurrentes de PMs</div>
+  <div class="rule"></div>
+
+  <h2 class="heading-2">Tipos de Incumplimiento</h2>
+  <ul class="inline-list">
+    <li>Envío tardío de registros de huéspedes (menos de 24h de anticipación)</li>
+    <li>QRs abiertos o generados con vigencia incorrecta</li>
+    <li>Huéspedes que llegan sin haber sido reportados al sistema</li>
+    <li>Datos incompletos (falta de placas, nombre, número de acompañantes)</li>
+  </ul>
+
+  <h2 class="heading-2">Procedimiento Administrativo</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Registrar cada incidencia</div>
+        <div class="step-desc">Documentar en la bitácora digital: fecha, tipo de incumplimiento, unidad involucrada y nombre del PM.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">3ª incidencia en 30 días → Notificación formal</div>
+        <div class="step-desc">La Administración envía notificación formal al PM documentando el historial de incumplimientos y las consecuencias previstas.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Si continúa el incumplimiento → Medida correctiva</div>
+        <div class="step-desc">Suspensión temporal de la facultad de generación de QRs. Los accesos de las unidades de ese PM deberán gestionarse directamente con la Administración del residencial.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-blue"><strong>Nota:</strong> Esta medida es operativa, no punitiva. Busca proteger la seguridad del residencial. El PM puede recuperar la facultad de generación de QRs al demostrar cumplimiento sostenido por 30 días adicionales.</div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · Sección 9.9.5</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: INC 9.9.6 CONDUCTAS -->
+<div class="page" id="p-inc-conductas">
+  <div class="section-eyebrow">Libro II · Sección 9.9.6</div>
+  <h1 class="section-title">Conductas Prohibidas dentro del Residencial</h1>
+  <div class="section-subtitle">Protocolo ante infracciones al reglamento y conductas de riesgo</div>
+  <div class="rule"></div>
+
+  <h2 class="heading-2">Conductas que Activan Este Protocolo</h2>
+  <ul class="check-list">
+    <li class="no">Fiestas con bocinas en zona de laguna o muelle</li>
+    <li class="no">Uso de envases de vidrio o copas en el muelle</li>
+    <li class="no">Uso de bloqueadores solares convencionales en el muelle (solo biodegradables)</li>
+    <li class="no">Conducta violenta o amenazante dentro del residencial</li>
+    <li class="no">Daños intencionales o negligentes a infraestructura</li>
+    <li class="no">Acciones que generen riesgo ambiental en la Laguna de Bacalar</li>
+    <li class="no">Nado en el muelle en horario de riesgo (05:00–07:00 y 18:00 en adelante)</li>
+    <li class="no">Mascotas sueltas cerca de la orilla o en el muelle</li>
+  </ul>
+
+  <h2 class="heading-2">Procedimiento</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Documentar con foto o video</div>
+        <div class="step-desc">El personal de Seguridad documenta la conducta con foto o video si es posible y seguro hacerlo.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Solicitar detener la conducta</div>
+        <div class="step-desc">Pedir de forma clara y firme que se detenga la conducta infractora. No debatir ni confrontar en tono agresivo.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Notificar al PM / Propietario</div>
+        <div class="step-desc">Informar al PM o Propietario de la unidad sobre la conducta de su huésped, recordando que son responsables solidarios.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <div class="step-title">Escalamiento por la Administración</div>
+        <div class="step-desc">La Administración puede: emitir advertencia formal por escrito, restringir el uso de amenidades a la unidad, escalar a protocolo legal si hay daños materiales o ambientales.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · Sección 9.9.6</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: ATENCIÓN RESIDENTES -->
+<div class="page" id="p-atencion">
+  <div class="section-eyebrow">Libro II · Sección 2.0</div>
+  <h1 class="section-title">Atención a Residentes y Huéspedes</h1>
+  <div class="section-subtitle">Recepción de solicitudes, gestión de quejas y mediación de conflictos</div>
+  <div class="rule"></div>
+
+  <h2 class="heading-2">Canales de Recepción de Solicitudes</h2>
+  <table class="data-table">
+    <thead><tr><th>Canal</th><th>Tipo de solicitud</th><th>Tiempo de respuesta</th><th>Responsable</th></tr></thead>
+    <tbody>
+      <tr><td class="term">Recepción presencial</td><td>Reservas de amenidades, entrega de paquetes, reportes de mantenimiento urgente, quejas inmediatas</td><td>Inmediata</td><td>Recepcionista en turno</td></tr>
+      <tr><td class="term">App Vivook</td><td>Reservas de amenidades (pádel, firepit, asadores), solicitudes administrativas</td><td>Confirmación automática</td><td>Sistema + Recepcionista</td></tr>
+      <tr><td class="term">Correo electrónico</td><td>Solicitudes formales, quejas documentadas, comunicaciones entre Administración y PM</td><td>24–48 horas hábiles</td><td>Gerente Administrativo</td></tr>
+      <tr><td class="term">Bitácora AppSheet</td><td>Reportes de incidencias operativas, seguimiento de quejas formales</td><td>Según urgencia</td><td>Área correspondiente</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="heading-2">Gestión de Quejas</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <div class="step-title">Recepción y registro</div>
+        <div class="step-desc">Recibir la queja con actitud receptiva y sin hacer juicios inmediatos. Registrar en AppSheet o bitácora con todos los datos del reclamante y descripción del problema.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <div class="step-title">Clasificación y derivación</div>
+        <div class="step-desc">Clasificar si la queja es operativa (turno actual), administrativa (Gerente) o de seguridad (Jefe de Seguridad). Derivar al área correspondiente.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <div class="step-title">Seguimiento y cierre</div>
+        <div class="step-desc">Dar seguimiento hasta la resolución. Notificar al residente el resultado y registrar el cierre de la queja en el sistema.</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="heading-2">Mediación de Conflictos entre Residentes</h2>
+  <div class="alert alert-blue"><strong>Principio:</strong> El personal no actúa como árbitro en disputas entre propietarios. Su rol es documentar, notificar a la Administración y garantizar que no haya alteración del orden. Los conflictos entre propietarios se resuelven a través de los Comités o la Asamblea.</div>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · Sección 2.0</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+<!-- ══════════ PAGE: COMUNICACIÓN OFICIAL -->
+<div class="page" id="p-comunicacion">
+  <div class="section-eyebrow">Libro II · Sección 2.5</div>
+  <h1 class="section-title">Comunicación Oficial</h1>
+  <div class="section-subtitle">Canales, formatos y políticas de comunicación institucional</div>
+  <div class="rule"></div>
+
+  <h2 class="heading-2">Principios de Comunicación</h2>
+  <ul class="check-list">
+    <li class="yes">Toda comunicación formal con propietarios y PMs se realiza por correo electrónico con registro</li>
+    <li class="yes">Las notificaciones de morosidad siguen la plantilla estándar aprobada (ver ADM-02)</li>
+    <li class="yes">Los comunicados generales al residencial se emiten vía Vivook o correo grupal autorizado</li>
+    <li class="yes">Los incidentes de seguridad se documentan en AppSheet / bitácora como evidencia oficial</li>
+    <li class="no">Prohibido usar grupos de WhatsApp como único canal de comunicación oficial</li>
+    <li class="no">El personal operativo no emite comunicados a residentes sin autorización de la Gerencia</li>
+  </ul>
+
+  <h2 class="heading-2">Script de Bienvenida para PMs</h2>
+  <div style="border:1px solid var(--rule); background:var(--warm-white); padding:20px 24px; font-family:'Source Serif 4',serif; font-size:14.5px; line-height:1.8; color:var(--ink-soft); font-weight:300; margin-top:12px; font-style:italic;">
+    "Estimado Huésped, bienvenido a Aldea Mayab. Para agilizar su acceso, le informamos que nuestro horario de recepción es de 07:00 a 21:00 hrs. Si su llegada es posterior, nuestro oficial de seguridad realizará un registro manual y tomará fotografías de su identificación y placas vehiculares. Agradecemos su cooperación para mantener la seguridad del complejo."
+  </div>
+
+  <h2 class="heading-2">Nomenclatura Oficial de Archivos en Google Drive</h2>
+  <table class="data-table">
+    <thead><tr><th>Carpeta</th><th>Formato de nombre</th><th>Ejemplo</th></tr></thead>
+    <tbody>
+      <tr><td class="term">ACCESOS</td><td>Ingreso Torre [X] Depto [Y] – [Nombre]</td><td>"Ingreso Torre 1 Depto 302 – García López"</td></tr>
+      <tr><td class="term">ACCESOS (offline)</td><td>RETRASADO_TorreX_DeptoY_Fecha</td><td>"RETRASADO_Torre2_Depto101_20260118"</td></tr>
+      <tr><td class="term">PAQUETES</td><td>PAQ_TorreX_DeptoY_Fecha_Hora</td><td>"PAQ_Torre3_Depto202_20260118_1430"</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer">
+    <span>OP-ALDEA-001 · v1.0 · Sección 2.5</span>
+    <span>Interno / Confidencial — Residencial Aldea Mayab</span>
+  </div>
+</div>
+
+  </div><!-- /content -->
+</div><!-- /main -->
+
+<script>
+const breadcrumbs = {
+  'p-sca-intro': '1.0 Sistema de Seguridad · Visión General',
+  'p-sca01': '1.0 Sistema de Seguridad · SCA-01 Pre-Registro',
+  'p-sca02': '1.0 Sistema de Seguridad · SCA-02 Recepción Diurna',
+  'p-sca03': '1.0 Sistema de Seguridad · SCA-03 Seguridad Nocturna',
+  'p-sca04': '1.0 Sistema de Seguridad · SCA-04 Digitalización Matutina',
+  'p-sca05': '1.0 Sistema de Seguridad · SCA-05 Paquetería',
+  'p-sca06': '1.0 Sistema de Seguridad · SCA-06 Pluma Vehicular',
+  'p-cctv': '1.0 Sistema de Seguridad · CCTV y Videovigilancia',
+  'p-estacionamiento': '1.0 Sistema de Seguridad · EV-01 Estacionamiento',
+  'p-inc-intro': '1.3 Gestión de Incidentes · Principios y Registro',
+  'p-inc-sinqr': '1.3 Gestión de Incidentes · 9.9.1 Sin Identificación',
+  'p-inc-agresivo': '1.3 Gestión de Incidentes · 9.9.2 Huésped Agresivo',
+  'p-inc-camara': '1.3 Gestión de Incidentes · 9.9.3 Grabación al Personal',
+  'p-inc-sinacceso': '1.3 Gestión de Incidentes · 9.9.4 Acceso sin Registro',
+  'p-inc-pm': '1.3 Gestión de Incidentes · 9.9.5 Incumplimiento PM',
+  'p-inc-conductas': '1.3 Gestión de Incidentes · 9.9.6 Conductas Prohibidas',
+  'p-atencion': '2.0 Atención a Residentes · Solicitudes y Quejas',
+  'p-comunicacion': '2.0 Atención a Residentes · Comunicación Oficial',
+};
+
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item, .nav-sub-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-chapter').forEach(n => n.classList.remove('active'));
+
+  const page = document.getElementById(pageId);
+  if (page) page.classList.add('active');
+
+  const label = breadcrumbs[pageId] || '';
+  const parts = label.split(' · ');
+  const bc = document.getElementById('breadcrumb');
+  bc.innerHTML = 'Libro II &rsaquo; ' + parts.slice(0, -1).join(' &rsaquo; ') + (parts.length > 1 ? ' &rsaquo; <strong>' + parts[parts.length - 1] + '</strong>' : '<strong>' + parts[0] + '</strong>');
+
+  document.querySelectorAll('.nav-item, .nav-sub-item').forEach(el => {
+    const oc = el.getAttribute('onclick') || '';
+    if (oc.includes("'" + pageId + "'")) el.classList.add('active');
+  });
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleSection(chapterEl) {
+  const section = chapterEl.closest('.nav-section');
+  const wasOpen = section.classList.contains('open');
+  document.querySelectorAll('.nav-section').forEach(s => s.classList.remove('open'));
+  document.querySelectorAll('.nav-chapter').forEach(c => c.classList.remove('active'));
+  if (!wasOpen) {
+    section.classList.add('open');
+    chapterEl.classList.add('active');
+  }
+}
+
+function searchNav(val) {
+  const v = val.toLowerCase().trim();
+  document.querySelectorAll('.nav-item, .nav-sub-item').forEach(el => {
+    if (!v) {
+      el.style.display = '';
+      el.classList.remove('highlight');
+    } else {
+      const match = el.textContent.toLowerCase().includes(v);
+      el.style.display = match ? '' : 'none';
+      el.classList.toggle('highlight', match);
+      if (match) el.closest('.nav-section')?.classList.add('open');
+    }
+  });
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const inp = document.querySelector('.search-input');
+    inp.value = '';
+    searchNav('');
+    inp.blur();
+  }
+});
+</script>
+</body>
+</html>
