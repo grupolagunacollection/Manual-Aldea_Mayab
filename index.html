@@ -31,6 +31,7 @@
         font-size: 32px;
         font-weight: 600;
         margin: 0;
+        letter-spacing: 0.5px;
     }
 
     .subtitle {
@@ -54,7 +55,51 @@
         padding-left: 15px;
     }
 
-    /* Botones profesionales */
+    /* Sección de emergencia */
+    .emergency-section {
+        margin-bottom: 40px;
+        padding: 25px;
+        background: #fff7f7;
+        border: 1px solid #f1caca;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .emergency-title {
+        font-size: 20px;
+        font-weight: 600;
+        color: #7f1d1d;
+        margin-bottom: 20px;
+        border-left: 5px solid #b91c1c;
+        padding-left: 15px;
+    }
+
+    .emergency-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .emergency-btn {
+        background: #b91c1c;
+        color: white;
+        text-decoration: none;
+        padding: 18px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.25s ease;
+        border: 2px solid transparent;
+    }
+
+    .emergency-btn:hover {
+        background: #ffffff;
+        color: #b91c1c;
+        border: 2px solid #b91c1c;
+        transform: translateY(-2px);
+    }
+
+    /* Botones profesionales (Libros) */
     .card {
         background: white;
         padding: 25px;
@@ -104,33 +149,63 @@
     <img src="aldeaMayab_blanco.png" alt="Aldea Mayab" class="logo">
     <h1 class="title">Manual Operativo Aldea Mayab</h1>
     <div class="subtitle">
-        Plataforma oficial de procedimientos, operación y seguridad
+        Plataforma oficial de procedimientos, operación y seguridad institucional
     </div>
 </div>
 
 <!-- CONTENIDO -->
 <div class="container">
+
+    <!-- BOTONES DE EMERGENCIA -->
+    <div class="emergency-section">
+        <div class="emergency-title">Protocolos de Emergencia</div>
+        <div class="emergency-grid">
+            <a href="libros/libro2_operacion_seguridad.html" class="emergency-btn">
+                Emergencia General
+            </a>
+
+            <a href="libros/libro2_operacion_seguridad.html" class="emergency-btn">
+                Seguridad e Incidentes
+            </a>
+
+            <a href="libros/libro2_operacion_seguridad.html" class="emergency-btn">
+                Primeros Auxilios
+            </a>
+
+            <a href="libros/libro2_operacion_seguridad.html" class="emergency-btn">
+                Evacuación y Contingencias
+            </a>
+        </div>
+    </div>
     
     <div class="section-title">Biblioteca de Manuales</div>
 
     <a href="libros/libro1_completo.html" class="card">
         <div class="card-title">Libro 1 — Administración</div>
         <div class="card-desc">
-            Procedimientos administrativos, gobernanza y lineamientos internos.
+            Procedimientos administrativos, gobernanza, estructura organizacional y lineamientos institucionales.
         </div>
     </a>
 
     <a href="libros/libro2_operacion_seguridad.html" class="card">
         <div class="card-title">Libro 2 — Operación y Seguridad</div>
         <div class="card-desc">
-            Protocolos operativos, seguridad y procedimientos del personal.
+            Protocolos operativos, seguridad, emergencias, control de accesos y procedimientos del personal.
+        </div>
+    </a>
+
+    <!-- NUEVO LIBRO 3 -->
+    <a href="libros/libro3.html" class="card">
+        <div class="card-title">Libro 3 — Emergencias y Gestión de Crisis</div>
+        <div class="card-desc">
+            Protocolos especializados ante fauna peligrosa, intrusos, evacuaciones, riesgos naturales y respuesta institucional.
         </div>
     </a>
 
 </div>
 
 <footer>
-    © Aldea Mayab — Manual Interno Institucional
+    © Aldea Mayab — Manual Interno Institucional | Uso exclusivo del personal autorizado
 </footer>
 
 </body>
