@@ -1,87 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Sistema Institucional de Gestión - Aldea Mayab</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual Aldea Mayab</title>
 
 <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f4f4f4;
-}
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: white;
+        text-align: center;
+    }
 
-.header {
-    background-color: #0f3b3b;
-    color: white;
-    padding: 30px;
-    text-align: center;
-}
+    .container {
+        padding: 40px 20px;
+        max-width: 900px;
+        margin: auto;
+    }
 
-.container {
-    padding: 40px;
-    text-align: center;
-}
+    .logo {
+        width: 220px;
+        margin-bottom: 20px;
+    }
 
-.button {
-    display: block;
-    width: 300px;
-    margin: 15px auto;
-    padding: 15px;
-    background-color: #1f6f6f;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-}
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: #facc15;
+    }
 
-.button:hover {
-    background-color: #145454;
-}
+    .subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        opacity: 0.9;
+    }
 
-.emergency {
-    background-color: #b30000;
-}
+    .books {
+        display: grid;
+        gap: 20px;
+    }
 
-.footer {
-    margin-top: 50px;
-    padding: 15px;
-    background-color: #e0e0e0;
-    font-size: 12px;
-}
+    .button {
+        display: block;
+        padding: 20px;
+        background: #facc15;
+        color: #000;
+        font-size: 1.3rem;
+        font-weight: bold;
+        border-radius: 12px;
+        text-decoration: none;
+        transition: 0.3s;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .button:hover {
+        background: #fde047;
+        transform: translateY(-3px);
+    }
+
+    footer {
+        margin-top: 50px;
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
 </style>
 </head>
 
 <body>
 
-<div class="header">
-    <h1>Sistema Institucional de Gestión</h1>
-    <h2>Aldea Mayab</h2>
-</div>
-
 <div class="container">
 
-    <a class="button" href="libros/libro1_completo.html">
-    Libro 1 – Administración
-</a>
+    <!-- LOGO -->
+    <img src="logo_aldea_mayab.png" alt="Aldea Mayab" class="logo">
 
-<a class="button" href="libros/libro2_operacion_seguridad.html">
-    Libro 2 – Operación y Seguridad
-</a>
+    <!-- TÍTULO -->
+    <h1>Manual Operativo Aldea Mayab</h1>
+    <p class="subtitle">
+        Plataforma oficial de procedimientos, operación y seguridad
+    </p>
 
+    <!-- BOTONES DE LIBROS -->
+    <div class="books">
+        <a class="button" href="libros/libro1_completo.html">
+            📘 Libro 1 – Administración
+        </a>
 
-    <a class="button" href="#">
-        Libro 3 – Mantenimiento (Próximamente)
-    </a>
+        <a class="button" href="libros/libro2_operacion_seguridad.html">
+            📗 Libro 2 – Operación y Seguridad
+        </a>
+    </div>
 
-    <a class="button emergency" href="#">
-        Libro 4 – Seguridad y Emergencias
-    </a>
+    <footer>
+        © Aldea Mayab | Manual Interno
+    </footer>
 
-</div>
-
-<div class="footer">
-Versión 01 | Sistema Institucional de Gestión | Uso Interno
 </div>
 
 </body>
