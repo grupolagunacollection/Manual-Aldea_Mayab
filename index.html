@@ -3,100 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manual Aldea Mayab</title>
+<title>Manual Operativo Aldea Mayab</title>
 
 <style>
     body {
         margin: 0;
-        font-family: Arial, sans-serif;
-        background: linear-gradient(135deg, #0f172a, #1e293b);
-        color: white;
-        text-align: center;
+        font-family: "Segoe UI", Arial, sans-serif;
+        background-color: #f4f6f8;
+        color: #1f2937;
     }
 
-    .container {
-        padding: 40px 20px;
-        max-width: 900px;
-        margin: auto;
+    /* Encabezado institucional */
+    .header {
+        background-color: #0b1f3a;
+        padding: 30px 20px;
+        text-align: center;
+        border-bottom: 4px solid #c9a227;
     }
 
     .logo {
-        width: 220px;
-        margin-bottom: 20px;
+        max-width: 180px;
+        margin-bottom: 15px;
     }
 
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-        color: #facc15;
+    .title {
+        color: #ffffff;
+        font-size: 32px;
+        font-weight: 600;
+        margin: 0;
     }
 
     .subtitle {
-        font-size: 1.2rem;
-        margin-bottom: 40px;
-        opacity: 0.9;
+        color: #d1d5db;
+        font-size: 16px;
+        margin-top: 8px;
     }
 
-    .books {
-        display: grid;
-        gap: 20px;
-    }
-
-    .button {
-        display: block;
+    /* Contenido */
+    .container {
+        max-width: 900px;
+        margin: 50px auto;
         padding: 20px;
-        background: #facc15;
-        color: #000;
-        font-size: 1.3rem;
-        font-weight: bold;
-        border-radius: 12px;
-        text-decoration: none;
-        transition: 0.3s;
-        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
     }
 
-    .button:hover {
-        background: #fde047;
-        transform: translateY(-3px);
+    .section-title {
+        font-size: 22px;
+        margin-bottom: 25px;
+        font-weight: 600;
+        border-left: 5px solid #c9a227;
+        padding-left: 15px;
+    }
+
+    /* Botones profesionales */
+    .card {
+        background: white;
+        padding: 25px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #1f2937;
+        display: block;
+        border: 1px solid #e5e7eb;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .card:hover {
+        border-color: #c9a227;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .card-desc {
+        font-size: 14px;
+        color: #6b7280;
     }
 
     footer {
-        margin-top: 50px;
-        font-size: 0.9rem;
-        opacity: 0.7;
+        text-align: center;
+        padding: 25px;
+        font-size: 13px;
+        color: #6b7280;
+        border-top: 1px solid #e5e7eb;
+        margin-top: 60px;
+        background: #ffffff;
     }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-    <!-- LOGO -->
-    <img src="logo_aldea_mayab.png" alt="Aldea Mayab" class="logo">
-
-    <!-- TÍTULO -->
-    <h1>Manual Operativo Aldea Mayab</h1>
-    <p class="subtitle">
+<!-- ENCABEZADO -->
+<div class="header">
+    <img src="aldeaMayab_blanco.png" alt="Aldea Mayab" class="logo">
+    <h1 class="title">Manual Operativo Aldea Mayab</h1>
+    <div class="subtitle">
         Plataforma oficial de procedimientos, operación y seguridad
-    </p>
-
-    <!-- BOTONES DE LIBROS -->
-    <div class="books">
-        <a class="button" href="libros/libro1_completo.html">
-            📘 Libro 1 – Administración
-        </a>
-
-        <a class="button" href="libros/libro2_operacion_seguridad.html">
-            📗 Libro 2 – Operación y Seguridad
-        </a>
     </div>
+</div>
 
-    <footer>
-        © Aldea Mayab | Manual Interno
-    </footer>
+<!-- CONTENIDO -->
+<div class="container">
+    
+    <div class="section-title">Biblioteca de Manuales</div>
+
+    <a href="libros/libro1_completo.html" class="card">
+        <div class="card-title">Libro 1 — Administración</div>
+        <div class="card-desc">
+            Procedimientos administrativos, gobernanza y lineamientos internos.
+        </div>
+    </a>
+
+    <a href="libros/libro2_operacion_seguridad.html" class="card">
+        <div class="card-title">Libro 2 — Operación y Seguridad</div>
+        <div class="card-desc">
+            Protocolos operativos, seguridad y procedimientos del personal.
+        </div>
+    </a>
 
 </div>
+
+<footer>
+    © Aldea Mayab — Manual Interno Institucional
+</footer>
 
 </body>
 </html>
