@@ -16,19 +16,19 @@
     /* Encabezado institucional */
     .header {
         background-color: #0b1f3a;
-        padding: 30px 20px;
+        padding: 35px 20px;
         text-align: center;
         border-bottom: 4px solid #c9a227;
     }
 
     .logo {
-        max-width: 180px;
+        max-width: 200px;
         margin-bottom: 15px;
     }
 
     .title {
         color: #ffffff;
-        font-size: 32px;
+        font-size: 34px;
         font-weight: 600;
         margin: 0;
         letter-spacing: 0.5px;
@@ -37,13 +37,65 @@
     .subtitle {
         color: #d1d5db;
         font-size: 16px;
-        margin-top: 8px;
+        margin-top: 10px;
     }
 
-    /* Contenido */
+    /* Sección de Emergencias */
+    .emergency-section {
+        max-width: 1100px;
+        margin: 40px auto 20px auto;
+        padding: 0 20px;
+    }
+
+    .emergency-title {
+        font-size: 22px;
+        font-weight: 700;
+        color: #7f1d1d;
+        border-left: 6px solid #b91c1c;
+        padding-left: 15px;
+        margin-bottom: 25px;
+    }
+
+    .emergency-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+    }
+
+    .emergency-card {
+        background: #ffffff;
+        border: 2px solid #fee2e2;
+        border-left: 6px solid #b91c1c;
+        padding: 22px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #1f2937;
+        transition: all 0.2s ease;
+        box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+
+    .emergency-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+        border-color: #b91c1c;
+    }
+
+    .emergency-card-title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 6px;
+        color: #7f1d1d;
+    }
+
+    .emergency-card-desc {
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    /* Contenido general */
     .container {
         max-width: 900px;
-        margin: 50px auto;
+        margin: 40px auto;
         padding: 20px;
     }
 
@@ -55,51 +107,7 @@
         padding-left: 15px;
     }
 
-    /* Sección de emergencia */
-    .emergency-section {
-        margin-bottom: 40px;
-        padding: 25px;
-        background: #fff7f7;
-        border: 1px solid #f1caca;
-        border-radius: 12px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    .emergency-title {
-        font-size: 20px;
-        font-weight: 600;
-        color: #7f1d1d;
-        margin-bottom: 20px;
-        border-left: 5px solid #b91c1c;
-        padding-left: 15px;
-    }
-
-    .emergency-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-    }
-
-    .emergency-btn {
-        background: #b91c1c;
-        color: white;
-        text-decoration: none;
-        padding: 18px;
-        border-radius: 10px;
-        font-weight: 600;
-        text-align: center;
-        transition: all 0.25s ease;
-        border: 2px solid transparent;
-    }
-
-    .emergency-btn:hover {
-        background: #ffffff;
-        color: #b91c1c;
-        border: 2px solid #b91c1c;
-        transform: translateY(-2px);
-    }
-
-    /* Botones profesionales (Libros) */
+    /* Tarjetas de libros */
     .card {
         background: white;
         padding: 25px;
@@ -132,7 +140,7 @@
 
     footer {
         text-align: center;
-        padding: 25px;
+        padding: 30px;
         font-size: 13px;
         color: #6b7280;
         border-top: 1px solid #e5e7eb;
@@ -147,65 +155,77 @@
 <!-- ENCABEZADO -->
 <div class="header">
     <img src="aldeaMayab_blanco.png" alt="Aldea Mayab" class="logo">
-    <h1 class="title">Manual Operativo Aldea Mayab</h1>
+    <h1 class="title">Manual Operativo Institucional</h1>
     <div class="subtitle">
-        Plataforma oficial de procedimientos, operación y seguridad institucional
+        Aldea Mayab — Plataforma oficial de procedimientos, operación y seguridad
     </div>
 </div>
 
-<!-- CONTENIDO -->
-<div class="container">
+<!-- 🚨 SECCIÓN DE EMERGENCIAS -->
+<div class="emergency-section">
+    <div class="emergency-title">Protocolos de Emergencia — Acceso Inmediato</div>
 
-    <!-- BOTONES DE EMERGENCIA -->
-    <div class="emergency-section">
-        <div class="emergency-title">Protocolos de Emergencia</div>
-        <div class="emergency-grid">
-            <a href="libros/libro2_operacion_seguridad.html" class="emergency-btn">
-                Emergencia General
-            </a>
+    <div class="emergency-grid">
+        <a href="libros/libro3.html#intruso" class="emergency-card">
+            <div class="emergency-card-title">Intruso o Riesgo de Seguridad</div>
+            <div class="emergency-card-desc">
+                Protocolo de actuación ante accesos no autorizados o amenazas de seguridad.
+            </div>
+        </a>
 
-            <a href="libros/libro2_operacion_seguridad.html" class="emergency-btn">
-                Seguridad e Incidentes
-            </a>
+        <a href="libros/libro3.html#fauna" class="emergency-card">
+            <div class="emergency-card-title">Ataque o Presencia de Fauna</div>
+            <div class="emergency-card-desc">
+                Procedimiento ante fauna peligrosa en áreas comunes o residenciales.
+            </div>
+        </a>
 
-            <a href="libros/libro2_operacion_seguridad.html" class="emergency-btn">
-                Primeros Auxilios
-            </a>
+        <a href="libros/libro3.html#medica" class="emergency-card">
+            <div class="emergency-card-title">Emergencia Médica</div>
+            <div class="emergency-card-desc">
+                Atención inicial, contacto médico y protocolo con huéspedes o residentes.
+            </div>
+        </a>
 
-            <a href="libros/libro2_operacion_seguridad.html" class="emergency-btn">
-                Evacuación y Contingencias
-            </a>
-        </div>
+        <a href="libros/libro3.html#incendio" class="emergency-card">
+            <div class="emergency-card-title">Incendio o Evacuación</div>
+            <div class="emergency-card-desc">
+                Activación de evacuación, control de riesgos y coordinación de seguridad.
+            </div>
+        </a>
     </div>
+</div>
+
+<!-- BIBLIOTECA -->
+<div class="container">
     
-    <div class="section-title">Biblioteca de Manuales</div>
+    <div class="section-title">Biblioteca Institucional de Manuales</div>
 
     <a href="libros/libro1_completo.html" class="card">
         <div class="card-title">Libro 1 — Administración</div>
         <div class="card-desc">
-            Procedimientos administrativos, gobernanza, estructura organizacional y lineamientos institucionales.
+            Gobernanza, administración, finanzas, cobranza y lineamientos institucionales.
         </div>
     </a>
 
     <a href="libros/libro2_operacion_seguridad.html" class="card">
         <div class="card-title">Libro 2 — Operación y Seguridad</div>
         <div class="card-desc">
-            Protocolos operativos, seguridad, emergencias, control de accesos y procedimientos del personal.
+            Operación diaria, seguridad, accesos, personal y protocolos operativos.
         </div>
     </a>
 
-    <!-- NUEVO LIBRO 3 -->
     <a href="libros/libro3.html" class="card">
-        <div class="card-title">Libro 3 — Emergencias y Gestión de Crisis</div>
+        <div class="card-title">Libro 3 — Emergencias y Protocolos Críticos</div>
         <div class="card-desc">
-            Protocolos especializados ante fauna peligrosa, intrusos, evacuaciones, riesgos naturales y respuesta institucional.
+            Manual de emergencias: intrusos, fauna, incendios, evacuaciones y crisis operativas.
         </div>
     </a>
 
 </div>
 
 <footer>
-    © Aldea Mayab — Manual Interno Institucional | Uso exclusivo del personal autorizado
+    © Aldea Mayab — Manual Interno Institucional | Uso Confidencial
 </footer>
 
 </body>
