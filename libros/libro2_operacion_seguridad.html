@@ -115,9 +115,39 @@ nav{padding:6px 0 40px;}
 .script-label{font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#72D48A;margin-bottom:7px;}
 .proc-footer{margin-top:44px;padding-top:12px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;font-size:10.5px;color:var(--ink-muted);}
 .hl{background:rgba(114,212,138,.15)!important;}
+
+/* ══ RESPONSIVE MÓVIL ══ */
+#hamburger{display:none;position:fixed;top:10px;left:12px;z-index:300;background:var(--sidebar-bg);border:none;border-radius:6px;padding:10px 13px;cursor:pointer;flex-direction:column;gap:5px;box-shadow:0 2px 12px rgba(0,0,0,.5);touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;}
+#hamburger span{display:block;width:22px;height:2px;background:#72D48A;border-radius:2px;transition:all .25s;}
+#hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+#hamburger.open span:nth-child(2){opacity:0;}
+#hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:90;backdrop-filter:blur(1px);}
+#overlay.visible{display:block;}
+@media(max-width:768px){
+  #hamburger{display:flex;}
+  #sidebar{transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);}
+  #sidebar.open{transform:translateX(0);z-index:300;}
+  #main{margin-left:0!important;}
+  #topbar{padding:0 14px 0 56px;}
+  #breadcrumb{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:calc(100vw - 160px);}
+  .topbar-meta{display:none;}
+  #content{padding:22px 18px 80px;}
+  .proc-title{font-size:21px;}
+  .info-grid,.info-grid-3{grid-template-columns:1fr!important;}
+  .fc-wrap{padding:10px 6px;}
+  .fc-wrap svg{max-width:100%;height:auto;}
+  .act-table{font-size:12px;}
+  .act-table thead th{font-size:8.5px;padding:7px 8px;}
+  .act-table td{padding:8px 9px;}
+  .proc-footer{flex-direction:column;gap:3px;font-size:10px;}
+}
+
 </style>
 </head>
 <body>
+<button id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+<div id="overlay"></div>
 <aside id="sidebar">
   <div class="sb-header">
     <div class="sb-logo">Aldea Mayab · Bacalar</div>
@@ -626,11 +656,12 @@ nav{padding:6px 0 40px;}
 </div><!-- /main -->
 
 <script>
+
 const PAGES = {
   'p-cover':           '1.0 Sistema Integral de Seguridad · Portada e Introducción',
   'p-11-gov':          '1.0 Sistema Integral de Seguridad · 1.1 Gobierno de Seguridad',
   'p-12-accesos':      '1.0 Sistema Integral de Seguridad · 1.2 Control de Accesos',
-  'p-12-vehicular':    '1.0 Sistema Integral de Seguridad · 1.2.4 Control Vehicular y Barrera',
+  'p-12-vehicular':    '1.0 Sistema Integral de Seguridad · 1.2.4 Control Vehicular',
   'p-12-proveedores':  '1.0 Sistema Integral de Seguridad · 1.2.5 Control de Proveedores',
   'p-12-huespedes':    '1.0 Sistema Integral de Seguridad · 1.2.6 Gestión de Huéspedes',
   'p-12-cctv':         '1.0 Sistema Integral de Seguridad · 1.2.7 CCTV',
@@ -642,40 +673,80 @@ const PAGES = {
   'p-24-paqueteria':   '2.0 Atención a Residentes · 2.4 Gestión de Paquetería',
   'p-25-comunicacion': '2.0 Atención a Residentes · 2.5 Comunicación Oficial',
 };
-function show(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-link,.nav-sub').forEach(n=>n.classList.remove('active'));
-  const page=document.getElementById(id);
-  if(page)page.classList.add('active');
-  const label=PAGES[id]||'';
-  const parts=label.split(' · ');
-  const bc=document.getElementById('breadcrumb');
-  if(parts.length>1){bc.innerHTML='Libro II &rsaquo; '+parts.slice(0,-1).join(' &rsaquo; ')+' &rsaquo; <strong>'+parts[parts.length-1]+'</strong>';}
-  else{bc.innerHTML='Libro II &rsaquo; <strong>'+label+'</strong>';}
-  document.querySelectorAll('.nav-link,.nav-sub').forEach(el=>{
-    if((el.getAttribute('onclick')||'').includes("'"+id+"'"))el.classList.add('active');
+function show(id) {
+  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.nav-link,.nav-sub').forEach(function(n) { n.classList.remove('active'); });
+  var page = document.getElementById(id);
+  if (page) page.classList.add('active');
+  var label = PAGES[id] || '';
+  var parts = label.split(' · ');
+  var bc = document.getElementById('breadcrumb');
+  if (parts.length > 1) {
+    bc.innerHTML = 'Libro II &rsaquo; ' + parts.slice(0,-1).join(' &rsaquo; ') + ' &rsaquo; <strong>' + parts[parts.length-1] + '</strong>';
+  } else {
+    bc.innerHTML = 'Libro II &rsaquo; <strong>' + label + '</strong>';
+  }
+  document.querySelectorAll('.nav-link,.nav-sub').forEach(function(el) {
+    if ((el.getAttribute('onclick') || '').indexOf("'" + id + "'") !== -1) el.classList.add('active');
   });
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  if (window.innerWidth <= 768 && window.closeSidebar) window.closeSidebar();
 }
-function toggleGroup(btn){
-  const grp=btn.closest('.nav-group');
-  const wasOpen=grp.classList.contains('open');
-  document.querySelectorAll('.nav-group').forEach(g=>g.classList.remove('open'));
-  document.querySelectorAll('.nav-group-btn').forEach(b=>b.classList.remove('active'));
-  if(!wasOpen){grp.classList.add('open');btn.classList.add('active');}
+function toggleGroup(btn) {
+  var grp = btn.closest('.nav-group');
+  var wasOpen = grp.classList.contains('open');
+  document.querySelectorAll('.nav-group').forEach(function(g) { g.classList.remove('open'); });
+  document.querySelectorAll('.nav-group-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (!wasOpen) { grp.classList.add('open'); btn.classList.add('active'); }
 }
-function searchNav(val){
-  const v=val.toLowerCase().trim();
-  document.querySelectorAll('.nav-link,.nav-sub').forEach(el=>{
-    if(!v){el.style.display='';el.classList.remove('hl');}
-    else{
-      const match=el.textContent.toLowerCase().includes(v);
-      el.style.display=match?'':'none';
-      el.classList.toggle('hl',match);
-      if(match)el.closest('.nav-group')?.classList.add('open');
+function searchNav(val) {
+  var v = val.toLowerCase().trim();
+  document.querySelectorAll('.nav-link,.nav-sub').forEach(function(el) {
+    if (!v) { el.style.display = ''; el.classList.remove('hl'); }
+    else {
+      var match = el.textContent.toLowerCase().indexOf(v) !== -1;
+      el.style.display = match ? '' : 'none';
+      el.classList.toggle('hl', match);
+      if (match) { var g = el.closest('.nav-group'); if (g) g.classList.add('open'); }
     }
   });
 }
+(function() {
+  function _open() {
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('hamburger').classList.add('open');
+    document.getElementById('overlay').classList.add('visible');
+    document.body.style.overflow = 'hidden';
+  }
+  function _close() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('overlay').classList.remove('visible');
+    document.body.style.overflow = '';
+  }
+  window.toggleSidebar = function() {
+    if (document.getElementById('sidebar').classList.contains('open')) { _close(); } else { _open(); }
+  };
+  window.closeSidebar = _close;
+  function init() {
+    var hb = document.getElementById('hamburger');
+    var ov = document.getElementById('overlay');
+    if (hb) {
+      hb.addEventListener('click', function(e) { e.stopPropagation(); window.toggleSidebar(); });
+      hb.addEventListener('touchend', function(e) { e.preventDefault(); e.stopPropagation(); window.toggleSidebar(); }, {passive: false});
+    }
+    if (ov) {
+      ov.addEventListener('click', _close);
+      ov.addEventListener('touchend', function(e) { e.preventDefault(); _close(); }, {passive: false});
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+
 </script>
 </body>
 </html>
