@@ -1,257 +1,250 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Manual Operativo Aldea Mayab</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual Operativo Aldea Mayab</title>
 
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-    body {
-        margin: 0;
-        font-family: "Segoe UI", Arial, sans-serif;
-        background-color: #f4f6f8;
-        color: #1f2937;
-    }
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f8;
+            color: #1f2937;
+            line-height: 1.5;
+        }
 
-    /* Encabezado institucional */
-    .header {
-        background-color: #0b1f3a;
-        padding: 35px 20px;
-        text-align: center;
-        border-bottom: 4px solid #c9a227;
-    }
+        /* Encabezado institucional */
+        .header {
+            background-color: #0b1f3a;
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 4px solid #c9a227;
+        }
 
-    .logo {
-        max-width: 200px;
-        margin-bottom: 15px;
-    }
+        .logo {
+            max-width: 180px;
+            margin-bottom: 15px;
+        }
 
-    .title {
-        color: #ffffff;
-        font-size: 34px;
-        font-weight: 600;
-        margin: 0;
-        letter-spacing: 0.5px;
-    }
+        .title {
+            color: #ffffff;
+            font-size: 32px;
+            font-weight: 700;
+            margin: 0;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
 
-    .subtitle {
-        color: #d1d5db;
-        font-size: 16px;
-        margin-top: 10px;
-    }
+        .subtitle {
+            color: #d1d5db;
+            font-size: 16px;
+            margin-top: 10px;
+            font-weight: 300;
+        }
 
-    /* Sección de Emergencias */
-    .emergency-section {
-        max-width: 1100px;
-        margin: 40px auto 20px auto;
-        padding: 0 20px;
-    }
+        /* Sección de Emergencias */
+        .emergency-section {
+            max-width: 1100px;
+            margin: 40px auto 20px auto;
+            padding: 0 20px;
+        }
 
-    .emergency-title {
-        font-size: 22px;
-        font-weight: 700;
-        color: #7f1d1d;
-        border-left: 6px solid #b91c1c;
-        padding-left: 15px;
-        margin-bottom: 25px;
-    }
+        .emergency-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: #b91c1c;
+            text-transform: uppercase;
+            border-left: 6px solid #b91c1c;
+            padding-left: 15px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
 
-    .emergency-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
-    }
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 15px;
+        }
 
-    .emergency-card {
-        background: #ffffff;
-        border: 2px solid #fee2e2;
-        border-left: 6px solid #b91c1c;
-        padding: 22px;
-        border-radius: 10px;
-        text-decoration: none;
-        color: #1f2937;
-        transition: all 0.2s ease;
-        box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-    }
+        .emergency-card {
+            background: #ffffff;
+            border: 1px solid #fee2e2;
+            border-left: 6px solid #b91c1c;
+            padding: 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1f2937;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
 
-    .emergency-card:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 24px rgba(0,0,0,0.10);
-        border-color: #b91c1c;
-    }
+        .emergency-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.15);
+            border-color: #b91c1c;
+        }
 
-    /* Estilo especial para Cocodrilo (Laguna) */
-    .emergency-card.laguna {
-        border-left-color: #065f46;
-        border-color: #d1fae5;
-    }
-    
-    .emergency-card.laguna .emergency-card-title {
-        color: #065f46;
-    }
+        /* Estilo especial para Cocodrilo (Laguna) */
+        .emergency-card.laguna {
+            border-left-color: #047857;
+            border-color: #d1fae5;
+        }
+        
+        .emergency-card.laguna .emergency-card-title {
+            color: #065f46;
+        }
 
-    .emergency-card-title {
-        font-size: 18px;
-        font-weight: 700;
-        margin-bottom: 6px;
-        color: #7f1d1d;
-    }
+        .emergency-card-title {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #991b1b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .emergency-card-desc {
-        font-size: 14px;
-        color: #6b7280;
-    }
+        .emergency-card-desc {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.4;
+        }
 
-    /* Biblioteca */
-    .container {
-        max-width: 900px;
-        margin: 40px auto;
-        padding: 20px;
-    }
+        /* Biblioteca */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
 
-    .section-title {
-        font-size: 22px;
-        margin-bottom: 25px;
-        font-weight: 600;
-        border-left: 5px solid #c9a227;
-        padding-left: 15px;
-    }
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 25px;
+            font-weight: 700;
+            color: #374151;
+            border-left: 6px solid #c9a227;
+            padding-left: 15px;
+            text-transform: uppercase;
+        }
 
-    .card {
-        background: white;
-        padding: 25px;
-        margin-bottom: 20px;
-        border-radius: 10px;
-        text-decoration: none;
-        color: #1f2937;
-        display: block;
-        border: 1px solid #e5e7eb;
-        transition: all 0.2s ease;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
+        .card {
+            background: white;
+            padding: 25px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #1f2937;
+            display: block;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
 
-    .card:hover {
-        border-color: #c9a227;
-        transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
+        .card:hover {
+            border-color: #c9a227;
+            background-color: #fffcf2;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+        }
 
-    .card-title {
-        font-size: 20px;
-        font-weight: 600;
-        margin-bottom: 5px;
-    }
+        .card-title {
+            font-size: 19px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #0b1f3a;
+        }
 
-    .card-desc {
-        font-size: 14px;
-        color: #6b7280;
-    }
+        .card-desc {
+            font-size: 14px;
+            color: #6b7280;
+        }
 
-    footer {
-        text-align: center;
-        padding: 30px;
-        font-size: 13px;
-        color: #6b7280;
-        border-top: 1px solid #e5e7eb;
-        margin-top: 60px;
-        background: #ffffff;
-    }
-</style>
+        footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 12px;
+            color: #9ca3af;
+            background: #ffffff;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 60px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="header">
+<header class="header">
     <img src="aldeaMayab_blanco.png" alt="Aldea Mayab" class="logo">
     <h1 class="title">Manual Operativo Institucional</h1>
-    <div class="subtitle">
-        Aldea Mayab — Plataforma oficial de procedimientos, operación y seguridad
-    </div>
-</div>
+    <div class="subtitle">Aldea Mayab — Gestión de Operaciones, Administración y Seguridad</div>
+</header>
 
-<div class="emergency-section">
-    <div class="emergency-title">Protocolos de Emergencia — Acceso Inmediato</div>
+<main class="emergency-section">
+    <div class="emergency-title">Acciones de Respuesta Inmediata</div>
 
     <div class="emergency-grid">
 
         <a href="./libros/libro3.html#p-21" class="emergency-card">
-            <div class="emergency-card-title">🚨 Intruso o Riesgo</div>
-            <div class="emergency-card-desc">
-                Acceso no autorizado o amenazas a la seguridad del perímetro (Punto 2.1).
-            </div>
+            <div class="emergency-card-title"> SEGURIDAD / INTRUSO</div>
+            <div class="emergency-card-desc">Protocolo ante personas no autorizadas o riesgo perimetral.</div>
         </a>
 
         <a href="./libros/libro3.html#p-32" class="emergency-card laguna">
-            <div class="emergency-card-title">🐊 Cocodrilo en Muelle</div>
-            <div class="emergency-card-desc">
-                Protocolo específico de seguridad en zona de laguna y muelle (Punto 3.2).
-            </div>
+            <div class="emergency-card-title"> COCODRILO / MUELLE</div>
+            <div class="emergency-card-desc">Protocolo de avistamiento o riesgo en zona de laguna.</div>
         </a>
 
         <a href="./libros/libro3.html#p-31" class="emergency-card">
-            <div class="emergency-card-title">🐾 Fauna Silvestre</div>
-            <div class="emergency-card-desc">
-                Gestión de riesgos con fauna de la selva en áreas comunes (Punto 3.1).
-            </div>
+            <div class="emergency-card-title"> FAUNA SILVESTRE</div>
+            <div class="emergency-card-desc">Manejo de fauna en áreas comunes y senderos de selva.</div>
         </a>
 
         <a href="./libros/libro3.html#p-61" class="emergency-card">
-            <div class="emergency-card-title">🚑 Emergencia Médica</div>
-            <div class="emergency-card-desc">
-                Atención inicial coordinada en unidades o áreas comunes (Punto 6.1).
-            </div>
+            <div class="emergency-card-title"> EMERGENCIA MÉDICA</div>
+            <div class="emergency-card-desc">Protocolo de atención a residentes, huéspedes o staff.</div>
         </a>
 
         <a href="./libros/libro3.html#p-33" class="emergency-card">
-            <div class="emergency-card-title">🔥 Incendio</div>
-            <div class="emergency-card-desc">
-                Activación de brigadas, control de riesgos y evacuación (Punto 3.3).
-            </div>
+            <div class="emergency-card-title"> INCENDIO</div>
+            <div class="emergency-card-desc">Plan de respuesta, uso de extintores y evacuación.</div>
         </a>
 
     </div>
-</div>
+</main>
 
-<div class="container">
-    
-    <div class="section-title">Biblioteca Institucional de Manuales</div>
+<section class="container">
+    <div class="section-title">Biblioteca de Manuales</div>
 
     <a href="./libros/libro1_completo.html" class="card">
-        <div class="card-title">Libro 1 — Administración</div>
-        <div class="card-desc">
-            Gobernanza, administración, finanzas, cobranza y lineamientos institucionales.
-        </div>
+        <div class="card-title">Libro 1 — Administración y Finanzas</div>
+        <div class="card-desc">Gobernanza, cobranza, Vivook y lineamientos administrativos.</div>
     </a>
 
     <a href="./libros/libro2_operacion_seguridad.html" class="card">
         <div class="card-title">Libro 2 — Operación y Seguridad</div>
-        <div class="card-desc">
-            Operación diaria, seguridad, accesos, personal y protocolos operativos.
-        </div>
+        <div class="card-desc">Control de accesos, vigilancia y protocolos de hospitalidad.</div>
     </a>
 
     <a href="./libros/libro3.html" class="card">
         <div class="card-title">Libro 3 — Emergencias y Protocolos Críticos</div>
-        <div class="card-desc">
-            Manual de emergencias: intrusos, fauna, incendios, evacuaciones y crisis operativas.
-        </div>
+        <div class="card-desc">Manual completo de respuesta ante crisis y contingencias.</div>
     </a>
 
     <a href="./libros/libro4_Mtto.html" class="card">
-        <div class="card-title">Libro 4 — Mantenimiento</div>
-        <div class="card-desc">
-           Procedimientos de mantenimiento preventivo y correctivo, gestión de amenidades e infraestructura.
-        </div>
+        <div class="card-title">Libro 4 — Mantenimiento e Infraestructura</div>
+        <div class="card-desc">Mantenimiento de áreas comunes, muelle, gimnasio y PTAR.</div>
     </a>
-
-</div>
+</section>
 
 <footer>
-    © Aldea Mayab — Manual Interno Institucional | Uso Confidencial
+    © Aldea Mayab 2024 — Documentación Oficial de Uso Interno Confidencial
 </footer>
 
 </body>
