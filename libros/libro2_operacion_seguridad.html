@@ -20,7 +20,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);displa
 .sb-logo{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#5A9A68;margin-bottom:8px;}
 .sb-book{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#72D48A;margin-bottom:3px;}
 .sb-title{font-size:12.5px;font-weight:700;color:#E0EEE4;line-height:1.3;}
-.sb-search{padding:9px 12px;border-bottom:1px solid #1C301F;}
+.sb-search{position:sticky;top:0;z-index:5;background:var(--sidebar-bg, #0D1A11);padding:9px 12px;border-bottom:1px solid #1C301F;}
 .sb-search input{width:100%;background:#152019;border:1px solid #253828;border-radius:4px;padding:6px 9px;font-size:11px;color:#C0DEC8;font-family:'Inter',sans-serif;outline:none;}
 .sb-search input:focus{border-color:#72D48A;}
 .sb-search input::placeholder{color:#3A5A42;}
@@ -139,6 +139,33 @@ nav{padding:6px 0 40px;}
   .act-table{font-size:12px;}
   .proc-footer{flex-direction:column;gap:3px;font-size:10px;}
 }
+
+/* Cover TOC grid */
+.cover-toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;}
+.toc-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;
+  background:var(--white,#fff);border:1px solid var(--rule,#E8EEE9);
+  border-radius:8px;cursor:pointer;transition:all .15s;}
+.toc-item:hover{border-color:var(--green,#1F5C38);background:rgba(31,92,56,.04);}
+.toc-item-num{font-size:11px;font-weight:800;color:var(--green,#1F5C38);
+  letter-spacing:.06em;text-transform:uppercase;min-width:28px;padding-top:1px;}
+.toc-item-title{font-size:13px;font-weight:700;color:var(--text,#111816);margin-bottom:3px;}
+.toc-item-desc{font-size:11px;color:var(--text-mid,#5A6E60);line-height:1.4;}
+@media(max-width:600px){.cover-toc-grid{grid-template-columns:1fr;}}
+
+/* nav-anchor: section label in nav — same page, no navigation */
+.nav-anchor{display:block;padding:3px 16px 3px 40px;font-size:10.5px;
+  color:#3E6047;cursor:default;line-height:1.4;user-select:none;}
+.nav-anchor::before{content:'§ ';opacity:.5;}
+
+
+/* ── Sidebar nav scrollable ── */
+#sidebar{overflow-y:hidden;display:flex;flex-direction:column;}
+#sidebar nav{flex:1;overflow-y:auto;overscroll-behavior:contain;}
+#sidebar nav::-webkit-scrollbar{width:4px;}
+#sidebar nav::-webkit-scrollbar-track{background:transparent;}
+#sidebar nav::-webkit-scrollbar-thumb{background:#2A4A30;border-radius:4px;}
+#sidebar nav::-webkit-scrollbar-thumb:hover{background:#3A6040;}
+
 </style>
 </head>
 <body>
@@ -161,22 +188,22 @@ nav{padding:6px 0 40px;}
       <div class="nav-items">
         <a class="nav-link active" onclick="show('p-cover')">Portada e Introducción</a>
         <a class="nav-link" onclick="show('p-11-gov')">1.1 Gobierno de Seguridad</a>
-        <a class="nav-sub" onclick="show('p-11-gov')">↳ 1.1.1 Modelo Mixto</a>
-        <a class="nav-sub" onclick="show('p-11-gov')">↳ 1.1.2 Evaluación de Empresa</a>
-        <a class="nav-sub" onclick="show('p-11-gov')">↳ 1.1.3 Capacitación del Personal</a>
+        <span class="nav-anchor">1.1.1 Modelo Mixto</span>
+        <span class="nav-anchor">1.1.2 Evaluación de Empresa</span>
+        <span class="nav-anchor">1.1.3 Capacitación del Personal</span>
         <a class="nav-link" onclick="show('p-12-accesos')">1.2 Control de Accesos</a>
-        <a class="nav-sub" onclick="show('p-12-accesos')">↳ 1.2.1 Registro Digital en Vivook</a>
-        <a class="nav-sub" onclick="show('p-12-accesos')">↳ 1.2.2 Validación de Identidad</a>
-        <a class="nav-sub" onclick="show('p-12-accesos')">↳ 1.2.3 Registro de Salida</a>
+        <span class="nav-anchor">1.2.1 Registro Digital en Vivook</span>
+        <span class="nav-anchor">1.2.2 Validación de Identidad</span>
+        <span class="nav-anchor">1.2.3 Registro de Salida</span>
         <a class="nav-sub" onclick="show('p-12-vehicular')">↳ 1.2.4 Control Vehicular y Barrera</a>
         <a class="nav-sub" onclick="show('p-12-proveedores')">↳ 1.2.5 Control de Proveedores</a>
         <a class="nav-sub" onclick="show('p-12-huespedes')">↳ 1.2.6 Gestión de Huéspedes (Airbnb)</a>
         <a class="nav-sub" onclick="show('p-12-cctv')">↳ 1.2.7 CCTV (Retención mínima 30 días)</a>
         <a class="nav-sub" onclick="show('p-12-alerta')">↳ 1.2.8 Activación Nivel de Seguridad Elevado</a>
         <a class="nav-link" onclick="show('p-13-incidentes')">1.3 Gestión de Incidentes</a>
-        <a class="nav-sub" onclick="show('p-13-incidentes')">↳ 1.3.1 Registro Formal de Incidente</a>
-        <a class="nav-sub" onclick="show('p-13-incidentes')">↳ 1.3.2 Clasificación por Nivel</a>
-        <a class="nav-sub" onclick="show('p-13-incidentes')">↳ 1.3.3 Escalamiento</a>
+        <span class="nav-anchor">1.3.1 Registro Formal de Incidente</span>
+        <span class="nav-anchor">1.3.2 Clasificación por Nivel</span>
+        <span class="nav-anchor">1.3.3 Escalamiento</span>
       </div>
     </div>
     <!-- 2.0 -->
@@ -222,10 +249,7 @@ nav{padding:6px 0 40px;}
       <td class="it-accent" colspan="3"><span class="it-label">Principio rector</span><span class="it-value">El personal no discute reglas, no negocia seguridad y no toma decisiones discrecionales fuera del manual. "Si no está en el sistema, no entró." Sin excepciones.</span></td>
     </tr>
   </table>
-  <div class="info-grid">
-    <div class="info-card"><div class="ic-label">1.0 Sistema Integral de Seguridad</div><div class="ic-body">Gobierno de seguridad, control de accesos (8 procedimientos) y gestión de incidentes</div></div>
-    <div class="info-card"><div class="ic-label">2.0 Atención a Residentes y Huéspedes</div><div class="ic-body">Solicitudes, quejas, mediación de conflictos, paquetería y comunicación oficial</div></div>
-  </div>
+  <div class="cover-toc-grid"><div class="toc-item" onclick="show('p-11-gov')"><div class="toc-item-num">1.1</div><div class="toc-item-body"><div class="toc-item-title">Gobierno de Seguridad</div><div class="toc-item-desc">Modelo mixto, empresa de seguridad y capacitación</div></div></div><div class="toc-item" onclick="show('p-12-accesos')"><div class="toc-item-num">1.2</div><div class="toc-item-body"><div class="toc-item-title">Control de Accesos</div><div class="toc-item-desc">8 procedimientos: residentes, huéspedes, proveedores, CCTV</div></div></div><div class="toc-item" onclick="show('p-13-incidentes')"><div class="toc-item-num">1.3</div><div class="toc-item-body"><div class="toc-item-title">Gestión de Incidentes</div><div class="toc-item-desc">Registro, clasificación por nivel y escalamiento</div></div></div><div class="toc-item" onclick="show('p-21-solicitudes')"><div class="toc-item-num">2.1</div><div class="toc-item-body"><div class="toc-item-title">Solicitudes de Servicio</div><div class="toc-item-desc">Recepción, priorización y seguimiento</div></div></div><div class="toc-item" onclick="show('p-22-quejas')"><div class="toc-item-num">2.2</div><div class="toc-item-body"><div class="toc-item-title">Quejas y Reclamaciones</div><div class="toc-item-desc">Gestión formal, tiempos de respuesta y cierre</div></div></div><div class="toc-item" onclick="show('p-23-mediacion')"><div class="toc-item-num">2.3</div><div class="toc-item-body"><div class="toc-item-title">Mediación de Conflictos</div><div class="toc-item-desc">Protocolo de mediación entre residentes</div></div></div><div class="toc-item" onclick="show('p-24-paqueteria')"><div class="toc-item-num">2.4</div><div class="toc-item-body"><div class="toc-item-title">Paquetería y Entregas</div><div class="toc-item-desc">Recepción, custodia y notificación al residente</div></div></div><div class="toc-item" onclick="show('p-25-comunicacion')"><div class="toc-item-num">2.5</div><div class="toc-item-body"><div class="toc-item-title">Comunicación Oficial</div><div class="toc-item-desc">Canales, tonos y plantillas de comunicación</div></div></div></div>
   <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · Portada</span><span>Confidencial — Residencial Aldea Mayab</span></div>
 </div>
 
@@ -651,7 +675,7 @@ nav{padding:6px 0 40px;}
   <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Canales Oficiales del Residencial</div></div>
   <div class="info-grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;">
     <div class="info-card"><div class="ic-label">WhatsApp Operativo</div><div class="ic-title">Grupo oficial del residencial</div><div class="ic-body">Para comunicaciones urgentes y operativas. Solo personal autorizado puede publicar. Residentes no responden en este canal — es de transmisión.</div></div>
-    <div class="info-card"><div class="ic-label">Correo Electrónico</div><div class="ic-title">administracion@aldeamayab.mx</div><div class="ic-body">Para comunicaciones formales, estados de cuenta, convenios y documentos. Tiempo de respuesta: máx. 24h hábiles.</div></div>
+    <div class="info-card"><div class="ic-label">Correo Electrónico</div><div class="ic-title"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b0d1d4ddd9ded9c3c4c2d1d3d9dfdef0d1dcd4d5d1ddd1c9d1d29eddc8">[email&#160;protected]</a></div><div class="ic-body">Para comunicaciones formales, estados de cuenta, convenios y documentos. Tiempo de respuesta: máx. 24h hábiles.</div></div>
     <div class="info-card"><div class="ic-label">Vivook</div><div class="ic-title">Notificaciones automáticas</div><div class="ic-body">QRs de acceso, estados de cuenta, alertas de moroso y confirmaciones de reservas. Canal automático del sistema.</div></div>
   </div>
 
@@ -675,23 +699,24 @@ nav{padding:6px 0 40px;}
   </div><!-- /content -->
 </div><!-- /main -->
 
-<script>
 
+
+<script>
 const PAGES = {
-  'p-cover':           '1.0 Sistema Integral de Seguridad · Portada e Introducción',
-  'p-11-gov':          '1.0 Sistema Integral de Seguridad · 1.1 Gobierno de Seguridad',
-  'p-12-accesos':      '1.0 Sistema Integral de Seguridad · 1.2 Control de Accesos',
-  'p-12-vehicular':    '1.0 Sistema Integral de Seguridad · 1.2.4 Control Vehicular y Barrera',
-  'p-12-proveedores':  '1.0 Sistema Integral de Seguridad · 1.2.5 Control de Proveedores',
-  'p-12-huespedes':    '1.0 Sistema Integral de Seguridad · 1.2.6 Gestión de Huéspedes',
-  'p-12-cctv':         '1.0 Sistema Integral de Seguridad · 1.2.7 CCTV',
-  'p-12-alerta':       '1.0 Sistema Integral de Seguridad · 1.2.8 Nivel de Seguridad Elevado',
-  'p-13-incidentes':   '1.0 Sistema Integral de Seguridad · 1.3 Gestión de Incidentes',
-  'p-21-solicitudes':  '2.0 Atención a Residentes · 2.1 Recepción de Solicitudes',
-  'p-22-quejas':       '2.0 Atención a Residentes · 2.2 Gestión de Quejas',
-  'p-23-mediacion':    '2.0 Atención a Residentes · 2.3 Mediación de Conflictos',
-  'p-24-paqueteria':   '2.0 Atención a Residentes · 2.4 Gestión de Paquetería',
-  'p-25-comunicacion': '2.0 Atención a Residentes · 2.5 Comunicación Oficial',
+  'p-cover':             '1.0 Sistema Integral de Seguridad · Portada',
+  'p-11-gov':            '1.0 Sistema Integral de Seguridad · 1.1 Gobierno de Seguridad',
+  'p-12-accesos':        '1.0 Sistema Integral de Seguridad · 1.2 Control de Accesos',
+  'p-12-vehicular':      '1.0 Sistema Integral de Seguridad · 1.2 Control Vehicular y Barrera',
+  'p-12-proveedores':    '1.0 Sistema Integral de Seguridad · 1.2 Control de Proveedores',
+  'p-12-huespedes':      '1.0 Sistema Integral de Seguridad · 1.2 Gestión de Huéspedes',
+  'p-12-cctv':           '1.0 Sistema Integral de Seguridad · 1.2 CCTV',
+  'p-12-alerta':         '1.0 Sistema Integral de Seguridad · 1.2 Nivel de Alerta Elevado',
+  'p-13-incidentes':     '1.0 Sistema Integral de Seguridad · 1.3 Gestión de Incidentes',
+  'p-21-solicitudes':    '2.0 Atención a Residentes · 2.1 Solicitudes de Servicio',
+  'p-22-quejas':         '2.0 Atención a Residentes · 2.2 Quejas y Reclamaciones',
+  'p-23-mediacion':      '2.0 Atención a Residentes · 2.3 Mediación de Conflictos',
+  'p-24-paqueteria':     '2.0 Atención a Residentes · 2.4 Paquetería y Entregas',
+  'p-25-comunicacion':   '2.0 Atención a Residentes · 2.5 Comunicación Oficial',
 };
 function show(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
@@ -701,8 +726,7 @@ function show(id){
   const label=PAGES[id]||'';
   const parts=label.split(' · ');
   const bc=document.getElementById('breadcrumb');
-  if(parts.length>1){bc.innerHTML='Libro II &rsaquo; '+parts.slice(0,-1).join(' &rsaquo; ')+' &rsaquo; <strong>'+parts[parts.length-1]+'</strong>';}
-  else{bc.innerHTML='Libro II &rsaquo; <strong>'+label+'</strong>';}
+  bc.innerHTML='Libro II &rsaquo; '+parts.slice(0,-1).join(' &rsaquo; ')+' &rsaquo; <strong>'+parts[parts.length-1]+'</strong>';
   document.querySelectorAll('.nav-link,.nav-sub').forEach(el=>{
     if((el.getAttribute('onclick')||'').includes("'"+id+"'"))el.classList.add('active');
   });
@@ -728,18 +752,42 @@ function searchNav(val){
     }
   });
 }
-
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){const inp=document.querySelector('.sb-search input');inp.value='';searchNav('');inp.blur();}
+});
 (function(){
-  function _open(){document.getElementById('sidebar').classList.add('open');document.getElementById('hamburger').classList.add('open');document.getElementById('overlay').classList.add('visible');document.body.style.overflow='hidden';}
-  function _close(){document.getElementById('sidebar').classList.remove('open');document.getElementById('hamburger').classList.remove('open');document.getElementById('overlay').classList.remove('visible');document.body.style.overflow='';}
+  function _open(){
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('hamburger').classList.add('open');
+    document.getElementById('overlay').classList.add('visible');
+    document.body.style.overflow='hidden';
+  }
+  function _close(){
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('overlay').classList.remove('visible');
+    document.body.style.overflow='';
+  }
+  window.toggleSidebar=function(){
+    if(document.getElementById('sidebar').classList.contains('open')){_close();}else{_open();}
+  };
   window.closeSidebar=_close;
   function init(){
-    var hb=document.getElementById('hamburger'),ov=document.getElementById('overlay');
-    if(hb){hb.addEventListener('click',function(e){e.stopPropagation();document.getElementById('sidebar').classList.contains('open')?_close():_open();});hb.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();document.getElementById('sidebar').classList.contains('open')?_close():_open();},{passive:false});}
-    if(ov){ov.addEventListener('click',_close);ov.addEventListener('touchend',function(e){e.preventDefault();_close();},{passive:false});}
+    var hb=document.getElementById('hamburger');
+    var ov=document.getElementById('overlay');
+    if(hb){
+      hb.addEventListener('click',function(e){e.stopPropagation();window.toggleSidebar();});
+      hb.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();window.toggleSidebar();},{passive:false});
+    }
+    if(ov){
+      ov.addEventListener('click',_close);
+      ov.addEventListener('touchend',function(e){e.preventDefault();_close();},{passive:false});
+    }
   }
-  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}
+  else{init();}
 })();
+
 </script>
 </body>
 </html>
