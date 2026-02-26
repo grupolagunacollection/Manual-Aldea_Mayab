@@ -22,7 +22,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);displa
 .sb-logo{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#5A9A68;margin-bottom:7px;}
 .sb-book{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#FF8A70;margin-bottom:3px;}
 .sb-title{font-size:12px;font-weight:700;color:#E0EEE4;line-height:1.3;}
-.sb-search{padding:8px 12px;border-bottom:1px solid #1C301F;}
+.sb-search{position:sticky;top:0;z-index:5;background:var(--sidebar-bg, #0D1A11);padding:8px 12px;border-bottom:1px solid #1C301F;}
 .sb-search input{width:100%;background:#152019;border:1px solid #253828;border-radius:4px;padding:6px 9px;font-size:11px;color:#C0DEC8;font-family:'Inter',sans-serif;outline:none;}
 .sb-search input:focus{border-color:#FF8A70;}
 .sb-search input::placeholder{color:#3A5A42;}
@@ -185,6 +185,33 @@ nav{padding:4px 0 40px;}
   .act-table td{padding:8px 9px;}
   .proc-footer{flex-direction:column;gap:3px;font-size:10px;}
 }
+
+/* Cover TOC grid */
+.cover-toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;}
+.toc-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;
+  background:var(--white,#fff);border:1px solid var(--rule,#E8EEE9);
+  border-radius:8px;cursor:pointer;transition:all .15s;}
+.toc-item:hover{border-color:var(--green,#1F5C38);background:rgba(31,92,56,.04);}
+.toc-item-num{font-size:11px;font-weight:800;color:var(--green,#1F5C38);
+  letter-spacing:.06em;text-transform:uppercase;min-width:28px;padding-top:1px;}
+.toc-item-title{font-size:13px;font-weight:700;color:var(--text,#111816);margin-bottom:3px;}
+.toc-item-desc{font-size:11px;color:var(--text-mid,#5A6E60);line-height:1.4;}
+@media(max-width:600px){.cover-toc-grid{grid-template-columns:1fr;}}
+
+/* nav-anchor: section label in nav — same page, no navigation */
+.nav-anchor{display:block;padding:3px 14px 3px 38px;font-size:10px;
+  color:#3E6047;cursor:default;line-height:1.4;user-select:none;}
+.nav-anchor::before{content:'§ ';opacity:.5;}
+
+
+/* ── Sidebar nav scrollable ── */
+#sidebar{overflow-y:hidden;display:flex;flex-direction:column;}
+#sidebar nav{flex:1;overflow-y:auto;overscroll-behavior:contain;}
+#sidebar nav::-webkit-scrollbar{width:4px;}
+#sidebar nav::-webkit-scrollbar-track{background:transparent;}
+#sidebar nav::-webkit-scrollbar-thumb{background:#2A4A30;border-radius:4px;}
+#sidebar nav::-webkit-scrollbar-thumb:hover{background:#3A6040;}
+
 </style>
 </head>
 <body>
@@ -209,7 +236,7 @@ nav{padding:4px 0 40px;}
         <a class="nav-link" onclick="show('p-11')">1.1 Clasificación por Niveles</a>
         <a class="nav-link" onclick="show('p-12')">1.2 Cadena de Mando</a>
         <a class="nav-link" onclick="show('p-13')">1.3 Centro de Control</a>
-        <a class="nav-sub" onclick="show('p-13')">↳ Directorio de Emergencias Bacalar</a>
+        <span class="nav-anchor">Directorio de Emergencias Bacalar</span>
         <a class="nav-link" onclick="show('p-14')">1.4 Comunicación en Crisis</a>
       </div>
     </div>
@@ -222,9 +249,9 @@ nav{padding:4px 0 40px;}
       <div class="nav-items">
         <a class="nav-link" onclick="show('p-21')">2.1 Intrusión</a>
         <a class="nav-link" onclick="show('p-22')">2.2 Persona Agresiva</a>
-        <a class="nav-sub" onclick="show('p-22')">↳ Nivel 1 — Molesto / cooperativo</a>
-        <a class="nav-sub" onclick="show('p-22')">↳ Nivel 2 — Grita / se niega</a>
-        <a class="nav-sub" onclick="show('p-22')">↳ Nivel 3 — Amenazas / agresión física</a>
+        <span class="nav-anchor">Nivel 1 — Molesto / cooperativo</span>
+        <span class="nav-anchor">Nivel 2 — Grita / se niega</span>
+        <span class="nav-anchor">Nivel 3 — Amenazas / agresión física</span>
         <a class="nav-link" onclick="show('p-23')">2.3 Evento Masivo No Autorizado</a>
         <a class="nav-link" onclick="show('p-24')">2.4 Intento de Robo</a>
       </div>
@@ -237,9 +264,9 @@ nav{padding:4px 0 40px;}
       </div>
       <div class="nav-items">
         <a class="nav-link" onclick="show('p-31')">3.1 Ataque o Presencia de Fauna</a>
-        <a class="nav-sub" onclick="show('p-31')">↳ Reptiles — distancia y acordonamiento</a>
-        <a class="nav-sub" onclick="show('p-31')">↳ Mordedura de serpiente</a>
-        <a class="nav-sub" onclick="show('p-31')">↳ Picaduras — alacranes, arañas</a>
+        <span class="nav-anchor">Reptiles — distancia y acordonamiento</span>
+        <span class="nav-anchor">Mordedura de serpiente</span>
+        <span class="nav-anchor">Picaduras — alacranes, arañas</span>
         <a class="nav-link" onclick="show('p-32')">3.2 Cocodrilo en Muelle</a>
         <a class="nav-link" onclick="show('p-33')">3.3 Incendio en Selva / Área Común</a>
         <a class="nav-link" onclick="show('p-34')">3.4 Contaminación en Laguna</a>
@@ -253,9 +280,9 @@ nav{padding:4px 0 40px;}
       </div>
       <div class="nav-items">
         <a class="nav-link" onclick="show('p-41')">4.1 Huracán</a>
-        <a class="nav-sub" onclick="show('p-41')">↳ Preparación de infraestructura</a>
-        <a class="nav-sub" onclick="show('p-41')">↳ Durante el evento</a>
-        <a class="nav-sub" onclick="show('p-41')">↳ Post-huracán</a>
+        <span class="nav-anchor">Preparación de infraestructura</span>
+        <span class="nav-anchor">Durante el evento</span>
+        <span class="nav-anchor">Post-huracán</span>
         <a class="nav-link" onclick="show('p-42')">4.2 Inundación</a>
         <a class="nav-link" onclick="show('p-43')">4.3 Sismo</a>
       </div>
@@ -269,7 +296,7 @@ nav{padding:4px 0 40px;}
       <div class="nav-items">
         <a class="nav-link" onclick="show('p-51')">5.1 Falla Eléctrica</a>
         <a class="nav-link" onclick="show('p-52')">5.2 Falla de Sistema Digital</a>
-        <a class="nav-sub" onclick="show('p-52')">↳ Modo Offline — Vivook / AppSheet</a>
+        <span class="nav-anchor">Modo Offline — Vivook / AppSheet</span>
         <a class="nav-link" onclick="show('p-53')">5.3 Falla de PTAR</a>
       </div>
     </div>
@@ -283,10 +310,10 @@ nav{padding:4px 0 40px;}
         <a class="nav-link" onclick="show('p-61')">6.1 Emergencia en Unidad Habitacional</a>
         <a class="nav-link" onclick="show('p-62')">6.2 Emergencia en Área Común</a>
         <a class="nav-link" onclick="show('p-63')">6.3 Primer Respondiente</a>
-        <a class="nav-sub" onclick="show('p-63')">↳ Botiquines por ubicación</a>
-        <a class="nav-sub" onclick="show('p-63')">↳ Extintores — tipos y ubicación</a>
-        <a class="nav-sub" onclick="show('p-63')">↳ DEA — Casa Club</a>
-        <a class="nav-sub" onclick="show('p-63')">↳ Capacitación y simulacros</a>
+        <span class="nav-anchor">Botiquines por ubicación</span>
+        <span class="nav-anchor">Extintores — tipos y ubicación</span>
+        <span class="nav-anchor">DEA — Casa Club</span>
+        <span class="nav-anchor">Capacitación y simulacros</span>
       </div>
     </div>
   </nav>
@@ -326,6 +353,7 @@ nav{padding:4px 0 40px;}
     <div class="info-card"><div class="ic-label">5.0 Emergencias Técnicas</div><div class="ic-body">Falla eléctrica, falla de sistema digital (modo offline), falla de PTAR</div></div>
     <div class="info-card"><div class="ic-label">6.0 Emergencias Médicas</div><div class="ic-body">Emergencia en unidad, área común, protocolo de primer respondiente y equipos</div></div>
   </div>
+  <div class="cover-toc-grid"><div class="toc-item" onclick="show('p-11')"><div class="toc-item-num">1.0</div><div class="toc-item-body"><div class="toc-item-title">Marco General</div><div class="toc-item-desc">Niveles de emergencia, cadena de mando y comunicación en crisis</div></div></div><div class="toc-item" onclick="show('p-21')"><div class="toc-item-num">2.0</div><div class="toc-item-body"><div class="toc-item-title">Seguridad</div><div class="toc-item-desc">Intrusión, persona agresiva, evento masivo e intento de robo</div></div></div><div class="toc-item" onclick="show('p-31')"><div class="toc-item-num">3.0</div><div class="toc-item-body"><div class="toc-item-title">Fauna y Entorno</div><div class="toc-item-desc">Fauna silvestre, cocodrilo en muelle, incendio y contaminación</div></div></div><div class="toc-item" onclick="show('p-41')"><div class="toc-item-num">4.0</div><div class="toc-item-body"><div class="toc-item-title">Emergencias Naturales</div><div class="toc-item-desc">Huracán, inundación y sismo</div></div></div><div class="toc-item" onclick="show('p-51')"><div class="toc-item-num">5.0</div><div class="toc-item-body"><div class="toc-item-title">Emergencias Técnicas</div><div class="toc-item-desc">Falla eléctrica, sistema digital caído y falla de PTAR</div></div></div><div class="toc-item" onclick="show('p-61')"><div class="toc-item-num">6.0</div><div class="toc-item-body"><div class="toc-item-title">Emergencias Médicas</div><div class="toc-item-desc">Unidad habitacional, área común y protocolo primer respondiente</div></div></div></div>
   <div class="proc-footer"><span>PR-AM-EME-001 · Libro III · Portada</span><span>Confidencial — Residencial Aldea Mayab</span></div>
 </div>
 
