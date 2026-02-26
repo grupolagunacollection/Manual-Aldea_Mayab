@@ -21,7 +21,7 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);displa
 .sb-logo{font-size:9px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:#5A9A68;margin-bottom:8px;}
 .sb-book{font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#72D48A;margin-bottom:3px;}
 .sb-title{font-size:12.5px;font-weight:700;color:#E0EEE4;line-height:1.3;}
-.sb-search{padding:9px 12px;border-bottom:1px solid #1C301F;}
+.sb-search{position:sticky;top:0;z-index:5;background:var(--sidebar-bg, #0D1A11);padding:9px 12px;border-bottom:1px solid #1C301F;}
 .sb-search input{width:100%;background:#152019;border:1px solid #253828;border-radius:4px;padding:6px 9px;font-size:11px;color:#C0DEC8;font-family:'Inter',sans-serif;outline:none;}
 .sb-search input:focus{border-color:#72D48A;}
 .sb-search input::placeholder{color:#3A5A42;}
@@ -158,6 +158,33 @@ nav{padding:6px 0 40px;}
   .act-table td{padding:8px 9px;}
   .proc-footer{flex-direction:column;gap:3px;font-size:10px;}
 }
+
+/* Cover TOC grid */
+.cover-toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;}
+.toc-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;
+  background:var(--white,#fff);border:1px solid var(--rule,#E8EEE9);
+  border-radius:8px;cursor:pointer;transition:all .15s;}
+.toc-item:hover{border-color:var(--green,#1F5C38);background:rgba(31,92,56,.04);}
+.toc-item-num{font-size:11px;font-weight:800;color:var(--green,#1F5C38);
+  letter-spacing:.06em;text-transform:uppercase;min-width:28px;padding-top:1px;}
+.toc-item-title{font-size:13px;font-weight:700;color:var(--text,#111816);margin-bottom:3px;}
+.toc-item-desc{font-size:11px;color:var(--text-mid,#5A6E60);line-height:1.4;}
+@media(max-width:600px){.cover-toc-grid{grid-template-columns:1fr;}}
+
+/* nav-anchor: section label in nav — same page, no navigation */
+.nav-anchor{display:block;padding:3px 16px 3px 40px;font-size:10.5px;
+  color:#3E6047;cursor:default;line-height:1.4;user-select:none;}
+.nav-anchor::before{content:'§ ';opacity:.5;}
+
+
+/* ── Sidebar nav scrollable ── */
+#sidebar{overflow-y:hidden;display:flex;flex-direction:column;}
+#sidebar nav{flex:1;overflow-y:auto;overscroll-behavior:contain;}
+#sidebar nav::-webkit-scrollbar{width:4px;}
+#sidebar nav::-webkit-scrollbar-track{background:transparent;}
+#sidebar nav::-webkit-scrollbar-thumb{background:#2A4A30;border-radius:4px;}
+#sidebar nav::-webkit-scrollbar-thumb:hover{background:#3A6040;}
+
 </style>
 </head>
 <body>
@@ -180,19 +207,20 @@ nav{padding:6px 0 40px;}
       <div class="nav-items">
         <a class="nav-link active" onclick="show('p-intro')">Portada e Introducción</a>
         <a class="nav-link" onclick="show('p-11')">1.1 Estructura Organizacional</a>
-        <a class="nav-sub" onclick="show('p-11')">↳ 1.1.1 Organigrama Oficial</a>
+        <span class="nav-anchor">1.1.1 Organigrama Oficial</span>
         <a class="nav-sub" onclick="show('p-11-puestos')">↳ 1.1.2 Descripción de Puestos</a>
         <a class="nav-sub" onclick="show('p-11-autoridad')">↳ 1.1.3 Límites de Autoridad</a>
         <a class="nav-sub" onclick="show('p-11-raci')">↳ 1.1.4 Matriz RACI Institucional</a>
+        <a class="nav-link" onclick="show('p-cultura')">1.5 Cultura Organizacional</a>
         <a class="nav-link" onclick="show('p-12')">1.2 Gobierno Operativo</a>
-        <a class="nav-sub" onclick="show('p-12')">↳ 1.2.1 Comité Operativo</a>
-        <a class="nav-sub" onclick="show('p-12')">↳ 1.2.2 Comité Financiero</a>
-        <a class="nav-sub" onclick="show('p-12')">↳ 1.2.3 Comité de Seguridad</a>
+        <span class="nav-anchor">1.2.1 Comité Operativo</span>
+        <span class="nav-anchor">1.2.2 Comité Financiero</span>
+        <span class="nav-anchor">1.2.3 Comité de Seguridad</span>
         <a class="nav-sub" onclick="show('p-12-dec')">↳ 1.2.4 Decisiones Extraordinarias</a>
         <a class="nav-link" onclick="show('p-etica')">1.3 Código de Ética</a>
-        <a class="nav-sub" onclick="show('p-etica')">↳ 1.3.1 Declaración de Conflictos</a>
-        <a class="nav-sub" onclick="show('p-etica')">↳ 1.3.2 Política Antifraude</a>
-        <a class="nav-sub" onclick="show('p-etica')">↳ 1.3.3 Canal de Reporte Interno</a>
+        <span class="nav-anchor">1.3.1 Declaración de Conflictos</span>
+        <span class="nav-anchor">1.3.2 Política Antifraude</span>
+        <span class="nav-anchor">1.3.3 Canal de Reporte Interno</span>
       </div>
     </div>
     <!-- 2.0 -->
@@ -203,30 +231,30 @@ nav{padding:6px 0 40px;}
       </div>
       <div class="nav-items">
         <a class="nav-link" onclick="show('p-21')">2.1 Planeación Presupuestal</a>
-        <a class="nav-sub" onclick="show('p-21')">↳ 2.1.1 Elaboración Presupuesto Anual</a>
-        <a class="nav-sub" onclick="show('p-21')">↳ 2.1.2 Proyección de Flujo de Efectivo</a>
-        <a class="nav-sub" onclick="show('p-21')">↳ 2.1.3 Aprobación Presupuestal</a>
+        <span class="nav-anchor">2.1.1 Elaboración Presupuesto Anual</span>
+        <span class="nav-anchor">2.1.2 Proyección de Flujo de Efectivo</span>
+        <span class="nav-anchor">2.1.3 Aprobación Presupuestal</span>
         <a class="nav-link" onclick="show('p-22')">2.2 Control Presupuestal</a>
-        <a class="nav-sub" onclick="show('p-22')">↳ 2.2.1 Seguimiento Mensual</a>
-        <a class="nav-sub" onclick="show('p-22')">↳ 2.2.2 Análisis de Variaciones</a>
-        <a class="nav-sub" onclick="show('p-22')">↳ 2.2.3 Ajustes Presupuestales</a>
+        <span class="nav-anchor">2.2.1 Seguimiento Mensual</span>
+        <span class="nav-anchor">2.2.2 Análisis de Variaciones</span>
+        <span class="nav-anchor">2.2.3 Ajustes Presupuestales</span>
         <a class="nav-link" onclick="show('p-23')">2.3 Ingresos</a>
-        <a class="nav-sub" onclick="show('p-23')">↳ 2.3.1 Emisión de Estados de Cuenta</a>
-        <a class="nav-sub" onclick="show('p-23')">↳ 2.3.2 Cobro Ordinario HOA</a>
-        <a class="nav-sub" onclick="show('p-23')">↳ 2.3.3 Cobro de Servicios y Amenidades</a>
-        <a class="nav-sub" onclick="show('p-23')">↳ 2.3.4 Cobro de Multas</a>
+        <span class="nav-anchor">2.3.1 Emisión de Estados de Cuenta</span>
+        <span class="nav-anchor">2.3.2 Cobro Ordinario HOA</span>
+        <span class="nav-anchor">2.3.3 Cobro de Servicios y Amenidades</span>
+        <span class="nav-anchor">2.3.4 Cobro de Multas</span>
         <a class="nav-link" onclick="show('p-24')">2.4 Gestión de Morosidad</a>
-        <a class="nav-sub" onclick="show('p-24')">↳ 2.4.1 Sistema Escalonado</a>
-        <a class="nav-sub" onclick="show('p-24')">↳ 2.4.2 Restricciones Administrativas</a>
-        <a class="nav-sub" onclick="show('p-24')">↳ 2.4.3 Bloqueo de Registro de Huéspedes</a>
-        <a class="nav-sub" onclick="show('p-24')">↳ 2.4.4 Convenios de Pago</a>
-        <a class="nav-sub" onclick="show('p-24')">↳ 2.4.5 Turno a Gestión Jurídica</a>
+        <span class="nav-anchor">2.4.1 Sistema Escalonado</span>
+        <span class="nav-anchor">2.4.2 Restricciones Administrativas</span>
+        <span class="nav-anchor">2.4.3 Bloqueo de Registro de Huéspedes</span>
+        <span class="nav-anchor">2.4.4 Convenios de Pago</span>
+        <span class="nav-anchor">2.4.5 Turno a Gestión Jurídica</span>
         <a class="nav-link" onclick="show('p-25')">2.5 Egresos</a>
-        <a class="nav-sub" onclick="show('p-25')">↳ 2.5.1 Política de Autorización de Gastos</a>
-        <a class="nav-sub" onclick="show('p-25')">↳ 2.5.2 Pago a Proveedores</a>
-        <a class="nav-sub" onclick="show('p-25')">↳ 2.5.3 Control de Caja Chica</a>
-        <a class="nav-sub" onclick="show('p-25')">↳ 2.5.4 Conciliaciones Bancarias</a>
-        <a class="nav-sub" onclick="show('p-25')">↳ 2.5.5 Archivo Digital de Facturas</a>
+        <span class="nav-anchor">2.5.1 Política de Autorización de Gastos</span>
+        <span class="nav-anchor">2.5.2 Pago a Proveedores</span>
+        <span class="nav-anchor">2.5.3 Control de Caja Chica</span>
+        <span class="nav-anchor">2.5.4 Conciliaciones Bancarias</span>
+        <span class="nav-anchor">2.5.5 Archivo Digital de Facturas</span>
       </div>
     </div>
     <!-- 3.0 -->
@@ -237,13 +265,13 @@ nav{padding:6px 0 40px;}
       </div>
       <div class="nav-items">
         <a class="nav-link" onclick="show('p-31')">3.1 Matriz Integral de Riesgos</a>
-        <a class="nav-sub" onclick="show('p-31')">↳ 3.1.1 Identificación de Riesgos</a>
-        <a class="nav-sub" onclick="show('p-31')">↳ 3.1.2 Evaluación de Impacto</a>
-        <a class="nav-sub" onclick="show('p-31')">↳ 3.1.3 Planes de Mitigación</a>
+        <span class="nav-anchor">3.1.1 Identificación de Riesgos</span>
+        <span class="nav-anchor">3.1.2 Evaluación de Impacto</span>
+        <span class="nav-anchor">3.1.3 Planes de Mitigación</span>
         <a class="nav-link" onclick="show('p-32')">3.2 Auditoría Interna</a>
-        <a class="nav-sub" onclick="show('p-32')">↳ 3.2.1 Auditoría Financiera</a>
-        <a class="nav-sub" onclick="show('p-32')">↳ 3.2.2 Auditoría Operativa</a>
-        <a class="nav-sub" onclick="show('p-32')">↳ 3.2.3 Seguimiento de Hallazgos</a>
+        <span class="nav-anchor">3.2.1 Auditoría Financiera</span>
+        <span class="nav-anchor">3.2.2 Auditoría Operativa</span>
+        <span class="nav-anchor">3.2.3 Seguimiento de Hallazgos</span>
       </div>
     </div>
   </nav>
@@ -283,6 +311,7 @@ nav{padding:6px 0 40px;}
     <div class="info-card"><div class="ic-label">3.0 Riesgos y Auditoría</div><div class="ic-body">Matriz integral de riesgos, auditoría financiera y operativa, seguimiento de hallazgos</div></div>
     <div class="info-card"><div class="ic-label">Próxima revisión</div><div class="ic-body">Enero 2027 — Responsable: Gerencia Administrativa</div></div>
   </div>
+  <div class="cover-toc-grid"><div class="toc-item" onclick="show('p-11')"><div class="toc-item-num">1.0</div><div class="toc-item-body"><div class="toc-item-title">Marco Institucional</div><div class="toc-item-desc">Estructura organizacional, gobierno operativo y código de ética</div></div></div><div class="toc-item" onclick="show('p-cultura')"><div class="toc-item-num">1.5</div><div class="toc-item-body"><div class="toc-item-title">Cultura Organizacional</div><div class="toc-item-desc">Valores, estándares de conducta y ambiente de trabajo</div></div></div><div class="toc-item" onclick="show('p-21')"><div class="toc-item-num">2.0</div><div class="toc-item-body"><div class="toc-item-title">Finanzas y Presupuesto</div><div class="toc-item-desc">Planeación presupuestal, ingresos, egresos y morosidad</div></div></div><div class="toc-item" onclick="show('p-31')"><div class="toc-item-num">3.0</div><div class="toc-item-body"><div class="toc-item-title">Control y Auditoría</div><div class="toc-item-desc">Matriz de riesgos, auditoría interna y seguimiento</div></div></div></div>
   <div class="proc-footer"><span>PR-AM-ADM-GOB-001 · Libro I · Portada</span><span>Confidencial — Residencial Aldea Mayab</span></div>
 </div>
 
@@ -517,6 +546,66 @@ nav{padding:6px 0 40px;}
 </div>
 
 <!-- ══ 1.2 COMITÉS ══ -->
+
+<!-- ══ CULTURA ORGANIZACIONAL ══ -->
+<div class="page" id="p-cultura">
+  <div class="proc-eyebrow">1.0 Marco Institucional · 1.5</div>
+  <h1 class="proc-title">1.5 Cultura Organizacional</h1>
+  <p class="proc-subtitle">Valores, estándares de conducta y ambiente de trabajo en Aldea Mayab</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Valores Institucionales</div></div>
+  <div class="info-grid" style="grid-template-columns:1fr 1fr 1fr;gap:10px;display:grid;margin-bottom:16px;">
+    <div class="info-card"><div class="ic-label">Servicio</div><div class="ic-title">Anticipamos, no reaccionamos</div><div class="ic-body">El estándar no es resolver lo que se pide — es anticipar lo que se necesita. Cada interacción con un residente es una oportunidad de demostrar excelencia.</div></div>
+    <div class="info-card"><div class="ic-label">Integridad</div><div class="ic-title">Sin excepciones ni atajos</div><div class="ic-body">Los procedimientos existen porque protegen a todos. Saltarse un paso por comodidad o conveniencia no es eficiencia — es un riesgo que cargamos juntos.</div></div>
+    <div class="info-card"><div class="ic-label">Comunidad</div><div class="ic-title">El residencial es de todos</div><div class="ic-body">Cuidamos las áreas comunes, el entorno natural y la convivencia como si fueran propios. El lago, la selva y los espacios compartidos son patrimonio colectivo.</div></div>
+    <div class="info-card"><div class="ic-label">Discreción</div><div class="ic-title">Lo que pasa aquí, queda aquí</div><div class="ic-body">La información de residentes, sus rutinas, conflictos o finanzas es estrictamente confidencial. Compartir información interna es causal de rescisión inmediata.</div></div>
+    <div class="info-card"><div class="ic-label">Responsabilidad</div><div class="ic-title">Dueños del resultado</div><div class="ic-body">No se transfieren problemas sin intentar resolverlos primero. Si algo está mal y lo veo, es mi responsabilidad actuar o escalar — no esperar a que alguien más lo note.</div></div>
+    <div class="info-card"><div class="ic-label">Respeto</div><div class="ic-title">Trato digno en todo momento</div><div class="ic-body">Con residentes, visitantes, proveedores y compañeros. El rango no justifica el maltrato. La firmeza no requiere descortesía.</div></div>
+  </div>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Estándares de Conducta</div></div>
+  <div class="info-grid" style="grid-template-columns:1fr 1fr;gap:10px;display:grid;margin-bottom:16px;">
+    <div class="info-card">
+      <div class="ic-label">Presentación personal</div>
+      <div class="ic-body">Uniforme completo y limpio en turno. Gafete visible en todo momento. Cabello recogido para personal de mantenimiento y seguridad. Teléfono personal en silencio o vibración durante el turno — el uso personal se limita a los descansos designados.</div>
+    </div>
+    <div class="info-card">
+      <div class="ic-label">Comunicación con residentes</div>
+      <div class="ic-body">Saludo proactivo, tono calmado, escucha activa antes de responder. Nunca discutir, nunca justificarse defensivamente. Si no se puede resolver en el momento: "Lo atiendo en X minutos" con seguimiento real. Jamás prometer lo que no está autorizado.</div>
+    </div>
+    <div class="info-card">
+      <div class="ic-label">Uso de instalaciones</div>
+      <div class="ic-body">El personal no usa albercas, asadores, firepit ni instalaciones para residentes fuera de sus funciones de servicio. Las áreas de descanso del personal son las designadas. El consumo de alimentos no se realiza en áreas visibles para residentes.</div>
+    </div>
+    <div class="info-card">
+      <div class="ic-label">Redes sociales e imagen</div>
+      <div class="ic-body">Prohibido publicar fotos, videos o información del residencial, residentes o instalaciones en redes sociales personales sin autorización escrita de Dirección General. Las imágenes de CCTV son confidenciales y no pueden compartirse bajo ningún motivo.</div>
+    </div>
+  </div>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">3</div><div class="sec-title">Ambiente de Trabajo</div></div>
+  <ol class="step-list">
+    <li><span class="step-n">1</span><div><strong>Política de puertas abiertas</strong> — Cualquier miembro del equipo puede hablar directamente con Gerencia Administrativa sobre situaciones que afecten su desempeño, bienestar o integridad. No se requiere pasar por el jefe inmediato para reportar conductas irregulares.</div></li>
+    <li><span class="step-n">2</span><div><strong>Cero tolerancia a hostigamiento</strong> — El acoso laboral, sexual o discriminación por cualquier causa es motivo de rescisión inmediata, independientemente del rango o antigüedad. Las denuncias se tratan con confidencialidad absoluta.</div></li>
+    <li><span class="step-n">3</span><div><strong>Retroalimentación continua</strong> — Las evaluaciones de desempeño son bimestrales y bidireccionales: el supervisor evalúa al colaborador y el colaborador evalúa condiciones de trabajo. El objetivo es mejorar, no documentar para despedir.</div></li>
+    <li><span class="step-n">4</span><div><strong>Reconocimiento</strong> — El desempeño excepcional se reconoce públicamente en las reuniones de equipo mensuales y puede traducirse en bonos por desempeño, conforme a la política vigente de compensación variable.</div></li>
+  </ol>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">4</div><div class="sec-title">Compromisos Mutuos</div></div>
+  <table class="act-table green">
+    <thead><tr><th>La organización se compromete a</th><th>El colaborador se compromete a</th></tr></thead>
+    <tbody>
+      <tr><td>Proporcionar herramientas, equipos y uniformes adecuados para el trabajo</td><td>Cuidar y mantener en buen estado los recursos asignados</td></tr>
+      <tr><td>Pagar puntualmente conforme a lo acordado y comunicar cambios con anticipación</td><td>Cumplir su horario, avisar ausencias con al menos 4 horas de anticipación</td></tr>
+      <tr><td>Capacitar al personal en los procedimientos de este manual y actualizarlo cuando cambien</td><td>Conocer y aplicar los procedimientos de su área — la ignorancia no es excusa</td></tr>
+      <tr><td>Crear condiciones de trabajo seguras y respetuosas</td><td>Reportar condiciones inseguras o conductas inapropiadas de inmediato</td></tr>
+      <tr><td>Escuchar sugerencias y dar retroalimentación constructiva y oportuna</td><td>Participar activamente en evaluaciones y proponer mejoras al proceso</td></tr>
+    </tbody>
+  </table>
+
+  <div class="proc-footer"><span>PR-AM-GOB-001 · Libro I · 1.5 Cultura Organizacional</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
 <div class="page" id="p-12">
   <div class="proc-eyebrow">1.0 Marco Institucional · 1.2</div>
   <h1 class="proc-title">1.2 Gobierno Operativo</h1>
