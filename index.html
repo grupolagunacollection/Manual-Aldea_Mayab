@@ -84,6 +84,16 @@
         border-color: #b91c1c;
     }
 
+    /* Estilo especial para Cocodrilo (Laguna) */
+    .emergency-card.laguna {
+        border-left-color: #065f46;
+        border-color: #d1fae5;
+    }
+    
+    .emergency-card.laguna .emergency-card-title {
+        color: #065f46;
+    }
+
     .emergency-card-title {
         font-size: 18px;
         font-weight: 700;
@@ -155,7 +165,6 @@
 
 <body>
 
-<!-- ENCABEZADO -->
 <div class="header">
     <img src="aldeaMayab_blanco.png" alt="Aldea Mayab" class="logo">
     <h1 class="title">Manual Operativo Institucional</h1>
@@ -164,48 +173,49 @@
     </div>
 </div>
 
-<!-- 🚨 SECCIÓN DE EMERGENCIAS (CORREGIDA) -->
 <div class="emergency-section">
     <div class="emergency-title">Protocolos de Emergencia — Acceso Inmediato</div>
 
     <div class="emergency-grid">
 
-        <!-- Intruso -->
-        <a href="./libros/libro3.html#intruso" class="emergency-card">
-            <div class="emergency-card-title">Intruso o Riesgo de Seguridad</div>
+        <a href="./libros/libro3.html#p-21" class="emergency-card">
+            <div class="emergency-card-title">🚨 Intruso o Riesgo</div>
             <div class="emergency-card-desc">
-                Protocolo de actuación ante accesos no autorizados o amenazas de seguridad.
+                Acceso no autorizado o amenazas a la seguridad del perímetro (Punto 2.1).
             </div>
         </a>
 
-        <!-- Fauna -->
-        <a href="./libros/libro3.html#fauna" class="emergency-card">
-            <div class="emergency-card-title">Ataque o Presencia de Fauna</div>
+        <a href="./libros/libro3.html#p-32" class="emergency-card laguna">
+            <div class="emergency-card-title">🐊 Cocodrilo en Muelle</div>
             <div class="emergency-card-desc">
-                Procedimiento ante fauna peligrosa en áreas comunes o residenciales.
+                Protocolo específico de seguridad en zona de laguna y muelle (Punto 3.2).
             </div>
         </a>
 
-        <!-- Médica -->
-        <a href="./libros/libro3.html#medica" class="emergency-card">
-            <div class="emergency-card-title">Emergencia Médica</div>
+        <a href="./libros/libro3.html#p-31" class="emergency-card">
+            <div class="emergency-card-title">🐾 Fauna Silvestre</div>
             <div class="emergency-card-desc">
-                Atención inicial, contacto médico y protocolo con huéspedes o residentes.
+                Gestión de riesgos con fauna de la selva en áreas comunes (Punto 3.1).
             </div>
         </a>
 
-        <!-- Incendio -->
-        <a href="./libros/libro3.html#incendio" class="emergency-card">
-            <div class="emergency-card-title">Incendio o Evacuación</div>
+        <a href="./libros/libro3.html#p-61" class="emergency-card">
+            <div class="emergency-card-title">🚑 Emergencia Médica</div>
             <div class="emergency-card-desc">
-                Activación de evacuación, control de riesgos y coordinación de seguridad.
+                Atención inicial coordinada en unidades o áreas comunes (Punto 6.1).
+            </div>
+        </a>
+
+        <a href="./libros/libro3.html#p-33" class="emergency-card">
+            <div class="emergency-card-title">🔥 Incendio</div>
+            <div class="emergency-card-desc">
+                Activación de brigadas, control de riesgos y evacuación (Punto 3.3).
             </div>
         </a>
 
     </div>
 </div>
 
-<!-- BIBLIOTECA -->
 <div class="container">
     
     <div class="section-title">Biblioteca Institucional de Manuales</div>
@@ -234,7 +244,7 @@
     <a href="./libros/libro4_Mtto.html" class="card">
         <div class="card-title">Libro 4 — Mantenimiento</div>
         <div class="card-desc">
-           Procedimientos de mantenimiento preventivo y correctivo, gestión de amenidades, residuos e infraestructura crítica.
+           Procedimientos de mantenimiento preventivo y correctivo, gestión de amenidades e infraestructura.
         </div>
     </a>
 
