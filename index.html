@@ -246,6 +246,38 @@
 <footer>
     © Aldea Mayab 2024 — Documentación Oficial de Uso Interno Confidencial
 </footer>
+<script>
+    (function() {
+        function corregirSalto() {
+            const hash = window.location.hash; // Detecta el #p-21, #p-32, etc.
+            if (hash) {
+                const targetId = hash.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
+                    // 1. Forzamos que la página sea visible 
+                    // (por si el CSS del manual tiene las páginas ocultas con display:none)
+                    const allPages = document.querySelectorAll('.page');
+                    allPages.forEach(p => p.style.display = 'none'); // Oculta todas
+                    targetElement.style.display = 'block';           // Muestra la elegida
+                    
+                    // 2. Si usas una función llamada showPage, la ejecutamos
+                    if (typeof showPage === 'function') {
+                        showPage(targetId);
+                    }
 
+                    // 3. Hacemos el scroll manual para asegurar que quede a la vista
+                    setTimeout(() => {
+                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 200);
+                }
+            }
+        }
+
+        // Se ejecuta al cargar la página y si el hash cambia
+        window.addEventListener('load', corregirSalto);
+        window.addEventListener('hashchange', corregirSalto);
+    })();
+</script>
 </body>
 </html>
