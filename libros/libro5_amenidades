@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libro V — Áreas Comunes y Amenidades · Aldea Mayab</title>
+<style>
+
+:root{
+  --green:#1F5C38;--green-mid:#2A7A4B;--green-lt:#E8F4ED;
+  --amber:#C87D0A;--amber-lt:#FDF3E3;
+  --red:#C0392B;--red-lt:#FDECEA;
+  --sidebar-bg:#111816;--sidebar-w:260px;
+  --white:#FFFFFF;--bg:#F4F6F5;--rule:#D8E4DC;
+  --text:#1A2B1F;--text-mid:#4A6355;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);display:flex;}
+
+/* ── Sidebar ── */
+#sidebar{width:var(--sidebar-w);min-height:100vh;background:var(--sidebar-bg);position:fixed;top:0;left:0;display:flex;flex-direction:column;z-index:100;overflow-y:auto;}
+.sb-header{padding:20px 18px 14px;border-bottom:1px solid #1C301F;position:sticky;top:0;background:var(--sidebar-bg);z-index:10;}
+.sb-book{font-size:9px;font-weight:700;letter-spacing:.12em;color:#72D48A;text-transform:uppercase;margin-bottom:4px;}
+.sb-title{font-size:13px;font-weight:700;color:#fff;line-height:1.3;}
+nav{padding:10px 0 30px;}
+.nav-group{margin-bottom:2px;}
+.nav-group-btn{display:flex;align-items:center;justify-content:space-between;padding:9px 18px;cursor:pointer;color:#A8BFAD;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;user-select:none;}
+.nav-group-btn:hover{color:#fff;}
+.nav-arrow{font-size:9px;transition:transform .2s;}
+.nav-group.open .nav-arrow{transform:rotate(90deg);}
+.nav-items{display:none;padding-bottom:4px;}
+.nav-group.open .nav-items{display:block;}
+.nav-link,.nav-sub{display:block;padding:7px 18px 7px 26px;font-size:12px;color:#7A9E83;text-decoration:none;cursor:pointer;border-left:3px solid transparent;transition:all .15s;}
+.nav-sub{padding-left:36px;font-size:11px;color:#5A7A63;}
+.nav-link:hover,.nav-sub:hover{color:#fff;border-left-color:var(--green-mid);}
+.nav-link.active{color:#72D48A;border-left-color:#72D48A;background:rgba(114,212,138,.08);}
+
+/* ── Main ── */
+#main{margin-left:var(--sidebar-w);flex:1;}
+#topbar{height:50px;background:var(--white);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 36px;position:sticky;top:0;z-index:50;}
+#breadcrumb{font-size:12px;color:var(--text-mid);}
+#breadcrumb strong{color:var(--text);}
+.topbar-meta{display:flex;gap:16px;font-size:11px;color:var(--text-mid);}
+.meta-code{background:var(--green-lt);color:var(--green);padding:2px 8px;border-radius:4px;font-weight:700;font-size:10px;}
+#content{padding:36px 40px 80px;}
+
+/* ── Pages ── */
+.page{display:none;}
+.page.active{display:block;animation:fadeUp .2s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ── Typography ── */
+.proc-eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;}
+.proc-title{font-size:32px;font-weight:800;color:var(--text);line-height:1.15;margin-bottom:8px;}
+.proc-subtitle{font-size:14px;color:var(--text-mid);margin-bottom:24px;line-height:1.5;}
+.proc-footer{display:flex;justify-content:space-between;margin-top:32px;padding-top:14px;border-top:1px solid var(--rule);font-size:11px;color:var(--text-mid);}
+
+/* ── Section headers ── */
+.sec-h{display:flex;align-items:center;gap:10px;margin:28px 0 12px;}
+.sec-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+.sec-num-g{background:var(--green);color:#fff;}
+.sec-num-a{background:var(--amber);color:#fff;}
+.sec-num-r{background:var(--red);color:#fff;}
+.sec-title{font-size:15px;font-weight:700;color:var(--text);}
+
+/* ── Info boxes ── */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0;}
+.info-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0;}
+.info-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:16px;}
+.info-card-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-bottom:4px;}
+.info-card-value{font-size:14px;font-weight:700;color:var(--text);}
+
+/* ── Alerts ── */
+.alert{display:flex;gap:14px;padding:14px 16px;border-radius:var(--radius);margin:14px 0;border:1px solid;}
+.alert-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.alert-body{font-size:13px;line-height:1.55;}
+.alert-body strong{display:block;font-weight:700;margin-bottom:3px;}
+.a-green{background:var(--green-lt);border-color:#B8D8C0;color:var(--text);}
+.a-amber{background:var(--amber-lt);border-color:#E8C88A;color:#3A2000;}
+.a-red{background:var(--red-lt);border-color:#E8B0A8;color:#4A0E0A;}
+
+/* ── Tables ── */
+.act-table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;}
+.act-table.green thead{background:var(--green);}
+.act-table.amber thead{background:var(--amber);}
+.act-table thead th{color:#fff;font-weight:700;font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px;text-align:left;}
+.act-table tbody tr:nth-child(odd){background:var(--white);}
+.act-table tbody tr:nth-child(even){background:var(--bg);}
+.act-table td{padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45;}
+.act-table td strong{color:var(--green);}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;}
+.badge-g{background:var(--green-lt);color:var(--green);}
+.badge-a{background:var(--amber-lt);color:var(--amber);}
+.badge-r{background:var(--red-lt);color:var(--red);}
+
+/* ── Step lists ── */
+.steps{list-style:none;margin:10px 0;}
+.steps li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:13px;line-height:1.5;}
+.steps li:last-child{border-bottom:none;}
+.step-num{width:24px;height:24px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;margin-top:1px;}
+.step-num-a{background:var(--amber);}
+.step-num-r{background:var(--red);}
+.oblig{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);background:var(--red-lt);padding:1px 6px;border-radius:3px;margin-left:6px;}
+
+/* ── Flowcharts ── */
+.fc-wrap{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:18px;overflow-x:auto;margin:14px 0;}
+
+/* ── Cover page ── */
+.cover-tag{display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:18px;}
+.cover-title{font-size:48px;font-weight:900;color:var(--text);line-height:1.1;margin-bottom:12px;}
+.cover-sub{font-size:16px;color:var(--text-mid);margin-bottom:32px;line-height:1.5;}
+.cover-meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:32px;}
+.cover-meta-item{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:16px;}
+.cover-meta-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-bottom:4px;}
+.cover-meta-val{font-size:15px;font-weight:800;color:var(--text);}
+.cover-toc{margin-top:28px;}
+.cover-toc-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-bottom:12px;}
+.cover-toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.toc-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--white);border:1px solid var(--rule);border-radius:8px;cursor:pointer;transition:all .15s;}
+.toc-item:hover{border-color:var(--green);background:var(--green-lt);}
+.toc-num{font-size:10px;font-weight:800;color:var(--green);}
+.toc-label{font-size:12px;font-weight:600;}
+
+/* ── KPI chips ── */
+.kpi-row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;}
+.kpi{background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:10px 14px;min-width:130px;}
+.kpi-val{font-size:22px;font-weight:900;color:var(--green);}
+.kpi-label{font-size:10px;color:var(--text-mid);margin-top:2px;}
+
+/* ── Checklist ── */
+.checklist{list-style:none;margin:10px 0;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:13px;line-height:1.45;}
+.checklist li:last-child{border-bottom:none;}
+.check-box{width:18px;height:18px;border:2px solid var(--green);border-radius:4px;flex-shrink:0;margin-top:1px;}
+
+/* Mobile */
+#hamburger{display:none;position:fixed;top:10px;left:12px;z-index:300;background:var(--sidebar-bg);border:none;border-radius:6px;padding:10px 13px;cursor:pointer;flex-direction:column;gap:5px;box-shadow:0 2px 12px rgba(0,0,0,.5);touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;}
+#hamburger span{display:block;width:22px;height:2px;background:#72D48A;border-radius:2px;transition:all .25s;}
+#hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+#hamburger.open span:nth-child(2){opacity:0;}
+#hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:90;}
+#overlay.visible{display:block;}
+@media(max-width:768px){
+  #hamburger{display:flex;}
+  #sidebar{transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);}
+  #sidebar.open{transform:translateX(0);z-index:300;}
+  #main{margin-left:0!important;}
+  #topbar{padding:0 14px 0 56px;}
+  #content{padding:22px 18px 80px;}
+  .cover-meta,.info-grid,.info-grid-3,.cover-toc-grid{grid-template-columns:1fr!important;}
+  .proc-title,.cover-title{font-size:24px;}
+  .fc-wrap svg{max-width:100%;height:auto;}
+  .kpi-row{gap:8px;}
+  .proc-footer{flex-direction:column;gap:4px;font-size:10px;}
+}
+
+/* nav-anchor: section label in nav — same page, no navigation */
+.nav-anchor{display:block;padding:3px 14px 3px 38px;font-size:10px;
+  color:#3E6047;cursor:default;line-height:1.4;user-select:none;}
+.nav-anchor::before{content:'§ ';opacity:.5;}
+
+
+/* ── Sidebar nav scrollable ── */
+#sidebar{overflow-y:hidden;display:flex;flex-direction:column;}
+#sidebar nav{flex:1;overflow-y:auto;overscroll-behavior:contain;}
+#sidebar nav::-webkit-scrollbar{width:4px;}
+#sidebar nav::-webkit-scrollbar-track{background:transparent;}
+#sidebar nav::-webkit-scrollbar-thumb{background:#2A4A30;border-radius:4px;}
+#sidebar nav::-webkit-scrollbar-thumb:hover{background:#3A6040;}
+
+
+</style>
+</head>
+<body>
+<button id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+<div id="overlay"></div>
+<aside id="sidebar">
+  <div class="sb-header">
+    <div class="sb-book">Aldea Mayab · Bacalar</div>
+    <div class="sb-title">Libro V · Amenidades</div>
+  </div>
+  <nav>
+    <!-- 1.0 -->
+    <div class="nav-group open">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">1.0 Marco General</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-cover')">Portada</a>
+        <a class="nav-link" onclick="show('p-11')">1.1 Alcance y Responsables</a>
+        <a class="nav-link" onclick="show('p-12')">1.2 Sistema de Reservas</a>
+      </div>
+    </div>
+    <!-- 2.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">2.0 Áreas Acuáticas</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-21')">2.1 Piscina</a>
+        <a class="nav-link" onclick="show('p-22')">2.2 Jacuzzi y Área Húmeda</a>
+      </div>
+    </div>
+    <!-- 3.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">3.0 Casa Club</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-31')">3.1 Salón de Usos Múltiples</a>
+        <a class="nav-link" onclick="show('p-32')">3.2 Terraza y Área de Eventos</a>
+      </div>
+    </div>
+    <!-- 4.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">4.0 Deportes</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-41')">4.1 Canchas de Pádel</a>
+        <a class="nav-link" onclick="show('p-42')">4.2 Gimnasio</a>
+      </div>
+    </div>
+    <!-- 5.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">5.0 Bienestar</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-51')">5.1 Spa</a>
+      </div>
+    </div>
+    <!-- 6.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">6.0 Muelle y Laguna</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-61')">6.1 Muelle</a>
+        <a class="nav-link" onclick="show('p-62')">6.2 Actividades Acuáticas</a>
+      </div>
+    </div>
+  </nav>
+</aside>
+<div id="main">
+  <div id="topbar">
+    <div id="breadcrumb">Libro V &rsaquo; <strong>Portada</strong></div>
+    <div class="topbar-meta"><span class="meta-code">PR-AM-AME-001</span></div>
+  </div>
+  <div id="content">
+
+<!-- ══ PORTADA ══ -->
+<div class="page active" id="p-cover">
+  <div class="cover-tag">Libro V</div>
+  <h1 class="cover-title">Áreas Comunes<br>y Amenidades</h1>
+  <p class="cover-sub">Reglamentos de uso, procedimientos de reserva, apertura y cierre, y estándares de servicio para todas las amenidades del Residencial Aldea Mayab</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="cover-meta-label">Código</div><div class="cover-meta-val">PR-AM-AME-001</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Versión</div><div class="cover-meta-val">1.0 · 2026</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Responsable</div><div class="cover-meta-val">Gerencia Administrativa</div></div>
+  </div>
+  <div class="cover-toc-grid" style="margin-top:24px;">
+    <div class="toc-item" onclick="show('p-11')"><span class="toc-num">1.0</span><span class="toc-label">Marco General y Reservas</span></div>
+    <div class="toc-item" onclick="show('p-21')"><span class="toc-num">2.0</span><span class="toc-label">Áreas Acuáticas</span></div>
+    <div class="toc-item" onclick="show('p-31')"><span class="toc-num">3.0</span><span class="toc-label">Casa Club</span></div>
+    <div class="toc-item" onclick="show('p-41')"><span class="toc-num">4.0</span><span class="toc-label">Deportes</span></div>
+    <div class="toc-item" onclick="show('p-51')"><span class="toc-num">5.0</span><span class="toc-label">Bienestar — Spa</span></div>
+    <div class="toc-item" onclick="show('p-61')"><span class="toc-num">6.0</span><span class="toc-label">Muelle y Laguna</span></div>
+  </div>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · Portada</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 1.1 ALCANCE Y RESPONSABLES ══ -->
+<div class="page" id="p-11">
+  <div class="proc-eyebrow">1.0 Marco General · 1.1</div>
+  <h1 class="proc-title">1.1 Alcance y Responsables</h1>
+  <p class="proc-subtitle">Ámbito de aplicación, principios de uso y responsables por área</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Principios Generales de Uso</div></div>
+  <table class="act-table green">
+    <thead><tr><th style="width:220px">Principio</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Uso exclusivo para residentes</strong></td><td>Amenidades disponibles para propietarios, arrendatarios con contrato vigente y sus huéspedes registrados. Visitantes externos requieren acompañamiento del residente en todo momento.</td></tr>
+      <tr><td><strong>Reserva previa obligatoria</strong></td><td>Amenidades con cupo limitado (canchas de pádel, spa, salón de eventos, muelle) requieren reserva con la anticipación indicada en cada sección.</td></tr>
+      <tr><td><strong>Corresponsabilidad</strong></td><td>El residente es responsable del comportamiento de todos sus acompañantes. Daños causados por visitantes serán cargados al residente que los registró.</td></tr>
+      <tr><td><strong>Cero tolerancia</strong></td><td>Prohibido el consumo de drogas ilícitas en todas las áreas. Alcohol permitido solo en zonas designadas y sin excesos que alteren el orden.</td></tr>
+      <tr><td><strong>Acceso restringido por adeudo</strong></td><td>Residentes con adeudo vencido mayor a 30 días no tienen acceso a amenidades hasta regularizar su situación.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Responsables por Área</div></div>
+  <table class="act-table green">
+    <thead><tr><th style="width:200px">Responsable</th><th>Áreas a cargo</th><th style="width:180px">Horario</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Gerencia Administrativa</strong></td><td>Supervisión general, eventos especiales, sanciones por mal uso, aprobación de excepciones</td><td>Lun–Vie 09:00–18:00</td></tr>
+      <tr><td><strong>Jefe de Mantenimiento</strong></td><td>Estado físico de todas las amenidades, supervisión de apertura y cierre, reporte de fallas</td><td>Lun–Sáb 07:00–16:00</td></tr>
+      <tr><td><strong>Guardia de turno</strong></td><td>Control de acceso, verificación de reservas, reporte de incidentes en tiempo real</td><td>24 horas</td></tr>
+      <tr><td><strong>Personal de limpieza</strong></td><td>Preparación y limpieza pre/post uso de todas las áreas comunes</td><td>06:00–14:00 / 14:00–22:00</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Horarios Generales</div></div>
+  <table class="act-table amber">
+    <thead><tr><th>Amenidad</th><th>Lunes–Viernes</th><th>Sábado</th><th>Domingo y Festivos</th></tr></thead>
+    <tbody>
+      <tr><td>Piscina</td><td>07:00–22:00</td><td>07:00–22:00</td><td>07:00–21:00</td></tr>
+      <tr><td>Jacuzzi</td><td>08:00–22:00</td><td>08:00–22:00</td><td>08:00–21:00</td></tr>
+      <tr><td>Casa Club — Salón</td><td>08:00–23:00</td><td>08:00–00:00</td><td>08:00–22:00</td></tr>
+      <tr><td>Canchas de Pádel</td><td>07:00–22:00</td><td>07:00–22:00</td><td>07:00–20:00</td></tr>
+      <tr><td>Gimnasio</td><td>05:30–23:00</td><td>06:00–22:00</td><td>07:00–21:00</td></tr>
+      <tr><td>Spa</td><td>09:00–20:00</td><td>09:00–20:00</td><td>Cerrado</td></tr>
+      <tr><td>Muelle</td><td>06:00–21:00</td><td>06:00–21:00</td><td>06:00–21:00</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 1.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 1.2 SISTEMA DE RESERVAS ══ -->
+<div class="page" id="p-12">
+  <div class="proc-eyebrow">1.0 Marco General · 1.2</div>
+  <h1 class="proc-title">1.2 Sistema de Reservas</h1>
+  <p class="proc-subtitle">Procedimiento unificado de reserva, cancelación y política de invitados</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Amenidades que Requieren Reserva</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Amenidad</th><th>Cupo máximo</th><th>Anticipación mínima</th><th>Duración máxima</th></tr></thead>
+    <tbody>
+      <tr><td>Canchas de pádel</td><td>4 personas / cancha</td><td>2 horas</td><td>1 h 30 min</td></tr>
+      <tr><td>Spa</td><td>1 persona / cabina</td><td>24 horas</td><td>Según servicio</td></tr>
+      <tr><td>Salón Casa Club</td><td>50 personas sentadas</td><td>72 horas</td><td>6 horas</td></tr>
+      <tr><td>Muelle — actividades acuáticas</td><td>8 personas</td><td>24 horas</td><td>2 horas</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Procedimiento de Reserva</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Ingresar a la plataforma de reservas</strong> — Acceder con las credenciales de residente. Seleccionar amenidad, fecha y horario.</span></li>
+    <li><div class="step-num">2</div><span><strong>Verificar disponibilidad</strong> — El sistema muestra horarios disponibles en tiempo real. Si el horario está ocupado, sugiere el siguiente disponible.</span></li>
+    <li><div class="step-num">3</div><span><strong>Registrar acompañantes</strong> — Indicar nombre de cada acompañante mayor de 18 años. Menores quedan bajo responsabilidad del titular.</span></li>
+    <li><div class="step-num">4</div><span><strong>Confirmar reserva</strong> — El sistema envía confirmación por WhatsApp y correo. La reserva se libera automáticamente si el titular no se presenta en 10 minutos.</span></li>
+    <li><div class="step-num">5</div><span><strong>Cancelación</strong> — Cancelar con mínimo 2 horas de anticipación para deportes, 24 horas para spa y muelle, 72 horas para salón. Tres cancelaciones tardías en un mes generan bloqueo de 7 días.</span></li>
+  </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Política de Invitados Externos</div></div>
+  <div class="alert a-amber"><div class="alert-icon"></div><div class="alert-body"><strong>Límite de 6 invitados externos por unidad por día</strong>Para eventos que superen ese límite se requiere autorización de Gerencia con 72 horas de anticipación y pago de cuota de uso de áreas comunes.</div></div>
+  <table class="act-table amber">
+    <thead><tr><th>Tipo de residente</th><th>Invitados sin cargo</th><th>Invitados con cargo adicional</th></tr></thead>
+    <tbody>
+      <tr><td>Propietario al corriente</td><td>Hasta 4 por visita</td><td>5–10 · $150 MXN por persona</td></tr>
+      <tr><td>Arrendatario con contrato vigente</td><td>Hasta 2 por visita</td><td>3–6 · $150 MXN por persona</td></tr>
+      <tr><td>Residente con adeudo</td><td>Sin acceso a amenidades</td><td>—</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 1.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 2.1 PISCINA ══ -->
+<div class="page" id="p-21">
+  <div class="proc-eyebrow">2.0 Áreas Acuáticas · 2.1</div>
+  <h1 class="proc-title">2.1 Piscina</h1>
+  <p class="proc-subtitle">Reglamento de uso, parámetros de calidad del agua y procedimiento de apertura y cierre</p>
+
+  <div class="alert a-red"><div class="alert-icon"></div><div class="alert-body"><strong>Sin salvavidas — uso bajo responsabilidad del residente</strong>No hay personal de vigilancia acuática. Menores de 12 años deben estar acompañados por un adulto dentro del agua en todo momento.</div></div>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Reglamento de Uso</div></div>
+  <table class="act-table green">
+    <thead><tr><th style="width:220px">Regla</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Regadera previa obligatoria</strong></td><td>Todos los usuarios deben ducharse antes de ingresar. Residuos de bronceador y cremas afectan el balance químico del agua.</td></tr>
+      <tr><td><strong>Vestimenta adecuada</strong></td><td>Solo traje de baño dentro del agua. Prohibido ingresar con ropa de calle, calzado o ropa interior.</td></tr>
+      <tr><td><strong>Alimentos y bebidas</strong></td><td>Solo en área de camastros. Se recomienda recipientes plásticos o aluminio. El vidrio es responsabilidad del residente.</td></tr>
+      <tr><td><strong>Música</strong></td><td>Bocinas personales permitidas hasta las 21:00 a volumen moderado. Después de las 21:00 solo audífonos.</td></tr>
+      <tr><td><strong>Mascotas</strong></td><td>Prohibido el acceso de mascotas al área de piscina y jacuzzi.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Parámetros de Calidad del Agua</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Parámetro</th><th>Rango óptimo</th><th>Acción fuera de rango</th></tr></thead>
+    <tbody>
+      <tr><td>pH</td><td>7.2 – 7.6</td><td>Ajustar con pH+ o pH–. No usar si diferencia es mayor a ±0.5</td></tr>
+      <tr><td>Cloro libre</td><td>1.0 – 3.0 ppm</td><td>Agregar cloro granulado. Cerrar si baja de 0.5 ppm</td></tr>
+      <tr><td>Temperatura</td><td>27°C – 30°C</td><td>Ajustar calefacción. Cerrar si supera 34°C</td></tr>
+      <tr><td>Alcalinidad total</td><td>80 – 120 ppm</td><td>Ajustar con bicarbonato o ácido muriático diluido</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Apertura y Cierre (Personal)</div></div>
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-label">Apertura — 07:00</div>
+      <div style="font-size:13px;color:var(--text);margin-top:6px;line-height:1.6;">
+        1. Inspección visual: agua clara, nivel correcto, sin objetos en fondo<br>
+        2. Medir y registrar pH, cloro y temperatura<br>
+        3. Verificar equipo de seguridad (aro, gancho) en su lugar<br>
+        4. Retirar cubierta nocturna y colocar camastros<br>
+        5. Registrar apertura en AppSheet con foto
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-label">Cierre — según horario</div>
+      <div style="font-size:13px;color:var(--text);margin-top:6px;line-height:1.6;">
+        1. Avisar cierre 15 min antes<br>
+        2. Recoger objetos dejados por usuarios<br>
+        3. Guardar camastros en área designada<br>
+        4. Fregar pisos perimetrales y limpiar sanitarios<br>
+        5. Colocar cubierta nocturna y activar ciclo de filtración<br>
+        6. Registrar cierre en AppSheet con parámetros finales
+      </div>
+    </div>
+  </div>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 2.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 2.2 JACUZZI ══ -->
+<div class="page" id="p-22">
+  <div class="proc-eyebrow">2.0 Áreas Acuáticas · 2.2</div>
+  <h1 class="proc-title">2.2 Jacuzzi y Área Húmeda</h1>
+  <p class="proc-subtitle">Parámetros operativos, restricciones de uso y mantenimiento semanal</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Parámetros Operativos</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Parámetro</th><th>Rango óptimo</th><th>Acción si está fuera de rango</th></tr></thead>
+    <tbody>
+      <tr><td>pH</td><td>7.2 – 7.6</td><td>Ajustar con pH+ o pH–. No usar si diferencia mayor a ±0.5</td></tr>
+      <tr><td>Cloro libre</td><td>3.0 – 5.0 ppm</td><td>Agregar cloro granulado o cerrar hasta normalizar</td></tr>
+      <tr><td>Temperatura</td><td>36°C – 38°C</td><td>Ajustar termostato. Cerrar por seguridad si supera 40°C</td></tr>
+      <tr><td>Alcalinidad total</td><td>80 – 120 ppm</td><td>Ajustar con bicarbonato o ácido muriático diluido</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">2</div><div class="sec-title">Restricciones de Uso</div></div>
+  <table class="act-table amber">
+    <thead><tr><th>Restricción</th><th>Motivo</th></tr></thead>
+    <tbody>
+      <tr><td>Tiempo máximo continuo: 20 min</td><td>Riesgo de deshidratación y mareos por temperatura elevada</td></tr>
+      <tr><td>Cupo máximo: 6 personas</td><td>Limitación del sistema de filtración y jets</td></tr>
+      <tr><td>Regadera previa obligatoria</td><td>Cremas y bronceadores dañan el sistema de filtración</td></tr>
+      <tr><td>Menores de 12 años: supervisión constante</td><td>Temperatura y profundidad representan riesgo</td></tr>
+      <tr><td>Sin alimentos dentro del agua</td><td>Contamina el sistema y representa riesgo de atragantamiento</td></tr>
+    </tbody>
+  </table>
+  <div class="alert a-amber"><div class="alert-icon"></div><div class="alert-body"><strong>Informar a usuarios con condiciones médicas</strong>Personas con hipertensión, enfermedades cardíacas o embarazo avanzado deben consultar a su médico antes de usar el jacuzzi. El personal informa pero no puede prohibir el acceso — la responsabilidad es del usuario.</div></div>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">3</div><div class="sec-title">Mantenimiento Semanal</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Lunes — Vaciado parcial y limpieza de filtros</strong> — Reducir nivel al 50%, limpiar filtros de cartucho, fregar paredes con cepillo de nylon. No usar productos abrasivos.</span></li>
+    <li><div class="step-num">2</div><span><strong>Rellenar y ajustar química</strong> — Llenar con agua nueva, ajustar pH y cloro, esperar 2 horas antes de habilitar para uso.</span></li>
+    <li><div class="step-num">3</div><span><strong>Revisar jets y sistema de aire</strong> — Verificar que todos los jets funcionan. Reportar obstrucciones a Mantenimiento con foto en AppSheet.</span></li>
+  </ul>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 2.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 3.1 SALÓN ══ -->
+<div class="page" id="p-31">
+  <div class="proc-eyebrow">3.0 Casa Club · 3.1</div>
+  <h1 class="proc-title">3.1 Salón de Usos Múltiples</h1>
+  <p class="proc-subtitle">Capacidades, procedimiento de reserva, montaje, uso y entrega del salón</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Capacidad por Configuración</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Configuración</th><th>Capacidad</th><th>Equipamiento incluido</th></tr></thead>
+    <tbody>
+      <tr><td>Cóctel / standing</td><td>80 personas</td><td>Mesas altas, sillas de barra, iluminación ambiental</td></tr>
+      <tr><td>Cena / banquete</td><td>50 personas</td><td>Mesas redondas 1.8 m, sillas tapizadas, mantelería básica</td></tr>
+      <tr><td>Reunión / conferencia</td><td>30 personas</td><td>Mesas rectangulares, sillas, pantalla y proyector</td></tr>
+      <tr><td>Clase / taller</td><td>25 personas</td><td>Sillas individuales, pizarrón blanco, conexión HDMI</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Procedimiento de Reserva y Evento</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Solicitud con 72 horas de anticipación</strong> — Indicar: fecha, horario, configuración, número de personas, si habrá catering externo y si se requiere equipo audiovisual.</span></li>
+    <li><div class="step-num">2</div><span><strong>Depósito de garantía</strong> — Se retiene $2,000 MXN de la cuenta del residente al confirmar la reserva. Se devuelve en 48 horas si el salón se entrega en condiciones originales.</span></li>
+    <li><div class="step-num">3</div><span><strong>Montaje 2 horas antes</strong> — Personal de mantenimiento realiza montaje en la configuración solicitada. El residente puede decorar desde 1 hora antes del inicio.</span></li>
+    <li><div class="step-num">4</div><span><strong>Durante el evento</strong> — El residente supervisa el comportamiento de sus invitados. El guardia puede ingresar ante queja de ruido o disturbio.</span></li>
+    <li><div class="step-num">5</div><span><strong>Entrega del salón</strong> — Retirar todos los objetos personales. Personal realiza inspección en presencia del residente y documenta en AppSheet.</span></li>
+  </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Restricciones para Eventos</div></div>
+  <div class="alert a-amber"><div class="alert-icon"></div><div class="alert-body"><strong>Límite de ruido por reglamento municipal</strong>Municipio de Bacalar prohíbe ruido mayor a 65 dB después de las 22:00 entre semana y 23:00 en fines de semana. La música amplificada debe cesar en esos horarios. Incumplimiento puede resultar en clausura temporal por autoridad municipal.</div></div>
+  <table class="act-table amber">
+    <thead><tr><th>Restricción</th><th>Condición</th></tr></thead>
+    <tbody>
+      <tr><td>Catering externo</td><td>Permitido con alta sanitaria vigente. El proveedor debe registrarse en caseta antes de ingresar.</td></tr>
+      <tr><td>Decoración</td><td>Prohibido clavar, atornillar o pegar con cinta industrial en paredes. Solo soportes removibles.</td></tr>
+      <tr><td>Fuegos artificiales</td><td>Prohibido dentro del residencial en cualquier circunstancia.</td></tr>
+      <tr><td>Mascotas</td><td>Solo mascotas del residente titular, controladas en todo momento.</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 3.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 3.2 TERRAZA ══ -->
+<div class="page" id="p-32">
+  <div class="proc-eyebrow">3.0 Casa Club · 3.2</div>
+  <h1 class="proc-title">3.2 Terraza y Área de Eventos Exterior</h1>
+  <p class="proc-subtitle">Uso de la terraza, asadores y firepit de la Casa Club</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Zonas y Capacidades</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Zona</th><th>Capacidad</th><th>Equipamiento</th><th>Reserva</th></tr></thead>
+    <tbody>
+      <tr><td>Terraza principal</td><td>40 personas</td><td>Mesas, sillas, sombrillas</td><td>No requerida</td></tr>
+      <tr><td>Área de asadores</td><td>16 personas</td><td>2 asadores de gas, mesa de preparación</td><td>Requerida — 24 h</td></tr>
+      <tr><td>Firepit</td><td>12 personas</td><td>Fogón ecológico LP, bancas circulares</td><td>Requerida — 24 h</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Procedimiento Asadores y Firepit</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Reservar con 24 horas de anticipación</strong> — Indicar si se requiere encendido asistido por Mantenimiento.</span></li>
+    <li><div class="step-num">2</div><span><strong>Inspección previa por Mantenimiento</strong> — Verificar conexión de gas, estado de parrillas y presencia de extintor en el área antes de habilitar.</span></li>
+    <li><div class="step-num">3</div><span><strong>Uso</strong> — El residente opera bajo su responsabilidad. Nunca dejar el fuego encendido sin supervisión directa.</span></li>
+    <li><div class="step-num">4</div><span><strong>Cierre y entrega</strong> — Apagar completamente la válvula de gas, limpiar parrillas, retirar residuos de alimentos. Personal verifica en AppSheet.</span></li>
+  </ul>
+  <div class="alert a-red"><div class="alert-icon"></div><div class="alert-body"><strong>Prohibiciones absolutas en áreas de fuego</strong>Prohibido usar leña, carbón o combustible sólido en asadores de gas. El firepit usa exclusivamente gas LP — no introducir basura ni plásticos. Ante fuga de gas: cerrar válvula principal, evacuar el área y llamar al Jefe de Mantenimiento de inmediato.</div></div>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 3.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 4.1 PÁDEL ══ -->
+<div class="page" id="p-41">
+  <div class="proc-eyebrow">4.0 Deportes · 4.1</div>
+  <h1 class="proc-title">4.1 Canchas de Pádel</h1>
+  <p class="proc-subtitle">Reglamento de uso, reservas y mantenimiento de las canchas</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Reglamento de Uso</div></div>
+  <table class="act-table green">
+    <thead><tr><th style="width:220px">Regla</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Reserva obligatoria</strong></td><td>No se puede usar la cancha sin reserva activa. Si la cancha está libre, el residente igual debe registrar el uso en el sistema.</td></tr>
+      <tr><td><strong>Tiempo máximo por turno</strong></td><td>1 hora 30 minutos. Si nadie está esperando, se puede extender 30 minutos sin nueva reserva.</td></tr>
+      <tr><td><strong>Calzado adecuado</strong></td><td>Obligatorio calzado deportivo de suela clara (no deja marca). Prohibido calzado de fútbol con tacos metálicos.</td></tr>
+      <tr><td><strong>Iluminación nocturna</strong></td><td>Se activa automáticamente por sensor. Si no enciende, reportar a caseta de seguridad.</td></tr>
+      <tr><td><strong>Equipo en préstamo</strong></td><td>4 raquetas y pelotas disponibles en recepción de Casa Club, sujeto a disponibilidad, presentando identificación.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Plan de Mantenimiento</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Frecuencia</th><th>Tarea</th><th>Responsable</th></tr></thead>
+    <tbody>
+      <tr><td>Diario</td><td>Barrer superficie, revisar red y tensión, verificar iluminación perimetral</td><td>Mantenimiento</td></tr>
+      <tr><td>Semanal</td><td>Soplar arena de sílice para nivelar superficie, revisar fijaciones de cristal y estructura</td><td>Mantenimiento</td></tr>
+      <tr><td>Mensual</td><td>Inspección completa de cristales, tensión de red, estado de la estructura metálica. Registro fotográfico en AppSheet.</td><td>Jefe de Mantenimiento</td></tr>
+      <tr><td>Anual</td><td>Revisión estructural por proveedor certificado, renovación de arena si es necesario</td><td>Proveedor externo</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 4.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 4.2 GIMNASIO ══ -->
+<div class="page" id="p-42">
+  <div class="proc-eyebrow">4.0 Deportes · 4.2</div>
+  <h1 class="proc-title">4.2 Gimnasio</h1>
+  <p class="proc-subtitle">Reglamento de uso, inventario de equipo y procedimiento de reporte de fallas</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Reglamento de Uso</div></div>
+  <table class="act-table green">
+    <thead><tr><th style="width:220px">Regla</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sin reserva</strong></td><td>Acceso libre dentro del horario. Cupo máximo simultáneo: 12 personas.</td></tr>
+      <tr><td><strong>Toalla obligatoria</strong></td><td>Limpiar el equipo después de cada uso. Toallas de papel disponibles en el dispensador.</td></tr>
+      <tr><td><strong>Calzado deportivo</strong></td><td>Obligatorio en todo momento. Prohibido entrenar descalzo.</td></tr>
+      <tr><td><strong>Dejar pesas en su lugar</strong></td><td>Mancuernas y discos deben regresar al rack. Dejar pesas en el piso genera riesgo de accidente y es responsabilidad del usuario.</td></tr>
+      <tr><td><strong>Menores de edad</strong></td><td>Menores de 16 años solo con acompañante adulto. Menores de 14 años no pueden usar pesas libres.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Inventario de Equipo</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Equipo</th><th>Cantidad</th><th>Mantenimiento</th></tr></thead>
+    <tbody>
+      <tr><td>Caminadora / treadmill</td><td>2</td><td>Lubricación de banda mensual</td></tr>
+      <tr><td>Bicicleta estacionaria</td><td>2</td><td>Ajuste de resistencia mensual</td></tr>
+      <tr><td>Elíptica</td><td>1</td><td>Revisión de pedales y freno mensual</td></tr>
+      <tr><td>Rack de mancuernas 2–40 kg</td><td>1 set completo</td><td>Verificar fijaciones semanalmente</td></tr>
+      <tr><td>Barra olímpica + discos</td><td>1 set (120 kg)</td><td>Revisar seguros de barra mensualmente</td></tr>
+      <tr><td>Banco ajustable</td><td>2</td><td>Verificar tornillos mensualmente</td></tr>
+      <tr><td>Máquina de cables funcional</td><td>1</td><td>Lubricación de cables y poleas mensual</td></tr>
+      <tr><td>TRX / suspensión</td><td>2</td><td>Revisar costuras y anclajes mensualmente</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Procedimiento ante Equipo Dañado</div></div>
+  <div class="alert a-amber"><div class="alert-icon"></div><div class="alert-body"><strong>Equipo fuera de servicio</strong>Si detectas equipo dañado: (1) Colocar letrero "Fuera de servicio" del cajón de recepción. (2) Reportar a Mantenimiento vía WhatsApp con foto. (3) No retirar el letrero hasta confirmar reparación. Usar equipo con falla conocida es responsabilidad del usuario.</div></div>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 4.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 5.1 SPA ══ -->
+<div class="page" id="p-51">
+  <div class="proc-eyebrow">5.0 Bienestar · 5.1</div>
+  <h1 class="proc-title">5.1 Spa</h1>
+  <p class="proc-subtitle">Catálogo de servicios, reservas, cancelaciones y estándares de la terapeuta</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Catálogo de Servicios</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Servicio</th><th>Duración</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td>Masaje relajante</td><td>60 min</td><td>Técnica sueca, presión media, aceites aromáticos</td></tr>
+      <tr><td>Masaje descontracturante</td><td>60 min</td><td>Trabajo profundo en lumbar, hombros y cuello</td></tr>
+      <tr><td>Masaje de pies y piernas</td><td>30 min</td><td>Reflexología podal y drenaje linfático</td></tr>
+      <tr><td>Facial hidratante</td><td>45 min</td><td>Limpieza, exfoliación y mascarilla hidratante</td></tr>
+      <tr><td>Exfoliación corporal</td><td>45 min</td><td>Exfoliante de sal marina con aceite de coco</td></tr>
+      <tr><td>Paquete relajación completo</td><td>2 h</td><td>Masaje relajante + facial + baño de vapor</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Reserva y Cancelación</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Reservar con mínimo 24 horas</strong> — Portal de reservas o WhatsApp directo con la terapeuta. Indicar servicio, condiciones especiales (embarazo, lesiones, alergias a aceites).</span></li>
+    <li><div class="step-num">2</div><span><strong>Confirmación en 2 horas</strong> — La terapeuta confirma disponibilidad o propone horario alterno.</span></li>
+    <li><div class="step-num">3</div><span><strong>Cancelación con 12 horas mínimas</strong> — Menos de 12 horas genera cargo del 50%. No show genera cargo del 100% del servicio reservado.</span></li>
+    <li><div class="step-num">4</div><span><strong>Llegada puntual</strong> — Presentarse 10 minutos antes. La sesión inicia y termina en horario programado independientemente de la llegada del cliente.</span></li>
+  </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Estándares Profesionales de la Terapeuta</div></div>
+  <table class="act-table amber">
+    <thead><tr><th>Estándar</th><th>Descripción</th></tr></thead>
+    <tbody>
+      <tr><td>Certificación vigente</td><td>Masoterapia o terapia manual certificada. Copia en expediente de Gerencia Administrativa.</td></tr>
+      <tr><td>Higiene por cliente</td><td>Sábanas y toallas limpias por cada servicio. Aceites de un solo uso. Manos limpias y uñas cortas.</td></tr>
+      <tr><td>Confidencialidad</td><td>Información de salud del cliente es estrictamente confidencial y no puede compartirse.</td></tr>
+      <tr><td>Límites profesionales</td><td>Cualquier solicitud fuera del catálogo se rechaza. Incidentes se reportan a Gerencia el mismo día.</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 5.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 6.1 MUELLE ══ -->
+<div class="page" id="p-61">
+  <div class="proc-eyebrow">6.0 Muelle y Laguna · 6.1</div>
+  <h1 class="proc-title">6.1 Muelle</h1>
+  <p class="proc-subtitle">Reglamento de uso, seguridad y plan de mantenimiento del muelle sobre la Laguna de Bacalar</p>
+
+  <div class="alert a-red"><div class="alert-icon"></div><div class="alert-body"><strong>Zona de riesgo natural — fauna acuática activa</strong>La Laguna de Bacalar tiene presencia regular de cocodrilos y diversa fauna. El baño desde el muelle es bajo responsabilidad exclusiva del residente. Ante avistamiento de cocodrilo: evacuar inmediatamente y notificar a caseta de seguridad. Ver protocolo completo en Libro III · 3.2.</div></div>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Reglamento del Muelle</div></div>
+  <table class="act-table green">
+    <thead><tr><th style="width:220px">Regla</th><th>Detalle</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Horario de acceso</strong></td><td>06:00 a 21:00 únicamente. La oscuridad incrementa significativamente el riesgo de fauna acuática.</td></tr>
+      <tr><td><strong>Menores de edad</strong></td><td>Menores de 12 años deben usar chaleco salvavidas en el muelle y obligatorio en cualquier embarcación.</td></tr>
+      <tr><td><strong>Embarcaciones</strong></td><td>Solo de residentes o visitantes con permiso de Gerencia. Velocidad máxima de atraque: 3 nudos. Motor fuera de borda máximo 50 HP.</td></tr>
+      <tr><td><strong>Pesca</strong></td><td>Permitida en modalidad atrapa y libera. Prohibido redes, arpones o cualquier arte de pesca masiva.</td></tr>
+      <tr><td><strong>Ruido</strong></td><td>Música moderada hasta las 20:00. El área colinda con zona de conservación — ruido excesivo afecta a la fauna.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Plan de Mantenimiento</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Frecuencia</th><th>Tarea</th><th>Responsable</th></tr></thead>
+    <tbody>
+      <tr><td>Diario</td><td>Inspección visual de tablones, barandales y escalinata. Reporte de piezas sueltas o con signos de deterioro.</td><td>Guardia matutino</td></tr>
+      <tr><td>Semanal</td><td>Limpieza de algas en pilotes con cepillo. Verificar anclajes metálicos por corrosión. Barrer tablones.</td><td>Mantenimiento</td></tr>
+      <tr><td>Mensual</td><td>Inspección completa con registro fotográfico. Aplicar sellador en tablones si es necesario. Reportar en AppSheet.</td><td>Jefe Mantenimiento</td></tr>
+      <tr><td>Semestral</td><td>Revisión de pilotes de concreto, inspección de fondo por buzo certificado, evaluación estructural completa.</td><td>Proveedor externo</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 6.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 6.2 ACTIVIDADES ACUÁTICAS ══ -->
+<div class="page" id="p-62">
+  <div class="proc-eyebrow">6.0 Muelle y Laguna · 6.2</div>
+  <h1 class="proc-title">6.2 Actividades Acuáticas</h1>
+  <p class="proc-subtitle">Procedimiento de préstamo de equipo y normas para kayak, paddleboard y snorkel en la laguna</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Equipo Disponible en Préstamo</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Equipo</th><th>Cantidad</th><th>Reserva</th><th>Tiempo máximo</th></tr></thead>
+    <tbody>
+      <tr><td>Kayak individual</td><td>3</td><td>Requerida — 24 h</td><td>2 horas</td></tr>
+      <tr><td>Kayak doble</td><td>2</td><td>Requerida — 24 h</td><td>2 horas</td></tr>
+      <tr><td>Paddleboard (SUP)</td><td>3</td><td>Requerida — 24 h</td><td>1 h 30 min</td></tr>
+      <tr><td>Equipo de snorkel</td><td>6 sets</td><td>No requerida</td><td>Sin límite en horario</td></tr>
+      <tr><td>Chalecos salvavidas</td><td>10</td><td>No requerida</td><td>Sin límite en horario</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Procedimiento de Préstamo</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Registro en caseta</strong> — El guardia anota hora de salida, equipo prestado, número de personas y nombre del residente responsable.</span></li>
+    <li><div class="step-num">2</div><span><strong>Inspección previa</strong> — Verificar en conjunto que el equipo está en buen estado. Daños preexistentes deben documentarse antes de salir.</span></li>
+    <li><div class="step-num">3</div><span><strong>Navegar dentro del área designada</strong> — Máximo 200 metros desde el muelle. No acercarse a propiedades vecinas ni zonas de conservación señalizadas.</span></li>
+    <li><div class="step-num">4</div><span><strong>Devolución e inspección</strong> — El guardia verifica el equipo al regreso. Daños no reportados previamente serán cargados al residente. Enjuagar con agua dulce antes de guardar.</span></li>
+  </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-r">3</div><div class="sec-title">Condiciones de Suspensión de Actividades</div></div>
+  <div class="alert a-red"><div class="alert-icon"></div><div class="alert-body"><strong>El personal de seguridad puede cerrar el área acuática ante:</strong>Vientos superiores a 25 km/h o mar de leva visible · Alerta de tormenta eléctrica activa · Avistamiento de cocodrilo sin resolución · Turbiedad inusual del agua (posible floración de algas) · Horario nocturno (después de 21:00)</div></div>
+  <div class="proc-footer"><span>PR-AM-AME-001 · Libro V · 6.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+  </div>
+</div>
+<script>
+const PAGES = {
+  'p-cover':'Libro V · Portada',
+  'p-11':'1.0 Marco General · 1.1 Alcance y Responsables',
+  'p-12':'1.0 Marco General · 1.2 Sistema de Reservas',
+  'p-21':'2.0 Áreas Acuáticas · 2.1 Piscina',
+  'p-22':'2.0 Áreas Acuáticas · 2.2 Jacuzzi y Área Húmeda',
+  'p-31':'3.0 Casa Club · 3.1 Salón de Usos Múltiples',
+  'p-32':'3.0 Casa Club · 3.2 Terraza y Área de Eventos',
+  'p-41':'4.0 Deportes · 4.1 Canchas de Pádel',
+  'p-42':'4.0 Deportes · 4.2 Gimnasio',
+  'p-51':'5.0 Bienestar · 5.1 Spa',
+  'p-61':'6.0 Muelle y Laguna · 6.1 Muelle',
+  'p-62':'6.0 Muelle y Laguna · 6.2 Actividades Acuáticas',
+};
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-link,.nav-sub').forEach(n=>n.classList.remove('active'));
+  const page=document.getElementById(id);
+  if(page)page.classList.add('active');
+  const label=PAGES[id]||'';
+  const parts=label.split(' · ');
+  const bc=document.getElementById('breadcrumb');
+  bc.innerHTML='Libro IV &rsaquo; '+parts.slice(0,-1).join(' &rsaquo; ')+' &rsaquo; <strong>'+parts[parts.length-1]+'</strong>';
+  document.querySelectorAll('.nav-link,.nav-sub').forEach(el=>{
+    if((el.getAttribute('onclick')||'').includes("'"+id+"'"))el.classList.add('active');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(window.innerWidth<=768&&window.closeSidebar)window.closeSidebar();
+}
+
+function toggleGroup(btn){
+  const group=btn.parentElement;
+  group.classList.toggle('open');
+}
+
+(function(){
+  function _open(){
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('hamburger').classList.add('open');
+    document.getElementById('overlay').classList.add('visible');
+    document.body.style.overflow='hidden';
+  }
+  function _close(){
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('overlay').classList.remove('visible');
+    document.body.style.overflow='';
+  }
+  window.toggleSidebar=function(){if(document.getElementById('sidebar').classList.contains('open')){_close();}else{_open();}};window.closeSidebar=_close;
+  function init(){
+    var hb=document.getElementById('hamburger');
+    var ov=document.getElementById('overlay');
+    if(hb){
+      hb.addEventListener('click',function(e){e.stopPropagation();window.toggleSidebar();});
+      hb.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();window.toggleSidebar();},{passive:false});
+    }
+    if(ov){ov.addEventListener('click',_close);}
+  }
+
+  // Deep-link: si la URL tiene #p-XX al abrir, navegar directamente a esa página
+  function handleDeepLink(){
+    var hash = window.location.hash;
+    if(hash){
+      var id = hash.replace('#','');
+      if(document.getElementById(id)){
+        show(id);
+      }
+    }
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', function(){ init(); handleDeepLink(); });
+  } else {
+    init(); handleDeepLink();
+  }
+
+})();
+
+</script>
+</body>
+</html>
