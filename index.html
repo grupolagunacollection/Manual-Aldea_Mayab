@@ -1,279 +1,311 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manual Operativo Aldea Mayab</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manual Operativo — Aldea Mayab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy:    #0b1f3a;
+      --gold:    #c9a227;
+      --gold-lt: #fef9ec;
+      --red:     #b91c1c;
+      --green:   #065f46;
+      --amber:   #b45309;
+      --blue:    #1e40af;
+      --slate:   #1f2937;
+      --muted:   #6b7280;
+      --rule:    #e5e7eb;
+      --bg:      #f5f4f1;
+      --white:   #ffffff;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--slate); }
 
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
+    /* HEADER */
+    .header {
+      background: var(--navy);
+      padding: 44px 24px 38px;
+      text-align: center;
+      border-bottom: 4px solid var(--gold);
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% -10%, rgba(201,162,39,.15) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .logo { max-width: 160px; margin-bottom: 18px; position: relative; }
+    .header-title {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: clamp(22px, 3.5vw, 34px);
+      font-weight: 900;
+      letter-spacing: .3px;
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .header-sub { color: #94a3b8; font-size: 14px; font-weight: 300; position: relative; }
+    .header-badges {
+      display: inline-flex; flex-wrap: wrap; justify-content: center;
+      gap: 8px; margin-top: 20px; position: relative;
+    }
+    .badge {
+      font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      color: #94a3b8; background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12); border-radius: 20px; padding: 4px 12px;
+    }
 
-        body {
-            margin: 0;
-            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f6f8;
-            color: #1f2937;
-            line-height: 1.5;
-        }
+    /* LAYOUT */
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
 
-        /* Encabezado institucional */
-        .header {
-            background-color: #0b1f3a;
-            padding: 40px 20px;
-            text-align: center;
-            border-bottom: 4px solid #c9a227;
-        }
+    /* SECTION HEADER */
+    .sec-head { display: flex; align-items: center; gap: 10px; padding-top: 40px; margin-bottom: 18px; }
+    .sec-bar { width: 4px; height: 22px; border-radius: 3px; flex-shrink: 0; }
+    .sec-bar.red  { background: var(--red); }
+    .sec-bar.gold { background: var(--gold); }
+    .sec-label { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .sec-label.red  { color: var(--red); }
+    .sec-label.gold { color: #92700f; }
 
-        .logo {
-            max-width: 180px;
-            margin-bottom: 15px;
-        }
+    /* EMERGENCY GRID */
+    .egrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 11px; padding-bottom: 4px; }
+    .ecard {
+      background: var(--white); border: 1px solid #fecaca; border-left: 4px solid var(--red);
+      border-radius: 9px; padding: 16px 16px 14px; text-decoration: none; color: var(--slate);
+      display: flex; flex-direction: column; gap: 5px;
+      transition: transform .16s ease, box-shadow .16s ease;
+      box-shadow: 0 1px 4px rgba(0,0,0,.06);
+    }
+    .ecard:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(185,28,28,.13); }
+    .ecard.green  { border-color: #bbf7d0; border-left-color: var(--green); }
+    .ecard.green:hover { box-shadow: 0 8px 20px rgba(6,95,70,.13); }
+    .ecard.amber  { border-color: #fde68a; border-left-color: var(--amber); }
+    .ecard.amber:hover { box-shadow: 0 8px 20px rgba(180,83,9,.13); }
+    .ecard.blue   { border-color: #bfdbfe; border-left-color: var(--blue); }
+    .ecard.blue:hover  { box-shadow: 0 8px 20px rgba(30,64,175,.13); }
+    .ecard-title {
+      font-size: 12.5px; font-weight: 700; letter-spacing: .03em;
+      text-transform: uppercase; line-height: 1.25; color: var(--red);
+    }
+    .ecard.green .ecard-title { color: var(--green); }
+    .ecard.amber .ecard-title { color: var(--amber); }
+    .ecard.blue  .ecard-title { color: var(--blue);  }
+    .ecard-desc { font-size: 11.5px; color: var(--muted); line-height: 1.4; }
+    .ecard-ref { font-size: 10px; font-weight: 600; letter-spacing: .06em; color: #d1d5db; text-transform: uppercase; margin-top: 2px; }
 
-        .title {
-            color: #ffffff;
-            font-size: 32px;
-            font-weight: 700;
-            margin: 0;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
+    /* BOOKS GRID */
+    .bgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(460px, 1fr)); gap: 12px; padding-bottom: 64px; }
+    .bcard {
+      background: var(--white); border: 1px solid var(--rule); border-radius: 12px;
+      padding: 20px 22px; text-decoration: none; color: var(--slate);
+      display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start;
+      transition: all .16s ease; box-shadow: 0 1px 5px rgba(0,0,0,.04);
+    }
+    .bcard:hover {
+      border-color: var(--gold); background: var(--gold-lt);
+      transform: translateY(-2px); box-shadow: 0 8px 22px rgba(201,162,39,.1);
+    }
+    /* Pending: not a link, no interaction */
+    .bcard.pending { opacity: .55; cursor: default; }
+    .bcard-num {
+      width: 52px; height: 52px; border-radius: 10px; background: var(--navy);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700;
+      color: var(--gold); flex-shrink: 0;
+    }
+    .bcard.pending .bcard-num { background: #e5e7eb; color: #9ca3af; }
+    .bcard-tag { font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 2px; }
+    .bcard.pending .bcard-tag { color: var(--muted); }
+    .bcard-title { font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 4px; line-height: 1.3; }
+    .bcard-desc { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+    .bcard-cta { display: inline-block; margin-top: 9px; font-size: 11px; font-weight: 600; color: var(--gold); }
+    .bcard-pill {
+      display: inline-block; margin-top: 9px; font-size: 10px; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; color: #9ca3af;
+      background: #f3f4f6; border-radius: 20px; padding: 3px 10px;
+    }
 
-        .subtitle {
-            color: #d1d5db;
-            font-size: 16px;
-            margin-top: 10px;
-            font-weight: 300;
-        }
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 28px 20px; font-size: 11px; color: #9ca3af;
+      background: var(--white); border-top: 1px solid var(--rule);
+      letter-spacing: .08em; text-transform: uppercase;
+    }
 
-        /* Sección de Emergencias */
-        .emergency-section {
-            max-width: 1100px;
-            margin: 40px auto 20px auto;
-            padding: 0 20px;
-        }
-
-        .emergency-title {
-            font-size: 20px;
-            font-weight: 800;
-            color: #b91c1c;
-            text-transform: uppercase;
-            border-left: 6px solid #b91c1c;
-            padding-left: 15px;
-            margin-bottom: 25px;
-            letter-spacing: 1px;
-        }
-
-        .emergency-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
-        }
-
-        .emergency-card {
-            background: #ffffff;
-            border: 1px solid #fee2e2;
-            border-left: 6px solid #b91c1c;
-            padding: 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #1f2937;
-            transition: all 0.2s ease-in-out;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-        }
-
-        .emergency-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.15);
-            border-color: #b91c1c;
-        }
-
-        /* Estilo especial para Cocodrilo (Laguna) */
-        .emergency-card.laguna {
-            border-left-color: #047857;
-            border-color: #d1fae5;
-        }
-        
-        .emergency-card.laguna .emergency-card-title {
-            color: #065f46;
-        }
-
-        .emergency-card-title {
-            font-size: 17px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #991b1b;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .emergency-card-desc {
-            font-size: 13px;
-            color: #4b5563;
-            line-height: 1.4;
-        }
-
-        /* Biblioteca */
-        .container {
-            max-width: 900px;
-            margin: 50px auto;
-            padding: 20px;
-        }
-
-        .section-title {
-            font-size: 20px;
-            margin-bottom: 25px;
-            font-weight: 700;
-            color: #374151;
-            border-left: 6px solid #c9a227;
-            padding-left: 15px;
-            text-transform: uppercase;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 15px;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #1f2937;
-            display: block;
-            border: 1px solid #e5e7eb;
-            transition: all 0.2s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .card:hover {
-            border-color: #c9a227;
-            background-color: #fffcf2;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
-        }
-
-        .card-title {
-            font-size: 19px;
-            font-weight: 700;
-            margin-bottom: 6px;
-            color: #0b1f3a;
-        }
-
-        .card-desc {
-            font-size: 14px;
-            color: #6b7280;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 12px;
-            color: #9ca3af;
-            background: #ffffff;
-            border-top: 1px solid #e5e7eb;
-            margin-top: 60px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-    </style>
+    /* RESPONSIVE */
+    @media (max-width: 560px) { .bgrid { grid-template-columns: 1fr; } .egrid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 360px) { .egrid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
 <header class="header">
-    <img src="aldeaMayab_blanco.png" alt="Aldea Mayab" class="logo">
-    <h1 class="title">Manual Operativo Institucional</h1>
-    <div class="subtitle">Aldea Mayab — Gestión de Operaciones, Administración y Seguridad</div>
+  <img src="aldeaMayab_blanco.png" alt="Aldea Mayab" class="logo">
+  <h1 class="header-title">Manual Operativo Institucional</h1>
+  <p class="header-sub">Aldea Mayab · Bacalar · Gestión de Operaciones, Administración y Seguridad</p>
+  <div class="header-badges">
+    <span class="badge">6 Libros</span>
+    <span class="badge">Versión 1.0 · 2026</span>
+    <span class="badge">Uso Interno Confidencial</span>
+  </div>
 </header>
 
-<main class="emergency-section">
-    <div class="emergency-title">Acciones de Respuesta Inmediata</div>
+<div class="wrap">
 
-    <div class="emergency-grid">
+  <!-- EMERGENCIAS -->
+  <div class="sec-head">
+    <div class="sec-bar red"></div>
+    <span class="sec-label red">Acciones de Respuesta Inmediata</span>
+  </div>
 
-        <a href="./libros/libro3.html#p-21" class="emergency-card">
-            <div class="emergency-card-title"> SEGURIDAD / INTRUSO</div>
-            <div class="emergency-card-desc">Protocolo ante personas no autorizadas o riesgo perimetral.</div>
-        </a>
+  <div class="egrid">
 
+    <a href="./libros/libro3.html#p-21" class="ecard">
+      <div class="ecard-title">Seguridad / Intruso</div>
+      <div class="ecard-desc">Protocolo ante personas no autorizadas o riesgo perimetral.</div>
+      <div class="ecard-ref">Libro III · 2.1</div>
+    </a>
 
-        <a href="./libros/libro3.html#p-31" class="emergency-card">
-            <div class="emergency-card-title"> FAUNA SILVESTRE</div>
-            <div class="emergency-card-desc">Manejo de fauna en áreas comunes y senderos de selva.</div>
-        </a>
+    <a href="./libros/libro3.html#p-22" class="ecard">
+      <div class="ecard-title">Persona Agresiva</div>
+      <div class="ecard-desc">Manejo de violencia verbal, amenazas o agresión física.</div>
+      <div class="ecard-ref">Libro III · 2.2</div>
+    </a>
 
-        <a href="./libros/libro3.html#p-61" class="emergency-card">
-            <div class="emergency-card-title"> EMERGENCIA MÉDICA</div>
-            <div class="emergency-card-desc">Protocolo de atención a residentes, huéspedes o staff.</div>
-        </a>
+    <a href="./libros/libro3.html#p-61" class="ecard">
+      <div class="ecard-title">Emergencia Médica</div>
+      <div class="ecard-desc">Atención a residentes, huéspedes o personal de staff.</div>
+      <div class="ecard-ref">Libro III · 6.1</div>
+    </a>
 
-        <a href="./libros/libro3.html#p-33" class="emergency-card">
-            <div class="emergency-card-title"> INCENDIO</div>
-            <div class="emergency-card-desc">Plan de respuesta, uso de extintores y evacuación.</div>
-        </a>
+    <a href="./libros/libro3.html#p-33" class="ecard">
+      <div class="ecard-title">Incendio</div>
+      <div class="ecard-desc">Respuesta, uso de extintores y evacuación de áreas.</div>
+      <div class="ecard-ref">Libro III · 3.3</div>
+    </a>
 
+    <a href="./libros/libro3.html#p-31" class="ecard green">
+      <div class="ecard-title">Fauna Silvestre</div>
+      <div class="ecard-desc">Manejo de fauna en áreas comunes, senderos y selva.</div>
+      <div class="ecard-ref">Libro III · 3.1</div>
+    </a>
+
+    <a href="./libros/libro3.html#p-32" class="ecard green">
+      <div class="ecard-title">Cocodrilo en Muelle</div>
+      <div class="ecard-desc">Evacuación y acordonamiento en laguna o muelle.</div>
+      <div class="ecard-ref">Libro III · 3.2</div>
+    </a>
+
+    <a href="./libros/libro3.html#p-41" class="ecard amber">
+      <div class="ecard-title">Huracán</div>
+      <div class="ecard-desc">Preparación, acciones durante el evento y post-huracán.</div>
+      <div class="ecard-ref">Libro III · 4.1</div>
+    </a>
+
+    <a href="./libros/libro3.html#p-51" class="ecard blue">
+      <div class="ecard-title">Falla Eléctrica</div>
+      <div class="ecard-desc">Activación de generador, modo offline y protocolo CFE.</div>
+      <div class="ecard-ref">Libro III · 5.1</div>
+    </a>
+
+  </div>
+
+  <!-- BIBLIOTECA -->
+  <div class="sec-head">
+    <div class="sec-bar gold"></div>
+    <span class="sec-label gold">Biblioteca de Manuales</span>
+  </div>
+
+  <div class="bgrid">
+
+    <a href="./libros/libro1_completo.html" class="bcard">
+      <div class="bcard-num">I</div>
+      <div>
+        <div class="bcard-tag">Libro I</div>
+        <div class="bcard-title">Gobierno y Administración</div>
+        <div class="bcard-desc">Estructura organizacional, cultura institucional, finanzas, planeación presupuestal, gestión de morosidad, auditoría y código de ética.</div>
+        <span class="bcard-cta">Ver manual →</span>
+      </div>
+    </a>
+
+    <a href="./libros/libro2_operacion_seguridad.html" class="bcard">
+      <div class="bcard-num">II</div>
+      <div>
+        <div class="bcard-tag">Libro II</div>
+        <div class="bcard-title">Operación y Seguridad</div>
+        <div class="bcard-desc">Control de accesos, CCTV, gestión de incidentes, atención a residentes, paquetería y comunicación oficial.</div>
+        <span class="bcard-cta">Ver manual →</span>
+      </div>
+    </a>
+
+    <a href="./libros/libro3.html" class="bcard">
+      <div class="bcard-num">III</div>
+      <div>
+        <div class="bcard-tag">Libro III</div>
+        <div class="bcard-title">Emergencias y Continuidad</div>
+        <div class="bcard-desc">Protocolos completos ante crisis: seguridad, fauna, desastres naturales, emergencias técnicas y médicas.</div>
+        <span class="bcard-cta">Ver manual →</span>
+      </div>
+    </a>
+
+    <a href="./libros/libro4_Mtto.html" class="bcard">
+      <div class="bcard-num">IV</div>
+      <div>
+        <div class="bcard-tag">Libro IV</div>
+        <div class="bcard-title">Mantenimiento e Infraestructura</div>
+        <div class="bcard-desc">Programa anual preventivo, órdenes de trabajo, sistema eléctrico, hidráulico, PTAR, áreas verdes y gestión ambiental.</div>
+        <span class="bcard-cta">Ver manual →</span>
+      </div>
+    </a>
+
+    <div class="bcard pending">
+      <div class="bcard-num">V</div>
+      <div>
+        <div class="bcard-tag">Libro V</div>
+        <div class="bcard-title">Áreas Comunes y Amenidades</div>
+        <div class="bcard-desc">Sistema de reservas, piscina, Casa Club, canchas de pádel, gimnasio, spa y muelle.</div>
+        <span class="bcard-pill">En elaboración</span>
+      </div>
     </div>
-</main>
 
-<section class="container">
-    <div class="section-title">Biblioteca de Manuales</div>
+    <div class="bcard pending">
+      <div class="bcard-num">VI</div>
+      <div>
+        <div class="bcard-tag">Libro VI</div>
+        <div class="bcard-title">Cumplimiento Legal y Protección Institucional</div>
+        <div class="bcard-desc">Reglamento interno, asambleas, sanciones, protección de datos, seguros, permisos y atención a autoridades.</div>
+        <span class="bcard-pill">En elaboración</span>
+      </div>
+    </div>
 
-    <a href="./libros/libro1_completo.html" class="card">
-        <div class="card-title">Libro 1 — Administración y Finanzas</div>
-        <div class="card-desc">Gobernanza, cobranza, Vivook y lineamientos administrativos.</div>
-    </a>
-
-    <a href="./libros/libro2_operacion_seguridad.html" class="card">
-        <div class="card-title">Libro 2 — Operación y Seguridad</div>
-        <div class="card-desc">Control de accesos, vigilancia y protocolos de hospitalidad.</div>
-    </a>
-
-    <a href="./libros/libro3.html" class="card">
-        <div class="card-title">Libro 3 — Emergencias y Protocolos Críticos</div>
-        <div class="card-desc">Manual completo de respuesta ante crisis y contingencias.</div>
-    </a>
-
-    <a href="./libros/libro4_Mtto.html" class="card">
-        <div class="card-title">Libro 4 — Mantenimiento e Infraestructura</div>
-        <div class="card-desc">Mantenimiento de áreas comunes, muelle, gimnasio y PTAR.</div>
-    </a>
-</section>
+  </div>
+</div>
 
 <footer>
-    © Aldea Mayab 2024 — Documentación Oficial de Uso Interno Confidencial
+  © Aldea Mayab 2026 · Documentación Oficial · Uso Interno Confidencial
 </footer>
+
 <script>
-    (function() {
-        function corregirSalto() {
-            const hash = window.location.hash; // Detecta el #p-21, #p-32, etc.
-            if (hash) {
-                const targetId = hash.substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    // 1. Forzamos que la página sea visible 
-                    // (por si el CSS del manual tiene las páginas ocultas con display:none)
-                    const allPages = document.querySelectorAll('.page');
-                    allPages.forEach(p => p.style.display = 'none'); // Oculta todas
-                    targetElement.style.display = 'block';           // Muestra la elegida
-                    
-                    // 2. Si usas una función llamada showPage, la ejecutamos
-                    if (typeof showPage === 'function') {
-                        showPage(targetId);
-                    }
-
-                    // 3. Hacemos el scroll manual para asegurar que quede a la vista
-                    setTimeout(() => {
-                        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }, 200);
-                }
-            }
-        }
-
-        // Se ejecuta al cargar la página y si el hash cambia
-        window.addEventListener('load', corregirSalto);
-        window.addEventListener('hashchange', corregirSalto);
-    })();
+  (function () {
+    function handleHash() {
+      const hash = window.location.hash;
+      if (!hash) return;
+      const el = document.getElementById(hash.substring(1));
+      if (!el) return;
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 150);
+    }
+    window.addEventListener('load', handleHash);
+    window.addEventListener('hashchange', handleHash);
+  })();
 </script>
+
 </body>
 </html>
