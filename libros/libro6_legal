@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Libro VI — Cumplimiento Legal y Protección Institucional · Aldea Mayab</title>
+<style>
+
+:root{
+  --green:#1F5C38;--green-mid:#2A7A4B;--green-lt:#E8F4ED;
+  --amber:#C87D0A;--amber-lt:#FDF3E3;
+  --red:#C0392B;--red-lt:#FDECEA;
+  --sidebar-bg:#111816;--sidebar-w:260px;
+  --white:#FFFFFF;--bg:#F4F6F5;--rule:#D8E4DC;
+  --text:#1A2B1F;--text-mid:#4A6355;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);display:flex;}
+
+/* ── Sidebar ── */
+#sidebar{width:var(--sidebar-w);min-height:100vh;background:var(--sidebar-bg);position:fixed;top:0;left:0;display:flex;flex-direction:column;z-index:100;overflow-y:auto;}
+.sb-header{padding:20px 18px 14px;border-bottom:1px solid #1C301F;position:sticky;top:0;background:var(--sidebar-bg);z-index:10;}
+.sb-book{font-size:9px;font-weight:700;letter-spacing:.12em;color:#72D48A;text-transform:uppercase;margin-bottom:4px;}
+.sb-title{font-size:13px;font-weight:700;color:#fff;line-height:1.3;}
+nav{padding:10px 0 30px;}
+.nav-group{margin-bottom:2px;}
+.nav-group-btn{display:flex;align-items:center;justify-content:space-between;padding:9px 18px;cursor:pointer;color:#A8BFAD;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;user-select:none;}
+.nav-group-btn:hover{color:#fff;}
+.nav-arrow{font-size:9px;transition:transform .2s;}
+.nav-group.open .nav-arrow{transform:rotate(90deg);}
+.nav-items{display:none;padding-bottom:4px;}
+.nav-group.open .nav-items{display:block;}
+.nav-link,.nav-sub{display:block;padding:7px 18px 7px 26px;font-size:12px;color:#7A9E83;text-decoration:none;cursor:pointer;border-left:3px solid transparent;transition:all .15s;}
+.nav-sub{padding-left:36px;font-size:11px;color:#5A7A63;}
+.nav-link:hover,.nav-sub:hover{color:#fff;border-left-color:var(--green-mid);}
+.nav-link.active{color:#72D48A;border-left-color:#72D48A;background:rgba(114,212,138,.08);}
+
+/* ── Main ── */
+#main{margin-left:var(--sidebar-w);flex:1;}
+#topbar{height:50px;background:var(--white);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 36px;position:sticky;top:0;z-index:50;}
+#breadcrumb{font-size:12px;color:var(--text-mid);}
+#breadcrumb strong{color:var(--text);}
+.topbar-meta{display:flex;gap:16px;font-size:11px;color:var(--text-mid);}
+.meta-code{background:var(--green-lt);color:var(--green);padding:2px 8px;border-radius:4px;font-weight:700;font-size:10px;}
+#content{padding:36px 40px 80px;}
+
+/* ── Pages ── */
+.page{display:none;}
+.page.active{display:block;animation:fadeUp .2s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* ── Typography ── */
+.proc-eyebrow{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:8px;}
+.proc-title{font-size:32px;font-weight:800;color:var(--text);line-height:1.15;margin-bottom:8px;}
+.proc-subtitle{font-size:14px;color:var(--text-mid);margin-bottom:24px;line-height:1.5;}
+.proc-footer{display:flex;justify-content:space-between;margin-top:32px;padding-top:14px;border-top:1px solid var(--rule);font-size:11px;color:var(--text-mid);}
+
+/* ── Section headers ── */
+.sec-h{display:flex;align-items:center;gap:10px;margin:28px 0 12px;}
+.sec-num{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+.sec-num-g{background:var(--green);color:#fff;}
+.sec-num-a{background:var(--amber);color:#fff;}
+.sec-num-r{background:var(--red);color:#fff;}
+.sec-title{font-size:15px;font-weight:700;color:var(--text);}
+
+/* ── Info boxes ── */
+.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0;}
+.info-grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:14px 0;}
+.info-card{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:16px;}
+.info-card-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-bottom:4px;}
+.info-card-value{font-size:14px;font-weight:700;color:var(--text);}
+
+/* ── Alerts ── */
+.alert{display:flex;gap:14px;padding:14px 16px;border-radius:var(--radius);margin:14px 0;border:1px solid;}
+.alert-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+.alert-body{font-size:13px;line-height:1.55;}
+.alert-body strong{display:block;font-weight:700;margin-bottom:3px;}
+.a-green{background:var(--green-lt);border-color:#B8D8C0;color:var(--text);}
+.a-amber{background:var(--amber-lt);border-color:#E8C88A;color:#3A2000;}
+.a-red{background:var(--red-lt);border-color:#E8B0A8;color:#4A0E0A;}
+
+/* ── Tables ── */
+.act-table{width:100%;border-collapse:collapse;font-size:13px;margin:14px 0;}
+.act-table.green thead{background:var(--green);}
+.act-table.amber thead{background:var(--amber);}
+.act-table thead th{color:#fff;font-weight:700;font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:10px 12px;text-align:left;}
+.act-table tbody tr:nth-child(odd){background:var(--white);}
+.act-table tbody tr:nth-child(even){background:var(--bg);}
+.act-table td{padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.45;}
+.act-table td strong{color:var(--green);}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;}
+.badge-g{background:var(--green-lt);color:var(--green);}
+.badge-a{background:var(--amber-lt);color:var(--amber);}
+.badge-r{background:var(--red-lt);color:var(--red);}
+
+/* ── Step lists ── */
+.steps{list-style:none;margin:10px 0;}
+.steps li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:13px;line-height:1.5;}
+.steps li:last-child{border-bottom:none;}
+.step-num{width:24px;height:24px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;flex-shrink:0;margin-top:1px;}
+.step-num-a{background:var(--amber);}
+.step-num-r{background:var(--red);}
+.oblig{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--red);background:var(--red-lt);padding:1px 6px;border-radius:3px;margin-left:6px;}
+
+/* ── Flowcharts ── */
+.fc-wrap{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:18px;overflow-x:auto;margin:14px 0;}
+
+/* ── Cover page ── */
+.cover-tag{display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:4px;margin-bottom:18px;}
+.cover-title{font-size:48px;font-weight:900;color:var(--text);line-height:1.1;margin-bottom:12px;}
+.cover-sub{font-size:16px;color:var(--text-mid);margin-bottom:32px;line-height:1.5;}
+.cover-meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:32px;}
+.cover-meta-item{background:var(--white);border:1px solid var(--rule);border-radius:var(--radius);padding:16px;}
+.cover-meta-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-bottom:4px;}
+.cover-meta-val{font-size:15px;font-weight:800;color:var(--text);}
+.cover-toc{margin-top:28px;}
+.cover-toc-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-bottom:12px;}
+.cover-toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+.toc-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--white);border:1px solid var(--rule);border-radius:8px;cursor:pointer;transition:all .15s;}
+.toc-item:hover{border-color:var(--green);background:var(--green-lt);}
+.toc-num{font-size:10px;font-weight:800;color:var(--green);}
+.toc-label{font-size:12px;font-weight:600;}
+
+/* ── KPI chips ── */
+.kpi-row{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0;}
+.kpi{background:var(--white);border:1px solid var(--rule);border-radius:8px;padding:10px 14px;min-width:130px;}
+.kpi-val{font-size:22px;font-weight:900;color:var(--green);}
+.kpi-label{font-size:10px;color:var(--text-mid);margin-top:2px;}
+
+/* ── Checklist ── */
+.checklist{list-style:none;margin:10px 0;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-bottom:1px solid var(--rule);font-size:13px;line-height:1.45;}
+.checklist li:last-child{border-bottom:none;}
+.check-box{width:18px;height:18px;border:2px solid var(--green);border-radius:4px;flex-shrink:0;margin-top:1px;}
+
+/* Mobile */
+#hamburger{display:none;position:fixed;top:10px;left:12px;z-index:300;background:var(--sidebar-bg);border:none;border-radius:6px;padding:10px 13px;cursor:pointer;flex-direction:column;gap:5px;box-shadow:0 2px 12px rgba(0,0,0,.5);touch-action:manipulation;-webkit-tap-highlight-color:transparent;user-select:none;}
+#hamburger span{display:block;width:22px;height:2px;background:#72D48A;border-radius:2px;transition:all .25s;}
+#hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+#hamburger.open span:nth-child(2){opacity:0;}
+#hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+#overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:90;}
+#overlay.visible{display:block;}
+@media(max-width:768px){
+  #hamburger{display:flex;}
+  #sidebar{transform:translateX(-100%);transition:transform .28s cubic-bezier(.4,0,.2,1);}
+  #sidebar.open{transform:translateX(0);z-index:300;}
+  #main{margin-left:0!important;}
+  #topbar{padding:0 14px 0 56px;}
+  #content{padding:22px 18px 80px;}
+  .cover-meta,.info-grid,.info-grid-3,.cover-toc-grid{grid-template-columns:1fr!important;}
+  .proc-title,.cover-title{font-size:24px;}
+  .fc-wrap svg{max-width:100%;height:auto;}
+  .kpi-row{gap:8px;}
+  .proc-footer{flex-direction:column;gap:4px;font-size:10px;}
+}
+
+/* nav-anchor: section label in nav — same page, no navigation */
+.nav-anchor{display:block;padding:3px 14px 3px 38px;font-size:10px;
+  color:#3E6047;cursor:default;line-height:1.4;user-select:none;}
+.nav-anchor::before{content:'§ ';opacity:.5;}
+
+
+/* ── Sidebar nav scrollable ── */
+#sidebar{overflow-y:hidden;display:flex;flex-direction:column;}
+#sidebar nav{flex:1;overflow-y:auto;overscroll-behavior:contain;}
+#sidebar nav::-webkit-scrollbar{width:4px;}
+#sidebar nav::-webkit-scrollbar-track{background:transparent;}
+#sidebar nav::-webkit-scrollbar-thumb{background:#2A4A30;border-radius:4px;}
+#sidebar nav::-webkit-scrollbar-thumb:hover{background:#3A6040;}
+
+
+</style>
+</head>
+<body>
+<button id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+<div id="overlay"></div>
+<aside id="sidebar">
+  <div class="sb-header">
+    <div class="sb-book">Aldea Mayab · Bacalar</div>
+    <div class="sb-title">Libro VI · Cumplimiento Legal</div>
+  </div>
+  <nav>
+    <!-- 1.0 -->
+    <div class="nav-group open">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">1.0 Marco General</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-cover')">Portada</a>
+        <a class="nav-link" onclick="show('p-11')">1.1 Alcance y Marco Legal</a>
+      </div>
+    </div>
+    <!-- 2.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">2.0 Reglamento Interno</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-21')">2.1 Reglamento de Convivencia</a>
+        <a class="nav-link" onclick="show('p-22')">2.2 Sanciones y Multas</a>
+      </div>
+    </div>
+    <!-- 3.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">3.0 Asambleas</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-31')">3.1 Convocatoria y Quórum</a>
+        <a class="nav-link" onclick="show('p-32')">3.2 Desarrollo y Actas</a>
+      </div>
+    </div>
+    <!-- 4.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">4.0 Protección de Datos</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-41')">4.1 Política de Privacidad</a>
+        <a class="nav-link" onclick="show('p-42')">4.2 Aviso de Privacidad</a>
+      </div>
+    </div>
+    <!-- 5.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">5.0 Seguros y Permisos</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-51')">5.1 Gestión de Seguros</a>
+        <a class="nav-link" onclick="show('p-52')">5.2 Permisos y Licencias</a>
+      </div>
+    </div>
+    <!-- 6.0 -->
+    <div class="nav-group">
+      <div class="nav-group-btn" onclick="toggleGroup(this)">
+        <span class="nav-group-label">6.0 Autoridades</span>
+        <span class="nav-arrow">&#9654;</span>
+      </div>
+      <div class="nav-items">
+        <a class="nav-link" onclick="show('p-61')">6.1 Atención a Autoridades</a>
+      </div>
+    </div>
+  </nav>
+</aside>
+<div id="main">
+  <div id="topbar">
+    <div id="breadcrumb">Libro VI &rsaquo; <strong>Portada</strong></div>
+    <div class="topbar-meta"><span class="meta-code">PR-AM-LEG-001</span></div>
+  </div>
+  <div id="content">
+
+<!-- ══ PORTADA ══ -->
+<div class="page active" id="p-cover">
+  <div class="cover-tag">Libro VI</div>
+  <h1 class="cover-title">Cumplimiento Legal<br>y Protección Institucional</h1>
+  <p class="cover-sub">Reglamento interno, asambleas, sanciones, protección de datos personales, seguros, permisos y protocolo de atención a autoridades del Residencial Aldea Mayab</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item"><div class="cover-meta-label">Código</div><div class="cover-meta-val">PR-AM-LEG-001</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Versión</div><div class="cover-meta-val">1.0 · 2026</div></div>
+    <div class="cover-meta-item"><div class="cover-meta-label">Responsable</div><div class="cover-meta-val">Dirección General / Asesoría Jurídica</div></div>
+  </div>
+  <div class="cover-toc-grid" style="margin-top:24px;">
+    <div class="toc-item" onclick="show('p-11')"><span class="toc-num">1.0</span><span class="toc-label">Marco General y Alcance</span></div>
+    <div class="toc-item" onclick="show('p-21')"><span class="toc-num">2.0</span><span class="toc-label">Reglamento Interno</span></div>
+    <div class="toc-item" onclick="show('p-31')"><span class="toc-num">3.0</span><span class="toc-label">Asambleas de Condóminos</span></div>
+    <div class="toc-item" onclick="show('p-41')"><span class="toc-num">4.0</span><span class="toc-label">Protección de Datos</span></div>
+    <div class="toc-item" onclick="show('p-51')"><span class="toc-num">5.0</span><span class="toc-label">Seguros y Permisos</span></div>
+    <div class="toc-item" onclick="show('p-61')"><span class="toc-num">6.0</span><span class="toc-label">Atención a Autoridades</span></div>
+  </div>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · Portada</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 1.1 ALCANCE Y MARCO LEGAL ══ -->
+<div class="page" id="p-11">
+  <div class="proc-eyebrow">1.0 Marco General · 1.1</div>
+  <h1 class="proc-title">1.1 Alcance y Marco Legal</h1>
+  <p class="proc-subtitle">Base normativa, jerarquía de documentos y principio de legalidad del residencial</p>
+
+  <div class="alert a-green"><div class="alert-icon"></div><div class="alert-body"><strong>Principio fundamental</strong>El residencial Aldea Mayab opera bajo el marco de la Ley de Condominios del Estado de Quintana Roo y su Reglamento. Ninguna decisión administrativa, reglamento interno ni política operativa puede contravenir la ley estatal. En caso de conflicto, prevalece la ley.</div></div>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Marco Normativo Aplicable</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Instrumento</th><th>Jerarquía</th><th>Aplica a</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ley de Condominios de Quintana Roo</strong></td><td>Superior</td><td>Toda la operación del condominio</td></tr>
+      <tr><td><strong>Escritura constitutiva del condominio</strong></td><td>Constitutivo</td><td>Derechos y obligaciones de propietarios</td></tr>
+      <tr><td><strong>Reglamento interno</strong></td><td>Operativo</td><td>Convivencia, uso de áreas, sanciones</td></tr>
+      <tr><td><strong>Reglamentos municipales de Bacalar</strong></td><td>Aplicable</td><td>Ruido, construcción, uso de suelo, laguna</td></tr>
+      <tr><td><strong>Ley Federal de Protección de Datos (LFPDPPP)</strong></td><td>Federal</td><td>Manejo de datos de residentes y empleados</td></tr>
+      <tr><td><strong>Ley Federal del Trabajo</strong></td><td>Federal</td><td>Relaciones laborales con el personal</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Jerarquía de Documentos Internos</div></div>
+  <div class="info-grid-3">
+    <div class="info-card"><div class="info-card-label">Nivel 1 — Constitutivo</div><div class="info-card-value">Escritura · Declaratoria · Reglamento de Condominio</div></div>
+    <div class="info-card"><div class="info-card-label">Nivel 2 — Operativo</div><div class="info-card-value">Manuales de Procedimientos (Libros I–VI)</div></div>
+    <div class="info-card"><div class="info-card-label">Nivel 3 — Instruccional</div><div class="info-card-value">Circulares · Comunicados · Instrucciones de trabajo</div></div>
+  </div>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Actualizaciones y Vigencia</div></div>
+  <table class="act-table amber">
+    <thead><tr><th>Tipo de cambio</th><th>Requiere</th><th>Responsable</th></tr></thead>
+    <tbody>
+      <tr><td>Modificación al Reglamento Interno</td><td>Asamblea ordinaria con quórum del 51% de propietarios</td><td>Comité Operativo + Asesoría Jurídica</td></tr>
+      <tr><td>Actualización de manuales operativos</td><td>Aprobación de Dirección General</td><td>Gerencia Administrativa</td></tr>
+      <tr><td>Cambios en políticas de datos</td><td>Aviso a titulares y actualización en plataformas</td><td>Responsable de privacidad</td></tr>
+      <tr><td>Modificación de tarifas y multas</td><td>Asamblea ordinaria o Comité Financiero según monto</td><td>Comité Financiero</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 1.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 2.1 REGLAMENTO DE CONVIVENCIA ══ -->
+<div class="page" id="p-21">
+  <div class="proc-eyebrow">2.0 Reglamento Interno · 2.1</div>
+  <h1 class="proc-title">2.1 Reglamento de Convivencia</h1>
+  <p class="proc-subtitle">Normas de conducta, restricciones y obligaciones de residentes, arrendatarios y visitantes</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Normas Generales</div></div>
+  <table class="act-table green">
+    <thead><tr><th style="width:220px">Área</th><th>Norma</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ruido y horarios</strong></td><td>Silencio nocturno obligatorio de 22:00 a 08:00 en días de semana y de 23:00 a 09:00 en fines de semana. Incluye música, actividades en terrazas y reuniones. Obras y trabajos ruidosos solo de lunes a viernes de 08:00 a 18:00.</td></tr>
+      <tr><td><strong>Mascotas</strong></td><td>Permitidas con restricción: máximo 2 mascotas por unidad. Obligatorio llevarlas con correa en áreas comunes. Dueño es responsable de limpiar excremento de inmediato. Mascotas que representen riesgo comprobado deben retirarse del residencial.</td></tr>
+      <tr><td><strong>Estacionamiento</strong></td><td>Cada unidad tiene cajones asignados. Prohibido usar cajones de otros residentes. Visitas en zona de visitas exclusivamente. Velocidad máxima en vialidades internas: 10 km/h.</td></tr>
+      <tr><td><strong>Modificaciones a unidades</strong></td><td>Cualquier modificación que afecte fachada, estructura o instalaciones comunes requiere autorización escrita del Comité Operativo y, cuando aplique, permiso municipal. Sin autorización, el residente debe revertir los cambios a su costo.</td></tr>
+      <tr><td><strong>Renta y subarrendamiento</strong></td><td>Los propietarios que rentan deben notificar al administrador con los datos del arrendatario. El propietario es corresponsable de las obligaciones del arrendatario durante la vigencia del contrato.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">2</div><div class="sec-title">Obligaciones de Residentes</div></div>
+  <table class="act-table amber">
+    <thead><tr><th>Obligación</th><th>Periodicidad</th></tr></thead>
+    <tbody>
+      <tr><td>Pago puntual de cuotas de mantenimiento HOA</td><td>Mensual — primeros 5 días hábiles</td></tr>
+      <tr><td>Mantener la fachada y jardín de su unidad en condiciones adecuadas</td><td>Continua</td></tr>
+      <tr><td>Registrar a visitantes y huéspedes en sistema Vivook</td><td>Cada visita</td></tr>
+      <tr><td>Separar residuos sólidos según programa de reciclaje</td><td>Continua</td></tr>
+      <tr><td>Participar en asambleas o designar representante</td><td>Cada convocatoria</td></tr>
+      <tr><td>Notificar ausencias prolongadas (+30 días) a administración</td><td>Cuando aplique</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 2.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 2.2 SANCIONES Y MULTAS ══ -->
+<div class="page" id="p-22">
+  <div class="proc-eyebrow">2.0 Reglamento Interno · 2.2</div>
+  <h1 class="proc-title">2.2 Sanciones y Multas</h1>
+  <p class="proc-subtitle">Escala de infracciones, montos, proceso de aplicación y mecanismo de apelación</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Escala de Infracciones</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Nivel</th><th>Infracción</th><th>Sanción primera vez</th><th>Reincidencia</th></tr></thead>
+    <tbody>
+      <tr><td><span class="badge badge-a">Leve</span></td><td>Ruido fuera de horario · Mascota sin correa · No limpiar excremento de mascota · Mal uso de contenedores de reciclaje</td><td>Apercibimiento escrito</td><td>$500 MXN</td></tr>
+      <tr><td><span class="badge badge-a">Moderada</span></td><td>Uso de cajón de otro residente · Obras sin autorización · No registrar visitante · Uso de amenidades en estado de adeudo</td><td>$1,000 MXN</td><td>$2,500 MXN</td></tr>
+      <tr><td><span class="badge badge-r">Grave</span></td><td>Daño a bienes comunes · Agresión a personal · Subarrendamiento no declarado · Violación a normas de seguridad</td><td>$5,000 MXN + reparación del daño</td><td>$10,000 MXN + acciones legales</td></tr>
+      <tr><td><span class="badge badge-r">Muy grave</span></td><td>Introducción de sustancias ilícitas · Actos de violencia que requieran intervención policial · Daño intencional a infraestructura</td><td>Denuncia penal + demanda civil</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Proceso de Aplicación de Sanciones</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Detección y documentación</strong> — Personal de seguridad o administración documenta la infracción con evidencia: foto, video, reporte escrito con hora y testigos si aplica.</span></li>
+    <li><div class="step-num">2</div><span><strong>Notificación al residente</strong> — Se envía notificación escrita (correo + WhatsApp) dentro de las 24 horas siguientes, describiendo la infracción, normativa que aplica y sanción correspondiente.</span></li>
+    <li><div class="step-num">3</div><span><strong>Periodo de descargo</strong> — El residente tiene 5 días hábiles para presentar descargo o evidencia que desvirtúe la infracción ante el Comité Operativo.</span></li>
+    <li><div class="step-num">4</div><span><strong>Resolución del Comité</strong> — El Comité Operativo resuelve en 10 días hábiles. Puede confirmar, modificar o cancelar la sanción. Su resolución es definitiva en primera instancia.</span></li>
+    <li><div class="step-num">5</div><span><strong>Cobro</strong> — La multa se carga al estado de cuenta del residente. Si no se paga en 30 días, se agrega a la deuda HOA y aplica el proceso de morosidad del Libro I · 2.4.</span></li>
+  </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Apelación</div></div>
+  <div class="alert a-amber"><div class="alert-icon"></div><div class="alert-body"><strong>Segunda instancia — Asamblea de Condóminos</strong>Si el residente no está conforme con la resolución del Comité Operativo, puede apelar ante la Asamblea de Condóminos en la siguiente sesión ordinaria, presentando su caso por escrito con 15 días de anticipación. La resolución de la Asamblea es definitiva.</div></div>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 2.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 3.1 CONVOCATORIA Y QUÓRUM ══ -->
+<div class="page" id="p-31">
+  <div class="proc-eyebrow">3.0 Asambleas · 3.1</div>
+  <h1 class="proc-title">3.1 Convocatoria y Quórum</h1>
+  <p class="proc-subtitle">Tipos de asamblea, requisitos de convocatoria, quórum y votación</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Tipos de Asamblea</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Tipo</th><th>Frecuencia</th><th>Convoca</th><th>Temas principales</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Ordinaria</strong></td><td>Semestral</td><td>Administración con 10 días de anticipación</td><td>Rendición de cuentas, presupuesto, informe operativo, elección de comités</td></tr>
+      <tr><td><strong>Extraordinaria</strong></td><td>Cuando se requiera</td><td>Administración o 25% de propietarios, con 5 días de anticipación</td><td>Temas urgentes: obras, cambio de administrador, modificaciones al reglamento</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Requisitos de Convocatoria</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Convocatoria escrita</strong> — Enviada por correo electrónico y WhatsApp a todos los propietarios registrados. Publicada también en el tablero de anuncios del residencial.</span></li>
+    <li><div class="step-num">2</div><span><strong>Contenido obligatorio</strong> — Fecha, hora, lugar (o enlace si es virtual), orden del día completo, documentos de soporte relevantes.</span></li>
+    <li><div class="step-num">3</div><span><strong>Representación</strong> — Los propietarios pueden designar representante mediante carta poder simple. Un representante no puede representar a más de 3 propietarios.</span></li>
+  </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Quórum y Mayorías</div></div>
+  <table class="act-table amber">
+    <thead><tr><th>Decisión</th><th>Quórum mínimo</th><th>Mayoría requerida</th></tr></thead>
+    <tbody>
+      <tr><td>Sesión ordinaria válida</td><td>51% de las partes alícuotas</td><td>—</td></tr>
+      <tr><td>Segunda convocatoria (si no hay quórum)</td><td>Los que asistan (mín. 3 propietarios)</td><td>—</td></tr>
+      <tr><td>Aprobación de presupuesto anual</td><td>51%</td><td>Mayoría simple (50%+1)</td></tr>
+      <tr><td>Modificación al Reglamento Interno</td><td>75%</td><td>Mayoría calificada (66%+1)</td></tr>
+      <tr><td>Cambio de administrador</td><td>51%</td><td>Mayoría simple (50%+1)</td></tr>
+      <tr><td>Obras extraordinarias mayores a $500K MXN</td><td>75%</td><td>Mayoría calificada (75%)</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 3.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 3.2 DESARROLLO Y ACTAS ══ -->
+<div class="page" id="p-32">
+  <div class="proc-eyebrow">3.0 Asambleas · 3.2</div>
+  <h1 class="proc-title">3.2 Desarrollo y Actas</h1>
+  <p class="proc-subtitle">Conducción de la asamblea, registro de acuerdos y gestión del acta</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Conducción de la Asamblea</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Registro de asistentes</strong> — Al inicio se registra a cada asistente y su representación. Se calcula el porcentaje de partes alícuotas presentes para validar el quórum.</span></li>
+    <li><div class="step-num">2</div><span><strong>Apertura y declaración de quórum</strong> — El Presidente del Comité Operativo o el administrador declara la sesión abierta, confirma el quórum y lee el orden del día.</span></li>
+    <li><div class="step-num">3</div><span><strong>Desarrollo por puntos del orden del día</strong> — Cada punto se presenta, se abre a comentarios con tiempo limitado (3 min por intervención) y se vota cuando aplica.</span></li>
+    <li><div class="step-num">4</div><span><strong>Cierre y firma</strong> — Al concluir todos los puntos, el secretario lee los acuerdos tomados. La asamblea firma el acta de manera presencial o confirma su aprobación por correo en el plazo de 5 días.</span></li>
+  </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Gestión del Acta</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Actividad</th><th>Plazo</th><th>Responsable</th></tr></thead>
+    <tbody>
+      <tr><td>Redacción del acta borrador</td><td>48 horas post-asamblea</td><td>Secretario del Comité / Administrador</td></tr>
+      <tr><td>Envío a propietarios para revisión</td><td>72 horas post-asamblea</td><td>Administrador</td></tr>
+      <tr><td>Plazo para observaciones</td><td>5 días hábiles</td><td>Propietarios</td></tr>
+      <tr><td>Versión final y firma</td><td>10 días hábiles post-asamblea</td><td>Presidente + Secretario + Administrador</td></tr>
+      <tr><td>Archivo digital y físico</td><td>Inmediatamente tras firma</td><td>Administrador</td></tr>
+      <tr><td>Protocolización notarial (si aplica)</td><td>Cuando el acuerdo lo requiera por ley</td><td>Asesoría Jurídica</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 3.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 4.1 POLÍTICA DE PRIVACIDAD ══ -->
+<div class="page" id="p-41">
+  <div class="proc-eyebrow">4.0 Protección de Datos · 4.1</div>
+  <h1 class="proc-title">4.1 Política de Privacidad</h1>
+  <p class="proc-subtitle">Principios, categorías de datos, finalidades de tratamiento y derechos ARCO</p>
+
+  <div class="alert a-green"><div class="alert-icon"></div><div class="alert-body"><strong>Base legal</strong>Aldea Mayab trata datos personales en cumplimiento de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP) y su Reglamento. El responsable del tratamiento es la persona moral administradora del condominio.</div></div>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Categorías de Datos que se Tratan</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Categoría</th><th>Datos específicos</th><th>Finalidad</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Residentes y propietarios</strong></td><td>Nombre, RFC, CURP, teléfono, correo, identificación oficial, documentos de propiedad</td><td>Administración del condominio, facturación, comunicados</td></tr>
+      <tr><td><strong>Visitantes y huéspedes</strong></td><td>Nombre, foto de identificación, hora de entrada y salida, placa vehicular</td><td>Seguridad y control de accesos</td></tr>
+      <tr><td><strong>Personal</strong></td><td>Datos laborales, nómina, IMSS, INE, CURP, domicilio</td><td>Relación laboral, obligaciones fiscales y de seguridad social</td></tr>
+      <tr><td><strong>Proveedores</strong></td><td>RFC, datos fiscales, representante legal, datos de contacto</td><td>Contratación, pagos, archivo fiscal</td></tr>
+      <tr><td><strong>CCTV</strong></td><td>Imágenes de áreas comunes</td><td>Seguridad. Retención máxima 30 días. Acceso restringido.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Derechos ARCO</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Derecho</th><th>En qué consiste</th><th>Plazo de respuesta</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Acceso</strong></td><td>Conocer qué datos se tienen y cómo se usan</td><td>20 días hábiles</td></tr>
+      <tr><td><strong>Rectificación</strong></td><td>Corregir datos inexactos o incompletos</td><td>20 días hábiles</td></tr>
+      <tr><td><strong>Cancelación</strong></td><td>Solicitar eliminación de datos cuando ya no sean necesarios</td><td>20 días hábiles</td></tr>
+      <tr><td><strong>Oposición</strong></td><td>Oponerse al tratamiento para finalidades específicas</td><td>20 días hábiles</td></tr>
+    </tbody>
+  </table>
+  <div class="alert a-amber"><div class="alert-icon"></div><div class="alert-body"><strong>Ejercicio de derechos ARCO</strong>Enviar solicitud escrita a la dirección de correo electrónico del responsable de privacidad, identificándose como titular de los datos. No se atienden solicitudes de terceros sin acreditación de representación.</div></div>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 4.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 4.2 AVISO DE PRIVACIDAD ══ -->
+<div class="page" id="p-42">
+  <div class="proc-eyebrow">4.0 Protección de Datos · 4.2</div>
+  <h1 class="proc-title">4.2 Aviso de Privacidad</h1>
+  <p class="proc-subtitle">Procedimientos operativos para la gestión cotidiana de datos personales</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Procedimientos de Protección de Datos</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Proceso</th><th>Procedimiento obligatorio</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Recolección de datos</strong></td><td>Siempre con el consentimiento explícito del titular. El formato de registro debe incluir referencia al aviso de privacidad completo. Se prohíbe solicitar datos sensibles (salud, religión, afiliación política) sin justificación específica.</td></tr>
+      <tr><td><strong>Almacenamiento</strong></td><td>Datos digitales en plataformas con cifrado (Google Workspace, AppSheet con acceso restringido). Datos físicos en expedientes bajo llave. Prohibido almacenar datos personales en dispositivos personales del personal.</td></tr>
+      <tr><td><strong>Acceso interno</strong></td><td>Solo el personal autorizado según su función. El Jefe de Seguridad accede a datos de control de accesos. El administrador accede a datos financieros. Acceso de terceros requiere autorización escrita de Dirección.</td></tr>
+      <tr><td><strong>Transferencia a terceros</strong></td><td>Solo a proveedores de servicios que hayan firmado cláusula de confidencialidad. Prohibida la venta o cesión de datos a terceros no relacionados con la operación del condominio.</td></tr>
+      <tr><td><strong>Eliminación</strong></td><td>Datos de visitantes en CCTV: máximo 30 días. Datos laborales de ex-empleados: conservar 5 años por obligación fiscal. Datos de ex-residentes: 2 años o hasta resolución de adeudos pendientes.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">2</div><div class="sec-title">Incidentes de Seguridad de Datos</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Detección e identificación</strong> — Cualquier persona que detecte una posible brecha de datos (acceso no autorizado, pérdida de información, divulgación indebida) debe reportar de inmediato a Gerencia.</span></li>
+    <li><div class="step-num">2</div><span><strong>Contención</strong> — En máximo 4 horas: bloquear el acceso comprometido, cambiar contraseñas afectadas, documentar el alcance del incidente.</span></li>
+    <li><div class="step-num">3</div><span><strong>Notificación al INAI</strong> — Si el incidente afecta a titulares y representa riesgo patrimonial o de discriminación, notificar al Instituto Nacional de Transparencia (INAI) en 72 horas.</span></li>
+    <li><div class="step-num">4</div><span><strong>Notificación a titulares</strong> — Informar a los titulares afectados con descripción del incidente y medidas tomadas, sin demora injustificada.</span></li>
+  </ul>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 4.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 5.1 GESTIÓN DE SEGUROS ══ -->
+<div class="page" id="p-51">
+  <div class="proc-eyebrow">5.0 Seguros y Permisos · 5.1</div>
+  <h1 class="proc-title">5.1 Gestión de Seguros</h1>
+  <p class="proc-subtitle">Pólizas vigentes, coberturas, proceso de siniestros y renovaciones</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Pólizas del Condominio</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Póliza</th><th>Cobertura principal</th><th>Responsable de gestión</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Seguro de bienes comunes</strong></td><td>Daños a infraestructura, áreas comunes, equipos (PTAR, generador, sistema eléctrico). Incluye robo y daños por fenómenos naturales.</td><td>Gerencia Administrativa</td></tr>
+      <tr><td><strong>Responsabilidad civil</strong></td><td>Daños a terceros que ocurran en áreas comunes: caídas, accidentes en piscina, daños por fauna, derrumbes.</td><td>Gerencia Administrativa</td></tr>
+      <tr><td><strong>Seguro de vida y accidentes del personal</strong></td><td>Accidentes laborales, fallecimiento en ejercicio de funciones. Complementa el IMSS.</td><td>Gerencia Administrativa + RH</td></tr>
+      <tr><td><strong>Seguro de flotilla (vehículos del residencial)</strong></td><td>Daños y responsabilidad civil de vehículos propiedad del condominio.</td><td>Jefe de Mantenimiento</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Proceso de Reporte de Siniestro</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Documentar el siniestro de inmediato</strong> — Fotografías, video, lista de bienes afectados, estimación preliminar de daños, datos de testigos si hay personas involucradas.</span></li>
+    <li><div class="step-num">2</div><span><strong>Notificar a Gerencia en máximo 24 horas</strong> — Gerencia evalúa si el siniestro está dentro del alcance de la póliza y si amerita reportarlo a la aseguradora.</span></li>
+    <li><div class="step-num">3</div><span><strong>Reporte a la aseguradora</strong> — En el plazo máximo indicado en la póliza (generalmente 72 horas). Gerencia coordina con el agente de seguros.</span></li>
+    <li><div class="step-num">4</div><span><strong>Cooperación con el ajustador</strong> — Proporcionar toda la documentación requerida. No realizar reparaciones definitivas antes de que el ajustador emita su dictamen, salvo daños de seguridad inmediata.</span></li>
+    <li><div class="step-num">5</div><span><strong>Seguimiento</strong> — Gerencia da seguimiento hasta cobro de la indemnización y ejecución de las reparaciones.</span></li>
+  </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Renovaciones y Vigencias</div></div>
+  <div class="alert a-amber"><div class="alert-icon"></div><div class="alert-body"><strong>Alerta 60 días antes de vencimiento</strong>Gerencia debe iniciar el proceso de renovación o cotización de nuevas pólizas con 60 días de anticipación al vencimiento. Ninguna póliza puede quedar con brecha de cobertura. En caso de cambio de aseguradora, el Comité Financiero debe aprobar la nueva póliza antes de cancelar la vigente.</div></div>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 5.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 5.2 PERMISOS Y LICENCIAS ══ -->
+<div class="page" id="p-52">
+  <div class="proc-eyebrow">5.0 Seguros y Permisos · 5.2</div>
+  <h1 class="proc-title">5.2 Permisos y Licencias</h1>
+  <p class="proc-subtitle">Gestión de licencias municipales, permisos de operación y obligaciones fiscales del condominio</p>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Licencias y Permisos Vigentes</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Permiso / Licencia</th><th>Otorga</th><th>Vigencia</th><th>Renovación</th></tr></thead>
+    <tbody>
+      <tr><td>Uso de suelo — áreas comunes</td><td>Municipio de Bacalar</td><td>Indefinida (con cambio de uso)</td><td>Ante modificaciones</td></tr>
+      <tr><td>Licencia de operación PTAR</td><td>SEMARNAT / CONAGUA</td><td>Anual</td><td>60 días antes del vencimiento</td></tr>
+      <tr><td>Permiso de descarga de aguas tratadas</td><td>CONAGUA</td><td>Anual</td><td>90 días antes</td></tr>
+      <tr><td>Licencia de funcionamiento comercial</td><td>Municipio de Bacalar</td><td>Anual</td><td>Enero de cada año</td></tr>
+      <tr><td>Registro ante INFONAVIT / IMSS</td><td>IMSS / INFONAVIT</td><td>Permanente (con actualizaciones)</td><td>Ante altas/bajas de personal</td></tr>
+      <tr><td>Registro SAT (RFC)</td><td>SAT</td><td>Permanente</td><td>Ante cambios de socios o razón social</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-a">2</div><div class="sec-title">Calendario de Obligaciones Fiscales y Regulatorias</div></div>
+  <table class="act-table amber">
+    <thead><tr><th>Obligación</th><th>Periodicidad</th><th>Responsable</th></tr></thead>
+    <tbody>
+      <tr><td>Declaración ISR personas morales</td><td>Anual — marzo</td><td>Contador externo</td></tr>
+      <tr><td>Declaraciones provisionales ISR</td><td>Mensual</td><td>Contador externo</td></tr>
+      <tr><td>Declaración y pago IVA</td><td>Mensual</td><td>Contador externo</td></tr>
+      <tr><td>CFDI de nómina</td><td>Por cada dispersión</td><td>Administrador + Contador</td></tr>
+      <tr><td>Cuotas IMSS / INFONAVIT</td><td>Mensual</td><td>Administrador</td></tr>
+      <tr><td>Reporte de operaciones a SEMARNAT</td><td>Anual</td><td>Jefe de Mantenimiento</td></tr>
+      <tr><td>Actualización de permisos CONAGUA</td><td>Anual</td><td>Gerencia Administrativa</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 5.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+<!-- ══ 6.1 ATENCIÓN A AUTORIDADES ══ -->
+<div class="page" id="p-61">
+  <div class="proc-eyebrow">6.0 Autoridades · 6.1</div>
+  <h1 class="proc-title">6.1 Atención a Autoridades</h1>
+  <p class="proc-subtitle">Protocolo de recepción, verificación y respuesta ante visitas de autoridades federales, estatales y municipales</p>
+
+  <div class="alert a-red"><div class="alert-icon"></div><div class="alert-body"><strong>Regla fundamental — ningún empleado actúa solo</strong>Ante cualquier visita de autoridad, el empleado que recibe NO toma decisiones de forma independiente. Su única función es recibir, verificar identidad y escalar de inmediato a Gerencia. En ningún caso permitir el acceso a instalaciones sin verificar credenciales y notificar a la cadena de mando.</div></div>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">1</div><div class="sec-title">Protocolo ante Visita de Autoridad</div></div>
+  <ul class="steps">
+    <li><div class="step-num">1</div><span><strong>Recepción en caseta de seguridad</strong> — El guardia recibe a los funcionarios, solicita identificación oficial vigente (credencial institucional con fotografía), anota nombre completo, número de empleado, dependencia y motivo de la visita.</span></li>
+    <li><div class="step-num">2</div><span><strong>Notificación inmediata a Gerencia</strong> — En ese momento, llamar a Gerencia Administrativa. Si no contesta en 3 minutos, escalar a Dirección General. No hacer esperar a la autoridad más de 5 minutos sin dar respuesta.</span></li>
+    <li><div class="step-num">3</div><span><strong>Gerencia recibe a la autoridad</strong> — Gerencia se presenta y verifica: orden de visita o inspección (si aplica), fundamento legal de la diligencia, alcance de la inspección solicitada.</span></li>
+    <li><div class="step-num">4</div><span><strong>Acompañamiento constante</strong> — Nunca dejar a funcionarios solos en ningún área de las instalaciones. Un representante del residencial acompaña en todo momento.</span></li>
+    <li><div class="step-num">5</div><span><strong>Documentar la visita</strong> — Solicitar copia del acta de inspección. Firmar solo con la leyenda "se firma de recibido, sin perjuicio de los derechos del administrado". Nunca firmar documentos que impliquen aceptación de infracción sin revisión previa con asesoría jurídica.</span></li>
+    <li><div class="step-num">6</div><span><strong>Reporte a asesoría jurídica</strong> — Inmediatamente después de la visita, enviar el acta y reporte completo a la asesoría jurídica del residencial para seguimiento.</span></li>
+  </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Directorio de Autoridades de Contacto Frecuente</div></div>
+  <table class="act-table green">
+    <thead><tr><th>Autoridad</th><th>Función</th><th>Contacto / Referencia</th></tr></thead>
+    <tbody>
+      <tr><td>Municipio de Bacalar — Inspección</td><td>Verificación de licencias y uso de suelo</td><td>H. Ayuntamiento de Bacalar</td></tr>
+      <tr><td>CONAGUA — Gerencia Regional Peninsular</td><td>Inspección de PTAR y permisos de descarga</td><td>Sede en Mérida, Yucatán</td></tr>
+      <tr><td>SEMARNAT — Delegación Quintana Roo</td><td>Inspección ambiental, fauna, laguna</td><td>Delegación en Cancún</td></tr>
+      <tr><td>CONANP — Área Laguna Bacalar</td><td>Protección de área natural · Emergencias en laguna</td><td>(983) 834-0265</td></tr>
+      <tr><td>IMSS — Subdelegación Chetumal</td><td>Inspección laboral y de seguridad social</td><td>Subdelegación Chetumal</td></tr>
+      <tr><td>SAT — Administración Local Chetumal</td><td>Verificaciones fiscales</td><td>SAT Chetumal</td></tr>
+      <tr><td>Policía Municipal Bacalar</td><td>Seguridad, incidentes, emergencias</td><td>911 / Estación Bacalar</td></tr>
+    </tbody>
+  </table>
+  <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 6.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+</div>
+
+  </div>
+</div>
+<script>
+const PAGES = {
+  'p-cover':'Libro VI · Portada',
+  'p-11':'1.0 Marco General · 1.1 Alcance y Marco Legal',
+  'p-21':'2.0 Reglamento Interno · 2.1 Reglamento de Convivencia',
+  'p-22':'2.0 Reglamento Interno · 2.2 Sanciones y Multas',
+  'p-31':'3.0 Asambleas · 3.1 Convocatoria y Quórum',
+  'p-32':'3.0 Asambleas · 3.2 Desarrollo y Actas',
+  'p-41':'4.0 Protección de Datos · 4.1 Política de Privacidad',
+  'p-42':'4.0 Protección de Datos · 4.2 Aviso de Privacidad',
+  'p-51':'5.0 Seguros y Permisos · 5.1 Gestión de Seguros',
+  'p-52':'5.0 Seguros y Permisos · 5.2 Permisos y Licencias',
+  'p-61':'6.0 Autoridades · 6.1 Atención a Autoridades',
+};
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-link,.nav-sub').forEach(n=>n.classList.remove('active'));
+  const page=document.getElementById(id);
+  if(page)page.classList.add('active');
+  const label=PAGES[id]||'';
+  const parts=label.split(' · ');
+  const bc=document.getElementById('breadcrumb');
+  bc.innerHTML='Libro IV &rsaquo; '+parts.slice(0,-1).join(' &rsaquo; ')+' &rsaquo; <strong>'+parts[parts.length-1]+'</strong>';
+  document.querySelectorAll('.nav-link,.nav-sub').forEach(el=>{
+    if((el.getAttribute('onclick')||'').includes("'"+id+"'"))el.classList.add('active');
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(window.innerWidth<=768&&window.closeSidebar)window.closeSidebar();
+}
+
+function toggleGroup(btn){
+  const group=btn.parentElement;
+  group.classList.toggle('open');
+}
+
+(function(){
+  function _open(){
+    document.getElementById('sidebar').classList.add('open');
+    document.getElementById('hamburger').classList.add('open');
+    document.getElementById('overlay').classList.add('visible');
+    document.body.style.overflow='hidden';
+  }
+  function _close(){
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+    document.getElementById('overlay').classList.remove('visible');
+    document.body.style.overflow='';
+  }
+  window.toggleSidebar=function(){if(document.getElementById('sidebar').classList.contains('open')){_close();}else{_open();}};window.closeSidebar=_close;
+  function init(){
+    var hb=document.getElementById('hamburger');
+    var ov=document.getElementById('overlay');
+    if(hb){
+      hb.addEventListener('click',function(e){e.stopPropagation();window.toggleSidebar();});
+      hb.addEventListener('touchend',function(e){e.preventDefault();e.stopPropagation();window.toggleSidebar();},{passive:false});
+    }
+    if(ov){ov.addEventListener('click',_close);}
+  }
+
+  // Deep-link: si la URL tiene #p-XX al abrir, navegar directamente a esa página
+  function handleDeepLink(){
+    var hash = window.location.hash;
+    if(hash){
+      var id = hash.replace('#','');
+      if(document.getElementById(id)){
+        show(id);
+      }
+    }
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded', function(){ init(); handleDeepLink(); });
+  } else {
+    init(); handleDeepLink();
+  }
+
+})();
+
+</script>
+</body>
+</html>
