@@ -379,6 +379,18 @@ nav{padding:10px 0 30px;}
 
   <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Apelación</div></div>
   <div class="alert a-amber"><div class="alert-icon"></div><div class="alert-body"><strong>Segunda instancia — Asamblea de Condóminos</strong>Si el residente no está conforme con la resolución del Comité Operativo, puede apelar ante la Asamblea de Condóminos en la siguiente sesión ordinaria, presentando su caso por escrito con 15 días de anticipación. La resolución de la Asamblea es definitiva.</div></div>
+
+  <div class="sec-h"><div class="sec-num sec-num-r">4</div><div class="sec-title">Reincidencia Múltiple — Escala de Consecuencias</div></div>
+  <table class="act-table amber">
+    <thead><tr><th style="width:160px">Número de reincidencias</th><th>Consecuencia adicional</th><th style="width:140px">Quién decide</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Primera reincidencia</strong></td><td>Sanción económica según tabla (sección 1). Se notifica al residente que una segunda reincidencia activa medidas adicionales.</td><td>Comité Operativo</td></tr>
+      <tr><td><strong>Segunda reincidencia (misma infracción, mismo mes)</strong></td><td>Sanción económica + suspensión temporal de acceso a amenidades por 30 días. Se documenta en el expediente del residente en Vivook.</td><td>Comité Operativo</td></tr>
+      <tr><td><strong>Tercera reincidencia o más (mismo tipo, mismo trimestre)</strong></td><td>Sanción escalada a la categoría superior de la tabla. Se turna automáticamente a Dirección General. Se convoca al residente a entrevista formal. En infracciones graves o muy graves: se evalúa si el patrón de conducta justifica iniciar proceso de desahucio o acciones legales según la Ley de Condominios QRoo.</td><td>Dirección General</td></tr>
+      <tr><td><strong>Patrón crónico — 5 o más infracciones en 6 meses</strong></td><td>El caso se presenta en Asamblea Extraordinaria. La Asamblea puede resolver medidas extraordinarias: restricción de acceso a instalaciones, rescisión de contrato de arrendamiento (si aplica), o inicio de acciones legales. Se requiere mayoría simple de partes alícuotas.</td><td>Asamblea Extraordinaria</td></tr>
+    </tbody>
+  </table>
+  <div class="alert a-red"><div class="alert-icon">⚠️</div><div class="alert-body"><strong>Registro obligatorio:</strong> Cada sanción aplicada, incluyendo apercibimientos, debe quedar registrada en AppSheet con folio, fecha y tipo de infracción. Sin registro no hay historial y no aplica la escala de reincidencia.</div></div>
   <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 2.2</span><span>Confidencial — Residencial Aldea Mayab</span></div>
 </div>
 
@@ -500,6 +512,23 @@ nav{padding:10px 0 30px;}
     </tbody>
   </table>
 
+  <div class="sec-h"><div class="sec-num sec-num-a">1b</div><div class="sec-title">Tabla de Retención de Datos por Categoría</div></div>
+  <table class="act-table amber">
+    <thead><tr><th style="width:200px">Tipo de dato</th><th>Plazo de retención</th><th style="width:160px">Fundamento</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Grabaciones CCTV</strong></td><td>30 días corridos. Si está vinculada a un incidente activo: 90 días adicionales al cierre del caso o hasta resolución legal.</td><td>Libro II § 1.2.7</td></tr>
+      <tr><td><strong>Registro de accesos (visitantes, proveedores)</strong></td><td>90 días en AppSheet. Archivado en Google Drive por 1 año adicional antes de eliminación definitiva.</td><td>Control operativo</td></tr>
+      <tr><td><strong>Fotos de identificación de huéspedes</strong></td><td>72 horas tras el check-out. Eliminación automática o por el responsable de turno.</td><td>Libro II § 1.2.6</td></tr>
+      <tr><td><strong>Expedientes de residentes y propietarios activos</strong></td><td>Permanente mientras dure la relación contractual + 2 años después de su término, o hasta resolución de adeudos.</td><td>LFPDPPP + Obligación civil</td></tr>
+      <tr><td><strong>Expedientes de ex-residentes sin adeudo</strong></td><td>2 años tras la baja del padrón.</td><td>LFPDPPP</td></tr>
+      <tr><td><strong>Datos laborales del personal</strong></td><td>5 años tras la baja laboral (obligación fiscal IMSS/SAT).</td><td>Ley Federal del Trabajo</td></tr>
+      <tr><td><strong>Actas de asamblea y acuerdos</strong></td><td>Permanente — son documentos constitutivos del condominio.</td><td>Ley de Condominios QRoo</td></tr>
+      <tr><td><strong>Registros de sanciones e infracciones</strong></td><td>3 años desde la resolución del caso.</td><td>Control reglamentario</td></tr>
+      <tr><td><strong>Registros financieros y facturas</strong></td><td>5 años por obligación fiscal (SAT).</td><td>CFF Art. 30</td></tr>
+    </tbody>
+  </table>
+  <div class="alert a-amber"><div class="alert-icon">🗑️</div><div class="alert-body"><strong>Responsable de eliminación:</strong> Gerencia Administrativa es responsable de supervisar que los datos se eliminen o archiven en los plazos establecidos. Se recomienda revisión semestral del inventario de datos almacenados en Google Drive, AppSheet y archivos físicos.</div></div>
+
   <div class="sec-h"><div class="sec-num sec-num-a">2</div><div class="sec-title">Incidentes de Seguridad de Datos</div></div>
   <ul class="steps">
     <li><div class="step-num">1</div><span><strong>Detección e identificación</strong> — Cualquier persona que detecte una posible brecha de datos (acceso no autorizado, pérdida de información, divulgación indebida) debe reportar de inmediato a Gerencia.</span></li>
@@ -538,6 +567,17 @@ nav{padding:10px 0 30px;}
 
   <div class="sec-h"><div class="sec-num sec-num-a">3</div><div class="sec-title">Renovaciones y Vigencias</div></div>
   <div class="alert a-amber"><div class="alert-icon"></div><div class="alert-body"><strong>Alerta 60 días antes de vencimiento</strong>Gerencia debe iniciar el proceso de renovación o cotización de nuevas pólizas con 60 días de anticipación al vencimiento. Ninguna póliza puede quedar con brecha de cobertura. En caso de cambio de aseguradora, el Comité Financiero debe aprobar la nueva póliza antes de cancelar la vigente.</div></div>
+
+  <div class="sec-h"><div class="sec-num sec-num-r">3b</div><div class="sec-title">Protocolo de Contingencia — Póliza Vencida o sin Renovar</div></div>
+  <table class="act-table amber">
+    <thead><tr><th style="width:180px">Póliza en riesgo</th><th>Acciones obligatorias mientras no hay cobertura</th><th style="width:130px">Responsable</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Responsabilidad civil</strong></td><td>Suspender de inmediato actividades de mayor exposición: uso de albercas, muelle y firepit. Notificar a residentes por escrito. Reactivar solo al confirmar nueva póliza vigente.</td><td>Gerencia + Dirección</td></tr>
+      <tr><td><strong>Seguro de bienes comunes</strong></td><td>Notificar a Dirección General y al Comité Financiero. No iniciar obras ni mantenimientos mayores durante la brecha. Acelerar renovación como prioridad.</td><td>Gerencia + Comité Financiero</td></tr>
+      <tr><td><strong>Seguro de personal</strong></td><td>Notificar a todo el personal sobre la situación. Restringir actividades de mayor riesgo físico hasta contar con cobertura. Verificar que el IMSS esté al corriente como cobertura mínima.</td><td>Gerencia + RH</td></tr>
+    </tbody>
+  </table>
+  <div class="alert a-red"><div class="alert-icon">🚨</div><div class="alert-body"><strong>Responsabilidad directa:</strong> Si ocurre un siniestro con póliza vencida, la responsabilidad recae en la administración de forma personal. Gerencia Administrativa que permita vencer una póliza sin renovar es sujeta a responsabilidad disciplinaria y civil. Dirección General debe ser notificada con 45 días de anticipación si la renovación presenta algún obstáculo.</div></div>
   <div class="proc-footer"><span>PR-AM-LEG-001 · Libro VI · 5.1</span><span>Confidencial — Residencial Aldea Mayab</span></div>
 </div>
 
@@ -593,6 +633,20 @@ nav{padding:10px 0 30px;}
     <li><div class="step-num">5</div><span><strong>Documentar la visita</strong> — Solicitar copia del acta de inspección. Firmar solo con la leyenda "se firma de recibido, sin perjuicio de los derechos del administrado". Nunca firmar documentos que impliquen aceptación de infracción sin revisión previa con asesoría jurídica.</span></li>
     <li><div class="step-num">6</div><span><strong>Reporte a asesoría jurídica</strong> — Inmediatamente después de la visita, enviar el acta y reporte completo a la asesoría jurídica del residencial para seguimiento.</span></li>
   </ul>
+
+  <div class="sec-h"><div class="sec-num sec-num-r">1b</div><div class="sec-title">Protocolo de Visita de Autoridad Fuera de Horario de Oficina</div></div>
+  <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:12px;">Si una autoridad se presenta fuera del horario de operación de Gerencia (después de las 18:00, fines de semana o días festivos), el guardia nocturno sigue este protocolo:</p>
+  <table class="act-table amber">
+    <thead><tr><th style="width:40px">Paso</th><th>Acción</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1</strong></td><td>Recibir en caseta. Solicitar y fotografiar la identificación oficial del funcionario. Anotar nombre, número de empleado, dependencia y motivo declarado de la visita. No permitir el acceso a las instalaciones en este momento.</td></tr>
+      <tr><td><strong>2</strong></td><td>Llamar inmediatamente a Gerencia Administrativa al celular de guardia. Si no contesta en 5 minutos: llamar a Dirección General. Si no contesta en 5 minutos adicionales: llamar a asesoría jurídica de guardia si está disponible.</td></tr>
+      <tr><td><strong>3</strong></td><td>Informar a la autoridad: "Estoy notificando al responsable del residencial. Por protocolo no puedo permitir el acceso sin que el administrador esté presente. Estará aquí o me dará instrucciones en los próximos minutos."</td></tr>
+      <tr><td><strong>4</strong></td><td>Si la autoridad porta orden judicial o de cateo: no obstruir, pero registrar fotográficamente los documentos y notificar en paralelo a Gerencia y asesoría jurídica. Acompañar en todo momento sin interferir.</td></tr>
+      <tr><td><strong>5</strong></td><td>Documentar todo en AppSheet: hora de llegada de la autoridad, identidad, motivo, acciones tomadas, quién del residencial fue notificado y en qué hora. Si no hay conectividad: bitácora física con los mismos datos.</td></tr>
+    </tbody>
+  </table>
+  <div class="alert a-red"><div class="alert-icon">📞</div><div class="alert-body"><strong>Contactos de guardia — obligatorios en caseta:</strong> El directorio físico impreso en caseta debe incluir los números de celular personales de Gerencia Administrativa, Dirección General y asesoría jurídica (o el contacto de emergencia designado). Actualizar cada vez que cambie el titular de esos roles.</div></div>
 
   <div class="sec-h"><div class="sec-num sec-num-g">2</div><div class="sec-title">Directorio de Autoridades de Contacto Frecuente</div></div>
   <table class="act-table green">
