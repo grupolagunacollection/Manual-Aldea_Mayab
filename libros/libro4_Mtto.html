@@ -373,6 +373,30 @@ nav{padding:10px 0 30px;}
     <div class="info-card"><div class="info-card-label">Gerencia Administrativa</div><div class="info-card-value">$20K – $50,000 MXN</div></div>
     <div class="info-card"><div class="info-card-label">Dirección General</div><div class="info-card-value">Más de $50,000 MXN</div></div>
   </div>
+
+  <div class="sec-h"><div class="sec-num sec-num-g">4</div><div class="sec-title">Política de Cotizaciones por Monto</div></div>
+  <table class="act-table green">
+    <thead><tr><th style="width:180px">Monto de la orden</th><th>Cotizaciones requeridas</th><th style="width:160px">Excepción admitida</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Hasta $5,000 MXN</strong></td><td>Sin cotización formal. Basta con recibo o factura del proveedor.</td><td>—</td></tr>
+      <tr><td><strong>$5,001 – $20,000 MXN</strong></td><td>Mínimo 1 cotización escrita (correo o presupuesto firmado). Jefe de Mantenimiento autoriza.</td><td>Emergencia documentada: sin cotización si el tiempo no lo permite. Justificar en AppSheet.</td></tr>
+      <tr><td><strong>$20,001 – $50,000 MXN</strong></td><td>Mínimo 3 cotizaciones de proveedores distintos. Gerencia Administrativa elige y autoriza.</td><td>Emergencia crítica (PTAR, eléctrico): Gerencia puede autorizar sin las 3 cotizaciones notificando a Dirección General.</td></tr>
+      <tr><td><strong>Más de $50,000 MXN</strong></td><td>Mínimo 3 cotizaciones + aprobación de Dirección General. Se presenta comparativo al Comité Operativo.</td><td>Solo Dirección General puede omitir cotizaciones en emergencia, con acta de justificación.</td></tr>
+    </tbody>
+  </table>
+  <div class="alert a-red"><div class="alert-icon">🚫</div><div class="alert-body"><strong>Prohibido fragmentar órdenes de trabajo</strong> para mantenerse en un umbral inferior de autorización o evitar el requisito de cotizaciones. Dos órdenes para el mismo trabajo o proveedor en el mismo mes se suman al efecto de esta política.</div></div>
+
+  <div class="sec-h"><div class="sec-num sec-num-r">5</div><div class="sec-title">Protocolo de Combustible Crítico para Generador</div></div>
+  <table class="act-table amber">
+    <thead><tr><th style="width:140px">Nivel de combustible</th><th>Acción requerida</th><th style="width:130px">Responsable</th></tr></thead>
+    <tbody>
+      <tr><td><strong>75% – 100% (normal)</strong></td><td>Sin acción adicional. Registrar nivel en checklist semanal.</td><td>Jefe Mantenimiento</td></tr>
+      <tr><td><strong>50% – 74% (atención)</strong></td><td>Generar orden de compra de reabastecimiento en el mismo día. Programar entrega dentro de 48 horas.</td><td>Jefe Mantenimiento</td></tr>
+      <tr><td><strong>30% – 49% (alerta)</strong></td><td>Notificar a Gerencia. Contactar proveedor para entrega urgente (mismo día si es posible). Si hay emergencia activa: reducir circuitos al mínimo prioritario (ver Libro III sección 4b).</td><td>Jefe Mant. + Gerencia</td></tr>
+      <tr><td><strong>Menos de 30% (crítico)</strong></td><td>Notificar a Dirección General inmediatamente. Gerencia autoriza compra de emergencia sin esperar ciclo de cotizaciones. Si no llega combustible en 2 horas: apagar todos los circuitos no esenciales. PTAR permanece activa mientras haya combustible.</td><td>Dirección General + Gerencia</td></tr>
+    </tbody>
+  </table>
+  <div class="alert a-amber"><div class="alert-icon">⛽</div><div class="alert-body"><strong>Proveedor de guardia:</strong> Jefe de Mantenimiento debe tener registrado en su celular al menos 2 proveedores de diesel o combustible con disponibilidad de entrega urgente en Bacalar. Actualizar contactos cada 6 meses.</div></div>
   <div class="proc-footer"><span>PR-AM-MNT-001 · Libro IV · 1.2 Ciclo</span><span>Confidencial — Residencial Aldea Mayab</span></div>
 </div>
 
@@ -687,6 +711,18 @@ nav{padding:10px 0 30px;}
       <tr><td>Diaria</td><td>Barrer tablones · Recoger basura · Verificar señalética visible</td><td>Personal limpieza</td></tr>
       <tr><td>Semanal</td><td>Limpieza profunda · Revisar pilotes visibles · Verificar iluminación nocturna</td><td>Mantenimiento</td></tr>
       <tr><td>Trimestral</td><td>Inspección estructural completa con proveedor certificado</td><td>Proveedor + Jefe Mant.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="sec-h"><div class="sec-num sec-num-r">3</div><div class="sec-title">Requisitos de Inspección Estructural del Muelle</div></div>
+  <table class="act-table amber">
+    <thead><tr><th style="width:140px">Aspecto</th><th>Requisito</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Quién inspecciona</strong></td><td>Ingeniero civil o arquitecto con cédula profesional vigente, con experiencia en estructuras lacustres o en contacto con agua. El personal interno del residencial <strong>no puede sustituir</strong> esta inspección — solo puede reportar daños visibles entre ciclos.</td></tr>
+      <tr><td><strong>Frecuencia mínima</strong></td><td>Trimestral para inspección visual documentada. Semestral para inspección con acceso a pilotes subacuáticos (buzos o equipo de inspección subacuática) si aplica por el diseño del muelle.</td></tr>
+      <tr><td><strong>Entregable obligatorio</strong></td><td>Dictamen escrito con firma del perito, fotos de cada punto revisado, clasificación de hallazgos (sin daño / mantenimiento recomendado / riesgo menor / riesgo estructural). Se archiva en Google Drive y se presenta al Comité Operativo.</td></tr>
+      <tr><td><strong>Cierre de muelle</strong></td><td>Ante cualquier hallazgo clasificado como "riesgo estructural": el muelle se cierra inmediatamente y permanece cerrado hasta dictamen de corrección del mismo perito. Gerencia notifica a Dirección General y a los residentes en máx. 2 horas.</td></tr>
+      <tr><td><strong>Responsabilidad civil</strong></td><td>El uso del muelle sin dictamen vigente es responsabilidad directa de la Administración. El seguro de responsabilidad civil puede no cubrir accidentes si la inspección está vencida o fue realizada por personal no certificado.</td></tr>
     </tbody>
   </table>
   <div class="alert a-red"><div class="alert-icon">🌊</div><div class="alert-body"><strong>Derrame en laguna: protocolo inmediato</strong>Cualquier derrame que llegue o pueda llegar a la Laguna de Bacalar activa automáticamente el PE-34 del Libro III. Llamar a CONANP: (983) 834-0265. Es OBLIGATORIO por ley federal.</div></div>
