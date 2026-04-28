@@ -215,7 +215,6 @@ nav::-webkit-scrollbar-thumb{background:#2A4A30;border-radius:4px;}
   .alert{border:1px solid #999!important;background:#f5f5f5!important;}
 }
 </style>
-<base target="_blank">
 </head>
 <body>
 <button id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
@@ -1397,3 +1396,191 @@ nav::-webkit-scrollbar-thumb{background:#2A4A30;border-radius:4px;}
     <li><div class="step-num">6</div><span>Registrar recolección completada en AppSheet <span class="oblig">OBLIGATORIO</span></span></li>
   </ul>
   <div class="alert a-green"><div class="alert-icon">♻️</div><div class="alert-body"><strong>La documentación fotográfica es de seguimiento, no de multas</
+</div>
+</div>
+
+<script>
+/* =========================
+   NAVEGACIÓN ENTRE PÁGINAS
+========================= */
+function show(id) {
+  const targetPage = document.getElementById(id);
+  if (!targetPage) {
+    console.warn('No existe la página:', id);
+    return;
+  }
+
+  document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+  targetPage.classList.add('active');
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.classList.remove('active');
+    const action = link.getAttribute('onclick') || '';
+    if (action.includes("'" + id + "'") || action.includes('"' + id + '"')) {
+      link.classList.add('active');
+      const group = link.closest('.nav-group');
+      if (group) group.classList.add('open');
+    }
+  });
+
+  const breadcrumb = document.getElementById('breadcrumb');
+  const title =
+    targetPage.querySelector('.proc-title')?.innerText ||
+    targetPage.querySelector('.cover-title')?.innerText ||
+    'Portada';
+
+  if (breadcrumb) {
+    breadcrumb.innerHTML = 'Libro IV &rsaquo; <strong>' + title.replace(/\n/g, ' ') + '</strong>';
+  }
+
+  closeMobileMenu();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* =========================
+   GRUPOS DEL SIDEBAR
+========================= */
+function toggleGroup(el) {
+  const group = el.closest('.nav-group');
+  if (group) group.classList.toggle('open');
+}
+
+/* =========================
+   COLAPSABLES
+========================= */
+function toggleCollapse(btn) {
+  const content = btn.nextElementSibling;
+  btn.classList.toggle('open');
+  if (content) content.classList.toggle('open');
+}
+
+/* =========================
+   BUSCADOR
+========================= */
+function searchBook(query) {
+  const cleanQuery = query.trim().toLowerCase();
+  removeHighlights();
+  if (!cleanQuery) return;
+
+  const pages = document.querySelectorAll('.page');
+  let firstMatch = null;
+
+  pages.forEach(page => {
+    const text = page.innerText.toLowerCase();
+    if (text.includes(cleanQuery) && !firstMatch) firstMatch = page;
+  });
+
+  if (firstMatch) {
+    show(firstMatch.id);
+    highlightText(firstMatch, cleanQuery);
+  }
+}
+
+function highlightText(container, query) {
+  const walker = document.createTreeWalker(
+    container,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode: function(node) {
+        if (!node.nodeValue.toLowerCase().includes(query)) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement && ['SCRIPT', 'STYLE'].includes(node.parentElement.tagName)) {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    }
+  );
+
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  nodes.forEach(node => {
+    const text = node.nodeValue;
+    const regex = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
+    const span = document.createElement('span');
+    span.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    node.parentNode.replaceChild(span, node);
+  });
+}
+
+function removeHighlights() {
+  document.querySelectorAll('mark.search-highlight').forEach(mark => {
+    const parent = mark.parentNode;
+    parent.replaceChild(document.createTextNode(mark.textContent), mark);
+    parent.normalize();
+  });
+}
+
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+/* =========================
+   BOTONES FLOTANTES
+========================= */
+function createFloatingButtons() {
+  if (!document.getElementById('printBtn')) {
+    const printBtn = document.createElement('button');
+    printBtn.id = 'printBtn';
+    printBtn.innerHTML = '🖨️';
+    printBtn.title = 'Imprimir';
+    printBtn.onclick = () => window.print();
+    document.body.appendChild(printBtn);
+  }
+
+  if (!document.getElementById('backTop')) {
+    const backTop = document.createElement('button');
+    backTop.id = 'backTop';
+    backTop.innerHTML = '↑';
+    backTop.title = 'Volver arriba';
+    backTop.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.body.appendChild(backTop);
+  }
+}
+
+window.addEventListener('scroll', () => {
+  const backTop = document.getElementById('backTop');
+  if (!backTop) return;
+  if (window.scrollY > 300) backTop.classList.add('visible');
+  else backTop.classList.remove('visible');
+});
+
+/* =========================
+   MENÚ MÓVIL
+========================= */
+function openMobileMenu() {
+  document.getElementById('sidebar')?.classList.add('open');
+  document.getElementById('hamburger')?.classList.add('open');
+  document.getElementById('overlay')?.classList.add('visible');
+}
+
+function closeMobileMenu() {
+  document.getElementById('sidebar')?.classList.remove('open');
+  document.getElementById('hamburger')?.classList.remove('open');
+  document.getElementById('overlay')?.classList.remove('visible');
+}
+
+function toggleMobileMenu() {
+  const sidebar = document.getElementById('sidebar');
+  if (sidebar && sidebar.classList.contains('open')) closeMobileMenu();
+  else openMobileMenu();
+}
+
+/* =========================
+   INICIALIZACIÓN
+========================= */
+document.addEventListener('DOMContentLoaded', () => {
+  createFloatingButtons();
+
+  const hamburger = document.getElementById('hamburger');
+  const overlay = document.getElementById('overlay');
+
+  if (hamburger) hamburger.addEventListener('click', toggleMobileMenu);
+  if (overlay) overlay.addEventListener('click', closeMobileMenu);
+
+  const initialPage = document.querySelector('.page.active')?.id || 'p-cover';
+  show(initialPage);
+});
+</script>
+</body>
+</html>
