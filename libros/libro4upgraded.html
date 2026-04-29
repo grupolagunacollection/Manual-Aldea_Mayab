@@ -1,34 +1,1495 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Libro IV · Mantenimiento e Infraestructura · Aldea Mayab</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<title>Libro IV — Mantenimiento · Aldea Mayab</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#F3F1EA;--paper:#FBFAF6;--white:#fff;--ink:#172019;--muted:#5C665E;--line:#D8DDD4;--green:#123B27;--green2:#1F5C38;--green3:#2E7D54;--softgreen:#E9F2EC;--gold:#B58C43;--softgold:#F6EBD4;--amber:#A66A10;--softamber:#FFF2DE;--red:#B33A2F;--softred:#FCEBE8;--blue:#2A5B84;--softblue:#EAF2F8;--sidebar:305px;--shadow:0 16px 44px rgba(18,59,39,.08)}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif}.app{display:flex;min-height:100vh}.sidebar{position:fixed;inset:0 auto 0 0;width:var(--sidebar);background:linear-gradient(180deg,#071E13,#0D2C1D 60%,#081D13);color:#ECF5EE;z-index:100;display:flex;flex-direction:column;box-shadow:8px 0 35px rgba(0,0,0,.16)}.brand{padding:24px 22px 18px;border-bottom:1px solid rgba(255,255,255,.09)}.kicker{font-size:11px;text-transform:uppercase;letter-spacing:.23em;color:#8EC39A;font-weight:800;margin-bottom:10px}.book-code{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#CEE5D5;font-weight:800;margin-bottom:8px}.brand h1{font-family:'Cormorant Garamond',serif;font-size:38px;line-height:.98;margin:0 0 12px;color:#fff}.brand p{font-size:12px;line-height:1.55;color:#C7D8CC;margin:0}.searchbox{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.07)}.searchbox input{width:100%;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.045);color:#fff;border-radius:12px;padding:12px 13px;outline:none;font-size:13px}.nav{overflow:auto;padding:10px 10px 32px}.nav-group{margin:0 0 8px;border:1px solid rgba(255,255,255,.055);background:rgba(255,255,255,.025);border-radius:14px;overflow:hidden}.nav-group-btn{padding:12px 13px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none}.nav-group-label{font-size:12px;text-transform:uppercase;letter-spacing:.09em;font-weight:900;color:#D7EBDD}.arrow{transition:.2s;color:#8EBE98}.nav-group.open .arrow{transform:rotate(90deg)}.nav-items{display:none;padding:0 7px 8px}.nav-group.open .nav-items{display:block}.nav-link{display:block;border-radius:10px;padding:9px 10px;margin:4px 0;cursor:pointer;color:#DCEADF;font-size:13px;line-height:1.3;border:1px solid transparent}.nav-link small{display:block;color:#94AD9B;font-size:10px;margin-top:3px}.nav-link:hover{background:rgba(255,255,255,.06)}.nav-link.active{background:linear-gradient(90deg,rgba(46,125,84,.62),rgba(46,125,84,.18));border-color:rgba(137,186,152,.25);color:#fff}.main{margin-left:var(--sidebar);width:calc(100% - var(--sidebar));min-height:100vh}.topbar{height:62px;position:sticky;top:0;background:rgba(251,250,246,.94);backdrop-filter:blur(8px);z-index:50;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 28px}.crumb{font-size:13px;color:var(--muted)}.crumb strong{color:var(--ink)}.meta{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--green2);font-weight:900}.mobilebar{display:none}.content{padding:26px}.page{display:none;max-width:1280px;margin:0 auto}.page.active{display:block}.hero,.card{background:var(--paper);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);padding:30px;margin-bottom:22px}.hero-title{font-family:'Cormorant Garamond',serif;font-size:62px;line-height:.94;margin:0 0 14px;color:#132116}.hero-sub{font-size:17px;line-height:1.6;color:var(--muted);max-width:1030px;margin:0}.section-head{display:flex;gap:18px;justify-content:space-between;align-items:flex-end;margin-bottom:18px}.section-head h2{font-family:'Cormorant Garamond',serif;font-size:40px;line-height:1.02;margin:0;color:#142119}.section-head p{max-width:760px;margin:0;color:var(--muted);font-size:14px;line-height:1.6}.eyebrow{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--green3);font-weight:900;margin-bottom:9px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.grid5{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.stat,.panel,.jump{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:18px}.stat-label{font-size:10px;text-transform:uppercase;letter-spacing:.13em;font-weight:900;color:var(--green3);margin-bottom:8px}.stat-value{font-size:20px;font-weight:900;color:var(--ink);line-height:1.2;margin-bottom:8px}.stat-desc{font-size:13px;color:var(--muted);line-height:1.5}.jump{cursor:pointer;transition:.15s}.jump:hover{transform:translateY(-2px);box-shadow:var(--shadow)}.jump strong{font-size:16px;display:block;margin-bottom:6px}.jump span{font-size:12px;color:var(--muted);line-height:1.5}.meta-bar{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin:0 0 18px}.meta-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px}.meta-card .label{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--green3);font-weight:900;margin-bottom:7px}.meta-card .value{font-size:13px;font-weight:800;line-height:1.45}.role-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.role-card{background:#fff;border:1px solid var(--line);border-top:5px solid var(--green2);border-radius:18px;padding:17px}.role{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--green3);font-weight:900;margin-bottom:8px}.role-title{font-size:17px;font-weight:900;margin-bottom:7px}.role-desc{font-size:12px;color:var(--muted);line-height:1.5}.flow-wrap{background:#fff;border:1px solid var(--line);border-radius:20px;padding:15px;overflow:auto}.flow-wrap svg{min-width:760px}.swimlane{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}.sw-row{display:grid;grid-template-columns:175px 1fr;border-bottom:1px solid var(--line)}.sw-row:last-child{border-bottom:none}.sw-role{background:var(--softgreen);padding:15px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:900;color:var(--green)}.sw-act{padding:15px;font-size:13px;line-height:1.55}.sw-act strong{color:var(--green)}.callout{border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px;background:#fff}.callout h4{font-size:12px;text-transform:uppercase;letter-spacing:.12em;margin:0 0 8px}.callout p,.callout li{margin:0;color:var(--muted);font-size:13px;line-height:1.58}.callout.green{background:var(--softgreen);border-color:#D0E2D5}.callout.green h4{color:var(--green)}.callout.amber{background:var(--softamber);border-color:#EBD4B0}.callout.amber h4{color:#7B4F0D}.callout.red{background:var(--softred);border-color:#F0C9C4}.callout.red h4{color:var(--red)}.callout.blue{background:var(--softblue);border-color:#CBDCEB}.callout.blue h4{color:var(--blue)}table{width:100%;border-collapse:collapse;background:#fff}.table-wrap{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#fff}th{background:#F1F4EF;color:var(--green);font-size:11px;letter-spacing:.08em;text-transform:uppercase;text-align:left;padding:13px}td{border-top:1px solid #E6ECE5;padding:13px;font-size:13px;line-height:1.52;vertical-align:top}td strong{color:var(--green)}.checklist{list-style:none;margin:0;padding:0}.checklist li{display:flex;gap:11px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:13px;line-height:1.55}.checklist li:last-child{border-bottom:none}.box{width:18px;height:18px;border:2px solid var(--green2);border-radius:5px;flex:0 0 18px;margin-top:1px;background:#fff}.decision-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.decision{background:#fff;border:1px solid var(--line);border-left:6px solid var(--green2);border-radius:16px;padding:15px}.decision.warn{border-left-color:var(--amber)}.decision.danger{border-left-color:var(--red)}.decision.info{border-left-color:var(--blue)}.decision strong{display:block;font-size:14px;margin-bottom:6px}.decision span{font-size:12px;color:var(--muted);line-height:1.5}.pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.pill{padding:8px 11px;border-radius:999px;background:var(--softgreen);color:var(--green);font-size:12px;font-weight:900}.pill.gold{background:var(--softgold);color:#6B4B14}.pill.red{background:var(--softred);color:var(--red)}.pill.blue{background:var(--softblue);color:var(--blue)}.footer{font-size:11px;text-align:right;color:var(--muted);padding:10px 6px 24px}@media(max-width:1200px){.grid5,.grid4,.decision-grid,.meta-bar{grid-template-columns:repeat(2,1fr)}.role-flow,.grid3{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.section-head{display:block}.section-head p{margin-top:8px}.hero-title{font-size:50px}}@media(max-width:920px){.sidebar{transform:translateX(-100%);transition:.24s}.sidebar.open{transform:translateX(0)}.main{margin-left:0;width:100%}.topbar{display:none}.mobilebar{display:flex;position:sticky;top:0;z-index:120;background:rgba(251,250,246,.94);border-bottom:1px solid var(--line);padding:12px 16px;justify-content:space-between;align-items:center}.mobilebar button{background:var(--green);color:#fff;border:0;border-radius:12px;padding:10px 13px;font-weight:900}.content{padding:15px}.hero,.card{padding:20px;border-radius:22px}.hero-title{font-size:42px}.grid5,.grid4,.grid3,.role-flow,.decision-grid,.meta-bar{grid-template-columns:1fr}.sw-row{grid-template-columns:1fr}}@media print{.sidebar,.topbar,.mobilebar{display:none!important}.main{margin-left:0;width:100%}.content{padding:0}.page{display:block!important;page-break-after:always}.hero,.card{box-shadow:none}body{background:#fff}}
+/* ── TOKENS ── */
+:root {
+  --bg:#F0EDE6; --surface:#FAFAF7; --white:#FFFFFF;
+  --ink:#111810; --muted:#5A6054; --rule:#D6D8D0;
+  --g1:#0C2B18; --g2:#145C30; --g3:#26854D; --g4:#5BB87A; --g-soft:#E4F2E9;
+  --r1:#8B2318; --r2:#C0392B; --r-soft:#FDECEA;
+  --a1:#7A4800; --a2:#C87D0A; --a-soft:#FDF3E3;
+  --b1:#1A3C5E; --b2:#2A6098; --b-soft:#EAF2FB;
+  --p1:#4A2080; --p-soft:#F0EAFF;
+  --font:'DM Sans',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+  --r4:4px; --r8:8px; --r12:12px; --r16:16px; --r20:20px; --r24:24px;
+  --shadow:0 2px 12px rgba(0,0,0,.08);
+  --shadow-lg:0 8px 32px rgba(0,0,0,.12);
+  --sidebar:280px;
+  --transition:all .2s cubic-bezier(.4,0,.2,1);
+}
+* { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior:smooth; }
+body { font-family:var(--font); background:var(--bg); color:var(--ink); display:flex; min-height:100vh; font-size:15px; line-height:1.6; }
+
+/* ── SIDEBAR ── */
+#sidebar {
+  width:var(--sidebar); min-height:100vh; background:var(--g1);
+  position:fixed; top:0; left:0; display:flex; flex-direction:column;
+  z-index:100; overflow:hidden; transition:transform .28s cubic-bezier(.4,0,.2,1);
+}
+.sb-brand { padding:20px 16px 16px; border-bottom:1px solid rgba(255,255,255,.1); }
+.sb-label { font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--g4); margin-bottom:4px; }
+.sb-title { font-size:17px; font-weight:800; color:#fff; line-height:1.25; }
+.sb-code { font-family:var(--mono); font-size:10px; color:rgba(255,255,255,.45); margin-top:4px; }
+.sb-nav { flex:1; overflow-y:auto; padding:8px 0 24px; overscroll-behavior:contain; }
+.sb-nav::-webkit-scrollbar { width:3px; }
+.sb-nav::-webkit-scrollbar-thumb { background:rgba(255,255,255,.15); border-radius:2px; }
+.sb-group { margin-bottom:2px; }
+.sb-group-btn {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 16px; cursor:pointer; user-select:none;
+  color:rgba(255,255,255,.6); font-size:11px; font-weight:700;
+  letter-spacing:.08em; text-transform:uppercase;
+  transition:color .15s;
+}
+.sb-group-btn:hover { color:#fff; }
+.sb-group-btn .arr { font-size:8px; transition:transform .2s; flex-shrink:0; }
+.sb-group.open .arr { transform:rotate(90deg); }
+.sb-items { display:none; }
+.sb-group.open .sb-items { display:block; }
+.sb-item {
+  display:flex; align-items:center; gap:8px;
+  padding:9px 16px 9px 24px; cursor:pointer;
+  color:rgba(255,255,255,.55); font-size:13px; font-weight:500;
+  border-left:3px solid transparent; transition:var(--transition);
+  line-height:1.3;
+}
+.sb-item:hover { color:#fff; background:rgba(255,255,255,.05); }
+.sb-item.active { color:var(--g4); border-left-color:var(--g4); background:rgba(91,184,122,.1); font-weight:700; }
+.sb-item .dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+
+/* ── MAIN ── */
+#main { margin-left:var(--sidebar); flex:1; min-width:0; }
+#topbar {
+  height:52px; background:rgba(250,250,247,.95); backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--rule); display:flex; align-items:center;
+  justify-content:space-between; padding:0 20px; position:sticky; top:0; z-index:50;
+}
+#breadcrumb { font-size:13px; color:var(--muted); }
+#breadcrumb strong { color:var(--ink); }
+.tb-badge { font-size:10px; font-weight:700; letter-spacing:.1em; background:var(--g-soft); color:var(--g2); padding:3px 8px; border-radius:4px; }
+
+/* ── PAGES ── */
+#content { padding:20px; }
+.page { display:none; max-width:980px; margin:0 auto; }
+.page.active { display:block; animation:fadeUp .18s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:none} }
+
+/* ── HAMBURGER ── */
+#ham {
+  display:none; position:fixed; top:10px; left:12px; z-index:200;
+  background:var(--g1); border:none; border-radius:10px; padding:11px 13px;
+  cursor:pointer; flex-direction:column; gap:5px; box-shadow:0 2px 16px rgba(0,0,0,.4);
+}
+#ham span { display:block; width:20px; height:2px; background:var(--g4); border-radius:2px; transition:var(--transition); }
+#ham.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+#ham.open span:nth-child(2) { opacity:0; }
+#ham.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+#overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:90; }
+#overlay.on { display:block; }
+
+/* ── CARDS ── */
+.card { background:var(--surface); border:1px solid var(--rule); border-radius:var(--r16); padding:20px; margin-bottom:16px; box-shadow:var(--shadow); }
+.card-hero { background:linear-gradient(135deg,var(--g1) 0%,var(--g2) 100%); color:#fff; border-color:transparent; }
+.card-hero .eyebrow { color:var(--g4); }
+.card-hero .card-title { color:#fff; }
+.card-hero p { color:rgba(255,255,255,.7); }
+
+/* ── TYPOGRAPHY ── */
+.eyebrow { font-size:10px; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--g3); margin-bottom:6px; }
+.card-title { font-size:22px; font-weight:800; line-height:1.2; margin-bottom:8px; }
+.card-title.lg { font-size:28px; }
+.section-title { font-size:16px; font-weight:700; color:var(--ink); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.section-title .num { width:24px; height:24px; background:var(--g2); color:#fff; border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; }
+.section-title .num.red { background:var(--r2); }
+.section-title .num.amber { background:var(--a2); }
+.section-title .num.blue { background:var(--b2); }
+
+/* ── CALLOUTS ── */
+.callout { border-radius:var(--r12); padding:14px 16px; display:flex; gap:12px; border:1px solid; margin:12px 0; }
+.callout-icon { font-size:18px; flex-shrink:0; margin-top:1px; }
+.callout-body { font-size:13px; line-height:1.55; }
+.callout-body strong { display:block; font-weight:700; margin-bottom:3px; font-size:13px; }
+.c-green { background:var(--g-soft); border-color:#B0D8BC; color:#0C2B18; }
+.c-green .callout-icon,.c-green strong { color:var(--g2); }
+.c-amber { background:var(--a-soft); border-color:#E8C88A; color:#3A2000; }
+.c-amber .callout-icon,.c-amber strong { color:var(--a2); }
+.c-red { background:var(--r-soft); border-color:#F0C0BC; color:#3A0A08; }
+.c-red .callout-icon,.c-red strong { color:var(--r2); }
+.c-blue { background:var(--b-soft); border-color:#BDD4EC; color:#0D1F2D; }
+.c-blue .callout-icon,.c-blue strong { color:var(--b2); }
+
+/* ── TABLES ── */
+.table-wrap { border-radius:var(--r12); overflow:hidden; border:1px solid var(--rule); margin:12px 0; background:var(--white); }
+table { width:100%; border-collapse:collapse; font-size:13px; }
+thead th { background:var(--g1); color:#fff; font-size:10px; letter-spacing:.1em; text-transform:uppercase; padding:10px 12px; text-align:left; }
+thead.amber th { background:var(--a1); }
+thead.red th { background:var(--r1); }
+thead.blue th { background:var(--b1); }
+tbody tr:nth-child(odd) { background:var(--white); }
+tbody tr:nth-child(even) { background:#F5F7F4; }
+td { padding:10px 12px; border-bottom:1px solid var(--rule); vertical-align:top; line-height:1.45; }
+tr:last-child td { border-bottom:none; }
+td strong { color:var(--g2); }
+.badge { display:inline-block; padding:2px 8px; border-radius:4px; font-size:11px; font-weight:700; }
+.badge-g { background:var(--g-soft); color:var(--g2); }
+.badge-a { background:var(--a-soft); color:var(--a1); }
+.badge-r { background:var(--r-soft); color:var(--r1); }
+.badge-b { background:var(--b-soft); color:var(--b1); }
+
+/* ── STEPS ── */
+.steps { list-style:none; }
+.steps li { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid var(--rule); font-size:14px; line-height:1.5; }
+.steps li:last-child { border-bottom:none; }
+.step-n { width:26px; height:26px; background:var(--g2); color:#fff; border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:800; flex-shrink:0; margin-top:2px; }
+.step-n.red { background:var(--r2); }
+.step-n.amber { background:var(--a2); }
+.oblig { font-size:9px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; background:var(--r-soft); color:var(--r2); padding:1px 5px; border-radius:3px; margin-left:4px; }
+
+/* ── CHECKLIST ── */
+.checklist { list-style:none; }
+.checklist li { display:flex; gap:10px; padding:9px 0; border-bottom:1px solid var(--rule); font-size:14px; line-height:1.45; }
+.checklist li:last-child { border-bottom:none; }
+.ch-box { width:18px; height:18px; border:2px solid var(--g3); border-radius:5px; flex-shrink:0; margin-top:2px; background:#fff; }
+
+/* ── GRID CARDS ── */
+.grid2 { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:12px 0; }
+.grid3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin:12px 0; }
+.kpi { background:var(--white); border:1px solid var(--rule); border-radius:var(--r12); padding:14px; }
+.kpi .kpi-val { font-size:20px; font-weight:900; color:var(--g2); line-height:1; margin-bottom:4px; }
+.kpi .kpi-label { font-size:11px; color:var(--muted); font-weight:600; }
+.kpi .kpi-sub { font-size:11px; color:var(--muted); margin-top:4px; line-height:1.4; }
+
+/* ── ROLE CARDS ── */
+.roles { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:12px 0; }
+.role-card { background:var(--white); border:1px solid var(--rule); border-top:3px solid var(--g2); border-radius:var(--r12); padding:14px; }
+.role-card.red-top { border-top-color:var(--r2); }
+.role-card.amber-top { border-top-color:var(--a2); }
+.role-card.blue-top { border-top-color:var(--b2); }
+.role-title { font-size:13px; font-weight:800; color:var(--ink); margin-bottom:4px; }
+.role-sch { font-size:11px; font-weight:700; color:var(--g3); margin-bottom:6px; font-family:var(--mono); }
+.role-desc { font-size:12px; color:var(--muted); line-height:1.45; }
+
+/* ── FLOW WRAP ── */
+.flow-wrap { background:var(--white); border:1px solid var(--rule); border-radius:var(--r12); padding:16px; overflow-x:auto; margin:12px 0; }
+.flow-wrap svg { max-width:100%; height:auto; display:block; }
+
+/* ── DIAGRAM LEGEND ── */
+.legend { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+.legend-item { display:flex; align-items:center; gap:5px; font-size:11px; color:var(--muted); }
+.legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+
+/* ── COVER PAGE ── */
+.cover-meta { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:16px; }
+.cover-toc { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:16px; }
+.toc-item { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:var(--r12); padding:12px 14px; cursor:pointer; transition:var(--transition); }
+.toc-item:hover { background:rgba(255,255,255,.15); }
+.toc-num { font-size:10px; font-weight:700; color:var(--g4); letter-spacing:.1em; text-transform:uppercase; }
+.toc-label { font-size:13px; font-weight:700; color:#fff; margin-top:2px; }
+
+/* ── FOOTER ── */
+.page-footer { display:flex; justify-content:space-between; margin-top:20px; padding-top:12px; border-top:1px solid var(--rule); font-size:11px; color:var(--muted); }
+
+/* ── COLORS FOR DOTS ── */
+.dot-green { background:var(--g3); }
+.dot-red { background:var(--r2); }
+.dot-amber { background:var(--a2); }
+.dot-blue { background:var(--b2); }
+.dot-gray { background:#AAB0A8; }
+
+/* ── ORG CHART CONTAINER ── */
+.org-wrap { overflow-x:auto; padding:8px 0; }
+
+/* ── RESPONSIVE ── */
+@media (max-width:768px) {
+  :root { --sidebar:280px; }
+  #ham { display:flex; }
+  #sidebar { transform:translateX(-100%); }
+  #sidebar.open { transform:translateX(0); }
+  #main { margin-left:0 !important; }
+  #topbar { padding:0 12px 0 52px; }
+  #content { padding:12px; }
+  .grid2,.grid3,.cover-meta,.cover-toc,.roles { grid-template-columns:1fr !important; }
+  .card-title.lg { font-size:22px; }
+}
 </style>
 </head>
 <body>
-<div class="app"><aside class="sidebar" id="sidebar"><div class="brand"><div class="kicker">Aldea Mayab · Bacalar</div><div class="book-code">Libro IV · PR-AM-MNT-001</div><h1>Mantenimiento,<br>Infraestructura<br>y Continuidad</h1><p>Manual operativo premium para consulta rápida, capacitación, control, escalamiento y cierre de evidencia.</p></div><div class="searchbox"><input id="search" placeholder="Buscar procedimiento..." oninput="searchManual(this.value)"></div><nav class="nav" id="nav"></nav></aside><main class="main"><div class="mobilebar"><button onclick="toggleSidebar()">☰ Secciones</button><div class="meta">Libro IV · v8</div></div><div class="topbar"><div class="crumb" id="breadcrumb">Libro IV › <strong>Portada</strong></div><div class="meta">v8.0 · Premium Operativo · 2026</div></div><div class="content" id="content">
-<section class="page active" id="cover" data-title="Portada"><div class="hero"><div class="eyebrow">Residencial Aldea Mayab · Bacalar</div><h1 class="hero-title">Libro IV<br>Mantenimiento e Infraestructura</h1><p class="hero-sub">Procedimientos operativos para conservar infraestructura crítica, agua potable, PTAR, amenidades, limpieza, residuos, estacionamiento, proveedores, reportes y emergencias. Diseñado para que cualquier integrante del equipo pueda saber <strong>qué hacer, cuándo hacerlo, cómo registrarlo y cuándo escalar</strong>.</p><div class="pill-row"><span class="pill">Vista rápida</span><span class="pill">Vista detallada</span><span class="pill gold">Diagramas</span><span class="pill blue">Swimlanes</span><span class="pill red">Alertas críticas</span></div></div><div class="card"><div class="section-head"><div><div class="eyebrow">Arquitectura del manual</div><h2>Diseñado para operación real</h2></div><p>Cada capítulo abre con un panel visual y cada procedimiento se estructura con metadatos, flujo, roles, checklist, matriz de decisiones y criterio de cierre.</p></div><div class="grid5"><div class="stat"><div class="stat-label">1</div><div class="stat-value">Panel visual</div><div class="stat-desc">Mapa de sistema, riesgos y enlaces rápidos.</div></div><div class="stat"><div class="stat-label">2</div><div class="stat-value">Organigrama</div><div class="stat-desc">Quién ejecuta, valida, autoriza y da soporte.</div></div><div class="stat"><div class="stat-label">3</div><div class="stat-value">Flujograma</div><div class="stat-desc">Proceso visual de principio a cierre.</div></div><div class="stat"><div class="stat-label">4</div><div class="stat-value">Checklists</div><div class="stat-desc">Ejecución sin omisiones.</div></div><div class="stat"><div class="stat-label">5</div><div class="stat-value">Escalamiento</div><div class="stat-desc">Semáforos y criterios de decisión.</div></div></div></div><div class="card"><div class="section-head"><div><div class="eyebrow">Índice operativo</div><h2>Accesos rápidos</h2></div><p>Usa estas tarjetas para navegar por el libro.</p></div><div class="grid3" id="jumpgrid"></div></div></section>
-<section class="page" id="ch1" data-title="1.0 Marco Operativo"><div class="card"><div class="section-head"><div><div class="eyebrow">1.0 Marco Operativo</div><h2>Gobierno operativo del mantenimiento</h2></div><p>Define cómo se organiza la operación diaria, quién toma decisiones y cómo se documenta cada acción.</p></div><div class="role-flow"><div class="role-card"><div class="role">Dirección</div><div class="role-title">Aprueba estrategia y gastos mayores</div><div class="role-desc">Autoriza inversiones, medidas extraordinarias y cambios estructurales.</div></div><div class="role-card"><div class="role">Gerencia Administrativa</div><div class="role-title">Control y presupuesto</div><div class="role-desc">Autoriza compras intermedias, proveedores y comunicaciones relevantes.</div></div><div class="role-card"><div class="role">Jefe de Mantenimiento</div><div class="role-title">Responsable operativo</div><div class="role-desc">Planea, valida, corrige y cierra órdenes de trabajo.</div></div><div class="role-card"><div class="role">Equipo Operativo</div><div class="role-title">Ejecución y evidencia</div><div class="role-desc">Realiza rutinas, reporta anomalías y sube evidencias a bitácora.</div></div></div></div><div class="card"><div class="section-head"><div><div class="eyebrow">Ciclo diario</div><h2>Rutina base</h2></div></div><div class="flow-wrap"><svg width="820" height="170" viewBox="0 0 820 170"><defs><marker id="a1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker></defs><g font-family="Inter"><rect x="10" y="55" width="120" height="56" rx="16" fill="#E9F2EC" stroke="#1F5C38"/><text x="70" y="78" text-anchor="middle" font-weight="800" font-size="13">Inspeccionar</text><text x="70" y="96" text-anchor="middle" font-size="11">rutinas</text><rect x="170" y="55" width="120" height="56" rx="16" fill="#EAF2F8" stroke="#2A5B84"/><text x="230" y="78" text-anchor="middle" font-weight="800" font-size="13">Registrar</text><text x="230" y="96" text-anchor="middle" font-size="11">bitácora</text><rect x="330" y="55" width="120" height="56" rx="16" fill="#FFF2DE" stroke="#A66A10"/><text x="390" y="78" text-anchor="middle" font-weight="800" font-size="13">Evaluar</text><text x="390" y="96" text-anchor="middle" font-size="11">rango</text><rect x="490" y="55" width="120" height="56" rx="16" fill="#E9F2EC" stroke="#1F5C38"/><text x="550" y="78" text-anchor="middle" font-weight="800" font-size="13">Corregir</text><text x="550" y="96" text-anchor="middle" font-size="11">si aplica</text><rect x="650" y="55" width="150" height="56" rx="16" fill="#123B27"/><text x="725" y="78" text-anchor="middle" font-weight="800" font-size="13" fill="#fff">Cerrar</text><text x="725" y="96" text-anchor="middle" font-size="11" fill="#DCEADF">con evidencia</text><line x1="130" y1="83" x2="169" y2="83" stroke="#1F5C38" stroke-width="2" marker-end="url(#a1)"/><line x1="290" y1="83" x2="329" y2="83" stroke="#1F5C38" stroke-width="2" marker-end="url(#a1)"/><line x1="450" y1="83" x2="489" y2="83" stroke="#1F5C38" stroke-width="2" marker-end="url(#a1)"/><line x1="610" y1="83" x2="649" y2="83" stroke="#1F5C38" stroke-width="2" marker-end="url(#a1)"/></g></svg></div><div class="callout red"><h4>Sin registro = no ocurrió</h4><p>Toda lectura, inspección, corrección, anomalía, compra, visita de proveedor o cierre de rutina debe quedar documentado el mismo día con hora, responsable y evidencia.</p></div></div></section>
-<section class="page" id="ch2" data-title="2.0 PTAR"><div class="card"><div class="section-head"><div><div class="eyebrow">2.0 PTAR</div><h2>Planta de Tratamiento de Aguas Residuales</h2></div><p>Flujo validado: entrada sanitaria → cárcamo → PTAR → filtro → agua tratada. Revisión por tres puntos: cárcamo, filtro y agua tratada.</p></div><div class="grid4"><div class="stat"><div class="stat-label">Objetivo</div><div class="stat-value">Sin reboses ni olores críticos</div><div class="stat-desc">Detectar fallas antes de que afecten residentes o ambiente.</div></div><div class="stat"><div class="stat-label">Puntos</div><div class="stat-value">Cárcamo · Filtro · Agua tratada</div><div class="stat-desc">Estructura simple para revisión de campo.</div></div><div class="stat"><div class="stat-label">Frecuencia</div><div class="stat-value">Diaria</div><div class="stat-desc">Revisión visual, olfativa y de continuidad.</div></div><div class="stat"><div class="stat-label">Escala si</div><div class="stat-value">Rebose / paro / olor fuerte</div><div class="stat-desc">Avisar al Jefe de Mantenimiento inmediatamente.</div></div></div></div><div class="card"><div class="section-head"><div><div class="eyebrow">Flujograma del sistema</div><h2>Proceso PTAR simplificado</h2></div></div><div class="flow-wrap"><svg width="1120" height="340" viewBox="0 0 1120 340"><defs><marker id="ptarG" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="ptarR" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#B33A2F"/></marker></defs><g font-family="Inter"><rect x="30" y="120" width="150" height="74" rx="18" fill="#F6EBD4" stroke="#B58C43" stroke-width="2"/><text x="105" y="148" text-anchor="middle" font-weight="800" font-size="15">Entrada sanitaria</text><text x="105" y="170" text-anchor="middle" font-size="12">flujo residual</text><rect x="245" y="120" width="150" height="74" rx="18" fill="#EAF2F8" stroke="#2A5B84" stroke-width="2"/><text x="320" y="148" text-anchor="middle" font-weight="800" font-size="15">Cárcamo</text><text x="320" y="170" text-anchor="middle" font-size="12">nivel · obstrucción</text><rect x="460" y="120" width="150" height="74" rx="18" fill="#E9F2EC" stroke="#1F5C38" stroke-width="2"/><text x="535" y="148" text-anchor="middle" font-weight="800" font-size="15">PTAR</text><text x="535" y="170" text-anchor="middle" font-size="12">tratamiento</text><rect x="675" y="120" width="150" height="74" rx="18" fill="#E9F2EC" stroke="#1F5C38" stroke-width="2"/><text x="750" y="148" text-anchor="middle" font-weight="800" font-size="15">Filtro</text><text x="750" y="170" text-anchor="middle" font-size="12">limpieza · flujo</text><rect x="890" y="120" width="180" height="74" rx="18" fill="#EAF2F8" stroke="#2A5B84" stroke-width="2"/><text x="980" y="148" text-anchor="middle" font-weight="800" font-size="15">Agua tratada</text><text x="980" y="170" text-anchor="middle" font-size="12">salida · color · olor</text><line x1="180" y1="157" x2="244" y2="157" stroke="#1F5C38" stroke-width="3" marker-end="url(#ptarG)"/><line x1="395" y1="157" x2="459" y2="157" stroke="#1F5C38" stroke-width="3" marker-end="url(#ptarG)"/><line x1="610" y1="157" x2="674" y2="157" stroke="#1F5C38" stroke-width="3" marker-end="url(#ptarG)"/><line x1="825" y1="157" x2="889" y2="157" stroke="#1F5C38" stroke-width="3" marker-end="url(#ptarG)"/><rect x="235" y="35" width="660" height="50" rx="16" fill="#FCEBE8" stroke="#B33A2F" stroke-width="2"/><text x="565" y="56" text-anchor="middle" font-weight="800" fill="#8C2A20" font-size="14">Escalamiento inmediato</text><text x="565" y="73" text-anchor="middle" fill="#8C2A20" font-size="12">rebose · olor fuerte · obstrucción · paro de equipo · agua tratada con mal olor/color</text><line x1="565" y1="85" x2="565" y2="119" stroke="#B33A2F" stroke-width="2.5" marker-end="url(#ptarR)"/></g></svg></div></div><div class="card"><div class="section-head"><div><div class="eyebrow">Inspección diaria PTAR</div><h2>Vista rápida y detallada</h2></div></div><div class="grid2"><div class="panel"><div class="stat-label">Checklist</div><ul class="checklist"><li><span class="box"></span><span>Revisar cárcamo: nivel, obstrucción, olor y rebose.</span></li><li><span class="box"></span><span>Revisar PTAR/cuarto de control: sonido, operación y alarmas visibles.</span></li><li><span class="box"></span><span>Revisar filtro: limpieza, saturación y flujo.</span></li><li><span class="box"></span><span>Validar agua tratada: salida, color, olor y claridad.</span></li><li><span class="box"></span><span>Subir fotos y observaciones a AppSheet.</span></li></ul></div><div><div class="callout red"><h4>Escalar si</h4><p>Hay rebose, olor fuerte, flujo detenido, obstrucción visible, filtro saturado o agua tratada con color/olor anormal.</p></div><div class="callout amber"><h4>No hacer</h4><p>No manipular equipos eléctricos, químicos o componentes internos sin autorización del Jefe de Mantenimiento.</p></div><div class="callout green"><h4>Cierre correcto</h4><p>Los tres puntos críticos quedan revisados, sin anomalía crítica y con evidencia completa.</p></div></div></div></div></section>
-<section class="page" id="ch3" data-title="3.0 Sistema de Agua Potable"><div class="card"><div class="section-head"><div><div class="eyebrow">3.0 Sistema de Agua Potable</div><h2>Agua potable, suavizador y bombeo</h2></div><p>Sistema crítico de abasto. Flujo confirmado: cisterna cruda → bomba → filtro de sedimentos → filtro de carbón activado → suavizador → cisterna de agua suave → 3 bombas presurizadoras → torres.</p></div><div class="grid4"><div class="stat"><div class="stat-label">Capacidad</div><div class="stat-value">Cisterna suave 210,000 L</div><div class="stat-desc">Alerta operativa al llegar a 180,000 L.</div></div><div class="stat"><div class="stat-label">Control</div><div class="stat-value">Aquatrol × 3</div><div class="stat-desc">Sedimentos, carbón y suavizador tienen Aquatrol.</div></div><div class="stat"><div class="stat-label">Dureza local</div><div class="stat-value">~800 ppm referencia</div><div class="stat-desc">Criterio local por dureza elevada en la zona.</div></div><div class="stat"><div class="stat-label">Consumo</div><div class="stat-value">Medidor agua suave</div><div class="stat-desc">Lectura acumulada en m³.</div></div></div></div><div class="card"><div class="section-head"><div><div class="eyebrow">Diagrama real de sistema</div><h2>Tanques, registros y ciclo de agua</h2></div><p>Incluye registros de agua dura y agua suave, depósito de sal, cisterna suave y bombas.</p></div><div class="flow-wrap"><svg width="1220" height="450" viewBox="0 0 1220 450"><defs><marker id="wg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="wb" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2A5B84"/></marker><marker id="wa" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#A66A10"/></marker></defs><g font-family="Inter"><rect x="20" y="95" width="132" height="76" rx="18" fill="#F6EBD4" stroke="#B58C43" stroke-width="2"/><text x="86" y="123" text-anchor="middle" font-weight="800" font-size="14">Cisterna cruda</text><text x="86" y="143" text-anchor="middle" font-size="12">medir % y L</text><ellipse cx="218" cy="133" rx="44" ry="28" fill="#E9F2EC" stroke="#1F5C38" stroke-width="2"/><text x="218" y="130" text-anchor="middle" font-weight="800" font-size="13">Bomba</text><text x="218" y="146" text-anchor="middle" font-size="11">carga</text><rect x="310" y="86" width="124" height="94" rx="18" fill="#E9F2EC" stroke="#1F5C38" stroke-width="2"/><text x="372" y="111" text-anchor="middle" font-weight="800" font-size="13">Sedimentos</text><text x="372" y="130" text-anchor="middle" font-size="12">Aquatrol</text><text x="372" y="148" text-anchor="middle" font-size="11">Backwash</text><rect x="480" y="86" width="124" height="94" rx="18" fill="#EAF2F8" stroke="#2A5B84" stroke-width="2"/><text x="542" y="111" text-anchor="middle" font-weight="800" font-size="13">Registro</text><text x="542" y="130" text-anchor="middle" font-weight="800" font-size="12">Agua dura</text><text x="542" y="148" text-anchor="middle" font-size="11">antes suavizador</text><rect x="650" y="86" width="124" height="94" rx="18" fill="#E9F2EC" stroke="#1F5C38" stroke-width="2"/><text x="712" y="111" text-anchor="middle" font-weight="800" font-size="13">Carbón activado</text><text x="712" y="130" text-anchor="middle" font-size="12">Aquatrol</text><text x="712" y="148" text-anchor="middle" font-size="11">olor / sabor</text><rect x="820" y="86" width="124" height="94" rx="18" fill="#E9F2EC" stroke="#1F5C38" stroke-width="2"/><text x="882" y="111" text-anchor="middle" font-weight="800" font-size="13">Suavizador</text><text x="882" y="130" text-anchor="middle" font-size="12">Aquatrol</text><text x="882" y="148" text-anchor="middle" font-size="11">usa sal</text><rect x="1000" y="84" width="150" height="98" rx="18" fill="#F6EBD4" stroke="#B58C43" stroke-width="2"/><text x="1075" y="113" text-anchor="middle" font-weight="800" font-size="13">Depósito de sal</text><text x="1075" y="133" text-anchor="middle" font-size="12">solo suavizador</text><text x="1075" y="151" text-anchor="middle" font-size="11">nunca &lt; 50%</text><rect x="172" y="280" width="144" height="84" rx="18" fill="#EAF2F8" stroke="#2A5B84" stroke-width="2"/><text x="244" y="306" text-anchor="middle" font-weight="800" font-size="13">Registro</text><text x="244" y="326" text-anchor="middle" font-weight="800" font-size="12">Agua suave</text><text x="244" y="344" text-anchor="middle" font-size="11">referencia ~800 ppm</text><rect x="370" y="276" width="168" height="92" rx="18" fill="#E9F2EC" stroke="#1F5C38" stroke-width="2"/><text x="454" y="304" text-anchor="middle" font-weight="800" font-size="14">Cisterna suave</text><text x="454" y="326" text-anchor="middle" font-size="12">210,000 L total</text><text x="454" y="344" text-anchor="middle" font-size="12">alerta 180,000 L</text><rect x="602" y="276" width="214" height="92" rx="18" fill="#E9F2EC" stroke="#1F5C38" stroke-width="2"/><text x="709" y="304" text-anchor="middle" font-weight="800" font-size="14">3 Bombas presurizadoras</text><text x="709" y="326" text-anchor="middle" font-size="12">B1 · B2 · B3</text><text x="709" y="344" text-anchor="middle" font-size="12">salida a torres</text><rect x="875" y="276" width="190" height="92" rx="18" fill="#123B27"/><text x="970" y="306" text-anchor="middle" font-weight="800" font-size="14" fill="#fff">Torres 1–4</text><text x="970" y="328" text-anchor="middle" font-size="12" fill="#DCEADF">distribución final</text><line x1="152" y1="133" x2="174" y2="133" stroke="#1F5C38" stroke-width="3" marker-end="url(#wg)"/><line x1="262" y1="133" x2="309" y2="133" stroke="#1F5C38" stroke-width="3" marker-end="url(#wg)"/><line x1="434" y1="133" x2="479" y2="133" stroke="#1F5C38" stroke-width="3" marker-end="url(#wg)"/><line x1="604" y1="133" x2="649" y2="133" stroke="#1F5C38" stroke-width="3" marker-end="url(#wg)"/><line x1="774" y1="133" x2="819" y2="133" stroke="#1F5C38" stroke-width="3" marker-end="url(#wg)"/><line x1="1075" y1="183" x2="945" y2="183" stroke="#A66A10" stroke-width="3" stroke-dasharray="6,5" marker-end="url(#wa)"/><text x="1010" y="205" text-anchor="middle" fill="#A66A10" font-size="12">salmuera / regeneración</text><polyline points="882,181 882,236 244,236 244,279" fill="none" stroke="#2A5B84" stroke-width="3" marker-end="url(#wb)"/><line x1="316" y1="322" x2="369" y2="322" stroke="#1F5C38" stroke-width="3" marker-end="url(#wg)"/><line x1="538" y1="322" x2="601" y2="322" stroke="#1F5C38" stroke-width="3" marker-end="url(#wg)"/><line x1="816" y1="322" x2="874" y2="322" stroke="#1F5C38" stroke-width="3" marker-end="url(#wg)"/></g></svg></div></div><div class="card"><div class="section-head"><div><div class="eyebrow">Lecturas diarias y operación</div><h2>Vista rápida</h2></div><p>Horarios: 8:30 · 11:00 · 13:00 · 16:00 · 18:00.</p></div><div class="grid2"><div class="panel"><ul class="checklist"><li><span class="box"></span><span>Revisar cisterna cruda en % y litros.</span></li><li><span class="box"></span><span>Revisar cisterna suave: normal hasta 210,000 L; alerta 180,000 L.</span></li><li><span class="box"></span><span>Verificar nivel de sal del suavizador.</span></li><li><span class="box"></span><span>Confirmar Aquatrol en los 3 tanques.</span></li><li><span class="box"></span><span>Medir agua dura y agua suave.</span></li><li><span class="box"></span><span>Registrar lectura acumulada del medidor de agua suave.</span></li><li><span class="box"></span><span>Verificar bombas 1, 2 y 3.</span></li></ul></div><div><div class="callout blue"><h4>Criterio local de dureza</h4><p>Por la dureza de la zona, el agua suave puede tener referencia histórica alrededor de 800 ppm. No usar estándares genéricos bajos. Evaluar contra historial del sitio y diferencia frente al agua dura.</p></div><div class="callout red"><h4>Escalar si</h4><p>Cisterna suave llega a 180,000 L, no hay diferencia entre agua dura y suave, sal baja crítica o una bomba queda fuera de servicio.</p></div><div class="callout amber"><h4>No confundir</h4><p>La válvula Hayward pertenece al sistema de albercas. Agua potable opera con Aquatrol.</p></div></div></div></div></section>
-<section class="page" id="ch4" data-title="4.0 Infraestructura Crítica"><div class="card"><div class="section-head"><div><div class="eyebrow">4.0 Infraestructura Crítica</div><h2>Sistema eléctrico, pluma vehicular y generador</h2></div><p>Procesos que sostienen continuidad, acceso y seguridad.</p></div><div class="role-flow"><div class="role-card"><div class="role">Operador</div><div class="role-title">Detecta</div><div class="role-desc">Reporta anomalías, no manipula tableros sin autorización.</div></div><div class="role-card"><div class="role">Jefe Mant.</div><div class="role-title">Valida</div><div class="role-desc">Revisa condición, autoriza acciones y coordina proveedor.</div></div><div class="role-card"><div class="role">Gerencia</div><div class="role-title">Autoriza</div><div class="role-desc">Compra, gasto o comunicación por afectación.</div></div><div class="role-card"><div class="role">Proveedor</div><div class="role-title">Interviene</div><div class="role-desc">Correctivos eléctricos, generador y automatización.</div></div></div></div><div class="grid3"><div class="card"><div class="eyebrow">4.1 Sistema eléctrico</div><ul class="checklist"><li><span class="box"></span><span>Revisar tableros visibles, olores, calentamiento y alarmas.</span></li><li><span class="box"></span><span>Registrar anomalía con foto.</span></li><li><span class="box"></span><span>No abrir ni intervenir sin autorización.</span></li></ul></div><div class="card"><div class="eyebrow">4.2 Pluma vehicular</div><ul class="checklist"><li><span class="box"></span><span>Probar apertura y cierre.</span></li><li><span class="box"></span><span>Revisar sensores, brazo y alimentación.</span></li><li><span class="box"></span><span>Activar plan manual si falla.</span></li></ul></div><div class="card"><div class="eyebrow">4.3 Generador</div><ul class="checklist"><li><span class="box"></span><span>Revisar combustible, tablero y entorno.</span></li><li><span class="box"></span><span>Prueba programada y registro.</span></li><li><span class="box"></span><span>Escalar si combustible bajo o alarma.</span></li></ul></div></div></section>
-<section class="page" id="ch5" data-title="5.0 Amenidades"><div class="card"><div class="section-head"><div><div class="eyebrow">5.0 Amenidades</div><h2>Pádel, Casa Club, Albercas, Firepit y Muelle</h2></div><p>Las amenidades deben estar disponibles, limpias, seguras y con reglas claras de cierre.</p></div><div class="grid5"><div class="stat"><div class="stat-label">5.1</div><div class="stat-value">Pádel</div><div class="stat-desc">Cristales, malla, iluminación, superficie.</div></div><div class="stat"><div class="stat-label">5.2</div><div class="stat-value">Casa Club</div><div class="stat-desc">Apertura, gimnasio, baños, cierre.</div></div><div class="stat"><div class="stat-label">5.3</div><div class="stat-value">Albercas</div><div class="stat-desc">Hayward, limpieza, pH, cloro, parámetros.</div></div><div class="stat"><div class="stat-label">5.4</div><div class="stat-value">Firepit</div><div class="stat-desc">Bioetanol, viento y seguridad.</div></div><div class="stat"><div class="stat-label">5.5</div><div class="stat-value">Muelle</div><div class="stat-desc">Estructura, limpieza y laguna.</div></div></div></div><div class="card"><div class="section-head"><div><div class="eyebrow">Albercas</div><h2>Proceso visual de operación</h2></div><p>Albercas queda dentro de amenidades, separado del sistema de agua potable.</p></div><div class="callout amber"><h4>Hayward</h4><p>La válvula Hayward pertenece únicamente a albercas. No usarla como referencia para agua potable.</p></div><ul class="checklist"><li><span class="box"></span><span>Cerrar y señalizar antes de mantenimiento.</span></li><li><span class="box"></span><span>Limpiar red, aspirado y skimmers.</span></li><li><span class="box"></span><span>Medir cloro y pH antes de abrir.</span></li><li><span class="box"></span><span>Registrar evidencia y abrir solo si cumple.</span></li></ul></div></section>
-<section class="page" id="ch6" data-title="6.0 Limpieza, Residuos y Áreas Verdes"><div class="card"><div class="section-head"><div><div class="eyebrow">6.0 Servicios diarios</div><h2>Limpieza, residuos y áreas verdes</h2></div><p>Procesos visibles para residentes. Deben operar con rutas, frecuencias y evidencia simple.</p></div><div class="swimlane"><div class="sw-row"><div class="sw-role">Limpieza</div><div class="sw-act"><strong>Ejecuta</strong> rutas de áreas comunes, baños, Casa Club y puntos de alto contacto.</div></div><div class="sw-row"><div class="sw-role">Mantenimiento</div><div class="sw-act"><strong>Atiende</strong> daños detectados durante limpieza o jardinería.</div></div><div class="sw-row"><div class="sw-role">Jefe Mant.</div><div class="sw-act"><strong>Valida</strong> calidad, prioridades y orden correctiva.</div></div></div></div><div class="grid3"><div class="card"><div class="eyebrow">6.1 Residuos</div><ul class="checklist"><li><span class="box"></span><span>Revisar contenedores y separación.</span></li><li><span class="box"></span><span>Evitar rebose y olores.</span></li><li><span class="box"></span><span>Registrar incidencias.</span></li></ul></div><div class="card"><div class="eyebrow">6.2 Limpieza</div><ul class="checklist"><li><span class="box"></span><span>Ruta diaria por zonas.</span></li><li><span class="box"></span><span>Evidencia antes/después.</span></li><li><span class="box"></span><span>Reporte de daños.</span></li></ul></div><div class="card"><div class="eyebrow">6.3 Áreas verdes</div><ul class="checklist"><li><span class="box"></span><span>Riego, poda y retiro vegetal.</span></li><li><span class="box"></span><span>Identificar erosión o plaga.</span></li><li><span class="box"></span><span>No usar químicos cerca de laguna.</span></li></ul></div></div></section>
-<section class="page" id="ch7" data-title="7.0 Estacionamiento y Vialidad"><div class="card"><div class="section-head"><div><div class="eyebrow">7.0 Estacionamiento</div><h2>Cajones, vialidad y proveedores</h2></div><p>Control operativo de cajones asignados, zona de proveedores, vialidad interna y accesos.</p></div><div class="decision-grid"><div class="decision"><strong>Cajón ocupado indebidamente</strong><span>Registrar foto, unidad y notificar por canal definido.</span></div><div class="decision info"><strong>Proveedor en sitio</strong><span>Validar zona de carga/descarga y horario.</span></div><div class="decision warn"><strong>Obstrucción vial</strong><span>Solicitar retiro y escalar si bloquea emergencia.</span></div><div class="decision danger"><strong>Riesgo de seguridad</strong><span>Activar apoyo de seguridad / gerencia.</span></div></div></div></section>
-<section class="page" id="ch8" data-title="8.0 KPIs y Reportes"><div class="card"><div class="section-head"><div><div class="eyebrow">8.0 KPIs y Reportes</div><h2>Indicadores, cierre mensual y auditoría</h2></div><p>Los KPIs convierten rutinas en control de gestión.</p></div><div class="grid4"><div class="stat"><div class="stat-label">Disponibilidad</div><div class="stat-value">% sistemas críticos operativos</div><div class="stat-desc">PTAR, agua, eléctrico, generador y accesos.</div></div><div class="stat"><div class="stat-label">Cumplimiento</div><div class="stat-value">% checklists cerrados</div><div class="stat-desc">Por día, semana y mes.</div></div><div class="stat"><div class="stat-label">Correctivos</div><div class="stat-value">Órdenes abiertas</div><div class="stat-desc">Antigüedad, causa y responsable.</div></div><div class="stat"><div class="stat-label">Gasto</div><div class="stat-value">MXN por sistema</div><div class="stat-desc">Comparativo vs presupuesto.</div></div></div></div></section>
-<section class="page" id="ch9" data-title="9.0 Proveedores y Permisos"><div class="card"><div class="section-head"><div><div class="eyebrow">9.0 Proveedores</div><h2>Contratistas, cotizaciones y permisos de trabajo</h2></div><p>Todo proveedor debe entrar con alcance claro, autorización, evidencia de ejecución y cierre.</p></div><div class="table-wrap"><table><thead><tr><th>Monto</th><th>Requisito</th><th>Autoriza</th></tr></thead><tbody><tr><td>Hasta $5,000</td><td>Recibo / factura</td><td>Jefe de Mantenimiento</td></tr><tr><td>$5,001–$20,000</td><td>1 cotización</td><td>Jefe de Mantenimiento</td></tr><tr><td>$20,001–$50,000</td><td>3 cotizaciones</td><td>Gerencia</td></tr><tr><td>Más de $50,000</td><td>3 cotizaciones + comparativo</td><td>Dirección</td></tr></tbody></table></div></div></section>
-<section class="page" id="ch10" data-title="10.0 Emergencias"><div class="card"><div class="section-head"><div><div class="eyebrow">10.0 Emergencias</div><h2>Primeros 30 minutos y continuidad operativa</h2></div><p>La prioridad es seguridad de personas, contención de daño, continuidad de sistemas críticos y comunicación clara.</p></div><div class="decision-grid"><div class="decision danger"><strong>PTAR / agua</strong><span>Servicio crítico. Avisar Jefe + Gerencia si afecta continuidad.</span></div><div class="decision warn"><strong>Eléctrico</strong><span>No manipular tablero sin autorización.</span></div><div class="decision info"><strong>Accesos</strong><span>Activar control manual si la pluma falla.</span></div><div class="decision"><strong>Comunicación</strong><span>Registrar hechos antes de emitir mensajes.</span></div></div></div></section>
-<section class="page" id="appx" data-title="Apéndices"><div class="card"><div class="section-head"><div><div class="eyebrow">Apéndices</div><h2>Inventario, capacitación y bitácoras</h2></div><p>Recursos de apoyo para mantener el manual vivo y auditable.</p></div><div class="grid3"><div class="panel"><h3 class="stat-label">A. Inventario mínimo</h3><ul class="checklist"><li><span class="box"></span><span>Herramientas básicas</span></li><li><span class="box"></span><span>Químicos de alberca</span></li><li><span class="box"></span><span>Sal para suavizador</span></li><li><span class="box"></span><span>Refacciones críticas</span></li></ul></div><div class="panel"><h3 class="stat-label">B. Capacitación</h3><ul class="checklist"><li><span class="box"></span><span>Inducción de seguridad</span></li><li><span class="box"></span><span>Uso de AppSheet</span></li><li><span class="box"></span><span>Lectura de agua potable</span></li><li><span class="box"></span><span>Escalamiento de emergencias</span></li></ul></div><div class="panel"><h3 class="stat-label">C. Bitácoras</h3><ul class="checklist"><li><span class="box"></span><span>PTAR</span></li><li><span class="box"></span><span>Agua potable</span></li><li><span class="box"></span><span>Albercas</span></li><li><span class="box"></span><span>Generador</span></li></ul></div></div></div></section>
-<div class="footer">Libro IV · Mantenimiento e Infraestructura · Versión premium-operativa completa</div></div></main></div>
+
+<!-- HAMBURGER -->
+<button id="ham" aria-label="Menú"><span></span><span></span><span></span></button>
+<div id="overlay"></div>
+
+<!-- SIDEBAR -->
+<aside id="sidebar">
+  <div class="sb-brand">
+    <div class="sb-label">Aldea Mayab · Bacalar</div>
+    <div class="sb-title">Libro IV<br>Mantenimiento</div>
+    <div class="sb-code">PR-AM-MNT-001 · v2.0 · 2026</div>
+  </div>
+  <nav class="sb-nav" id="sb-nav"></nav>
+</aside>
+
+<!-- MAIN -->
+<div id="main">
+  <div id="topbar">
+    <div id="breadcrumb">Libro IV › <strong>Portada</strong></div>
+    <span class="tb-badge">v2.0</span>
+  </div>
+  <div id="content"></div>
+</div>
+
 <script>
-const groups=[["Inicio",[["cover","Portada","Estructura general"]]],["1.0 Marco Operativo",[["ch1","Gobierno operativo","Roles, RACI y ciclo diario"]]],["2.0 PTAR",[["ch2","PTAR","Cárcamo, filtro y agua tratada"]]],["3.0 Agua Potable",[["ch3","Agua Potable","Aquatrol × 3, tanques, bombas"]]],["4.0 Infraestructura",[["ch4","Infraestructura crítica","Eléctrico, pluma y generador"]]],["5.0 Amenidades",[["ch5","Amenidades","Pádel, Casa Club, albercas, firepit, muelle"]]],["6.0 Limpieza y Residuos",[["ch6","Servicios diarios","Residuos, limpieza y áreas verdes"]]],["7.0 Estacionamiento",[["ch7","Estacionamiento","Cajones, vialidad y proveedores"]]],["8.0 KPIs y Reportes",[["ch8","KPIs y Reportes","Indicadores y cierre mensual"]]],["9.0 Proveedores",[["ch9","Proveedores","Contratistas, permisos y cotizaciones"]]],["10.0 Emergencias",[["ch10","Emergencias","Primeros 30 minutos"]]],["Apéndices",[["appx","Apéndices","Inventario y capacitación"]]]];
-const nav=document.getElementById("nav");nav.innerHTML=groups.map((g,i)=>`<div class="nav-group ${i<4?'open':''}"><div class="nav-group-btn" onclick="toggleGroup(this)"><span class="nav-group-label">${g[0]}</span><span class="arrow">▶</span></div><div class="nav-items">${g[1].map(x=>`<a class="nav-link" onclick="show('${x[0]}')">${x[1]}<small>${x[2]}</small></a>`).join("")}</div></div>`).join("");
-const jumps=[['ch1','1.0 Marco Operativo','Roles, RACI y ciclo diario'],['ch2','2.0 PTAR','Cárcamo, filtro y agua tratada'],['ch3','3.0 Agua Potable','Aquatrol × 3, tanques y bombas'],['ch4','4.0 Infraestructura Crítica','Eléctrico, pluma y generador'],['ch5','5.0 Amenidades','Pádel, Casa Club, albercas y muelle'],['ch6','6.0 Limpieza y Residuos','Residuos, limpieza y áreas verdes'],['ch7','7.0 Estacionamiento','Cajones, vialidad y proveedores'],['ch8','8.0 KPIs y Reportes','Indicadores y cierre mensual'],['ch9','9.0 Proveedores','Contratistas y cotizaciones'],['ch10','10.0 Emergencias','Primeros 30 minutos'],['appx','Apéndices','Inventario, capacitación y bitácoras']];document.getElementById('jumpgrid').innerHTML=jumps.map(j=>`<div class="jump" onclick="show('${j[0]}')"><strong>${j[1]}</strong><span>${j[2]}</span></div>`).join('');
-function show(id){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));const p=document.getElementById(id);if(!p)return;p.classList.add('active');document.querySelectorAll('.nav-link').forEach(a=>{a.classList.remove('active');if((a.getAttribute('onclick')||'').includes("'"+id+"'"))a.classList.add('active')});document.getElementById('breadcrumb').innerHTML='Libro IV › <strong>'+(p.dataset.title||'Portada')+'</strong>';window.scrollTo({top:0,behavior:'smooth'});if(window.innerWidth<920)document.getElementById('sidebar').classList.remove('open')}
-function toggleGroup(el){el.parentElement.classList.toggle('open')}function toggleSidebar(){document.getElementById('sidebar').classList.toggle('open')}function searchManual(q){q=q.trim().toLowerCase();if(!q)return;const found=[...document.querySelectorAll('.page')].find(p=>p.innerText.toLowerCase().includes(q));if(found)show(found.id)}document.addEventListener('DOMContentLoaded',()=>show('cover'));
+// ── NAV DATA ──
+const NAV = [
+  { id:'cover', group:'Libro IV', label:'Portada', dot:'green' },
+  { id:'p11', group:'1.0 Marco General', label:'1.1 Alcance y Responsables', dot:'green' },
+  { id:'p12', group:'1.0 Marco General', label:'1.2 Ciclo de Mantenimiento', dot:'green' },
+  { id:'p21', group:'2.0 PTAR', label:'2.1 Inspección Diaria', dot:'amber' },
+  { id:'p22', group:'2.0 PTAR', label:'2.2 Anomalías y Escalamiento', dot:'red' },
+  { id:'p30', group:'3.0 Agua Potable', label:'3.0 Sistema — Diagrama', dot:'blue' },
+  { id:'p31', group:'3.0 Agua Potable', label:'3.1 Lecturas Diarias', dot:'blue' },
+  { id:'p32', group:'3.0 Agua Potable', label:'3.2 Ciclo Aquatrol y Sal', dot:'blue' },
+  { id:'p33', group:'3.0 Agua Potable', label:'3.3 Dureza y Contingencias', dot:'blue' },
+  { id:'p41', group:'4.0 Infraestructura', label:'4.1 Sistema Eléctrico', dot:'amber' },
+  { id:'p42', group:'4.0 Infraestructura', label:'4.2 Pluma CAME', dot:'amber' },
+  { id:'p43', group:'4.0 Infraestructura', label:'4.3 Generador', dot:'red' },
+  { id:'p51', group:'5.0 Amenidades', label:'5.1 Albercas — Rutina', dot:'blue' },
+  { id:'p52', group:'5.0 Amenidades', label:'5.2 Albercas — Parámetros', dot:'blue' },
+  { id:'p53', group:'5.0 Amenidades', label:'5.3 Pádel', dot:'green' },
+  { id:'p54', group:'5.0 Amenidades', label:'5.4 Firepit', dot:'amber' },
+  { id:'p55', group:'5.0 Amenidades', label:'5.5 Muelle y Laguna', dot:'green' },
+  { id:'p61', group:'6.0 Limpieza', label:'6.1 Residuos Sólidos', dot:'green' },
+  { id:'p62', group:'6.0 Limpieza', label:'6.2 Áreas Comunes', dot:'green' },
+  { id:'p63', group:'6.0 Limpieza', label:'6.3 Áreas Verdes', dot:'green' },
+  { id:'p71', group:'7.0 Estacionamiento', label:'7.1 Cajones y Vialidad', dot:'gray' },
+  { id:'p72', group:'7.0 Estacionamiento', label:'7.2 Proveedores', dot:'gray' },
+  { id:'p81', group:'8.0 KPIs', label:'8.1 Indicadores', dot:'blue' },
+  { id:'p82', group:'8.0 KPIs', label:'8.2 Reporte Mensual', dot:'blue' },
+];
+
+// ── SVG HELPERS ──
+const M = (x,y)=>`M${x},${y}`;
+const L = (x,y)=>`L${x},${y}`;
+function rect(x,y,w,h,r,fill,stroke='#ccc',sw=1.5){return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${sw}"/>`}
+function text(x,y,t,opts={}){const{anchor='middle',fill='#111',size=11,weight=700,italic=false}=opts;return `<text x="${x}" y="${y}" text-anchor="${anchor}" fill="${fill}" font-size="${size}" font-weight="${weight}" ${italic?'font-style="italic"':''}>${t}</text>`}
+function arrow(id,color){return `<marker id="${id}" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="${color}"/></marker>`}
+function line(x1,y1,x2,y2,color,dash='',mid=''){return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="2" ${dash?`stroke-dasharray="${dash}"`:''}  marker-end="url(#arr_${mid||color.replace('#','')})"/>`}
+function poly(pts,color,dash='',mid=''){return `<polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2" ${dash?`stroke-dasharray="${dash}"`:''}  marker-end="url(#arr_${mid||color.replace('#','')})"/>`}
+
+// ── ORGCHART: ROLES ──
+function orgRoles(){
+  const W=700, H=340;
+  const bg = (x,y,w,h,fill,stroke,label,sublabel,extra='')=>
+    rect(x,y,w,h,8,fill,stroke,1.5)+text(x+w/2,y+h/2-6,label,{size:12,fill:stroke})+
+    text(x+w/2,y+h/2+11,sublabel,{size:10,fill:stroke+'99',weight:400})+extra;
+
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
+  <defs>${arrow('org_g','#145C30')}${arrow('org_a','#C87D0A')}</defs>
+  <!-- Title -->
+  ${rect(0,0,W,36,0,'#0C2B18','transparent')}
+  ${text(W/2,23,'Organigrama Funcional — Mantenimiento',{size:13,fill:'#fff'})}
+  <!-- Dirección -->
+  ${bg(260,52,180,42,'#E4F2E9','#145C30','Dirección General','Aprueba >$50K')}
+  <!-- Gerencia -->
+  ${bg(260,130,180,42,'#E4F2E9','#145C30','Gerencia Administrativa','Aprueba $20K–$50K')}
+  <!-- Jefe -->
+  ${bg(260,208,180,48,'#0C2B18','#0C2B18','Jefe de Mantenimiento','Aprueba ≤$20K · Lun–Vie 06–14h','')
+    .replace('fill="#0C2B18" font-size="12"','fill="#fff" font-size="12"')
+    .replace('fill="#0C2B1899"','fill="rgba(255,255,255,.6)"')}
+  <!-- Personas nivel 3 -->
+  ${bg(20,292,130,40,'#F5F7F4','#5A6054','Personal Mant.','Lun–Dom 06–15h')}
+  ${bg(160,292,130,40,'#F5F7F4','#5A6054','Personal Limpieza','Lun–Dom 07–16h')}
+  ${bg(400,292,130,40,'#F5F7F4','#5A6054','Proveedor Externo','Según contrato')}
+  ${bg(540,292,140,40,'#F5F7F4','#5A6054','Guardia / Seguridad','24 horas')}
+  <!-- Flechas verticales -->
+  ${line(350,94,350,129,'#145C30','','org_g')}
+  ${line(350,172,350,207,'#145C30','','org_g')}
+  <!-- Jefe a personal -->
+  ${poly('350,256 350,272 85,272 85,291','#5A6054','','org_a')}
+  ${poly('350,256 350,272 225,272 225,291','#5A6054','','org_a')}
+  ${poly('350,256 350,272 465,272 465,291','#5A6054','','org_a')}
+  ${poly('350,256 350,272 610,272 610,291','#5A6054','','org_a')}
+  </svg>`;
+}
+
+// ── FLOWCHART: ORDER CYCLE ──
+function flowOrderCycle(){
+  const W=680, H=540;
+  const box=(x,y,w,h,label,sub,fill,stroke)=>
+    rect(x,y,w,h,8,fill,stroke,1.5)+
+    text(x+w/2,y+h/2-5,label,{size:12,fill:stroke,weight:700})+
+    text(x+w/2,y+h/2+11,sub,{size:10,fill:stroke+'AA',weight:400});
+  const diam=(x,y,w,h,label,fill,stroke)=>{
+    const cx=x+w/2,cy=y+h/2;
+    return `<polygon points="${cx},${y} ${x+w},${cy} ${cx},${y+h} ${x},${cy}" fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>
+    ${text(cx,cy+4,label,{size:10,fill:stroke,weight:700})}`;
+  };
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
+  <defs>${arrow('g','#145C30')}${arrow('r','#C0392B')}${arrow('a','#C87D0A')}</defs>
+  <!-- START -->
+  ${rect(230,10,220,34,17,'#0C2B18','transparent')}
+  ${text(340,32,'DETECTAR HALLAZGO',{size:11,fill:'#fff'})}
+  <!-- Registrar -->
+  ${box(230,62,220,42,'Registrar en AppSheet','Foto + hora + área','#E4F2E9','#145C30')}
+  <!-- ¿Crítico? -->
+  ${diam(230,124,220,52,'¿Infraestructura crítica?','#FDECEA','#C0392B')}
+  <!-- SÍ -> notificar -->
+  ${box(490,120,170,40,'Notificar Jefe de Mantenimiento','+ Gerencia < 2 horas','#FDECEA','#C0392B')}
+  <!-- ¿Monto? -->
+  ${diam(230,198,220,52,'¿Monto del trabajo?','#FDF3E3','#C87D0A')}
+  <!-- Tres cajas de autorización -->
+  ${box(10,278,140,42,'Jefe de Mantenimiento','≤ $20,000','#E4F2E9','#145C30')}
+  ${box(165,278,140,42,'Gerencia','$20K–$50K','#FDF3E3','#C87D0A')}
+  ${box(320,278,140,42,'Dirección','>$50,000','#FDECEA','#C0392B')}
+  <!-- Cotizaciones -->
+  ${box(200,348,280,42,'Obtener cotizaciones','Ver política de umbrales','#E4F2E9','#145C30')}
+  <!-- Ejecutar -->
+  ${box(200,410,280,42,'Ejecutar trabajo','Con evidencia antes/durante/después','#E4F2E9','#145C30')}
+  <!-- Cerrar -->
+  ${rect(220,470,240,36,18,'#145C30','transparent')}
+  ${text(340,492,'✓ CERRAR EN APPSHEET',{size:11,fill:'#fff'})}
+  <!-- FLECHAS -->
+  ${line(340,44,340,61,'#145C30','','g')}
+  ${line(340,104,340,123,'#145C30','','g')}
+  <!-- SÍ crítico -->
+  ${line(450,150,489,150,'#C0392B','','r')}
+  ${text(470,145,'SÍ',{size:9,fill:'#C0392B',anchor:'middle',weight:700})}
+  <!-- Notif baja a monto -->
+  ${poly('575,160 575,208 451,208','#C0392B','','r')}
+  <!-- NO crítico -->
+  ${line(340,176,340,197,'#145C30','','g')}
+  ${text(346,190,'NO',{size:9,fill:'#145C30',anchor:'start',weight:700})}
+  <!-- Monto a tres ramas -->
+  ${poly('340,250 80,268 80,277','#145C30','','g')}
+  ${text(195,267,'≤$20K',{size:9,fill:'#145C30',anchor:'middle',weight:700})}
+  ${poly('340,250 235,268 235,277','#C87D0A','','a')}
+  ${text(285,267,'$20K',{size:9,fill:'#C87D0A',anchor:'middle',weight:700})}
+  ${poly('340,250 390,268 390,277','#C0392B','','r')}
+  ${text(368,267,'>$50K',{size:9,fill:'#C0392B',anchor:'middle',weight:700})}
+  <!-- Tres a cotizaciones -->
+  ${poly('80,320 80,348 199,348','#145C30','','g')}
+  ${poly('235,320 235,348 199,348','#C87D0A','','a')}
+  ${poly('390,320 390,348 481,348','#C0392B','','r')}
+  ${line(340,390,340,409,'#145C30','','g')}
+  ${line(340,452,340,469,'#145C30','','g')}
+  </svg>`;
+}
+
+// ── FLOWCHART: PTAR ──
+function flowPTAR(){
+  const W=680, H=480;
+  const box=(x,y,w,h,label,sub,fill,stroke)=>
+    rect(x,y,w,h,8,fill,stroke,1.5)+
+    text(x+w/2,y+h/2-5,label,{size:12,fill:stroke,weight:700})+
+    text(x+w/2,y+h/2+11,sub,{size:10,fill:stroke+'AA',weight:400});
+  const diam=(x,y,w,h,label,fill,stroke)=>{
+    const cx=x+w/2,cy=y+h/2;
+    return `<polygon points="${cx},${y} ${x+w},${cy} ${cx},${y+h} ${x},${cy}" fill="${fill}" stroke="${stroke}" stroke-width="1.5"/>
+    ${text(cx,cy+4,label,{size:10,fill:stroke,weight:700})}`;
+  };
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
+  <defs>${arrow('pg','#145C30')}${arrow('pr','#C0392B')}${arrow('pa','#C87D0A')}</defs>
+  ${rect(230,8,220,34,17,'#0C2B18','transparent')}
+  ${text(340,30,'INSPECCIÓN PTAR 08:00 AM',{size:11,fill:'#fff'})}
+  ${box(230,60,220,40,'Revisión visual','Cámaras Fase 1 y Fase 2','#E4F2E9','#145C30')}
+  ${box(230,120,220,40,'Evaluar','Lodos · coloración · olores','#E4F2E9','#145C30')}
+  ${diam(230,180,220,52,'¿Anomalía detectada?','#FDF3E3','#C87D0A')}
+  <!-- NO = normal -->
+  ${box(20,184,160,40,'Operación normal','Sin anomalías','#E4F2E9','#145C30')}
+  <!-- SÍ → fotografiar -->
+  ${box(230,252,220,40,'Fotografiar','y describir en AppSheet','#FDF3E3','#C87D0A')}
+  ${diam(230,312,220,52,'¿Señal crítica?','#FDECEA','#C0392B')}
+  ${text(340,336,'Espuma · olor fuerte · desborde',{size:9,fill:'#C0392B',weight:400})}
+  <!-- SÍ → escalar -->
+  ${box(490,308,170,42,'Notificar Gerencia','Plan de acción < 2 hrs','#FDECEA','#C0392B')}
+  ${box(230,388,220,40,'Registrar en AppSheet','Estado · hora · observaciones','#E4F2E9','#145C30')}
+  ${rect(240,444,200,30,15,'#145C30','transparent')}
+  ${text(340,463,'✓ INSPECCIÓN COMPLETA',{size:11,fill:'#fff'})}
+  <!-- FLECHAS -->
+  ${line(340,42,340,59,'#145C30','','pg')}
+  ${line(340,100,340,119,'#145C30','','pg')}
+  ${line(340,160,340,179,'#145C30','','pg')}
+  ${line(230,206,181,206,'#145C30','','pg')}
+  ${text(204,200,'NO',{size:9,fill:'#145C30',anchor:'middle',weight:700})}
+  ${line(340,232,340,251,'#C87D0A','','pa')}
+  ${text(346,244,'SÍ',{size:9,fill:'#C87D0A',anchor:'start',weight:700})}
+  ${line(340,292,340,311,'#145C30','','pg')}
+  ${line(450,338,489,338,'#C0392B','','pr')}
+  ${text(470,332,'SÍ',{size:9,fill:'#C0392B',anchor:'middle',weight:700})}
+  ${poly('575,350 575,400 451,400','#C0392B','','pr')}
+  ${line(340,364,340,387,'#C87D0A','','pa')}
+  ${text(346,377,'Leve',{size:9,fill:'#C87D0A',anchor:'start',weight:700})}
+  ${poly('100,224 100,420 229,420','#145C30','','pg')}
+  ${line(340,428,340,443,'#145C30','','pg')}
+  </svg>`;
+}
+
+// ── DIAGRAM: WATER SYSTEM ──
+function diagWater(){
+  // Nuevo diagrama del sistema de agua con flujo coherente de izquierda a derecha
+  const W=680, H=460;
+  // Reutilizamos rect, text, line, poly y arrow definidos globalmente
+  // Dibujamos una bomba con etiqueta y subtítulo
+  const pump=(x,y,label)=>
+    `<ellipse cx="${x}" cy="${y}" rx="32" ry="22" fill="#E4F2E9" stroke="#145C30" stroke-width="2"/>
+     ${text(x,y-2,label,{size:10,fill:'#145C30',weight:700})}
+     ${text(x,y+12,'sumerg.',{size:9,fill:'#145C30',weight:400})}`;
+
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
+  <defs>
+    ${arrow('wg','#145C30')}${arrow('wa','#C87D0A')}${arrow('wb','#2A6098')}
+  </defs>
+  ${text(340,22,'Sistema de Agua Potable — Flujo Completo',{size:13,fill:'#0C2B18',weight:800})}
+  <!-- Cisterna cruda -->
+  ${rect(20,36,130,72,10,'#FDF3E3','#C87D0A',2)}
+  ${rect(20,36,130,16,8,'#C87D0A','transparent')}${rect(20,44,130,8,0,'#C87D0A','transparent')}
+  ${text(85,62,'CISTERNA',{size:10,fill:'#7A4800',weight:800})}${text(85,76,'CRUDA',{size:10,fill:'#7A4800',weight:800})}
+  ${text(85,91,'Agua sin tratar',{size:9,fill:'#C87D0A',weight:400})}
+  <!-- Cisterna suave -->
+  ${rect(530,36,130,72,10,'#E4F2E9','#145C30',2)}
+  ${rect(530,36,130,16,8,'#145C30','transparent')}${rect(530,44,130,8,0,'#145C30','transparent')}
+  ${text(595,62,'CISTERNA',{size:10,fill:'#0C2B18',weight:800})}${text(595,76,'SUAVE',{size:10,fill:'#0C2B18',weight:800})}
+  ${text(595,91,'Agua tratada',{size:9,fill:'#145C30',weight:400})}
+  ${text(595,103,'210,000 Lt · alerta 180K',{size:8,fill:'#145C30',weight:400})}
+  <!-- Bomba sumergible -->
+  ${pump(140,80,'BOMBA')}
+  <!-- Sedimento (reubicado a la derecha de la bomba) -->
+  ${rect(220,152,120,90,10,'#E4F2E9','#145C30',2)}
+  ${rect(240,144,80,18,6,'#111','transparent')}${text(260,157,'AQUATROL',{size:8,fill:'#5BB87A',weight:700})}
+  ${text(280,186,'FILTRO',{size:11,fill:'#0C2B18',weight:800})}
+  ${text(280,200,'SEDIMENTO',{size:11,fill:'#0C2B18',weight:800})}
+  ${text(280,218,'Retiene sólidos',{size:9,fill:'#145C30',weight:500})}
+  ${text(280,232,'Backwash semanal',{size:8,fill:'#5A6054',weight:400})}
+  <!-- Carbón activado (reubicado al centro) -->
+  ${rect(350,152,120,90,10,'#E4F2E9','#145C30',2)}
+  ${rect(370,144,80,18,6,'#111','transparent')}${text(390,157,'AQUATROL',{size:8,fill:'#5BB87A',weight:700})}
+  ${text(410,186,'CARBÓN',{size:11,fill:'#0C2B18',weight:800})}
+  ${text(410,200,'ACTIVADO',{size:11,fill:'#0C2B18',weight:800})}
+  ${text(410,218,'Elimina olor/sabor',{size:9,fill:'#145C30',weight:500})}
+  ${text(410,232,'Backwash quincenal',{size:8,fill:'#5A6054',weight:400})}
+  <!-- Suavizador (reubicado al extremo derecho) -->
+  ${rect(480,152,120,90,10,'#E4F2E9','#145C30',2)}
+  ${rect(500,144,80,18,6,'#111','transparent')}${text(520,157,'AQUATROL',{size:8,fill:'#5BB87A',weight:700})}
+  ${text(540,186,'SUAVIZADOR',{size:11,fill:'#0C2B18',weight:800})}
+  ${text(540,200,'Elimina Ca²⁺ Mg²⁺',{size:9,fill:'#145C30',weight:500})}
+  ${text(540,214,'Solo usa SAL',{size:9,fill:'#C87D0A',weight:700})}
+  ${text(540,228,'Aquatrol → regen.',{size:8,fill:'#5A6054',weight:400})}
+  <!-- Depósito de sal -->
+  ${rect(20,180,90,58,8,'#FDF3E3','#C87D0A',2)}
+  ${text(65,202,'DEPÓSITO',{size:10,fill:'#7A4800',weight:800})}${text(65,216,'DE SAL',{size:10,fill:'#7A4800',weight:800})}
+  ${text(65,232,'Salt Pellets',{size:9,fill:'#C87D0A',weight:500})}${text(65,244,'Obj. 90%',{size:9,fill:'#C87D0A',weight:700})}
+  <!-- 3 Bombas presurizadoras -->
+  ${rect(160,320,360,64,10,'#E4F2E9','#145C30',2)}
+  ${text(340,343,'3 BOMBAS PRESURIZADORAS EF',{size:12,fill:'#0C2B18',weight:800})}
+  ${text(340,359,'Bomba 1 · Bomba 2 · Bomba 3',{size:10,fill:'#145C30',weight:500})}
+  ${text(340,374,'Distribuyen agua suavizada a Torres 1–4',{size:9,fill:'#5A6054',weight:400})}
+  <!-- Panel eléctrico -->
+  ${rect(555,310,100,76,8,'#EAF2FB','#2A6098',2)}
+  ${text(605,330,'PANEL',{size:9,fill:'#1A3C5E',weight:800})}${text(605,344,'ELÉCTRICO',{size:9,fill:'#1A3C5E',weight:800})}
+  ${text(605,360,'🟢 = ON',{size:10,fill:'#145C30',weight:700})}
+  ${text(605,374,'🔴 = FALLA',{size:10,fill:'#C0392B',weight:700})}
+  <!-- Torres -->
+  ${rect(240,406,200,46,8,'#0C2B18','transparent')}
+  ${text(340,426,'TORRES 1–4',{size:12,fill:'#fff',weight:800})}
+  ${text(340,443,'Agua potable suavizada',{size:10,fill:'rgba(255,255,255,.7)',weight:400})}
+  <!-- Puntos de muestra -->
+  <circle cx="305" cy="180" r="5" fill="#4A2080"/>
+  ${text(315,183,'Muestra agua dura',{size:8,fill:'#4A2080',anchor:'start',weight:600})}
+  <circle cx="495" cy="144" r="5" fill="#2A6098"/>
+  ${text(505,147,'Muestra agua suave',{size:8,fill:'#2A6098',anchor:'start',weight:600})}
+  <!-- Flechas de flujo -->
+  <!-- Cruda → bomba -->
+  ${line(150,72,140,72,'#C87D0A','','wa')}
+  <!-- Bomba → sedimento: baja y luego avanza hacia la derecha -->
+  ${poly('172,80 172,197 220,197','#145C30','','wg')}
+  <!-- Sedimento → carbón: conecta del borde derecho del sedimento al izquierdo del carbón -->
+  ${line(340,197,350,197,'#145C30','','wg')}
+  <!-- Carbón → suavizador: conecta del borde derecho del carbón al izquierdo del suavizador -->
+  ${line(470,197,480,197,'#145C30','','wg')}
+  <!-- Suavizador → cisterna suave: sube y entra a la cisterna -->
+  ${poly('540,152 540,120 595,120 595,108','#145C30','','wg')}
+  <!-- Sal → suavizador (dashed): conexión desde el depósito de sal al suavizador -->
+  ${poly('110,209 480,209','#C87D0A','5,3','wa')}
+  <!-- Cisterna suave → bombas -->
+  ${poly('595,108 595,316 520,316','#2A6098','','wb')}
+  <!-- Bombas → torres -->
+  ${line(340,384,340,405,'#145C30','','wg')}
+  </svg>`;
+}
+
+// ── FLOWCHART: POST-FALLA ELÉCTRICA ──
+function flowPostFalla(){
+  const W=680,H=500;
+  const row=(n,x,y,w,label,detail,fill,stroke)=>
+    `${rect(x,y,w,44,8,fill,stroke,1.5)}
+     ${text(x+28,y+16,'${n}',{size:11,fill:stroke,weight:800,anchor:'middle'})}
+     ${text(x+44,y+16,label,{size:11,fill:stroke,weight:700,anchor:'start'})}
+     ${text(x+44,y+30,detail,{size:9,fill:stroke+'99',weight:400,anchor:'start'})}`.replace("'${n}'",n);
+  // Build rows
+  const rows=[
+    ['1','Tablero eléctrico principal','Ningún disyuntor disparado · voltaje normal','#FDF3E3','#C87D0A'],
+    ['2','Controlador Aquatrol','Ajustar hora del reloj tras corte · verificar programa','#EAF2FB','#2A6098'],
+    ['3','Bombas presurizadoras (agua)','Las 3 deben rearrancar · verificar presión','#E4F2E9','#145C30'],
+    ['4','Timer albercas + bomba','Verificar que ciclo de filtración reanudó','#E4F2E9','#145C30'],
+    ['5','PTAR — soplador y bomba','Sin desborde ni alarma activa','#E4F2E9','#145C30'],
+    ['6','Generador','Apagó limpiamente · nivel combustible OK','#FDF3E3','#C87D0A'],
+    ['7','CCTV y pluma CAME','Cámaras grabando · pluma responde','#EAF2FB','#2A6098'],
+    ['8','Iluminación emergencia','Modo carga · no sigue en batería','#EAF2FB','#2A6098'],
+  ];
+  let svg=`<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
+  <defs>${arrow('fe_g','#145C30')}${arrow('fe_r','#C0392B')}</defs>
+  ${rect(0,0,W,38,0,'#C0392B','transparent')}
+  ${text(W/2,24,'PROTOCOLO POST-FALLA ELÉCTRICA — Verificar en orden',{size:12,fill:'#fff'})}`;
+  rows.forEach(([n,label,detail,fill,stroke],i)=>{
+    const y=46+i*56;
+    svg+=row(n,20,y,W-40,label,detail,fill,stroke);
+    if(i<rows.length-1) svg+=`<line x1="${W/2}" y1="${y+44}" x2="${W/2}" y2="${y+56}" stroke="#D6D8D0" stroke-width="1.5" marker-end="url(#fe_g)"/>`;
+  });
+  svg+=`${rect(20,454,W-40,38,8,'#0C2B18','transparent')}
+  ${text(W/2,477,'✓ Todos verificados → Notificar a Gerencia: operación normal',{size:11,fill:'#fff'})}
+  </svg>`;
+  return svg;
+}
+
+// ── FLOWCHART: ALBERCAS ──
+function flowAlbercas(){
+  const W=680,H=410;
+  const box=(x,y,w,h,label,sub,fill,stroke)=>
+    rect(x,y,w,h,10,fill,stroke,1.5)+
+    text(x+w/2,y+h/2-7,label,{size:12,fill:stroke,weight:700})+
+    text(x+w/2,y+h/2+12,sub,{size:9,fill:stroke+'99',weight:400});
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
+  <defs>${arrow('alg','#145C30')}${arrow('alr','#C0392B')}${arrow('ala','#C87D0A')}</defs>
+  ${rect(210,10,260,34,17,'#0C2B18','transparent')}${text(340,32,'RUTINA DIARIA ALBERCAS',{size:11,fill:'#fff'})}
+  ${box(210,62,260,46,'Cerrar alberca','Colocar conos y señalización','#FDECEA','#C0392B')}
+  ${box(210,126,260,46,'Limpiar','Aspirar y cepillar paredes','#E4F2E9','#145C30')}
+  ${box(210,190,260,46,'Medir pH y cloro','Fotografiar kit de prueba','#EAF2FB','#2A6098')}
+  <!-- ¿En rango? -->
+  <polygon points="340,248 490,292 340,336 190,292" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.5"/>
+  ${text(340,279,'¿pH entre 7.2 y 7.6?',{size:10,fill:'#C87D0A',weight:700})}
+  ${text(340,295,'Óptimo: 7.6 · mínimo: 7.2',{size:8,fill:'#C87D0A',weight:400})}
+  ${text(340,312,'¿Cloro libre ≥ 1.0 ppm?',{size:10,fill:'#C87D0A',weight:700})}
+  ${text(340,328,'Óptimo: 1.5 ppm',{size:8,fill:'#C87D0A',weight:400})}
+  <!-- NO -->
+  ${box(510,269,150,46,'Corregir','Ver tabla 5.2','#FDECEA','#C0392B')}
+  <!-- SÍ -->
+  ${box(210,356,260,46,'Reabrir alberca','Solo con parámetros dentro de rango','#E4F2E9','#145C30')}
+  <!-- FLECHAS -->
+  ${line(340,44,340,61,'#145C30','','alg')}
+  ${line(340,108,340,125,'#145C30','','alg')}
+  ${line(340,172,340,189,'#145C30','','alg')}
+  ${line(340,236,340,247,'#2A6098','','alg')}
+  ${line(490,292,509,292,'#C0392B','','alr')}
+  ${text(500,286,'NO',{size:9,fill:'#C0392B',weight:700,anchor:'middle'})}
+  ${poly('585,315 585,344 470,344','#C0392B','5,3','alr')}
+  ${line(340,336,340,355,'#145C30','','alg')}
+  ${text(349,349,'SÍ',{size:9,fill:'#145C30',anchor:'start',weight:700})}
+  </svg>`;
+}
+
+// ── FLOWCHART: AGUA DUREZA ──
+function flowDureza(){
+  const W=680, H=350;
+  const box=(x,y,w,h,label,sub,fill,stroke)=>
+    rect(x,y,w,h,10,fill,stroke,1.5)+
+    text(x+w/2,y+h/2-7,label,{size:12,fill:stroke,weight:700})+
+    text(x+w/2,y+h/2+12,sub,{size:9,fill:stroke+'99',weight:400});
+  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
+  <defs>${arrow('dg','#145C30')}${arrow('dr','#C0392B')}${arrow('da','#C87D0A')}</defs>
+  ${rect(0,0,W,34,0,'#1A3C5E','transparent')}${text(W/2,16,'PRUEBA DE DUREZA — PENTAIR RAINBOW',{size:11,fill:'#fff'})}${text(W/2,28,'2 gotas moradas + gotero blanco hasta cambio de color',{size:8,fill:'rgba(255,255,255,.8)'})}
+  ${rect(20,56,190,82,10,'#F0EAFF','#4A2080',1.5)}${text(115,83,'🟣 MORADO',{size:13,fill:'#4A2080',weight:800})}${text(115,102,'Agua dentro de tendencia',{size:10,fill:'#4A2080',weight:700})}${text(115,119,'Registrar PPM y continuar',{size:9,fill:'#4A208099',weight:400})}
+  ${rect(245,56,190,82,10,'#FDF3E3','#C87D0A',1.5)}${text(340,83,'⬜ BLANCO / GRIS',{size:13,fill:'#C87D0A',weight:800})}${text(340,102,'Dureza intermedia',{size:10,fill:'#C87D0A',weight:700})}${text(340,119,'Revisar sal y Aquatrol',{size:9,fill:'#C87D0A99',weight:400})}
+  ${rect(470,56,190,82,10,'#FDECEA','#C0392B',1.5)}${text(565,83,'🔴 ROJO / NARANJA',{size:13,fill:'#C0392B',weight:800})}${text(565,102,'Agua dura',{size:10,fill:'#C0392B',weight:700})}${text(565,119,'Escalar de inmediato',{size:9,fill:'#C0392B',weight:700})}
+  ${box(20,174,190,48,'Registrar en AppSheet','Anotar lectura total en PPM','#E4F2E9','#145C30')}
+  ${box(245,174,190,48,'Verificar sal','Si está bien: regenerar Aquatrol','#FDF3E3','#C87D0A')}
+  ${box(470,174,190,48,'Notificar','Jefe de Mantenimiento','#FDECEA','#C0392B')}
+  ${box(200,262,280,52,'Medir nuevamente en 2 horas','Confirmar mejora y cerrar registro','#E4F2E9','#145C30')}
+  ${line(115,138,115,173,'#4A2080','','dg')}
+  ${line(340,138,340,173,'#C87D0A','','da')}
+  ${line(565,138,565,173,'#C0392B','','dr')}
+  ${poly('115,222 115,262 199,262','#145C30','','dg')}
+  ${line(340,222,340,261,'#C87D0A','','da')}
+  ${poly('565,222 565,262 481,262','#C0392B','','dr')}
+  </svg>`;
+}
+
+// ── PAGE CONTENT ──
+function pageCover(){
+  return `<div class="card card-hero">
+    <div class="eyebrow">Aldea Mayab · Bacalar</div>
+    <h1 class="card-title lg">Libro IV<br>Mantenimiento e Infraestructura</h1>
+    <p style="margin-top:8px">Procedimientos operativos para mantenimiento preventivo y correctivo, sistemas de agua, infraestructura crítica, amenidades y limpieza del Residencial Aldea Mayab.</p>
+    <div class="cover-meta">
+      <div class="kpi" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)">
+        <div class="kpi-val" style="color:#5BB87A">PR-AM-MNT-001</div>
+        <div class="kpi-label" style="color:rgba(255,255,255,.6)">Código</div>
+      </div>
+      <div class="kpi" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)">
+        <div class="kpi-val" style="color:#5BB87A">v2.0 · 2026</div>
+        <div class="kpi-label" style="color:rgba(255,255,255,.6)">Versión</div>
+      </div>
+      <div class="kpi" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)">
+        <div class="kpi-val" style="color:#5BB87A">Jefe de Mantenimiento</div>
+        <div class="kpi-label" style="color:rgba(255,255,255,.6)">Responsable</div>
+      </div>
+    </div>
+    <div class="cover-toc">
+      <div class="toc-item" onclick="show('p11')"><div class="toc-num">1.0</div><div class="toc-label">Marco General</div></div>
+      <div class="toc-item" onclick="show('p21')"><div class="toc-num">2.0</div><div class="toc-label">PTAR</div></div>
+      <div class="toc-item" onclick="show('p30')"><div class="toc-num">3.0</div><div class="toc-label">Agua Potable</div></div>
+      <div class="toc-item" onclick="show('p41')"><div class="toc-num">4.0</div><div class="toc-label">Infraestructura</div></div>
+      <div class="toc-item" onclick="show('p51')"><div class="toc-num">5.0</div><div class="toc-label">Amenidades</div></div>
+      <div class="toc-item" onclick="show('p61')"><div class="toc-num">6.0</div><div class="toc-label">Limpieza</div></div>
+    </div>
+  </div>`;
+}
+
+function page11(){
+  return `
+  <div class="card">
+    <div class="eyebrow">1.0 Marco General · 1.1</div>
+    <h2 class="card-title">Alcance y Responsables</h2>
+    <p style="color:var(--muted);font-size:14px">Quién hace qué, cuándo y cómo se documenta.</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Organigrama Funcional</div>
+    <div class="flow-wrap">${orgRoles()}</div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">2</span>Responsables por Área</div>
+    <div class="roles">
+      <div class="role-card">
+        <div class="role-title">Jefe de Mantenimiento</div>
+        <div class="role-sch">Lun–Vie · 06:00–14:00</div>
+        <div class="role-desc">PTAR, generador, sistema eléctrico, agua potable, pluma CAME. Autoriza órdenes hasta $20,000 MXN.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-title">Personal de Mantenimiento</div>
+        <div class="role-sch">Lun–Dom · 06:00–15:00</div>
+        <div class="role-desc">Ejecución de rutinas diarias, lectura de parámetros, reparaciones menores, reporte de anomalías.</div>
+      </div>
+      <div class="role-card amber-top">
+        <div class="role-title">Gerencia Administrativa</div>
+        <div class="role-sch">Lun–Vie · 10:00–18:00</div>
+        <div class="role-desc">Aprueba órdenes $20K–$50K. Coordina proveedores externos. Reporta a Dirección.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-title">Personal de Limpieza</div>
+        <div class="role-sch">Lun–Dom · 07:00–16:00</div>
+        <div class="role-desc">Áreas comunes, pasillos, lobbies, muelle, canchas. Encargado: Bolón + 6 personas.</div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">3</span>Principios Obligatorios</div>
+    <div class="callout c-green">
+      <div class="callout-icon">📋</div>
+      <div class="callout-body"><strong>Todo en AppSheet — sin excepción</strong>Cada inspección, lectura, anomalía o reparación debe quedar registrada en AppSheet antes de las 10:00 AM del día en que ocurra. Sin registro = no ocurrió.</div>
+    </div>
+    <div class="callout c-red">
+      <div class="callout-icon">⚡</div>
+      <div class="callout-body"><strong>Infraestructura crítica: respuesta en 2 horas</strong>PTAR, generador y sistema eléctrico son servicios críticos. Cualquier anomalía requiere plan de acción en menos de 2 horas.</div>
+    </div>
+    <div class="callout c-amber">
+      <div class="callout-icon">🌿</div>
+      <div class="callout-body"><strong>Protección ecológica obligatoria</strong>Ningún residuo, químico o efluente puede llegar a la Laguna de Bacalar. Riesgo de contaminación activa PE-34 + llamar CONANP.</div>
+    </div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 1.1</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page12(){
+  return `
+  <div class="card">
+    <div class="eyebrow">1.0 Marco General · 1.2</div>
+    <h2 class="card-title">Ciclo de Mantenimiento</h2>
+    <p style="color:var(--muted);font-size:14px">Flujo completo: detectar, registrar, priorizar, ejecutar, validar y cerrar.</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Flujograma — Orden de Trabajo</div>
+    <div class="flow-wrap">${flowOrderCycle()}</div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">2</span>Umbrales de Autorización</div>
+    <div class="grid3">
+      <div class="kpi"><div class="kpi-val">≤ $20K</div><div class="kpi-label">Jefe de Mantenimiento</div><div class="kpi-sub">Sin cotización hasta $5K · 1 cotización $5K–$20K</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:var(--a2)">$20–$50K</div><div class="kpi-label">Gerencia Administrativa</div><div class="kpi-sub">Mínimo 3 cotizaciones de proveedores distintos</div></div>
+      <div class="kpi"><div class="kpi-val" style="color:var(--r2)">>$50K</div><div class="kpi-label">Dirección General</div><div class="kpi-sub">3 cotizaciones + comparativo al Comité</div></div>
+    </div>
+    <div class="callout c-red" style="margin-top:8px">
+      <div class="callout-icon">🚫</div>
+      <div class="callout-body"><strong>Prohibido fragmentar órdenes</strong>No dividir un trabajo en partes para evitar cotizaciones o subir de nivel de autorización. Dos órdenes del mismo trabajo o proveedor en el mismo mes se suman.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">3</span>Protocolo de Combustible — Generador</div>
+    <div class="table-wrap"><table>
+      <thead class="amber"><tr><th>Nivel</th><th>Estado</th><th>Acción</th><th>Responsable</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-g">75–100%</span></td><td>Normal</td><td>Registrar en checklist semanal</td><td>Jefe de Mantenimiento</td></tr>
+        <tr><td><span class="badge badge-a">50–74%</span></td><td>Atención</td><td>Generar orden de reabastecimiento mismo día</td><td>Jefe de Mantenimiento</td></tr>
+        <tr><td><span class="badge badge-r">30–49%</span></td><td>Alerta</td><td>Notificar Gerencia · proveedor entrega urgente mismo día</td><td>Jefe de Mantenimiento + Gerencia</td></tr>
+        <tr><td><span class="badge badge-r">&lt;30%</span></td><td>Crítico</td><td>Dirección General + compra emergencia + reducir circuitos. PTAR activa mientras haya combustible.</td><td>Dirección + Gerencia</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 1.2</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page21(){
+  return `
+  <div class="card card-hero">
+    <div class="eyebrow">2.0 PTAR · 2.1</div>
+    <h2 class="card-title">Inspección Diaria PTAR</h2>
+    <p>Planta de Tratamiento de Aguas Residuales — Fase 1 y Fase 2</p>
+    <div class="grid3" style="margin-top:14px">
+      <div class="kpi" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)"><div class="kpi-val" style="color:var(--g4)">08:00 AM</div><div class="kpi-label" style="color:rgba(255,255,255,.6)">Hora de inspección</div></div>
+      <div class="kpi" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)"><div class="kpi-val" style="color:var(--g4)">09:00 AM</div><div class="kpi-label" style="color:rgba(255,255,255,.6)">Límite AppSheet</div></div>
+      <div class="kpi" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)"><div class="kpi-val" style="color:#f87e7e">2 hrs</div><div class="kpi-label" style="color:rgba(255,255,255,.6)">Respuesta ante anomalía</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Flujograma — Inspección PTAR</div>
+    <div class="flow-wrap">${flowPTAR()}</div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">2</span>Checklist Obligatorio 08:00 AM</div>
+    <ul class="checklist">
+      <li><div class="ch-box"></div><span>Inspección visual cámaras PTAR Fase 1 y Fase 2 — verificar niveles de lodos</span></li>
+      <li><div class="ch-box"></div><span>Coloración del agua — debe ser clara o ligeramente turbia (no marrón ni negra)</span></li>
+      <li><div class="ch-box"></div><span>Presencia de olores fuertes — anormal si se detectan a más de 5 metros</span></li>
+      <li><div class="ch-box"></div><span>Verificar señalética en baños: "PROHIBIDO tirar papel, toallas húmedas, aceites"</span></li>
+      <li><div class="ch-box"></div><span><strong>Registrar en AppSheet antes de las 09:00 AM</strong> <span class="oblig">OBLIGATORIO</span></span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num amber">2b</span>Protocolo Semanal — Activador Biológico (Sábados)</div>
+    <div class="callout c-blue">
+      <div class="callout-icon">🧫</div>
+      <div class="callout-body"><strong>Cada sábado a las 12:00 PM — sin excepción</strong>Se aplica líquido azul activador biológico que refuerza las bacterias de la PTAR. Omitir dos semanas seguidas puede causar mal olor y pérdida de capacidad de tratamiento.</div>
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Paso</th><th>Detalle</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Día y hora</strong></td><td>Sábado — 12:00 PM. No cambiar de día.</td></tr>
+        <tr><td><strong>Producto</strong></td><td>Líquido azul activador biológico. <em>[CONFIRMAR NOMBRE CON JEFE MANT.]</em></td></tr>
+        <tr><td><strong>Dosis</strong></td><td><em>[INSERTAR DOSIS ML o L según etiqueta del fabricante]</em></td></tr>
+        <tr><td><strong>Punto de aplicación</strong></td><td>Cámara de aireación principal — Fase 1. NO en desagüe general.</td></tr>
+        <tr><td><strong>Registro</strong></td><td>AppSheet: fecha, hora, producto, dosis, observaciones post-aplicación. <span class="oblig">OBLIGATORIO</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num red">3</span>Señales de Alerta Crítica</div>
+    <div class="table-wrap"><table>
+      <thead class="red"><tr><th>Señal</th><th>Qué significa</th><th>Acción inmediata</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Espuma excesiva</strong></td><td>Jabones o detergentes entrando al sistema</td><td>Notificar Gerencia + evaluar servicio de vactor</td></tr>
+        <tr><td><strong>Mal olor intenso</strong></td><td>Desequilibrio bacteriano o lodos acumulados</td><td>Reducir carga, revisar aireadores</td></tr>
+        <tr><td><strong>Desborde o fuga</strong></td><td>⚠ Riesgo de contaminación a laguna</td><td><strong>Activar PE-34 + llamar CONANP inmediato</strong></td></tr>
+        <tr><td><strong>Agua negra o café oscuro</strong></td><td>Lodos acumulados — vactor urgente</td><td>Solicitar vactor en &lt;4 horas</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 2.1</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page22(){
+  return `
+  <div class="card">
+    <div class="eyebrow">2.0 PTAR · 2.2</div>
+    <h2 class="card-title">Anomalías y Escalamiento</h2>
+    <p style="color:var(--muted);font-size:14px">Cómo responder según el nivel de gravedad.</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Niveles de Anomalía</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Nivel</th><th>Condición</th><th>Respuesta</th><th>Tiempo límite</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-g">Nivel 1 — Normal</span></td><td>Parámetros en rango, operación estándar</td><td>Registro diario AppSheet</td><td>Antes 09:00 AM</td></tr>
+        <tr><td><span class="badge badge-a">Nivel 2 — Alerta</span></td><td>Espuma leve, olor detectado, lodos en límite</td><td>Inspección cada 4h + contactar proveedor</td><td>Dentro de 4 hrs</td></tr>
+        <tr><td><span class="badge badge-r">Nivel 3 — Crítico</span></td><td>Desborde, fuga, mal olor intenso, agua negra</td><td>Gerencia + Dirección + vactor urgente</td><td>Inmediato &lt;1 hr</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num red">2</span>Contactos de Emergencia</div>
+    <div class="grid2">
+      <div class="kpi"><div class="kpi-val">CONANP</div><div class="kpi-label">Contaminación laguna</div><div class="kpi-sub">(983) 834-0265</div></div>
+      <div class="kpi"><div class="kpi-val">Protec. Civil</div><div class="kpi-label">Bacalar</div><div class="kpi-sub">(983) 834-0010</div></div>
+      <div class="kpi"><div class="kpi-val">[PENDIENTE]</div><div class="kpi-label">Servicio de Vactor</div><div class="kpi-sub">Confirmar con Jefe de Mantenimiento</div></div>
+      <div class="kpi"><div class="kpi-val">[PENDIENTE]</div><div class="kpi-label">Proveedor Mant. PTAR</div><div class="kpi-sub">Confirmar con Jefe de Mantenimiento</div></div>
+    </div>
+  </div>
+  <!-- Ruta de reporte en emergencia -->
+  <div class="card">
+    <div class="section-title"><span class="num red">3</span>Ruta de Reporte en Emergencia</div>
+    <div class="callout c-red">
+      <div class="callout-icon">📞</div>
+      <div class="callout-body">
+        <strong>PTAR / Fuga o Desborde</strong><br/>Personal → Jefe de Mantenimiento → Gerencia/Dirección → Proveedor PTAR/Vactor → Autoridades (CONANP, Protección Civil) si procede.<br/><br/>
+        <strong>Sin Agua / Falla de Bombas</strong><br/>Personal → Jefe de Mantenimiento → Gerencia → Proveedor de Bombas/Planta de agua.<br/><br/>
+        <strong>Corte Eléctrico / Falla Total</strong><br/>Personal → Jefe de Mantenimiento → Revisar Tablero y Generador → Gerencia → CFE/Proveedor Eléctrico.
+      </div>
+    </div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 2.2</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page30(){
+  return `
+  <div class="card card-hero">
+    <div class="eyebrow">3.0 Agua Potable · Panel</div>
+    <h2 class="card-title">Sistema de Agua Potable</h2>
+    <p>Diagrama completo del sistema real instalado: cisternas, tren de filtración, bombas presurizadoras y distribución.</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num blue">1</span>Diagrama del Sistema Completo</div>
+    <div class="flow-wrap">${diagWater()}</div>
+    <div class="callout c-amber" style="margin-top:4px">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-body"><strong>Orden físico correcto de los tanques</strong>Mirando al frente en el cuarto de máquinas: Izquierda = Suavizador · Centro = Carbón Activado · Derecha = Filtro de Sedimento. Todos tienen controlador Aquatrol (uno sin tapa visible, pero funciona igual).</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num blue">2</span>Componentes Clave</div>
+    <div class="table-wrap"><table>
+      <thead class="blue"><tr><th>Componente</th><th>Función</th><th>Control</th><th>Alerta</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cisterna cruda</strong></td><td>Almacena agua sin tratar (registros izq. en fotos)</td><td>% de nivel</td><td>Nivel &lt;40%</td></tr>
+        <tr><td><strong>Bomba sumergible</strong></td><td>Extrae agua de la cisterna al tren</td><td>Visual: funcionando</td><td>Sin flujo al sistema</td></tr>
+        <tr><td><strong>Filtro de sedimento</strong></td><td>Retiene partículas sólidas y lodos</td><td>Aquatrol (backwash semanal)</td><td>Flujo cortado</td></tr>
+        <tr><td><strong>Carbón activado</strong></td><td>Elimina cloro residual, olor y sabor</td><td>Aquatrol (backwash quincenal)</td><td>Olor en agua suave</td></tr>
+        <tr><td><strong>Suavizador</strong></td><td>Elimina calcio y magnesio (dureza)</td><td>Aquatrol + Sal pellets</td><td>PPM sube sin mejora</td></tr>
+        <tr><td><strong>Cisterna suave</strong></td><td>Almacena agua tratada (registros der. en fotos)</td><td>Litros: objetivo 210,000</td><td>Nivel &lt;180,000 Lt</td></tr>
+        <tr><td><strong>3 Bombas EF</strong></td><td>Presurizan y distribuyen a torres</td><td>Visual: las 3 activas</td><td>Una o más detenidas</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 3.0</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page31(){
+  return `
+  <div class="card">
+    <div class="eyebrow">3.0 Agua Potable · 3.1</div>
+    <h2 class="card-title">Lecturas Diarias</h2>
+    <p style="color:var(--muted);font-size:14px">5 lecturas por día · horarios fijos · registro en AppSheet.</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num blue">1</span>Horarios de Lectura</div>
+    <div class="grid3">
+      ${['08:30','11:00','13:00','16:00','18:00'].map((h,i)=>`<div class="kpi"><div class="kpi-val" style="color:var(--b2)">${h}</div><div class="kpi-label">Lectura ${i+1}</div><div class="kpi-sub">${i===0?'Completa (todos los parámetros)':i===4?'Última + consumo total del día':'Niveles + PPM + bombas'}</div></div>`).join('')}
+      <div class="kpi" style="background:var(--r-soft);border-color:#F0C0BC"><div class="kpi-val" style="color:var(--r2)">09:00 AM</div><div class="kpi-label">Límite AppSheet</div><div class="kpi-sub">Sin registro = alerta automática a Gerencia</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num blue">2</span>Tabla de Parámetros</div>
+    <div class="table-wrap"><table>
+      <thead class="blue"><tr><th>Parámetro</th><th>Rango normal</th><th>Alerta</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cisterna suave</strong></td><td>150,000 – 210,000 Lt</td><td>&lt; 100,000 Lt</td><td>Verificar que el suavizador esté produciendo. Reducir consumo no crítico.</td></tr>
+        <tr><td><strong>Cisterna cruda</strong></td><td>60% – 100%</td><td>&lt; 40%</td><td>Notificar Jefe de Mantenimiento. Verificar bombeo de entrada.</td></tr>
+        <tr><td><strong>Dureza agua suave (PPM)</strong></td><td>600 – 900 PPM</td><td>&gt;1,000 o &lt;400 PPM</td><td>Ver § 3.3 — prueba colorimétrica. Si &gt;1,000: revisar sal y regenerar.</td></tr>
+        <tr><td><strong>Nivel de sal</strong></td><td>80% – 100%</td><td>&lt; 60%</td><td>Pedir sal esta semana. Si &lt;50%: pedir hoy — nunca operar bajo este nivel.</td></tr>
+        <tr><td><strong>Bombas 1, 2, 3</strong></td><td>Las 3 activas</td><td>1 o más detenidas</td><td>Notificar Jefe de Mantenimiento de inmediato. Verificar disyuntores.</td></tr>
+        <tr><td><strong>Consumo acumulado (M³)</strong></td><td>Variación &lt;15% vs. día anterior</td><td>Variación &gt;15%</td><td>Posible fuga en red. Jefe de Mantenimiento inspecciona.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num red">3</span>Umbrales de Pedido de Insumos</div>
+    <div class="callout c-blue"><div class="callout-icon">📦</div><div class="callout-body"><strong>Tiempos de entrega en Bacalar: 2 a 5 días hábiles</strong>Chetumal y Cancún. En temporada de huracanes (jun–nov) pueden retrasarse. Pedir al llegar al umbral preventivo, no al urgente.</div></div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Insumo</th><th>Mínimo operativo</th><th>Pedir urgente</th><th>Pedir preventivo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Sal pellets (suavizador)</strong></td><td>50% depósito</td><td><span class="badge badge-r">≤ 60% — hoy</span></td><td><span class="badge badge-a">≤ 75% — esta semana</span></td></tr>
+        <tr><td><strong>Cloro granulado</strong></td><td>5 kg</td><td><span class="badge badge-r">≤ 3 kg — hoy</span></td><td><span class="badge badge-a">≤ 8 kg — esta semana</span></td></tr>
+        <tr><td><strong>Algicida</strong></td><td>4 litros</td><td><span class="badge badge-r">≤ 2 lt — hoy</span></td><td><span class="badge badge-a">≤ 6 lt — esta semana</span></td></tr>
+        <tr><td><strong>pH+ / pH–</strong></td><td>2 kg de cada uno</td><td><span class="badge badge-r">≤ 1 kg — hoy</span></td><td><span class="badge badge-a">≤ 3 kg — esta semana</span></td></tr>
+        <tr><td><strong>Reactivo colorimétrico</strong></td><td>1 frasco completo</td><td><span class="badge badge-r">Último frasco — hoy</span></td><td><span class="badge badge-a">Penúltimo — pedir</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 3.1</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page32(){
+  return `
+  <div class="card">
+    <div class="eyebrow">3.0 Agua Potable · 3.2</div>
+    <h2 class="card-title">Ciclo Aquatrol y Sal</h2>
+    <p style="color:var(--muted);font-size:14px">Operación de los 3 tanques, regeneración con sal y protocolo de backwash.</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num blue">1</span>Diferencia entre los 3 Tanques</div>
+    <div class="grid3">
+      <div class="kpi" style="border-top:3px solid var(--g3)"><div class="kpi-val" style="color:var(--g2)">Sedimento</div><div class="kpi-label">Filtro 1 (der. físico)</div><div class="kpi-sub">Retiene sólidos y lodos. Backwash <strong>semanal</strong>. Solo agua, sin sal.</div></div>
+      <div class="kpi" style="border-top:3px solid var(--g3)"><div class="kpi-val" style="color:var(--g2)">Carbón</div><div class="kpi-label">Filtro 2 (centro físico)</div><div class="kpi-sub">Elimina olor, sabor y cloro. Backwash <strong>quincenal</strong>. Sin sal.</div></div>
+      <div class="kpi" style="border-top:3px solid var(--a2)"><div class="kpi-val" style="color:var(--a1)">Suavizador</div><div class="kpi-label">Tanque 3 (izq. físico)</div><div class="kpi-sub">Elimina calcio y magnesio. Regeneración con <strong>sal pellets</strong>. El único que usa sal.</div></div>
+    </div>
+    <div class="callout c-amber"><div class="callout-icon">🧂</div><div class="callout-body"><strong>Solo el suavizador usa sal</strong>Los filtros de sedimento y carbón solo hacen backwash (agua limpia hacia atrás). El suavizador regenera su resina con sal pellets. Nunca agregar sal a los otros dos tanques.</div></div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num blue">2</span>Operación del Controlador Aquatrol</div>
+    <ul class="steps">
+      <li><div class="step-n blue">1</div><span><strong>Regeneración automática (normal):</strong> El Aquatrol ejecuta sus ciclos según el temporizador programado. No requiere intervención. Solo verificar que el reloj marque la hora correcta.</span></li>
+      <li><div class="step-n amber">2</div><span><strong>Tras un corte de luz:</strong> El reloj analógico del Aquatrol se reinicia. Ajustar manualmente a la hora actual. Si no se corrige, los ciclos de regeneración no ocurrirán a la hora correcta.</span></li>
+      <li><div class="step-n amber">3</div><span><strong>Regeneración manual de emergencia (si PPM sube):</strong> Girar el dial del Aquatrol del suavizador hasta la posición de regeneración. El equipo controla el resto. Dura 2–3 horas. Notificar al Jefe de Mantenimiento.</span></li>
+      <li><div class="step-n">4</div><span><strong>Backwash sedimentos (semanal):</strong> Activar desde el panel del Aquatrol del tanque de sedimentos. El equipo hace el ciclo solo.</span></li>
+      <li><div class="step-n">5</div><span><strong>Backwash carbón (quincenal):</strong> Igual que sedimentos, pero en el Aquatrol del tanque de carbón activado.</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num blue">3</span>Procedimiento de Adición de Sal</div>
+    <ul class="steps">
+      <li><div class="step-n">1</div><span>Usar solo <strong>Salt Pellets</strong> (pastillas para suavizadores). No usar sal de mesa, sal granulada común ni sal industrial.</span></li>
+      <li><div class="step-n">2</div><span>Verter lentamente en el depósito de sal blanco (junto a los tanques). Nivel objetivo: <strong>90%</strong>. Nunca bajar de 50%.</span></li>
+      <li><div class="step-n red">3</div><span>Si el nivel baja de <strong>50%</strong>: pedir sal de inmediato. El suavizador deja de regenerar y el agua distribuida se vuelve dura.</span></li>
+      <li><div class="step-n">4</div><span>Registrar en AppSheet: nivel de sal antes y después, cantidad agregada, fecha y hora. <span class="oblig">OBLIGATORIO</span></span></li>
+    </ul>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 3.2</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page33(){
+  return `
+  <div class="card">
+    <div class="eyebrow">3.0 Agua Potable · 3.3</div>
+    <h2 class="card-title">Dureza y Contingencias</h2>
+    <p style="color:var(--muted);font-size:14px">Interpretación de la prueba de dureza y qué hacer cuando algo falla.</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num blue">1</span>Flujograma — Prueba de Dureza</div>
+    <div class="flow-wrap">${flowDureza()}</div>
+    <div class="callout c-blue" style="margin-top:8px">
+      <div class="callout-icon">💧</div>
+      <div class="callout-body">
+        <strong>Método Pentair Rainbow</strong> Llena la probeta con 5&nbsp;ml de agua suave, añade 2&nbsp;gotas del reactivo morado y luego agrega gotas del reactivo blanco una por una hasta que la solución cambie de color. Cada gota blanca equivale a 50&nbsp;ppm. Multiplica el número de gotas blancas por 50 para obtener la dureza total.
+        <br/><br/>
+        <strong>Referencia local</strong> El agua en Bacalar es naturalmente dura (~800&nbsp;ppm suele ser normal). No usar estándares de agua potable de ciudad. Lo importante es la <em>tendencia</em>: si la dureza sube de forma consistente o se acerca al nivel de agua cruda, hay un problema.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num blue">2</span>Tabla de Decisiones</div>
+    <div class="table-wrap"><table>
+      <thead class="blue"><tr><th>Resultado</th><th>Interpretación</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td><strong>~800 PPM y estable</strong></td><td>Normal local</td><td>Registrar. Sin acción.</td></tr>
+        <tr><td><strong>Sube vs. histórico</strong></td><td>Atención</td><td>Revisar sal y programación del Aquatrol</td></tr>
+        <tr><td><strong>Agua suave ≈ agua cruda</strong></td><td>Falla probable</td><td>Regenerar manualmente + escalar a Jefe de Mantenimiento</td></tr>
+        <tr><td><strong>Cisterna suave &lt;180,000 Lt</strong></td><td>Alerta de nivel</td><td>Revisar producción del suavizador y consumo de bombas</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num red">3</span>Protocolo Post-Falla Eléctrica</div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Después de cualquier corte de luz, verificar estos sistemas <strong>en orden</strong> antes de declarar operación normal.</p>
+    <div class="flow-wrap">${flowPostFalla()}</div>
+    <div class="callout c-red" style="margin-top:8px"><div class="callout-icon">⏱️</div><div class="callout-body"><strong>Tiempo máximo de verificación: 45 minutos</strong>Completar y registrar los 8 puntos en AppSheet. Si algún sistema no se recupera, notificar a Gerencia con el estado exacto de cada uno.</div></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 3.3</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page41(){
+  return `
+  <div class="card">
+    <div class="eyebrow">4.0 Infraestructura · 4.1</div>
+    <h2 class="card-title">Sistema Eléctrico</h2>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num amber">1</span>Circuitos Prioritarios</div>
+    <div class="grid2">
+      <div class="kpi" style="border-top:3px solid var(--r2)"><div class="kpi-val" style="color:var(--r2)">Prioridad 1</div><div class="kpi-label">Críticos — nunca apagar</div><div class="kpi-sub">PTAR · Caseta/barrera · Iluminación emergencia</div></div>
+      <div class="kpi" style="border-top:3px solid var(--a2)"><div class="kpi-val" style="color:var(--a2)">Prioridad 2</div><div class="kpi-label">Importantes</div><div class="kpi-sub">Recepción/AppSheet · Bombas de agua · Generador</div></div>
+      <div class="kpi" style="border-top:3px solid var(--b2)"><div class="kpi-val" style="color:var(--b2)">Prioridad 3</div><div class="kpi-label">Puede reducirse</div><div class="kpi-sub">Iluminación decorativa · Aires amenidades · Carga de equipos</div></div>
+      <div class="kpi" style="border-top:3px solid var(--muted)"><div class="kpi-val" style="color:var(--muted)">Prioridad 4</div><div class="kpi-label">No esencial</div><div class="kpi-sub">Apagar si combustible &lt;30%</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num amber">2</span>Señales de Alerta Eléctrica</div>
+    <div class="table-wrap"><table>
+      <thead class="amber"><tr><th>Señal</th><th>Posible causa</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Disyuntor disparado</strong></td><td>Sobrecarga o cortocircuito</td><td>Resetear una vez. Si vuelve a disparar: no resetear, llamar electricista.</td></tr>
+        <tr><td><strong>Olor a quemado</strong></td><td>Calentamiento de cables o conexiones</td><td>Desconectar circuito afectado. Llamar electricista urgente.</td></tr>
+        <tr><td><strong>Cable expuesto</strong></td><td>Daño físico o instalación incompleta</td><td>No tocar. Señalizar el área. Notificar Jefe de Mantenimiento.</td></tr>
+        <tr><td><strong>Corte total CFE</strong></td><td>Falla en red pública</td><td>Activar generador. Llamar a CFE: 071. Ver § 4.3.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 4.1</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page42(){
+  return `
+  <div class="card">
+    <div class="eyebrow">4.0 Infraestructura · 4.2</div>
+    <h2 class="card-title">Pluma Vehicular CAME</h2>
+    <p style="color:var(--muted);font-size:14px">Verificación diaria 06:30 AM · Responsable: Guardia matutino</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Verificación Diaria — 06:30 AM</div>
+    <ul class="checklist">
+      <li><div class="ch-box"></div><span>Probar subida/bajada: <strong>3 ciclos completos</strong> con control remoto <span class="oblig">OBLIGATORIO</span></span></li>
+      <li><div class="ch-box"></div><span>Verificar sensor de paso — vehículo de prueba confirma detección</span></li>
+      <li><div class="ch-box"></div><span>Probar intercomunicador caseta ↔ recepción</span></li>
+      <li><div class="ch-box"></div><span>Registrar en AppSheet: "Pluma CAME Operativa / Fuera de Servicio — [hora]" <span class="oblig">OBLIGATORIO</span></span></li>
+      <li><div class="ch-box"></div><span>Si hay falla: activar contingencia antes de las 07:00 AM y notificar a Jefe de Mantenimiento</span></li>
+    </ul>
+    <div class="callout c-amber"><div class="callout-icon">🚧</div><div class="callout-body"><strong>Pluma fuera de servicio</strong>Control manual desde caseta. Ningún vehículo entra sin verificación activa. Registrar cada entrada en bitácora física. Para fallas técnicas: soporte CAME o técnico autorizado — solo personal capacitado puede abrir el motor.</div></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 4.2</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page43(){
+  return `
+  <div class="card card-hero">
+    <div class="eyebrow">4.0 Infraestructura · 4.3</div>
+    <h2 class="card-title">Generador de Emergencia</h2>
+    <p>Respaldo eléctrico ante cortes de CFE. Combustible: <em>[INSERTAR LITROS]</em> · Autonomía: <em>[INSERTAR HORAS]</em></p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Checklist Semanal</div>
+    <ul class="checklist">
+      <li><div class="ch-box"></div><span>Nivel de combustible — mínimo 75% para garantizar 8 horas continuas</span></li>
+      <li><div class="ch-box"></div><span>Nivel de aceite — dentro del rango en la varilla</span></li>
+      <li><div class="ch-box"></div><span>Nivel de agua del radiador — completo</span></li>
+      <li><div class="ch-box"></div><span>Batería de arranque — sin corrosión, conexiones firmes</span></li>
+      <li><div class="ch-box"></div><span>Prueba de arranque en frío (sin carga) — 3 minutos <span class="badge badge-a">MENSUAL</span></span></li>
+      <li><div class="ch-box"></div><span>Prueba bajo carga real (circuitos críticos) — 30 minutos <span class="badge badge-a">MENSUAL</span></span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num red">2</span>Activación de Emergencia</div>
+    <ul class="steps">
+      <li><div class="step-n">1</div><span>Verificar que el corte es de CFE (no un disyuntor interno).</span></li>
+      <li><div class="step-n">2</div><span>Ir al cuarto del generador.</span></li>
+      <li><div class="step-n">3</div><span>Encender en posición Manual.</span></li>
+      <li><div class="step-n">4</div><span>Esperar 60 segundos para estabilización.</span></li>
+      <li><div class="step-n">5</div><span>Transferir circuitos críticos (Prioridad 1 primero).</span></li>
+      <li><div class="step-n amber">6</div><span>Notificar a Gerencia. Llamar a CFE: <strong>071</strong> para tiempo estimado de restauración.</span></li>
+    </ul>
+    <div class="callout c-amber"><div class="callout-icon">⛽</div><div class="callout-body"><strong>Proveedor de combustible</strong>El Jefe de Mantenimiento debe tener 2 proveedores de diesel con disponibilidad urgente en Bacalar. Actualizar contactos cada 6 meses. <em>[INSERTAR CONTACTOS]</em></div></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 4.3</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page51(){
+  return `
+  <div class="card">
+    <div class="eyebrow">5.0 Amenidades · 5.1</div>
+    <h2 class="card-title">Albercas — Rutina Diaria</h2>
+    <p style="color:var(--muted);font-size:14px">Responsable: Encargado de Amenidades / Operador de Casa Club · 8AM–6PM · Rutina 08:00–10:00</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Flujograma — Apertura Diaria</div>
+    <div class="flow-wrap">${flowAlbercas()}</div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">2</span>Parámetros Objetivo</div>
+    <div class="grid3">
+      <div class="kpi" style="border-top:3px solid var(--b2)"><div class="kpi-val" style="color:var(--b2)">7.2–7.6</div><div class="kpi-label">pH</div><div class="kpi-sub">Óptimo&nbsp;7.6&nbsp;| Fuera de rango: cerrar y corregir</div></div>
+      <div class="kpi" style="border-top:3px solid var(--g3)"><div class="kpi-val" style="color:var(--g2)">1.0–1.5&nbsp;ppm</div><div class="kpi-label">Cloro libre</div><div class="kpi-sub">Óptimo&nbsp;1.5&nbsp;ppm&nbsp;| Bajo 1.0: cerrar inmediato</div></div>
+      <div class="kpi" style="border-top:3px solid var(--a2)"><div class="kpi-val" style="color:var(--a1)">27–30°C</div><div class="kpi-label">Temperatura</div><div class="kpi-sub">Cerrar si supera 34°C</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">3</span>Dosificación de Químicos</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Situación</th><th>Producto</th><th>Dosis</th><th>Procedimiento</th></tr></thead>
+      <tbody>
+        <tr><td>Mantenimiento normal</td><td>Cloro granulado</td><td>800 g</td><td>Disolver en cubeta de agua. Distribuir por perímetro. Esperar 1.5 h antes de abrir.</td></tr>
+        <tr><td>Post-lluvia intensa</td><td>Cloro (choque)</td><td>Doble dosis</td><td>Cerrar 2 horas. Medir antes de reabrir.</td></tr>
+        <tr><td>Algas visibles</td><td>Algicida</td><td>2 lt piscina grande · 1 lt jacuzzi</td><td>Distribuir por perímetro. Esperar 30 min entre aplicaciones.</td></tr>
+        <tr><td>Semanal (temporada seca)</td><td>Algicida preventivo</td><td>1 aplicación/semana</td><td>Aplicar solo, no mezclar con cloro simultáneamente.</td></tr>
+        <tr><td>Semanal (temporada lluvias)</td><td>Algicida preventivo</td><td>2 aplicaciones/semana</td><td>Mayor riesgo de algas por agua de lluvia.</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">4</span>Supervisión Remota — Apertura 06:00–07:00</div>
+    <ul class="steps">
+      <li><div class="step-n">1</div><span>Medir pH y cloro. Fotografiar el kit con la alberca visible al fondo.</span></li>
+      <li><div class="step-n">2</div><span>Enviar foto al Jefe de Mantenimiento por WhatsApp con formato: <em>"Parámetros [fecha] [hora] — Cloro: X ppm · pH: X.X — [foto]"</em></span></li>
+      <li><div class="step-n amber">3</div><span>Esperar autorización explícita (texto o audio). Un "visto" no es autorización.</span></li>
+      <li><div class="step-n red">4</div><span>Si no responde en 15 min: alberca cerrada. Si parámetros fuera de rango: no abrir en ningún caso.</span></li>
+    </ul>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 5.1</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page52(){
+  return `
+  <div class="card">
+    <div class="eyebrow">5.0 Amenidades · 5.2</div>
+    <h2 class="card-title">Albercas — Parámetros Fuera de Rango</h2>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num red">1</span>Tabla de Correcciones</div>
+    <div class="table-wrap"><table>
+      <thead class="red"><tr><th>Parámetro</th><th>Lectura</th><th>Causa probable</th><th>Corrección</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cloro</strong></td><td>&lt;1.0 ppm</td><td>Alta carga, sol intenso, lluvia</td><td>Agregar hipoclorito — esperar 30 min y medir de nuevo</td></tr>
+        <tr><td><strong>Cloro</strong></td><td>&gt;3.0 ppm</td><td>Sobrecloración</td><td>Dilución parcial — esperar a que baje naturalmente</td></tr>
+        <tr><td><strong>pH</strong></td><td>&lt;7.2</td><td>Exceso de cloro, lluvia ácida</td><td>Agregar soda ash — medir en 1 hora</td></tr>
+        <tr><td><strong>pH</strong></td><td>&gt;7.6</td><td>Carbonatos elevados, agua dura</td><td>Agregar ácido muriático diluido — medir en 1 hora</td></tr>
+        <tr><td><strong>Turbiedad</strong></td><td>Fondo no visible</td><td>Algas, filtro sucio, post-lluvia</td><td>Choque de cloro + backwash filtro + flocular</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout c-red"><div class="callout-icon">🚫</div><div class="callout-body"><strong>No abrir hasta confirmar rango</strong>Si la corrección toma más de 3 horas, notificar a Gerencia. La reapertura requiere autorización del Jefe de Mantenimiento.</div></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 5.2</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page53(){
+  return `
+  <div class="card">
+    <div class="eyebrow">5.0 Amenidades · 5.3</div>
+    <h2 class="card-title">Canchas de Pádel</h2>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Plan de Mantenimiento</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Frecuencia</th><th>Actividad</th><th>Responsable</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-b">Diaria</span></td><td>Barrer superficie · Verificar red · Revisar iluminación · Limpiar cristales</td><td>Personal limpieza</td></tr>
+        <tr><td><span class="badge badge-a">Semanal</span></td><td>Limpieza profunda · Revisar estructura · Verificar sistema eléctrico de luces</td><td>Mantenimiento</td></tr>
+        <tr><td><span class="badge badge-g">Mensual</span></td><td>Inspección técnica · Anclas y tensores · Lubricar herrajes</td><td>Proveedor</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout c-green"><div class="callout-icon">📱</div><div class="callout-body"><strong>Reservas solo por Vivook</strong>Sin excepciones. No se aceptan verbales, WhatsApp ni correo. El sistema bloquea automáticamente unidades con adeudos.</div></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 5.3</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page54(){
+  return `
+  <div class="card">
+    <div class="eyebrow">5.0 Amenidades · 5.4</div>
+    <h2 class="card-title">Firepit — Fogata Ecológica</h2>
+    <p style="color:var(--muted);font-size:14px">Combustible: Bioetanol · Capacidad: 8 personas · Tarifa: $1,500 MXN/sesión</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num amber">1</span>Condiciones de Operación</div>
+    <div class="grid3">
+      <div class="kpi" style="border-top:3px solid var(--a2)"><div class="kpi-val" style="color:var(--a1)">$1,500</div><div class="kpi-label">Tarifa por sesión</div><div class="kpi-sub">No reembolsable por cancelación tardía</div></div>
+      <div class="kpi" style="border-top:3px solid var(--a2)"><div class="kpi-val" style="color:var(--a1)">2 sesiones/día</div><div class="kpi-label">Horarios</div><div class="kpi-sub">🌅 Amanecer 08:00–10:00 · 🌇 Atardecer 18:00–20:00</div></div>
+      <div class="kpi" style="border-top:3px solid var(--r2)"><div class="kpi-val" style="color:var(--r2)">Solo bioetanol</div><div class="kpi-label">Combustible</div><div class="kpi-sub">Nunca leña, carbón ni ningún otro material</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num amber">2</span>Inventario de Bioetanol</div>
+    <div class="table-wrap"><table>
+      <thead class="amber"><tr><th>Nivel</th><th>Estado</th><th>Acción</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-g">&gt;40 litros</span></td><td>Normal</td><td>Registrar en AppSheet lunes</td></tr>
+        <tr><td><span class="badge badge-a">&lt;30 litros</span></td><td>Pedir ya</td><td>Generar orden de compra inmediata</td></tr>
+        <tr><td><span class="badge badge-r">&lt;15 litros con reserva</span></td><td>Cancelar sesión</td><td>Cancelar con 12h anticipación + reembolso completo al residente</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout c-amber"><div class="callout-icon">💨</div><div class="callout-body"><strong>Cancelación por viento &gt;20 km/h</strong>Verificar con anemómetro (bodega CC) antes de cada sesión. Si el viento supera 20 km/h sostenido por 5 minutos: cancelar y avisar al residente 30 min antes. Sin reembolso (términos aceptados al reservar).</div></div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num red">3</span>Prohibiciones Absolutas</div>
+    <div class="callout c-red"><div class="callout-icon">🔥</div><div class="callout-body"><strong>Ante llama fuera de control</strong>Cubrir el quemador con la tapa de seguridad → evacuar el área → llamar al Jefe de Mantenimiento de inmediato. No usar agua sobre bioetanol en llamas.</div></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 5.4</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page55(){
+  return `
+  <div class="card">
+    <div class="eyebrow">5.0 Amenidades · 5.5</div>
+    <h2 class="card-title">Muelle y Laguna</h2>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num red">1</span>Restricciones Permanentes</div>
+    <div class="callout c-red"><div class="callout-icon">🐊</div><div class="callout-body"><strong>Zona de riesgo natural — fauna activa</strong>La Laguna de Bacalar tiene presencia regular de cocodrilos. Ante avistamiento: evacuar inmediatamente y notificar a caseta de seguridad.</div></div>
+    <div class="table-wrap"><table>
+      <thead class="red"><tr><th>Elemento</th><th>Prohibido</th><th>Permitido</th></tr></thead>
+      <tbody>
+        <tr><td>Protector solar</td><td>Convencional con químicos</td><td>Solo biodegradables certificados</td></tr>
+        <tr><td>Envases</td><td>Vidrio, copas, cristal</td><td>Solo plástico o aluminio</td></tr>
+        <tr><td>Audio</td><td>Bocinas o altavoces</td><td>Solo audífonos personales</td></tr>
+        <tr><td>Pesca</td><td>Redes, nasas, anzuelos</td><td>Solo observación</td></tr>
+        <tr><td>Acceso</td><td>Vehículos o bicicletas</td><td>Exclusivamente peatonal</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">2</span>Plan de Mantenimiento</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Frecuencia</th><th>Actividad</th><th>Responsable</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge badge-b">Diaria</span></td><td>Barrer tablones · Recoger basura · Verificar señalética</td><td>Personal limpieza</td></tr>
+        <tr><td><span class="badge badge-a">Semanal</span></td><td>Limpieza profunda · Revisar pilotes visibles · Verificar iluminación</td><td>Mantenimiento</td></tr>
+        <tr><td><span class="badge badge-g">Trimestral</span></td><td>Inspección estructural completa con perito certificado · Dictamen escrito</td><td>Proveedor + Jefe de Mantenimiento</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout c-amber"><div class="callout-icon">📋</div><div class="callout-body"><strong>Inspección estructural obligatoria</strong>Solo ingeniero civil o arquitecto con cédula profesional. El personal interno no puede sustituir esta inspección. Ante hallazgo de riesgo estructural: cierre inmediato del muelle + notificar Dirección y residentes en máx. 2 horas.</div></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 5.5</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page61(){
+  return `
+  <div class="card">
+    <div class="eyebrow">6.0 Limpieza · 6.1</div>
+    <h2 class="card-title">Gestión de Residuos Sólidos</h2>
+    <p style="color:var(--muted);font-size:14px">2 recolecciones diarias: 10:00 AM y 5:00 PM</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Separación Obligatoria</div>
+    <div class="grid3">
+      <div class="kpi" style="border-top:3px solid #8B5E3C"><div class="kpi-val" style="color:#8B5E3C">🟤 Orgánico</div><div class="kpi-label">Contenedor café</div><div class="kpi-sub">Restos de comida, cáscaras, pañales</div></div>
+      <div class="kpi" style="border-top:3px solid var(--muted)"><div class="kpi-val" style="color:var(--muted)">⚫ Inorgánico</div><div class="kpi-label">Contenedor negro</div><div class="kpi-sub">Plásticos, vidrio, metal, papel</div></div>
+      <div class="kpi" style="border-top:3px solid var(--b2)"><div class="kpi-val" style="color:var(--b2)">♻️ Reciclable</div><div class="kpi-label">Contenedor azul</div><div class="kpi-sub">Cartón limpio, PET, aluminio</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">2</span>Ruta de Recolección</div>
+    <ul class="steps">
+      <li><div class="step-n">1</div><span>Torres 1–4 (Chaká, Chechén, Yaxché, Balché) → recorrer pasillos de cada piso</span></li>
+      <li><div class="step-n amber">2</div><span>Verificar separación correcta. Si hay mezcla: registrar unidad y fotografiar <span class="oblig">OBLIGATORIO</span></span></li>
+      <li><div class="step-n amber">3</div><span>Bolsas fuera de contenedores: fotografiar e identificar unidad</span></li>
+      <li><div class="step-n">4</div><span>Transportar al Acopio General por categoría</span></li>
+      <li><div class="step-n">5</div><span>Notificar a PM/Propietario si hay incidencia — tono educativo, nunca punitivo</span></li>
+      <li><div class="step-n">6</div><span>Registrar recolección completa en AppSheet <span class="oblig">OBLIGATORIO</span></span></li>
+    </ul>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 6.1</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page62(){
+  return `
+  <div class="card">
+    <div class="eyebrow">6.0 Limpieza · 6.2</div>
+    <h2 class="card-title">Limpieza de Áreas Comunes</h2>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Frecuencias por Área</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Área</th><th>Frecuencia</th><th>Actividad</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Lobby / Recepción</strong></td><td>2 veces/día</td><td>Barrer, trapear, desinfectar mostrador, limpiar vidrios</td></tr>
+        <tr><td><strong>Pasillos torres</strong></td><td>1 vez/día + bajo demanda</td><td>Barrer, trapear, recoger basura suelta</td></tr>
+        <tr><td><strong>Casa Club</strong></td><td>Diaria completa</td><td>Barrer, trapear, desinfectar mobiliario, baños</td></tr>
+        <tr><td><strong>Muelle</strong></td><td>Diaria + semanal profunda</td><td>Barrer tablones, recoger basura, limpiar barandales</td></tr>
+        <tr><td><strong>Canchas Pádel</strong></td><td>Diaria</td><td>Barrer superficie, limpiar cristales laterales</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout c-amber"><div class="callout-icon">🧴</div><div class="callout-body"><strong>Productos cerca de la laguna</strong>Solo biodegradables certificados en áreas cercanas al muelle y zonas verdes que drenan hacia la laguna. Prohibido blanqueadores o ácidos en esas zonas.</div></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 6.2</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page63(){
+  return `
+  <div class="card">
+    <div class="eyebrow">6.0 Limpieza · 6.3</div>
+    <h2 class="card-title">Mantenimiento de Áreas Verdes</h2>
+    <p style="color:var(--muted);font-size:14px">Encargado: Bolón · Equipo: 6 personas · Bodega 2</p>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Organigrama del Equipo</div>
+    <div class="roles">
+      <div class="role-card"><div class="role-title">Bolón — Encargado</div><div class="role-sch">Turno completo</div><div class="role-desc">Llega primero a Bodega 2, distribuye herramienta y asigna tareas. Supervisa calidad. En emergencia médica: conduce al hospital (llamar 911 primero).</div></div>
+      <div class="role-card"><div class="role-title">Personal de Soplado</div><div class="role-sch">3 vueltas/día · 1 persona</div><div class="role-desc">Sopladora de hojas en caminos, terraza y hasta Casa Club. En lluvia puede requerir 4ª vuelta.</div></div>
+      <div class="role-card amber-top"><div class="role-title">Personal de Riego</div><div class="role-sch">Todo el día · 1 persona</div><div class="role-desc">Riego de jardines y jardineras. Poner puntos de hidratación para el equipo en temporada de calor.</div></div>
+      <div class="role-card"><div class="role-title">Personal General</div><div class="role-sch">Turno completo · 3 personas</div><div class="role-desc">Tierra y grava en caminos, rastrillado, vivero, desbrozado y apoyo rotativo.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">2</span>Ruta de Soplado — 3 Vueltas Diarias</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Vuelta</th><th>Hora</th><th>Ruta</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1ª</strong></td><td>Inicio turno</td><td>Caminos principales → accesos torres → terraza Casa Club → deck muelle. Dejar presentable antes de que los residentes salgan.</td></tr>
+        <tr><td><strong>2ª</strong></td><td>Mediodía</td><td>Ruta completa. Mayor acumulación en terraza y bajo árboles cerca de la laguna.</td></tr>
+        <tr><td><strong>3ª</strong></td><td>Cierre turno</td><td>Ruta completa + canchas de pádel + área de albercas. Dejar limpio para la tarde-noche.</td></tr>
+      </tbody>
+    </table></div>
+    <div class="callout c-green"><div class="callout-icon">🍃</div><div class="callout-body"><strong>Temporada de lluvias (junio–noviembre)</strong>Las hojas caen mucho más rápido. Puede requerirse una 4ª vuelta por la tarde. Bolón decide según condición del día.</div></div>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">3</span>Frecuencias por Tarea</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Tarea</th><th>Temporada seca</th><th>Temporada lluvias</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Soplado de hojas</strong></td><td>3 veces/día</td><td>3–4 veces/día</td></tr>
+        <tr><td><strong>Desbrozado</strong></td><td>Cada 15 días</td><td>Semanal</td></tr>
+        <tr><td><strong>Rastrillado caminos</strong></td><td>Semanal</td><td>2 veces/semana</td></tr>
+        <tr><td><strong>Reposición tierra/grava</strong></td><td>Mensual aprox.</td><td>Más frecuente post-lluvia</td></tr>
+        <tr><td><strong>Mantenimiento vivero</strong></td><td>Diario · 30 min</td><td>Diario · 30 min</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 6.3</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page71(){
+  return `
+  <div class="card">
+    <div class="eyebrow">7.0 Estacionamiento · 7.1</div>
+    <h2 class="card-title">Cajones y Vialidad</h2>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Distribución de Cajones</div>
+    <div class="grid2">
+      <div class="kpi"><div class="kpi-val">Fase 1</div><div class="kpi-label">Torres 1–4 · Est. A</div><div class="kpi-sub">Chaká, Chechén, Yaxché, Balché · 1 cajón por unidad</div></div>
+      <div class="kpi"><div class="kpi-val">Fase 2</div><div class="kpi-label">Torres 5–8 · Est. B</div><div class="kpi-sub">En construcción · Cajones pendientes de asignación</div></div>
+    </div>
+    <div class="callout c-amber"><div class="callout-icon">🚗</div><div class="callout-body"><strong>Vehículo en cajón ajeno o sin registro &gt;48h</strong>Fotografiar y registrar en AppSheet. Notificar al propietario del cajón. Sin respuesta en 48h: Gerencia gestiona. Grúa requiere base legal — solo Dirección autoriza.</div></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 7.1</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page72(){
+  return `
+  <div class="card">
+    <div class="eyebrow">7.0 Estacionamiento · 7.2</div>
+    <h2 class="card-title">Zona de Proveedores</h2>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Control de Acceso</div>
+    <ul class="steps">
+      <li><div class="step-n">1</div><span>Registrar ingreso en AppSheet: empresa, nombre, placa, motivo y hora de entrada.</span></li>
+      <li><div class="step-n">2</div><span>Asignar zona de carga/descarga — no puede bloquear vialidad ni cajones críticos.</span></li>
+      <li><div class="step-n">3</div><span>Supervisar salida y verificar limpieza del área.</span></li>
+      <li><div class="step-n">4</div><span>Registrar hora de salida. Documentar daños o incumplimientos con foto.</span></li>
+    </ul>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 7.2</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page81(){
+  return `
+  <div class="card">
+    <div class="eyebrow">8.0 KPIs · 8.1</div>
+    <h2 class="card-title">Indicadores de Desempeño</h2>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Métricas Clave</div>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Indicador</th><th>Meta</th><th>Frecuencia</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Cumplimiento de rutinas</strong></td><td>100% registradas en AppSheet antes del límite</td><td>Diaria</td></tr>
+        <tr><td><strong>Disponibilidad PTAR</strong></td><td>100% · 0 desbordos</td><td>Diaria</td></tr>
+        <tr><td><strong>Disponibilidad agua potable</strong></td><td>100% · Cisterna suave &gt;100,000 Lt</td><td>Diaria</td></tr>
+        <tr><td><strong>Parámetros albercas en rango</strong></td><td>&gt;95% de lecturas dentro de rango</td><td>Diaria</td></tr>
+        <tr><td><strong>Órdenes de trabajo cerradas</strong></td><td>&gt;90% cerradas en &lt;72 horas</td><td>Semanal</td></tr>
+        <tr><td><strong>Generador: prueba mensual</strong></td><td>100% pruebas realizadas con evidencia</td><td>Mensual</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 8.1</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+function page82(){
+  return `
+  <div class="card">
+    <div class="eyebrow">8.0 KPIs · 8.2</div>
+    <h2 class="card-title">Reporte Mensual</h2>
+  </div>
+  <div class="card">
+    <div class="section-title"><span class="num">1</span>Estructura del Reporte</div>
+    <ul class="steps">
+      <li><div class="step-n">1</div><span><strong>Cumplimiento de rutinas:</strong> % de checklists completados vs. programados por sistema.</span></li>
+      <li><div class="step-n">2</div><span><strong>Órdenes de trabajo:</strong> Abiertas, cerradas, tiempo promedio, costo por sistema.</span></li>
+      <li><div class="step-n">3</div><span><strong>Incidentes:</strong> PTAR, agua potable, eléctrico, amenidades. Con evidencia fotográfica.</span></li>
+      <li><div class="step-n">4</div><span><strong>Insumos:</strong> Consumo del mes, stock actual, pedidos pendientes.</span></li>
+      <li><div class="step-n amber">5</div><span><strong>Riesgos del mes siguiente:</strong> Equipos con vida útil próxima, inspecciones programadas, temporada de lluvias/huracanes.</span></li>
+      <li><div class="step-n">6</div><span>Presentar a Gerencia en los primeros 3 días hábiles del mes siguiente.</span></li>
+    </ul>
+  </div>
+  <div class="page-footer"><span>PR-AM-MNT-001 · Libro IV · 8.2</span><span>Aldea Mayab · Confidencial</span></div>`;
+}
+
+// ── PAGE MAP ──
+const PAGES = {
+  cover: pageCover, p11: page11, p12: page12,
+  p21: page21, p22: page22,
+  p30: page30, p31: page31, p32: page32, p33: page33,
+  p41: page41, p42: page42, p43: page43,
+  p51: page51, p52: page52, p53: page53, p54: page54, p55: page55,
+  p61: page61, p62: page62, p63: page63,
+  p71: page71, p72: page72,
+  p81: page81, p82: page82,
+};
+
+// ── BUILD NAV ──
+function buildNav(){
+  const groups = {};
+  NAV.forEach(item => {
+    if(!groups[item.group]) groups[item.group] = [];
+    groups[item.group].push(item);
+  });
+  const nav = document.getElementById('sb-nav');
+  nav.innerHTML = Object.entries(groups).map(([grp, items]) => `
+    <div class="sb-group ${['Libro IV','1.0 Marco General','2.0 PTAR','3.0 Agua Potable'].includes(grp)?'open':''}">
+      <div class="sb-group-btn" onclick="this.parentElement.classList.toggle('open')">
+        <span>${grp}</span><span class="arr">▶</span>
+      </div>
+      <div class="sb-items">
+        ${items.map(it=>`<div class="sb-item" id="nav-${it.id}" onclick="show('${it.id}')">
+          <span class="dot dot-${it.dot}"></span>${it.label}
+        </div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+// ── RENDER ALL PAGES ──
+function buildPages(){
+  const content = document.getElementById('content');
+  content.innerHTML = Object.entries(PAGES).map(([id, fn]) =>
+    `<div class="page" id="page-${id}">${fn()}</div>`
+  ).join('');
+}
+
+// ── SHOW PAGE ──
+const CRUMBS = {};
+NAV.forEach(it => { CRUMBS[it.id] = it.label; });
+CRUMBS['cover'] = 'Portada';
+
+function show(id){
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(n => n.classList.remove('active'));
+  const page = document.getElementById('page-'+id);
+  if(page) { page.classList.add('active'); }
+  const nav = document.getElementById('nav-'+id);
+  if(nav) { nav.classList.add('active'); }
+  document.getElementById('breadcrumb').innerHTML = `Libro IV › <strong>${CRUMBS[id]||id}</strong>`;
+  window.scrollTo({top:0, behavior:'smooth'});
+  if(window.innerWidth <= 768) closeSidebar();
+}
+
+// ── HAMBURGER ──
+function toggleSidebar(){
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('ham').classList.toggle('open');
+  document.getElementById('overlay').classList.toggle('on');
+}
+function closeSidebar(){
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('ham').classList.remove('open');
+  document.getElementById('overlay').classList.remove('on');
+}
+document.getElementById('ham').addEventListener('click', toggleSidebar);
+document.getElementById('overlay').addEventListener('click', closeSidebar);
+
+// ── INIT ──
+buildNav();
+buildPages();
+show('cover');
 </script>
-</body></html>
+</body>
+</html>
