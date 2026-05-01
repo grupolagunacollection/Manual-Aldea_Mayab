@@ -368,8 +368,9 @@ function orgRoles(){
 }
 
 function diagWater(){
-  const W=680, H=460, TW=88, TH=78, R1Y=48, R2Y=200, R3Y=346;
+  const W=680, H=520, TW=88, TH=78, R1Y=48, R2Y=200, R3Y=360;
   const xs=[10, 112, 212, 312, 412, 530];
+  
   const tankNode=(x,y,label1,label2,note1,note2,fill,stroke,ctrl='')=>
     `${r(x,y,TW,TH,10,fill,stroke,2)}
      ${r(x,y,TW,14,8,stroke,'transparent')}${r(x,y+7,TW,7,0,stroke,'transparent')}
@@ -378,52 +379,85 @@ function diagWater(){
      ${t(x+TW/2,y+45,label2,{sz:10,f:stroke,w:800})}
      ${t(x+TW/2,y+59,note1,{sz:8,f:stroke+'BB',w:400})}
      ${t(x+TW/2,y+71,note2,{sz:8,f:stroke+'99',w:400})}`;
+
   return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
-  <defs>${arr('a_145C30','#145C30')}${arr('a_C87D0A','#C87D0A')}${arr('a_2A6098','#2A6098')}${arr('a_C0392B','#C0392B')}</defs>
+  <defs>
+    ${arr('a_145C30','#145C30')}${arr('a_C87D0A','#C87D0A')}${arr('a_2A6098','#2A6098')}
+    ${arr('a_C0392B','#C0392B')}
+  </defs>
+
+  <!-- TITLE -->
   ${r(0,0,W,28,0,'#0C2B18','transparent')}
   ${t(W/2,19,'Sistema de Agua Potable — Flujo de Izquierda a Derecha',{sz:11,f:'#fff'})}
+
+  <!-- ROW 1: flujo principal izq→der -->
   ${tankNode(xs[0],R1Y,'CISTERNA','CRUDA','Agua sin tratar','% nivel','#FDF3E3','#C87D0A','')}
+  
   <ellipse cx="${xs[1]+16}" cy="${R1Y+40}" rx="30" ry="22" fill="#E4F2E9" stroke="#145C30" stroke-width="2"/>
-  ${t(xs[1]+16,R1Y+35,'BOMBA',{sz:9,f:'#145C30',w:700})}${t(xs[1]+16,R1Y+49,'sumerg.',{sz:8,f:'#145C30',w:400})}
+  ${t(xs[1]+16,R1Y+35,'BOMBA',{sz:9,f:'#145C30',w:700})}
+  ${t(xs[1]+16,R1Y+49,'sumerg.',{sz:8,f:'#145C30',w:400})}
+  
   ${tankNode(xs[2],R1Y,'FILTRO','SEDIMENTO','Sólidos / lodos','Backwash semanal','#E4F2E9','#145C30','AQUATROL')}
   ${tankNode(xs[3],R1Y,'CARBÓN','ACTIVADO','Olor / sabor','Backwash quincenal','#E4F2E9','#145C30','AQUATROL')}
   ${tankNode(xs[4],R1Y,'SUAVIZADOR','','Ca²⁺ Mg²⁺','Solo usa SAL','#FDF3E3','#C87D0A','AQUATROL')}
   ${tankNode(xs[5],R1Y,'CISTERNA','SUAVE','210,000 Lt','Alerta 180K','#E4F2E9','#145C30','')}
+
+  <!-- Etiqueta flujo row 1 -->
   ${t(W/2,R1Y-8,'← flujo de agua →',{sz:8,f:'#5A6054',w:400,i:true})}
+
+  <!-- ROW 1 arrows -->
   ${ln(xs[0]+TW,R1Y+40,xs[1]-3,R1Y+40,'#C87D0A','','a_C87D0A')}
   ${ln(xs[1]+33,R1Y+40,xs[2],R1Y+40,'#145C30','','a_145C30')}
   ${ln(xs[2]+TW,R1Y+40,xs[3],R1Y+40,'#145C30','','a_145C30')}
   ${ln(xs[3]+TW,R1Y+40,xs[4],R1Y+40,'#145C30','','a_145C30')}
   ${ln(xs[4]+TW,R1Y+40,xs[5],R1Y+40,'#145C30','','a_145C30')}
+
+  <!-- ROW 2: depósito de sal + panel eléctrico -->
   ${r(xs[4]-10,R2Y,108,58,8,'#FDF3E3','#C87D0A',2)}
   ${t(xs[4]+34,R2Y+18,'DEPÓSITO',{sz:10,f:'#7A4800',w:800})}
   ${t(xs[4]+34,R2Y+32,'DE SAL',{sz:10,f:'#7A4800',w:800})}
   ${t(xs[4]+34,R2Y+46,'Salt Pellets · obj. 90%',{sz:8,f:'#C87D0A',w:500})}
+  
+  <!-- flecha sal → suavizador (sube) -->
   ${ln(xs[4]+44,R2Y,xs[4]+44,R1Y+TH+1,'#C87D0A','5,3','a_C87D0A')}
   ${t(xs[4]+56,R2Y+30,'sal',{sz:8,f:'#C87D0A',w:700,a:'start'})}
+
+  <!-- Panel eléctrico -->
   ${r(600,R2Y,72,58,8,'#EAF2FB','#2A6098',2)}
   ${t(636,R2Y+18,'PANEL',{sz:9,f:'#1A3C5E',w:800})}${t(636,R2Y+32,'ELÉC.',{sz:9,f:'#1A3C5E',w:800})}
   ${t(636,R2Y+46,'🟢=ON  🔴=FALLA',{sz:8,f:'#1A3C5E',w:500})}
-  ${pl(`${xs[5]+TW/2},${R1Y+TH} ${xs[5]+TW/2},${R2Y+30} ${xs[5]+TW/2+40},${R2Y+30} ${xs[5]+TW/2+40},${R3Y}`,'#2A6098','','a_2A6098')}
+
+  <!-- Cisterna suave → Bombas (flecha vertical azul) -->
+  ${ln(xs[5]+TW/2,R1Y+TH,xs[5]+TW/2,R3Y+10,'#2A6098','','a_2A6098')}
+
+  <!-- ROW 3: 3 Bombas EF + Torres -->
   ${r(200,R3Y,220,52,10,'#E4F2E9','#145C30',2)}
   ${t(310,R3Y+20,'3 BOMBAS PRESURIZADORAS EF',{sz:11,f:'#0C2B18',w:800})}
   ${t(310,R3Y+36,'Bomba 1 · Bomba 2 · Bomba 3',{sz:9,f:'#145C30',w:500})}
+  
+  <!-- Flecha de Cisterna Suave a Bombas (línea vertical que baja y dobla) -->
+  ${ln(xs[5]+TW/2,R1Y+TH,xs[5]+TW/2,R3Y+26,'#2A6098','','a_2A6098')}
+  ${ln(xs[5]+TW/2,R3Y+26,420,R3Y+26,'#2A6098','','a_2A6098')}
+  
+  <!-- Bombas → Torres -->
   ${ln(420,R3Y+26,484,R3Y+26,'#145C30','','a_145C30')}
+  
   ${r(485,R3Y,170,52,10,'#0C2B18','transparent')}
   ${t(570,R3Y+22,'TORRES 1–4',{sz:12,f:'#fff',w:800})}
   ${t(570,R3Y+38,'Agua potable suavizada',{sz:9,f:'rgba(255,255,255,.65)',w:400})}
-  ${ln(xs[5]+TW/2+40,R3Y+26,199,R3Y+26,'#145C30','','a_145C30')}
-  ${r(0,420,W,40,0,'transparent','transparent')}
-  <circle cx="16" cy="440" r="5" fill="#C87D0A"/>
-  ${t(25,444,'Agua sin tratar',{sz:9,f:'#5A6054',a:'start',w:400})}
-  <circle cx="130" cy="440" r="5" fill="#145C30"/>
-  ${t(140,444,'Flujo de agua tratada',{sz:9,f:'#5A6054',a:'start',w:400})}
-  <line x1="270" y1="440" x2="295" y2="440" stroke="#C87D0A" stroke-width="2" stroke-dasharray="4,3"/>
-  ${t(300,444,'Regeneración con sal',{sz:9,f:'#5A6054',a:'start',w:400})}
-  <circle cx="430" cy="440" r="5" fill="#2A6098"/>
-  ${t(440,444,'Agua suave a torres',{sz:9,f:'#5A6054',a:'start',w:400})}
-  ${r(555,433,10,10,3,'#111','transparent')}
-  ${t(570,443,'Aquatrol',{sz:9,f:'#5A6054',a:'start',w:400})}
+
+  <!-- LEYENDA -->
+  ${r(0,430,W,40,0,'transparent','transparent')}
+  <circle cx="16" cy="450" r="5" fill="#C87D0A"/>
+  ${t(25,454,'Agua sin tratar',{sz:9,f:'#5A6054',a:'start',w:400})}
+  <circle cx="130" cy="450" r="5" fill="#145C30"/>
+  ${t(140,454,'Flujo de agua tratada',{sz:9,f:'#5A6054',a:'start',w:400})}
+  <line x1="270" y1="450" x2="295" y2="450" stroke="#C87D0A" stroke-width="2" stroke-dasharray="4,3"/>
+  ${t(300,454,'Regeneración con sal',{sz:9,f:'#5A6054',a:'start',w:400})}
+  <circle cx="430" cy="450" r="5" fill="#2A6098"/>
+  ${t(440,454,'Agua suave a bombas',{sz:9,f:'#5A6054',a:'start',w:400})}
+  ${r(555,443,10,10,3,'#111','transparent')}
+  ${t(570,453,'Aquatrol',{sz:9,f:'#5A6054',a:'start',w:400})}
   </svg>`;
 }
 
