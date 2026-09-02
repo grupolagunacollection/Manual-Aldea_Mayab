@@ -137,8 +137,12 @@ tr:last-child td{border-bottom:none}td strong{color:var(--g2)}
 .rd{font-size:12px;color:var(--muted);line-height:1.4}
 
 /* FLOW WRAP */
-.fw{background:var(--white);border:1px solid var(--rule);border-radius:var(--r12);padding:14px;overflow-x:auto;margin:10px 0}
-.fw svg{max-width:100%;height:auto;display:block}
+.fw{background:var(--white);border:1px solid var(--rule);border-radius:var(--r12);padding:18px;overflow-x:auto;margin:10px 0 22px;box-shadow:var(--shadow)}
+.fw svg{max-width:100%;height:auto;display:block;margin:0 auto}
+.fw-legend{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:center;align-items:center;font-size:10px;color:var(--muted);margin-top:14px;padding:10px 4px 0;border-top:1px dashed var(--rule);font-weight:500}
+.fw-legend b{color:var(--ink);font-weight:700}
+.fw-legend .fw-dot{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:5px;vertical-align:middle}
+.fw-legend .fw-diamond{display:inline-block;width:9px;height:9px;transform:rotate(45deg);margin-right:5px;vertical-align:middle;border:1.5px solid var(--a2);background:var(--as)}
 
 /* COVER TOC */
 .cv-m{display:grid;grid-template-columns:1fr 1fr 1fr;gap:9px;margin-top:14px}
@@ -241,7 +245,7 @@ const NAV = [
   {id:'cover',group:'Libro IV',label:'Portada',dot:'green'},
   {id:'p11',group:'1.0 Marco General',label:'1.1 Alcance y Responsables',dot:'green'},
   {id:'p12',group:'1.0 Marco General',label:'1.2 Ciclo de Mantenimiento',dot:'green'},
-  {id:'p13',group:'1.0 Marco General',label:'1.3 Evidencia y AppSheet',dot:'green'},
+  {id:'p13',group:'1.0 Marco General',label:'1.3 Evidencia y Registro',dot:'green'},
   {id:'p14',group:'1.0 Marco General',label:'1.4 Escalamiento y Autorizaciones',dot:'green'},
   {id:'p21',group:'2.0 PTAR',label:'2.1 Inspección Diaria',dot:'amber'},
   {id:'p22',group:'2.0 PTAR',label:'2.2 Anomalías y Escalamiento',dot:'red'},
@@ -289,7 +293,7 @@ const AR=(id,c)=>`<marker id="${id}" markerWidth="8" markerHeight="8" refX="7" r
 const LN=(x1,y1,x2,y2,c,d='',m='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${c}" stroke-width="2" ${d?`stroke-dasharray="${d}"`:''}  marker-end="url(#${m||'a_'+c.replace('#','')})"/>`;
 const PL=(pts,c,d='',m='')=>`<polyline points="${pts}" fill="none" stroke="${c}" stroke-width="2" ${d?`stroke-dasharray="${d}"`:''}  marker-end="url(#${m||'a_'+c.replace('#','')})"/>`;
 const BOX=(x,y,w,h,l,s2,f,s)=>R(x,y,w,h,8,f,s,1.5)+T(x+w/2,y+h/2-5,l,{sz:12,f:s,w:700})+T(x+w/2,y+h/2+10,s2,{sz:9,f:s+'AA',w:400});
-const DM=(x,y,w,h,l,f,s)=>{const cx=x+w/2,cy=y+h/2;return `<polygon points="${cx},${y} ${x+w},${cy} ${cx},${y+h} ${x},${cy}" fill="${f}" stroke="${s}" stroke-width="1.5"/>${T(cx,cy+4,l,{sz:10,f:s,w:700})}`};
+const DM=(x,y,w,h,l,s2,f,s)=>{const cx=x+w/2,cy=y+h/2;const lbl=s2?T(cx,cy-2,l,{sz:10,f:s,w:700})+T(cx,cy+11,s2,{sz:8,f:s,w:400}):T(cx,cy+4,l,{sz:10,f:s,w:700});return `<polygon points="${cx},${y} ${x+w},${cy} ${cx},${y+h} ${x},${cy}" fill="${f}" stroke="${s}" stroke-width="1.75"/>${lbl}`};
 
 // ── FLOWCHARTS ──
 function flowOrderCycle(){
@@ -297,8 +301,8 @@ function flowOrderCycle(){
   return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
   <defs>${AR('cg','#145C30')}${AR('cr','#C0392B')}${AR('ca','#C87D0A')}</defs>
   ${R(60,10,320,32,16,'#0C2B18','transparent')}${T(220,30,'DETECTAR HALLAZGO',{sz:11,f:'#fff'})}
-  ${BOX(100,60,240,40,'Registrar en AppSheet','Foto + hora + área + responsable','#E4F2E9','#145C30')}
-  ${DM(100,120,240,50,'¿Infraestructura crítica?','#FDECEA','#C0392B')}
+  ${BOX(100,60,240,40,'Registrar en el sistema','Foto + hora + área + responsable','#E4F2E9','#145C30')}
+  ${DM(100,120,240,50,'¿Infraestructura crítica?','','#FDECEA','#C0392B')}
   ${R(20,122,68,46,8,'#FDECEA','#C0392B',1.5)}${T(54,141,'Notif.',{sz:9,f:'#C0392B',w:700})}${T(54,154,'Jefe+Ger.',{sz:9,f:'#C0392B',w:400})}
   ${DM(100,192,240,50,'¿Monto estimado?','','#FDF3E3','#C87D0A')}
   ${BOX(10,264,120,42,'Jefe Mant.','≤$20K','#E4F2E9','#145C30')}
@@ -307,7 +311,7 @@ function flowOrderCycle(){
   ${BOX(100,326,240,40,'Cotizar según umbral','Ver § 8.3','#E4F2E9','#145C30')}
   ${BOX(100,384,240,40,'Ejecutar con evidencia','Antes · durante · después','#E4F2E9','#145C30')}
   ${BOX(100,442,240,40,'Validar resultado','Prueba funcional + foto','#E4F2E9','#145C30')}
-  ${R(120,498,200,32,16,'#145C30','transparent')}${T(220,518,'✓ CERRAR EN APPSHEET',{sz:11,f:'#fff'})}
+  ${R(120,498,200,32,16,'#145C30','transparent')}${T(220,518,'✓ CERRAR EN EL SISTEMA',{sz:11,f:'#fff'})}
   ${LN(220,42,220,59,'#145C30','','cg')}${LN(220,100,220,119,'#145C30','','cg')}
   ${LN(100,145,89,145,'#C0392B','','cr')}${T(74,141,'SÍ',{sz:8,f:'#C0392B',w:700})}
   ${PL('20,145 20,210 99,210','#C0392B','','cr')}
@@ -330,11 +334,11 @@ function flowPTAR(){
   ${BOX(100,48,240,40,'Revisión cámaras Fase 1 y 2','Niveles · coloración · olores','#E4F2E9','#145C30')}
   ${DM(100,108,240,50,'¿Anomalía?','','#FDF3E3','#C87D0A')}
   ${BOX(20,110,68,44,'Normal','Registrar','#E4F2E9','#145C30')}
-  ${BOX(100,178,240,40,'Fotografiar y describir','AppSheet con hora y detalle','#FDF3E3','#C87D0A')}
+  ${BOX(100,178,240,40,'Fotografiar y describir','Sistema con hora y detalle','#FDF3E3','#C87D0A')}
   ${DM(100,238,240,52,'¿Señal crítica?','Espuma · olor · desborde','#FDECEA','#C0392B')}
   ${R(100,310,240,40,8,'#FDECEA','#C0392B',1.5)}${T(220,326,'Notificar Gerencia',{sz:11,f:'#C0392B',w:700})}${T(220,340,'Plan de acción &lt;2 hrs',{sz:9,f:'#C0392B',w:400})}
   ${BOX(100,370,240,40,'Nivel 2 — Alerta','Inspección c/4h + proveedor','#FDF3E3','#C87D0A')}
-  ${BOX(100,430,240,40,'Registrar en AppSheet','Estado · hora · foto','#E4F2E9','#145C30')}
+  ${BOX(100,430,240,40,'Registrar en el sistema','Estado · hora · foto','#E4F2E9','#145C30')}
   ${R(120,482,200,14,7,'#D6D8D0','transparent')}${T(220,493,'✓ inspección cerrada',{sz:10,f:'#5A6054'})}
   ${LN(220,40,220,47,'#145C30','','pg')}${LN(220,88,220,107,'#145C30','','pg')}
   ${LN(100,133,89,133,'#145C30','','pg')}${T(74,129,'NO',{sz:8,f:'#145C30',w:700})}
@@ -456,7 +460,7 @@ function flowCorrectivo(){
   <defs>${AR('mcg','#145C30')}${AR('mcr','#C0392B')}${AR('mca','#C87D0A')}</defs>
   ${R(60,10,320,30,15,'#0C2B18','transparent')}${T(220,29,'MANTENIMIENTO CORRECTIVO',{sz:11,f:'#fff'})}
   ${BOX(100,52,240,40,'Detectar y fotografiar','Antes de cualquier intervención','#FDECEA','#C0392B')}
-  ${BOX(100,110,240,40,'Registrar en AppSheet','Tipo · área · hora · foto · urgencia','#E4F2E9','#145C30')}
+  ${BOX(100,110,240,40,'Registrar en el sistema','Tipo · área · hora · foto · urgencia','#E4F2E9','#145C30')}
   ${DM(100,170,240,50,'¿Riesgo inmediato?','Seguridad · agua · energía','#FDECEA','#C0392B')}
   ${R(20,172,68,46,8,'#FDF3E3','#C87D0A',1.5)}${T(54,191,'Contener','#C87D0A',{sz:9,w:700,f:'#C87D0A'})}${T(54,204,'primero','',{sz:9,w:400,f:'#C87D0A'})}
   ${BOX(100,240,240,40,'Clasificar prioridad','Crítica · Alta · Media · Preventiva','#FDF3E3','#C87D0A')}
@@ -465,7 +469,7 @@ function flowCorrectivo(){
   ${BOX(156,372,130,40,'Gerencia','$20K–$50K','#FDF3E3','#C87D0A')}
   ${BOX(302,372,128,40,'Dirección','>$50K','#FDECEA','#C0392B')}
   ${BOX(100,430,240,40,'Ejecutar · evidenciar · cerrar','Foto antes/durante/después','#E4F2E9','#145C30')}
-  ${R(120,482,200,14,7,'#D6D8D0','transparent')}${T(220,493,'✓ AppSheet cerrado con evidencia',{sz:10,f:'#5A6054'})}
+  ${R(120,482,200,14,7,'#D6D8D0','transparent')}${T(220,493,'✓ Cerrado en el sistema con evidencia',{sz:10,f:'#5A6054'})}
   ${LN(220,42,220,51,'#145C30','','mcg')}${LN(220,92,220,109,'#145C30','','mcg')}${LN(220,150,220,169,'#145C30','','mcg')}
   ${LN(100,195,89,195,'#C87D0A','','mca')}${T(74,191,'Sí',{sz:8,f:'#C87D0A',w:700})}${PL('20,195 20,258 99,258','#C87D0A','','mca')}
   ${LN(220,220,220,239,'#145C30','','mcg')}${T(228,232,'No',{sz:8,f:'#145C30',w:700,a:'start'})}
@@ -485,7 +489,7 @@ function flowKPI(){
   return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
   <defs>${AR('kg','#145C30')}${AR('ka','#C87D0A')}</defs>
   ${R(0,0,W,26,0,'#0C2B18','transparent')}${T(W/2,18,'CIERRE MENSUAL — DATO → DECISIÓN',{sz:10,f:'#fff'})}
-  ${BOX(10,36,120,48,'AppSheet','Checklists y fotos','#E4F2E9','#145C30')}
+  ${BOX(10,36,120,48,'Sistema','Checklists y fotos','#E4F2E9','#145C30')}
   ${BOX(160,36,120,48,'Bitácoras','Agua · PTAR · Gen.','#EAF2FB','#2A6098')}
   ${BOX(310,36,120,48,'Costos','Facturas · OT','#FDF3E3','#C87D0A')}
   ${PL('70,84 70,110 220,110','#145C30','','kg')}${PL('220,84 220,110','#2A6098','','kg')}${PL('370,84 370,110 220,110','#C87D0A','','ka')}
@@ -495,7 +499,7 @@ function flowKPI(){
   ${LN(220,232,220,257,'#C87D0A','','ka')}
   ${BOX(90,258,260,48,'Plan del mes siguiente','Acciones · compras · responsables','#E4F2E9','#145C30')}
   ${LN(220,306,220,331,'#145C30','','kg')}
-  ${BOX(90,332,260,48,'Archivar evidencia','AppSheet + carpeta digital','#EAF2FB','#2A6098')}
+  ${BOX(90,332,260,48,'Archivar evidencia','Sistema + carpeta digital','#EAF2FB','#2A6098')}
   ${R(120,390,200,32,16,'#145C30','transparent')}${T(220,410,'✓ Reporte entregado',{sz:11,f:'#fff'})}
   ${LN(220,380,220,389,'#145C30','','kg')}
   </svg>`;
@@ -577,14 +581,14 @@ PAGES.p11=()=>`
 <div class="card"><div class="st"><span class="n">2</span>Responsables por Área</div>
   <div class="rl">
     <div class="rc"><div class="rt">Jefe de Mantenimiento</div><div class="rs2">Lun–Vie · 06:00–14:00</div><div class="rd">PTAR, generador, sistema eléctrico, agua potable, pluma CAME, albercas. Autoriza hasta $20,000 MXN.</div></div>
-    <div class="rc"><div class="rt">Personal de Mantenimiento</div><div class="rs2">Lun–Dom · 06:00–15:00</div><div class="rd">Rutinas diarias, lecturas de parámetros, reparaciones menores, registro en AppSheet.</div></div>
+    <div class="rc"><div class="rt">Personal de Mantenimiento</div><div class="rs2">Lun–Dom · 06:00–15:00</div><div class="rd">Rutinas diarias, lecturas de parámetros, reparaciones menores, registro en el sistema.</div></div>
     <div class="rc a"><div class="rt">Gerencia Administrativa</div><div class="rs2">Lun–Vie · 10:00–18:00</div><div class="rd">Aprueba $20K–$50K. Coordina proveedores. Comunica incidencias a residentes y Dirección.</div></div>
     <div class="rc"><div class="rt">Personal de Limpieza</div><div class="rs2">Lun–Dom · 07:00–16:00</div><div class="rd">Áreas comunes, pasillos, muelle, canchas. Encargado: Bolón + 6 personas.</div></div>
   </div>
 </div>
 <div class="card"><div class="st"><span class="n r">3</span>Emergencias — ¿Quién hace qué?</div>${emergSwim()}</div>
 <div class="card"><div class="st"><span class="n">4</span>Principios No Negociables</div>
-  <div class="co cg"><div class="co-i">📋</div><div class="co-b"><strong>Todo en AppSheet — sin excepción</strong>Cada inspección, lectura, anomalía y reparación registrada antes de las 10:00 AM. Sin registro = no ocurrió = no se paga.</div></div>
+  <div class="co cg"><div class="co-i">📋</div><div class="co-b"><strong>Todo en el sistema — sin excepción</strong>Cada inspección, lectura, anomalía y reparación registrada antes de las 10:00 AM. Sin registro = no ocurrió = no se paga.</div></div>
   <div class="co cr"><div class="co-i">⚡</div><div class="co-b"><strong>Infraestructura crítica: respuesta en 2 horas</strong>PTAR, generador, sistema eléctrico y agua. Cualquier anomalía requiere plan de acción en menos de 2 horas.</div></div>
   <div class="co ca"><div class="co-i">🌿</div><div class="co-b"><strong>Protección ecológica obligatoria</strong>Ningún residuo, químico ni efluente puede llegar a la Laguna de Bacalar. Riesgo activa PE-34 y llamada a CONANP.</div></div>
 </div>
@@ -592,14 +596,14 @@ PAGES.p11=()=>`
 
 PAGES.p12=()=>`
 <div class="card"><div class="ey">1.0 Marco General · 1.2</div><h2 class="ct">Ciclo de Mantenimiento</h2><p style="color:var(--muted);font-size:13px">Detectar → registrar → priorizar → ejecutar → validar → cerrar.</p></div>
-<div class="card"><div class="st"><span class="n">1</span>Flujograma — Orden de Trabajo</div><div class="fw">${flowOrderCycle()}</div></div>
+<div class="card"><div class="st"><span class="n">1</span>Flujograma — Orden de Trabajo</div><div class="fw">${flowOrderCycle()}<div class="fw-legend"><b>Cómo leer este diagrama</b><span><span class="fw-diamond"></span>Punto de decisión</span><span><span class="fw-dot" style="background:var(--g2)"></span>Continuar / Sí</span><span><span class="fw-dot" style="background:var(--r2)"></span>Detener / No</span><span><span class="fw-dot" style="background:var(--a2)"></span>Ruta alterna</span></div></div></div>
 <div class="card"><div class="st"><span class="n">2</span>Frecuencias de Mantenimiento Preventivo</div>
   <div class="tw"><table>
     <thead><tr><th>Frecuencia</th><th>Actividades principales</th><th>Responsable</th><th>Registro</th></tr></thead>
     <tbody>
-      <tr><td><span class="bx br">Diaria</span></td><td>Lecturas agua potable (5 veces) · Inspección PTAR · Parámetros alberca · Nivel generador · Pluma CAME</td><td>Personal Mant.</td><td>AppSheet antes 09:00 AM</td></tr>
-      <tr><td><span class="bx ba">Semanal</span></td><td>Backwash filtro sedimentos · Revisión tablero eléctrico · Stock bioetanol · Limpieza profunda muelle · Soplado 3×/día</td><td>Jefe Mant.</td><td>AppSheet lunes</td></tr>
-      <tr><td><span class="bx bb">Quincenal</span></td><td>Backwash carbón activado · Revisión canchas (cristales, red, arena) · Limpieza cisternas</td><td>Jefe Mant.</td><td>AppSheet + foto</td></tr>
+      <tr><td><span class="bx br">Diaria</span></td><td>Lecturas agua potable (5 veces) · Inspección PTAR · Parámetros alberca · Nivel generador · Pluma CAME</td><td>Personal Mant.</td><td>Sistema antes 09:00 AM</td></tr>
+      <tr><td><span class="bx ba">Semanal</span></td><td>Backwash filtro sedimentos · Revisión tablero eléctrico · Stock bioetanol · Limpieza profunda muelle · Soplado 3×/día</td><td>Jefe Mant.</td><td>Sistema lunes</td></tr>
+      <tr><td><span class="bx bb">Quincenal</span></td><td>Backwash carbón activado · Revisión canchas (cristales, red, arena) · Limpieza cisternas</td><td>Jefe Mant.</td><td>Sistema + foto</td></tr>
       <tr><td><span class="bx bg">Mensual</span></td><td>Prueba generador (arranque + carga) · Revisión bomba PTAR · Inspección CCTV · Revisión tablero eléctrico completo · Reporte KPIs</td><td>Jefe Mant. + Gerencia</td><td>Reporte mensual</td></tr>
       <tr><td><span class="bx" style="background:#F0EAFF;color:#4A2080">Trimestral</span></td><td>Inspección estructural muelle · Mantenimiento mayor albercas · Calibración equipos medición · Revisión preventiva generador</td><td>Proveedor certificado</td><td>Dictamen + factura</td></tr>
       <tr><td><span class="bx" style="background:#E8E8E8;color:#333">Anual</span></td><td>Auditoría completa de equipos · Renovación pólizas · Revisión y actualización de manual</td><td>Jefe Mant. + Dirección</td><td>Informe anual</td></tr>
@@ -617,7 +621,7 @@ PAGES.p12=()=>`
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 1.2</span><span>Aldea Mayab · Confidencial</span></div>`;
 
 PAGES.p13=()=>`
-<div class="card card-new"><div class="ey">1.0 Marco General · 1.3</div><h2 class="ct">Evidencia y Registro en AppSheet</h2><p style="color:var(--muted);font-size:13px">Qué registrar, cómo y cuándo. La evidencia es la diferencia entre una rutina y una promesa.</p></div>
+<div class="card card-new"><div class="ey">1.0 Marco General · 1.3</div><h2 class="ct">Evidencia y Registro en el Sistema</h2><p style="color:var(--muted);font-size:13px">Qué registrar, cómo y cuándo. La evidencia es la diferencia entre una rutina y una promesa.</p></div>
 <div class="card"><div class="st"><span class="n">1</span>Principio de Evidencia</div>
   <div class="co cr"><div class="co-i">📷</div><div class="co-b"><strong>Sin foto no existe — sin registro no ocurrió</strong>Toda actividad de mantenimiento debe tener evidencia visual. La foto es parte del procedimiento, no un extra opcional. Gerencia puede rechazar el pago a proveedores sin evidencia antes/durante/después.</div></div>
   <div class="g2">
@@ -643,10 +647,10 @@ PAGES.p13=()=>`
 <div class="card"><div class="st"><span class="n">3</span>Modo Offline — Sin Conexión</div>
   <div class="sw">
     <div class="sw-r"><div class="sw-l">Operador</div><div class="sw-c">Registrar en bitácora física. Incluir: fecha, hora, parámetros leídos, acciones tomadas y firma.</div></div>
-    <div class="sw-r"><div class="sw-l">Jefe Mant.</div><div class="sw-c">Digitalizar en AppSheet antes de las 18:00 del mismo día que se recupere la conexión.</div></div>
+    <div class="sw-r"><div class="sw-l">Jefe Mant.</div><div class="sw-c">Digitalizar en el sistema antes de las 18:00 del mismo día que se recupere la conexión.</div></div>
     <div class="sw-r"><div class="sw-l">Evidencia</div><div class="sw-c">Fotografiar la bitácora física y adjuntar al registro digital. La bitácora física se conserva en archivo físico mensual.</div></div>
   </div>
-  <div class="co ca"><div class="co-i">📖</div><div class="co-b"><strong>Bitácoras físicas obligatorias</strong>Agua potable · PTAR · Generador · Albercas. Cuadernos Estrella numerados por sistema. El número de página y la fecha deben coincidir con AppSheet.</div></div>
+  <div class="co ca"><div class="co-i">📖</div><div class="co-b"><strong>Bitácoras físicas obligatorias</strong>Agua potable · PTAR · Generador · Albercas. Cuadernos Estrella numerados por sistema. El número de página y la fecha deben coincidir con el sistema.</div></div>
 </div>
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 1.3</span><span>Aldea Mayab · Confidencial</span></div>`;
 
@@ -670,7 +674,7 @@ PAGES.p14=()=>`
     <li><div class="sn b">1</div><span><strong>WhatsApp con foto:</strong> enviar al Jefe de Mantenimiento con foto, hora y descripción breve. Si no responde en 15 min, llamar directamente.</span></li>
     <li><div class="sn">2</div><span><strong>Formato mínimo de mensaje:</strong> <em>"[Sistema] — [Descripción breve] — [Hora] — [Acción tomada] — [Foto adjunta]"</em>. No enviar mensajes de voz como única evidencia.</span></li>
     <li><div class="sn a">3</div><span><strong>Si el Jefe no está disponible:</strong> notificar a Gerencia directamente. No esperar si el sistema afectado es crítico.</span></li>
-    <li><div class="sn">4</div><span><strong>Registrar en AppSheet</strong> aunque ya se haya notificado por WhatsApp. El WhatsApp no reemplaza el registro formal.</span></li>
+    <li><div class="sn">4</div><span><strong>Registrar en el sistema</strong> aunque ya se haya notificado por WhatsApp. El WhatsApp no reemplaza el registro formal.</span></li>
   </ul>
   <div class="co ca"><div class="co-i">📞</div><div class="co-b"><strong>Cadena de escalamiento</strong>Operador → Jefe Mant. (15 min sin respuesta) → Gerencia → Dirección. Nunca saltarse niveles salvo en emergencia con riesgo a personas o laguna.</div></div>
 </div>
@@ -680,18 +684,18 @@ PAGES.p21=()=>`
 <div class="card card-hero"><div class="ey">2.0 PTAR · 2.1</div><h2 class="ct">Inspección Diaria PTAR</h2><p>Fase 1 y Fase 2 · 08:00 AM · registro antes de 09:00 AM</p>
   <div class="g3" style="margin-top:12px">
     <div class="kp" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)"><div class="v" style="color:var(--g4)">08:00 AM</div><div class="l" style="color:rgba(255,255,255,.6)">Inspección</div></div>
-    <div class="kp" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)"><div class="v" style="color:var(--g4)">09:00 AM</div><div class="l" style="color:rgba(255,255,255,.6)">Límite AppSheet</div></div>
+    <div class="kp" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)"><div class="v" style="color:var(--g4)">09:00 AM</div><div class="l" style="color:rgba(255,255,255,.6)">Límite de Registro</div></div>
     <div class="kp" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)"><div class="v" style="color:#f87e7e">&lt;2 hrs</div><div class="l" style="color:rgba(255,255,255,.6)">Respuesta anomalía</div></div>
   </div>
 </div>
-<div class="card"><div class="st"><span class="n">1</span>Flujograma — Inspección PTAR</div><div class="fw">${flowPTAR()}</div></div>
+<div class="card"><div class="st"><span class="n">1</span>Flujograma — Inspección PTAR</div><div class="fw">${flowPTAR()}<div class="fw-legend"><b>Cómo leer este diagrama</b><span><span class="fw-diamond"></span>Punto de decisión</span><span><span class="fw-dot" style="background:var(--g2)"></span>Continuar / Sí</span><span><span class="fw-dot" style="background:var(--r2)"></span>Detener / No</span><span><span class="fw-dot" style="background:var(--a2)"></span>Ruta alterna</span></div></div></div>
 <div class="card"><div class="st"><span class="n">2</span>Checklist 08:00 AM</div>
   <ul class="cl">
     <li><div class="cb2"></div><span>Inspección visual cámaras Fase 1 y Fase 2 — niveles de lodos</span></li>
     <li><div class="cb2"></div><span>Coloración del agua — clara o ligeramente turbia (no marrón ni negra)</span></li>
     <li><div class="cb2"></div><span>Olores fuertes — anormal si se detectan a más de 5 metros</span></li>
     <li><div class="cb2"></div><span>Señalética en baños: "PROHIBIDO tirar papel, toallas húmedas, aceites, grasas"</span></li>
-    <li><div class="cb2"></div><span>Registrar en AppSheet antes de las 09:00 AM <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="cb2"></div><span>Registrar en el sistema antes de las 09:00 AM <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="card"><div class="st"><span class="n a">2b</span>Polidex — Sábados 12:00 PM</div>
@@ -703,7 +707,7 @@ PAGES.p21=()=>`
       <tr><td><strong>Producto</strong></td><td><strong>Polidex</strong> — activador biológico líquido. Conservar etiqueta original en bodega para referencia de dosis.</td></tr>
       <tr><td><strong>Dosis</strong></td><td><em>[PENDIENTE: confirmar dosis con Jefe de Mantenimiento e insertar aquí]</em></td></tr>
       <tr><td><strong>Punto de aplicación</strong></td><td>Cámara de aireación principal — Fase 1. NO en desagüe general ni tomas de agua potable.</td></tr>
-      <tr><td><strong>Registro AppSheet</strong></td><td>Fecha · hora · dosis · observaciones visuales post-aplicación. <span class="ob">OBLIGATORIO</span></td></tr>
+      <tr><td><strong>Registro en Sistema</strong></td><td>Fecha · hora · dosis · observaciones visuales post-aplicación. <span class="ob">OBLIGATORIO</span></td></tr>
     </tbody>
   </table></div>
 </div>
@@ -726,7 +730,7 @@ PAGES.p22=()=>`
   <div class="tw"><table>
     <thead><tr><th>Nivel</th><th>Condición</th><th>Respuesta</th><th>Tiempo</th></tr></thead>
     <tbody>
-      <tr><td><span class="bx bg">Nivel 1 — Normal</span></td><td>Parámetros en rango, operación estándar</td><td>Registro diario AppSheet</td><td>Antes 09:00 AM</td></tr>
+      <tr><td><span class="bx bg">Nivel 1 — Normal</span></td><td>Parámetros en rango, operación estándar</td><td>Registro diario en sistema</td><td>Antes 09:00 AM</td></tr>
       <tr><td><span class="bx ba">Nivel 2 — Alerta</span></td><td>Espuma leve, olor detectado, lodos en límite</td><td>Inspección c/4h + contactar proveedor PTAR</td><td>&lt;4 hrs</td></tr>
       <tr><td><span class="bx br">Nivel 3 — Crítico</span></td><td>Desborde, fuga, agua negra, olor intenso</td><td>Gerencia + Dirección + vactor urgente</td><td>Inmediato &lt;1 hr</td></tr>
     </tbody>
@@ -765,11 +769,11 @@ PAGES.p30=()=>`
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 3.0</span><span>Aldea Mayab · Confidencial</span></div>`;
 
 PAGES.p31=()=>`
-<div class="card"><div class="ey">3.0 Agua Potable · 3.1</div><h2 class="ct">Lecturas Diarias</h2><p style="color:var(--muted);font-size:13px">5 lecturas fijas por día · registro obligatorio en AppSheet.</p></div>
+<div class="card"><div class="ey">3.0 Agua Potable · 3.1</div><h2 class="ct">Lecturas Diarias</h2><p style="color:var(--muted);font-size:13px">5 lecturas fijas por día · registro obligatorio en el sistema.</p></div>
 <div class="card"><div class="st"><span class="n b">1</span>Horarios de Lectura</div>
   <div class="g3">
     ${['08:30','11:00','13:00','16:00','18:00'].map((h,i)=>`<div class="kp"><div class="v" style="color:var(--b2)">${h}</div><div class="l">Lectura ${i+1}</div><div class="s">${i===0?'Completa: todos los parámetros':i===4?'Última + consumo total M³':'Niveles + PPM + bombas'}</div></div>`).join('')}
-    <div class="kp" style="background:var(--rs);border-color:#F0C0BC"><div class="v" style="color:var(--r2)">09:00 AM</div><div class="l">Límite AppSheet</div><div class="s">Sin registro = alerta automática a Gerencia</div></div>
+    <div class="kp" style="background:var(--rs);border-color:#F0C0BC"><div class="v" style="color:var(--r2)">09:00 AM</div><div class="l">Límite de Registro</div><div class="s">Sin registro = alerta automática a Gerencia</div></div>
   </div>
 </div>
 <div class="card"><div class="st"><span class="n b">2</span>Parámetros y Acciones</div>
@@ -825,7 +829,7 @@ PAGES.p32=()=>`
     <li><div class="sn">1</div><span>Usar solo <strong>Salt Pellets</strong> para suavizadores. No usar sal de mesa ni sal granulada industrial.</span></li>
     <li><div class="sn">2</div><span>Verter lentamente en el depósito blanco junto a los tanques. Objetivo: <strong>90%</strong>.</span></li>
     <li><div class="sn r">3</div><span>Si baja de <strong>50%</strong>: pedir sal hoy. El suavizador deja de regenerar y el agua distribuida se vuelve dura.</span></li>
-    <li><div class="sn">4</div><span>Registrar en AppSheet: nivel antes y después, cantidad agregada, fecha y hora. <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="sn">4</div><span>Registrar en el sistema: nivel antes y después, cantidad agregada, fecha y hora. <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 3.2</span><span>Aldea Mayab · Confidencial</span></div>`;
@@ -839,7 +843,7 @@ PAGES.p33=()=>`
     <div class="os-c"><div class="t">Referencia Bacalar</div><div class="v">~800 ppm OK</div></div>
   </div>
 </div>
-<div class="card"><div class="st"><span class="n b">1</span>Flujograma — Paso a Paso</div><div class="fw">${flowDureza()}</div></div>
+<div class="card"><div class="st"><span class="n b">1</span>Flujograma — Paso a Paso</div><div class="fw">${flowDureza()}<div class="fw-legend"><b>Cómo leer este diagrama</b><span><span class="fw-diamond"></span>Punto de decisión</span><span><span class="fw-dot" style="background:var(--g2)"></span>Continuar / Sí</span><span><span class="fw-dot" style="background:var(--r2)"></span>Detener / No</span><span><span class="fw-dot" style="background:var(--a2)"></span>Ruta alterna</span></div></div></div>
 <div class="card"><div class="st"><span class="n b">2</span>Procedimiento Detallado</div>
   <ul class="steps">
     <li><div class="sn b">1</div><span>Tomar muestra del punto de <strong>agua suave</strong> — después del suavizador, antes de las bombas.</span></li>
@@ -847,7 +851,7 @@ PAGES.p33=()=>`
     <li><div class="sn a">3</div><span>Agregar gotas del <strong>gotero blanco</strong>, una por una, hasta que el color cambie.</span></li>
     <li><div class="sn a">4</div><span>Contar las gotas blancas usadas hasta el cambio de color.</span></li>
     <li><div class="sn">5</div><span>Calcular dureza: <strong>número de gotas blancas × 50 = PPM</strong>. Ejemplo: 16 gotas = 800 PPM.</span></li>
-    <li><div class="sn">6</div><span>Registrar en AppSheet o bitácora: hora, número de gotas, PPM calculado, nivel de sal y observaciones.</span></li>
+    <li><div class="sn">6</div><span>Registrar en el sistema o bitácora: hora, número de gotas, PPM calculado, nivel de sal y observaciones.</span></li>
   </ul>
   <div class="co cb"><div class="co-i">💧</div><div class="co-b"><strong>~800 PPM puede ser normal en Bacalar</strong>El agua de la zona es naturalmente dura. No usar estándares de ciudad. Lo que importa es la tendencia: si sube consistentemente o se acerca al nivel de agua cruda, hay un problema en el suavizador.</div></div>
 </div>
@@ -882,7 +886,7 @@ PAGES.p41=()=>`
 <div class="card"><div class="st"><span class="n a">1</span>Circuitos Prioritarios</div>
   <div class="g2">
     <div class="kp" style="border-top:3px solid var(--r2)"><div class="v" style="color:var(--r2)">Prioridad 1</div><div class="l">Nunca apagar</div><div class="s">PTAR · Caseta/barrera CAME · Iluminación emergencia</div></div>
-    <div class="kp" style="border-top:3px solid var(--a2)"><div class="v" style="color:var(--a2)">Prioridad 2</div><div class="l">Importantes</div><div class="s">Recepción/AppSheet · Bombas de agua potable · Generador</div></div>
+    <div class="kp" style="border-top:3px solid var(--a2)"><div class="v" style="color:var(--a2)">Prioridad 2</div><div class="l">Importantes</div><div class="s">Recepción/Sistema · Bombas de agua potable · Generador</div></div>
     <div class="kp" style="border-top:3px solid var(--b2)"><div class="v" style="color:var(--b2)">Prioridad 3</div><div class="l">Reducible</div><div class="s">Iluminación decorativa · Aires acondicionados amenidades</div></div>
     <div class="kp" style="border-top:3px solid var(--muted)"><div class="v" style="color:var(--muted)">Prioridad 4</div><div class="l">No esencial</div><div class="s">Apagar si combustible generador &lt;30%</div></div>
   </div>
@@ -904,7 +908,7 @@ PAGES.p41=()=>`
     <li><div class="cb2"></div><span>Sin señales de calentamiento, humedad, óxido o cables sueltos</span></li>
     <li><div class="cb2"></div><span>Tapa del tablero principal cerrada y en buen estado</span></li>
     <li><div class="cb2"></div><span>Etiquetas de circuitos legibles — si falta alguna, crear e instalar la misma semana</span></li>
-    <li><div class="cb2"></div><span>Registrar estado en AppSheet con foto <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="cb2"></div><span>Registrar estado en el sistema con foto <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 4.1</span><span>Aldea Mayab · Confidencial</span></div>`;
@@ -919,7 +923,7 @@ PAGES.p42=()=>`
     <li><div class="cb2"></div><span>Batería de arranque — conexiones firmes, sin corrosión</span></li>
     <li><div class="cb2"></div><span>Arranque en frío 3 min — sin humo excesivo, sin ruidos anormales <span class="bx ba">MENSUAL</span></span></li>
     <li><div class="cb2"></div><span>Prueba bajo carga real 30 min (circuitos críticos activos) <span class="bx ba">MENSUAL</span></span></li>
-    <li><div class="cb2"></div><span>Registrar en AppSheet: combustible %, aceite, estado batería, observaciones <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="cb2"></div><span>Registrar en el sistema: combustible %, aceite, estado batería, observaciones <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="card"><div class="st"><span class="n r">2</span>Activación de Emergencia</div>
@@ -929,7 +933,7 @@ PAGES.p42=()=>`
     <li><div class="sn">3</div><span>Encender en posición Manual y esperar 60 segundos para estabilizar.</span></li>
     <li><div class="sn">4</div><span>Transferir circuitos: Prioridad 1 primero, luego 2 y 3 según combustible disponible.</span></li>
     <li><div class="sn a">5</div><span>Notificar a Gerencia. Llamar a CFE: <strong>071</strong> para tiempo estimado de restauración.</span></li>
-    <li><div class="sn">6</div><span>Registrar en AppSheet: hora de activación, circuitos transferidos, nivel de combustible.</span></li>
+    <li><div class="sn">6</div><span>Registrar en el sistema: hora de activación, circuitos transferidos, nivel de combustible.</span></li>
   </ul>
   <div class="co ca"><div class="co-i">⛽</div><div class="co-b"><strong>Protocolo de combustible crítico</strong>Ver tabla en § 1.2 — si el combustible baja de 30% durante una emergencia, apagar circuitos Prioridad 3 y 4. PTAR permanece activa mientras haya combustible. Proveedor de diesel: <em>[INSERTAR 2 CONTACTOS con celular personal]</em></div></div>
 </div>
@@ -945,7 +949,7 @@ PAGES.p43=()=>`
     <li><div class="cb2"></div><span>Brazo: sin deformación, sin daño físico, tornillos firmes</span></li>
     <li><div class="cb2"></div><span>Botonera de caseta: responde normalmente</span></li>
     <li><div class="cb2"></div><span>Alimentación eléctrica: luz indicadora encendida</span></li>
-    <li><div class="cb2"></div><span>Registrar en AppSheet: "CAME Operativa / Falla — [hora]" <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="cb2"></div><span>Registrar en el sistema: "CAME Operativa / Falla — [hora]" <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="card"><div class="st"><span class="n">2</span>Mantenimiento Preventivo</div>
@@ -982,7 +986,7 @@ PAGES.p44=()=>`
     <li><div class="cb2"></div><span>Caseta de seguridad: iluminación exterior funcional</span></li>
     <li><div class="cb2"></div><span>Acceso principal: fotosensor activa la luz al oscurecer (verificar al anochecer)</span></li>
     <li><div class="cb2"></div><span>Área acuática: luminaria sumergible sin señales de agua en carcasa</span></li>
-    <li><div class="cb2"></div><span>Registrar lámparas fundidas en AppSheet e informar Jefe de Mantenimiento <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="cb2"></div><span>Registrar lámparas fundidas en el sistema e informar Jefe de Mantenimiento <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="card"><div class="st"><span class="n a">3</span>Protocolo de Reposición de Lámparas</div>
@@ -998,8 +1002,8 @@ PAGES.p44=()=>`
 
 PAGES.p45=()=>`
 <div class="card card-new"><div class="ey">4.0 Infraestructura · 4.5</div><h2 class="ct">Protocolo Post-Falla Eléctrica</h2><p style="color:var(--muted);font-size:13px">Cualquier corte de energía puede desconfigurar timers y dejar sistemas fuera de ciclo. Verificar en orden antes de declarar operación normal.</p></div>
-<div class="card"><div class="st"><span class="n r">1</span>Secuencia de Verificación — Máximo 45 min</div><div class="fw">${flowPostFalla()}</div>
-  <div class="co cr" style="margin-top:6px"><div class="co-i">⏱️</div><div class="co-b"><strong>Los 8 puntos deben estar registrados en AppSheet</strong>Completar la verificación y registrar el estado de cada sistema. Si alguno no se recupera: notificar a Gerencia con el estado exacto, no solo decir "hay un problema".</div></div>
+<div class="card"><div class="st"><span class="n r">1</span>Secuencia de Verificación — Máximo 45 min</div><div class="fw">${flowPostFalla()}<div class="fw-legend"><b>Cómo leer este diagrama</b><span><span class="fw-diamond"></span>Punto de decisión</span><span><span class="fw-dot" style="background:var(--g2)"></span>Continuar / Sí</span><span><span class="fw-dot" style="background:var(--r2)"></span>Detener / No</span><span><span class="fw-dot" style="background:var(--a2)"></span>Ruta alterna</span></div></div>
+  <div class="co cr" style="margin-top:6px"><div class="co-i">⏱️</div><div class="co-b"><strong>Los 8 puntos deben estar registrados en el sistema</strong>Completar la verificación y registrar el estado de cada sistema. Si alguno no se recupera: notificar a Gerencia con el estado exacto, no solo decir "hay un problema".</div></div>
 </div>
 <div class="card"><div class="st"><span class="n r">2</span>Sistemas que Requieren Ajuste Manual Post-Corte</div>
   <div class="tw"><table>
@@ -1030,7 +1034,7 @@ PAGES.p51=()=>`
     <li><div class="cb2"></div><span>Retirar hojas y residuos · revisar skimmers y canastillas</span></li>
     <li><div class="cb2"></div><span>Aspirar fondo · cepillar paredes y escalones</span></li>
     <li><div class="cb2"></div><span>Medir pH y cloro · fotografiar kit de prueba con hora visible</span></li>
-    <li><div class="cb2"></div><span>Registrar en AppSheet o bitácora · lectura subida antes de abrir</span></li>
+    <li><div class="cb2"></div><span>Registrar en el sistema o bitácora · lectura subida antes de abrir</span></li>
     <li><div class="cb2"></div><span>Reabrir solo si pH ≥7.2, cloro ≥1.0 ppm y agua clara</span></li>
   </ul>
 </div>
@@ -1127,7 +1131,7 @@ PAGES.p54=()=>`
       <tr><td><strong>Máquina de cables</strong></td><td>1</td><td>Lubricación de cables y poleas mensual</td></tr>
     </tbody>
   </table></div>
-  <div class="co ca"><div class="co-i">🏋️</div><div class="co-b"><strong>Equipo dañado: fuera de servicio inmediato</strong>Colocar letrero "Fuera de servicio" de la caja de recepción. Reportar a Mantenimiento con foto en AppSheet. Solo retirar el letrero cuando el Jefe de Mantenimiento confirme la reparación.</div></div>
+  <div class="co ca"><div class="co-i">🏋️</div><div class="co-b"><strong>Equipo dañado: fuera de servicio inmediato</strong>Colocar letrero "Fuera de servicio" de la caja de recepción. Reportar a Mantenimiento con foto en el sistema. Solo retirar el letrero cuando el Jefe de Mantenimiento confirme la reparación.</div></div>
 </div>
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 5.4</span><span>Aldea Mayab · Confidencial</span></div>`;
 
@@ -1142,14 +1146,14 @@ PAGES.p55=()=>`
     <li><div class="cb2"></div><span>Nivel de bioetanol suficiente para la sesión (mínimo 3 litros)</span></li>
     <li><div class="cb2"></div><span>Extintor en el área, accesible, con carga vigente</span></li>
     <li><div class="cb2"></div><span>Bancas sin daño estructural, tornillos firmes</span></li>
-    <li><div class="cb2"></div><span>Registrar habilitación en AppSheet antes de la sesión <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="cb2"></div><span>Registrar habilitación en el sistema antes de la sesión <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="card"><div class="st"><span class="n a">2</span>Inventario de Bioetanol</div>
   <div class="tw"><table>
     <thead class="a"><tr><th>Nivel stock</th><th>Estado</th><th>Acción de mantenimiento</th></tr></thead>
     <tbody>
-      <tr><td><span class="bx bg">&gt;40 litros</span></td><td>Normal</td><td>Registrar en AppSheet el lunes</td></tr>
+      <tr><td><span class="bx bg">&gt;40 litros</span></td><td>Normal</td><td>Registrar en el sistema el lunes</td></tr>
       <tr><td><span class="bx ba">20–40 litros</span></td><td>Pedir esta semana</td><td>Generar orden de compra preventiva</td></tr>
       <tr><td><span class="bx br">&lt;15 litros con sesión reservada</span></td><td>Cancelar sesión</td><td>Notificar a Gerencia para que avise al residente con 12h anticipación y emita reembolso</td></tr>
     </tbody>
@@ -1182,7 +1186,7 @@ PAGES.p56=()=>`
     <tbody>
       <tr><td><span class="bx br">Diaria</span></td><td>Inspección visual tablones, barandales y escalinata · reporte de piezas sueltas o con deterioro visible</td><td>Guardia matutino</td></tr>
       <tr><td><span class="bx ba">Semanal</span></td><td>Limpieza de algas en pilotes con cepillo · verificar anclajes metálicos por corrosión · barrer tablones</td><td>Mantenimiento</td></tr>
-      <tr><td><span class="bx bg">Mensual</span></td><td>Inspección completa con registro fotográfico · aplicar sellador en tablones si necesario · registrar en AppSheet</td><td>Jefe Mant.</td></tr>
+      <tr><td><span class="bx bg">Mensual</span></td><td>Inspección completa con registro fotográfico · aplicar sellador en tablones si necesario · registrar en el sistema</td><td>Jefe Mant.</td></tr>
       <tr><td><span class="bx" style="background:#F0EAFF;color:#4A2080">Trimestral</span></td><td>Revisión estructural por <strong>ingeniero civil o arquitecto con cédula profesional</strong> · dictamen escrito obligatorio</td><td>Proveedor certificado</td></tr>
     </tbody>
   </table></div>
@@ -1205,7 +1209,7 @@ PAGES.p61=()=>`
     <li><div class="sn a">2</div><span>Verificar separación. Si hay mezcla: fotografiar, registrar unidad y notificar a PM en tono educativo. <span class="ob">OBLIGATORIO</span></span></li>
     <li><div class="sn a">3</div><span>Bolsas fuera de contenedores: fotografiar e identificar unidad para seguimiento</span></li>
     <li><div class="sn">4</div><span>Transportar al Acopio General separando por categoría</span></li>
-    <li><div class="sn">5</div><span>Registrar recolección completa en AppSheet <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="sn">5</div><span>Registrar recolección completa en el sistema <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 6.1</span><span>Aldea Mayab · Confidencial</span></div>`;
@@ -1275,7 +1279,7 @@ PAGES.p71=()=>`
     <li><div class="cb2"></div><span>Verificar estado de delimitaciones de cajones: pintura visible, bollas en su lugar</span></li>
     <li><div class="cb2"></div><span>Verificar señalética vial: flechas, señales de stop, "velocidad máxima", sin daño ni decoloración</span></li>
     <li><div class="cb2"></div><span>Revisar iluminación de estacionamiento y vialidad nocturna</span></li>
-    <li><div class="cb2"></div><span>Registrar hallazgos en AppSheet con foto y ubicación exacta <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="cb2"></div><span>Registrar hallazgos en el sistema con foto y ubicación exacta <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="card"><div class="st"><span class="n">2</span>Criterios de Urgencia</div>
@@ -1313,7 +1317,7 @@ PAGES.p72=()=>`
     <li><div class="cb2"></div><span>Verificar encendido de luminarias de estacionamiento al anochecer — semanal</span></li>
     <li><div class="cb2"></div><span>Limpiar cubiertas de luminarias de polvo y telarañas — mensual</span></li>
     <li><div class="cb2"></div><span>Reemplazar lámparas fundidas en &lt;48 horas en vialidad principal · &lt;7 días en zonas secundarias</span></li>
-    <li><div class="cb2"></div><span>Registrar estado en AppSheet con foto mensual <span class="ob">OBLIGATORIO</span></span></li>
+    <li><div class="cb2"></div><span>Registrar estado en el sistema con foto mensual <span class="ob">OBLIGATORIO</span></span></li>
   </ul>
 </div>
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 7.2</span><span>Aldea Mayab · Confidencial</span></div>`;
@@ -1346,7 +1350,7 @@ PAGES.p81=()=>`
       <tr><td><strong>Fecha y hora</strong></td><td>Cuándo se detectó, no cuándo se reportó</td><td>23/04/2026 · 08:47 AM</td></tr>
       <tr><td><strong>Sistema / área</strong></td><td>Dónde ocurrió exactamente</td><td>Bomba presuriza­dora 2 · cuarto de máquinas</td></tr>
       <tr><td><strong>Descripción</strong></td><td>Qué se observó, cómo se detectó</td><td>"Bomba no arranca, sin ruido de motor, disyuntor en ON"</td></tr>
-      <tr><td><strong>Foto antes</strong></td><td>Foto del equipo o área en condición de falla</td><td>Adjuntar a AppSheet inmediatamente</td></tr>
+      <tr><td><strong>Foto antes</strong></td><td>Foto del equipo o área en condición de falla</td><td>Adjuntar al sistema inmediatamente</td></tr>
       <tr><td><strong>Acción inmediata</strong></td><td>Qué se hizo en ese momento</td><td>"Se verificó tensión, se notificó al Jefe"</td></tr>
       <tr><td><strong>Responsable</strong></td><td>Quién detectó y quién fue notificado</td><td>"Detectó: Operador A · Notificó: Jefe Mant."</td></tr>
     </tbody>
@@ -1370,7 +1374,7 @@ PAGES.p82=()=>`
 <div class="card"><div class="st"><span class="n r">2</span>Seguimiento de Órdenes Abiertas</div>
   <div class="co ca"><div class="co-i">🕐</div><div class="co-b"><strong>Orden abierta &gt;72 horas = reporte a Gerencia</strong>Si una orden de trabajo Crítica o Alta lleva más de 72 horas sin cierre, el Jefe de Mantenimiento debe notificar a Gerencia con: estado actual, obstáculo, plan de cierre y fecha estimada.</div></div>
   <ul class="steps">
-    <li><div class="sn">1</div><span>Revisar todas las órdenes abiertas en AppSheet todos los lunes.</span></li>
+    <li><div class="sn">1</div><span>Revisar todas las órdenes abiertas en el sistema todos los lunes.</span></li>
     <li><div class="sn">2</div><span>Clasificar: cerradas esta semana, en proceso con fecha, bloqueadas por proveedor o por autorización.</span></li>
     <li><div class="sn a">3</div><span>Órdenes bloqueadas &gt;7 días: actualizar estado y escalar si corresponde.</span></li>
     <li><div class="sn">4</div><span>Incluir resumen de órdenes abiertas en el reporte mensual (ver § 10.2).</span></li>
@@ -1390,7 +1394,7 @@ PAGES.p83=()=>`
       <tr><td>Más de $50,000 MXN</td><td>3 cotizaciones + comparativo técnico</td><td>Dirección General</td><td>Antes de ejecutar · puede requerir Comité</td></tr>
     </tbody>
   </table></div>
-  <div class="co cr"><div class="co-i">🚫</div><div class="co-b"><strong>Emergencia no exime de evidencia</strong>Si la urgencia impide cotizar: ejecutar y documentar la justificación en AppSheet el mismo día. "No había tiempo" sin registro es un incumplimiento, no una excepción válida.</div></div>
+  <div class="co cr"><div class="co-i">🚫</div><div class="co-b"><strong>Emergencia no exime de evidencia</strong>Si la urgencia impide cotizar: ejecutar y documentar la justificación en el sistema el mismo día. "No había tiempo" sin registro es un incumplimiento, no una excepción válida.</div></div>
 </div>
 <div class="card"><div class="st"><span class="n a">2</span>Qué Debe Contener una Cotización Válida</div>
   <ul class="steps">
@@ -1405,7 +1409,7 @@ PAGES.p83=()=>`
 
 PAGES.p84=()=>`
 <div class="card card-new"><div class="ey">8.0 Mantenimiento Correctivo · 8.4</div><h2 class="ct">Ejecución, Evidencia y Cierre</h2></div>
-<div class="card"><div class="st"><span class="n">1</span>Flujograma — Mantenimiento Correctivo Completo</div><div class="fw">${flowCorrectivo()}</div></div>
+<div class="card"><div class="st"><span class="n">1</span>Flujograma — Mantenimiento Correctivo Completo</div><div class="fw">${flowCorrectivo()}<div class="fw-legend"><b>Cómo leer este diagrama</b><span><span class="fw-diamond"></span>Punto de decisión</span><span><span class="fw-dot" style="background:var(--g2)"></span>Continuar / Sí</span><span><span class="fw-dot" style="background:var(--r2)"></span>Detener / No</span><span><span class="fw-dot" style="background:var(--a2)"></span>Ruta alterna</span></div></div></div>
 <div class="card"><div class="st"><span class="n">2</span>Protocolo de Evidencia</div>
   <div class="g3">
     <div class="kp" style="border-top:3px solid var(--r2)"><div class="v" style="color:var(--r2)">Antes</div><div class="l">Estado de la falla</div><div class="s">Foto del equipo o área con la falla visible. Sin esto no hay base de comparación.</div></div>
@@ -1416,10 +1420,10 @@ PAGES.p84=()=>`
 <div class="card"><div class="st"><span class="n">3</span>Criterios de Cierre</div>
   <div class="cb3">
     <div class="cb3-i ok"><strong>Puede cerrar</strong><span>Equipo funciona · foto del resultado · prueba funcional exitosa · factura o recibo adjunto.</span></div>
-    <div class="cb3-i warn"><strong>Cierre condicional</strong><span>Funciona pero requiere monitoreo. Crear nueva tarea de seguimiento en AppSheet con fecha.</span></div>
+    <div class="cb3-i warn"><strong>Cierre condicional</strong><span>Funciona pero requiere monitoreo. Crear nueva tarea de seguimiento en el sistema con fecha.</span></div>
     <div class="cb3-i stop"><strong>No cerrar</strong><span>No se confirmó función correcta · falta evidencia · factura pendiente · problema recurrente.</span></div>
   </div>
-  <div class="co cg"><div class="co-i">✓</div><div class="co-b"><strong>Garantías</strong>Solicitar garantía por escrito en trabajos mayores a $5,000 MXN. Registrar en AppSheet: fecha de vencimiento de garantía, proveedor y número de contacto para reclamaciones.</div></div>
+  <div class="co cg"><div class="co-i">✓</div><div class="co-b"><strong>Garantías</strong>Solicitar garantía por escrito en trabajos mayores a $5,000 MXN. Registrar en el sistema: fecha de vencimiento de garantía, proveedor y número de contacto para reclamaciones.</div></div>
 </div>
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 8.4</span><span>Aldea Mayab · Confidencial</span></div>`;
 
@@ -1463,7 +1467,7 @@ PAGES.p92=()=>`
     <li><div class="sn">3</div><span>EPP requerido (listado en § 9.3).</span></li>
     <li><div class="sn a">4</div><span>Nombre del supervisor de Mantenimiento que autoriza y estará presente.</span></li>
     <li><div class="sn">5</div><span>Condiciones de cierre: área limpia, sin residuos, sin herramienta olvidada.</span></li>
-    <li><div class="sn">6</div><span>Firma del Jefe de Mantenimiento antes de iniciar. Registrar en AppSheet.</span></li>
+    <li><div class="sn">6</div><span>Firma del Jefe de Mantenimiento antes de iniciar. Registrar en el sistema.</span></li>
   </ul>
 </div>
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · 9.2</span><span>Aldea Mayab · Confidencial</span></div>`;
@@ -1492,13 +1496,13 @@ PAGES.p101=()=>`
   <div class="tw"><table>
     <thead class="b"><tr><th>Sistema</th><th>KPI</th><th>Meta</th><th>Fuente</th><th>Frecuencia</th></tr></thead>
     <tbody>
-      <tr><td><strong>PTAR</strong></td><td>Inspecciones cerradas</td><td>100% antes 09:00 AM</td><td>AppSheet</td><td>Diaria</td></tr>
-      <tr><td><strong>PTAR</strong></td><td>Polidex aplicado</td><td>100% de sábados</td><td>AppSheet</td><td>Semanal</td></tr>
-      <tr><td><strong>Agua potable</strong></td><td>Lecturas completas</td><td>5 lecturas/día</td><td>Bitácora + AppSheet</td><td>Diaria</td></tr>
+      <tr><td><strong>PTAR</strong></td><td>Inspecciones cerradas</td><td>100% antes 09:00 AM</td><td>Sistema</td><td>Diaria</td></tr>
+      <tr><td><strong>PTAR</strong></td><td>Polidex aplicado</td><td>100% de sábados</td><td>Sistema</td><td>Semanal</td></tr>
+      <tr><td><strong>Agua potable</strong></td><td>Lecturas completas</td><td>5 lecturas/día</td><td>Bitácora + Sistema</td><td>Diaria</td></tr>
       <tr><td><strong>Agua potable</strong></td><td>Cisterna suave</td><td>≥180,000 Lt</td><td>Lectura diaria</td><td>Diaria</td></tr>
-      <tr><td><strong>Albercas</strong></td><td>Parámetros en rango</td><td>pH ≥7.2 · cloro ≥1.0 ppm</td><td>Foto kit + AppSheet</td><td>Diaria</td></tr>
+      <tr><td><strong>Albercas</strong></td><td>Parámetros en rango</td><td>pH ≥7.2 · cloro ≥1.0 ppm</td><td>Foto kit + Sistema</td><td>Diaria</td></tr>
       <tr><td><strong>Generador</strong></td><td>Prueba mensual</td><td>1/mes con evidencia</td><td>Checklist</td><td>Mensual</td></tr>
-      <tr><td><strong>Correctivos</strong></td><td>Órdenes abiertas &gt;72h</td><td>0 sin seguimiento</td><td>AppSheet</td><td>Semanal</td></tr>
+      <tr><td><strong>Correctivos</strong></td><td>Órdenes abiertas &gt;72h</td><td>0 sin seguimiento</td><td>Sistema</td><td>Semanal</td></tr>
       <tr><td><strong>Proveedores</strong></td><td>Con permiso de trabajo activo</td><td>100% al ingresar</td><td>Registro caseta</td><td>Por evento</td></tr>
     </tbody>
   </table></div>
@@ -1514,11 +1518,11 @@ PAGES.p101=()=>`
 
 PAGES.p102=()=>`
 <div class="card"><div class="ey">10.0 KPIs y Reporte · 10.2</div><h2 class="ct">Reporte Mensual</h2></div>
-<div class="card"><div class="st"><span class="n b">1</span>Flujo del Reporte</div><div class="fw">${flowKPI()}</div></div>
+<div class="card"><div class="st"><span class="n b">1</span>Flujo del Reporte</div><div class="fw">${flowKPI()}<div class="fw-legend"><b>Cómo leer este diagrama</b><span><span class="fw-diamond"></span>Punto de decisión</span><span><span class="fw-dot" style="background:var(--g2)"></span>Continuar / Sí</span><span><span class="fw-dot" style="background:var(--r2)"></span>Detener / No</span><span><span class="fw-dot" style="background:var(--a2)"></span>Ruta alterna</span></div></div></div>
 <div class="card"><div class="st"><span class="n b">2</span>Checklist de Cierre Mensual</div>
   <ul class="cl">
-    <li><div class="cb2"></div><span>Exportar cumplimiento de AppSheet por sistema (PTAR, agua, albercas, generador)</span></li>
-    <li><div class="cb2"></div><span>Revisar bitácoras físicas y verificar que coinciden con AppSheet</span></li>
+    <li><div class="cb2"></div><span>Exportar cumplimiento del registro digital por sistema (PTAR, agua, albercas, generador)</span></li>
+    <li><div class="cb2"></div><span>Revisar bitácoras físicas y verificar que coinciden con el sistema</span></li>
     <li><div class="cb2"></div><span>Consolidar consumo de agua suave en M³ del mes</span></li>
     <li><div class="cb2"></div><span>Listar todas las órdenes de trabajo: abiertas, cerradas, costo y proveedor</span></li>
     <li><div class="cb2"></div><span>Revisar stock de insumos vs. umbrales de pedido (ver Apéndice B)</span></li>
@@ -1574,7 +1578,7 @@ PAGES.pa2=()=>`
 <div class="pf"><span>PR-AM-MNT-001 · Libro IV · Apéndice B</span><span>Aldea Mayab · Confidencial</span></div>`;
 
 PAGES.pa3=()=>`
-<div class="card card-new"><div class="ey">Apéndices · C</div><h2 class="ct">Frecuencias Preventivas — Resumen</h2><p style="color:var(--muted);font-size:13px">Vista consolidada de todas las tareas preventivas por frecuencia. Base para configurar AppSheet.</p></div>
+<div class="card card-new"><div class="ey">Apéndices · C</div><h2 class="ct">Frecuencias Preventivas — Resumen</h2><p style="color:var(--muted);font-size:13px">Vista consolidada de todas las tareas preventivas por frecuencia. Base para configurar el sistema.</p></div>
 <div class="card"><div class="st"><span class="n">1</span>Matriz de Frecuencias</div>
   <div class="tw" style="overflow-x:auto"><table>
     <thead><tr><th>Frecuencia</th><th>Sistema</th><th>Actividad</th><th>Responsable</th></tr></thead>
