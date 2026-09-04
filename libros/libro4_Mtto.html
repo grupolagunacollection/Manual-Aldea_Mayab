@@ -219,8 +219,9 @@ tr:last-child td{border-bottom:none}td strong{color:var(--g2)}
   .fm-cell{border-right:none}
 }
 </style>
+<link rel="stylesheet" href="../Assets/manual-system.css">
 </head>
-<body>
+<body class="manual-system manual-book-4">
 <button id="ham" aria-label="Menú"><span></span><span></span><span></span></button>
 <div id="ov"></div>
 <aside id="sb">
@@ -234,7 +235,7 @@ tr:last-child td{border-bottom:none}td strong{color:var(--g2)}
 <div id="main">
   <div id="topbar">
     <div id="crumb">Libro IV › <strong>Portada</strong></div>
-    <span class="tb-v">v12.0</span>
+    <span style="display:flex;align-items:center;gap:14px;"><a href="../index.html" style="color:#145C30;text-decoration:none;font-size:10px;font-weight:700;">← Centro operativo</a><span class="tb-v">v12.0</span></span>
   </div>
   <div id="content"></div>
 </div>
@@ -506,23 +507,18 @@ function flowKPI(){
 }
 
 function orgRoles(){
-  const W=680,H=300;
-  return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="DM Sans,sans-serif" style="max-width:100%;height:auto;">
-  <defs>${AR('og','#145C30')}${AR('oa','#C87D0A')}</defs>
-  ${R(0,0,W,26,0,'#0C2B18','transparent')}${T(W/2,17,'Organigrama Funcional — Mantenimiento e Infraestructura',{sz:11,f:'#fff'})}
-  ${R(260,36,160,38,8,'#E4F2E9','#145C30',1.5)}${T(340,52,'Dirección General',{sz:11,f:'#145C30',w:700})}${T(340,66,'Aprueba >$50K',{sz:9,f:'#145C3099',w:400})}
-  ${R(260,106,160,38,8,'#E4F2E9','#145C30',1.5)}${T(340,122,'Gerencia Administrativa',{sz:11,f:'#145C30',w:700})}${T(340,136,'Aprueba $20K–$50K',{sz:9,f:'#145C3099',w:400})}
-  ${R(260,174,160,44,8,'#0C2B18','transparent')}${T(340,192,'Jefe de Mantenimiento',{sz:11,f:'#fff',w:700})}${T(340,207,'≤$20K · Lun–Vie 06–14h',{sz:9,f:'rgba(255,255,255,.6)',w:400})}
-  ${R(8,252,126,36,8,'#F5F7F4','#5A6054',1.5)}${T(71,267,'Personal Mant.',{sz:10,f:'#5A6054',w:700})}${T(71,280,'06–15h',{sz:9,f:'#5A605499',w:400})}
-  ${R(148,252,126,36,8,'#F5F7F4','#5A6054',1.5)}${T(211,267,'Personal Limpieza',{sz:10,f:'#5A6054',w:700})}${T(211,280,'07–16h',{sz:9,f:'#5A605499',w:400})}
-  ${R(390,252,126,36,8,'#F5F7F4','#5A6054',1.5)}${T(453,267,'Proveedor Externo',{sz:10,f:'#5A6054',w:700})}${T(453,280,'Según contrato',{sz:9,f:'#5A605499',w:400})}
-  ${R(530,252,142,36,8,'#F5F7F4','#5A6054',1.5)}${T(601,267,'Guardia/Seguridad',{sz:10,f:'#5A6054',w:700})}${T(601,280,'24 horas',{sz:9,f:'#5A605499',w:400})}
-  ${LN(340,74,340,105,'#145C30','','og')}${LN(340,144,340,173,'#145C30','','og')}
-  ${PL('340,218 340,241 71,241 71,251','#5A6054','','oa')}
-  ${PL('340,218 340,241 211,241 211,251','#5A6054','','oa')}
-  ${PL('340,218 340,241 453,241 453,251','#5A6054','','oa')}
-  ${PL('340,218 340,241 601,241 601,251','#5A6054','','oa')}
-  </svg>`;
+  return `<div class="am-org-chart" aria-label="Organigrama funcional de mantenimiento">
+    <div class="am-org-level"><div class="am-role primary"><strong>Dirección General</strong><span>Autoriza trabajos mayores a $50,000 MXN</span></div></div>
+    <div class="am-org-level"><div class="am-role secondary"><strong>Gerencia Administrativa</strong><span>Autoriza de $20,000 a $50,000 MXN y coordina recursos</span></div></div>
+    <div class="am-org-level"><div class="am-role primary"><strong>Jefe de Mantenimiento</strong><span>Autoriza hasta $20,000 MXN · Lun–Vie 06:00–14:00</span></div></div>
+    <div class="am-org-level branches" style="grid-template-columns:repeat(4,1fr)">
+      <div class="am-org-branch"><div class="am-role"><strong>Personal de Mantenimiento</strong><span>Rutinas y correctivos · 06:00–15:00</span></div></div>
+      <div class="am-org-branch"><div class="am-role"><strong>Personal de Limpieza</strong><span>Áreas comunes · 07:00–16:00</span></div></div>
+      <div class="am-org-branch"><div class="am-role"><strong>Proveedor Externo</strong><span>Trabajo especializado según contrato</span></div></div>
+      <div class="am-org-branch"><div class="am-role"><strong>Guardia / Seguridad</strong><span>Control y apoyo disponible 24 horas</span></div></div>
+    </div>
+  </div>
+  <div class="am-directive"><div class="am-directive-label">Directriz</div><div class="am-directive-body"><strong>El Jefe de Mantenimiento asigna y valida la ejecución.</strong> Gerencia y Dirección autorizan recursos según monto; no sustituyen la supervisión técnica ni el cierre con evidencia.</div></div>`;
 }
 
 function emergSwim(){
@@ -556,6 +552,41 @@ function emergSwim(){
       </div>
     </div>`).join('')}
   </div>`;
+}
+
+function mapWater(){
+  return `<div class="am-map">
+    <div class="am-map-head"><div><strong>Ubicación de PTAR y tratamiento de agua</strong><span>Referencia visual confirmada en el plano autorizado.</span></div></div>
+    <div class="am-map-scroll"><div class="am-map-stage">
+      <img src="../Assets/Mapa_Operacion_Aldea_Mayab_Muelle_Real.jpg" alt="Mapa técnico con PTAR y cisternas de Aldea Mayab">
+      <button class="am-map-pin water" style="--x:29.9;--y:54.3" title="Cisterna y tratamiento de agua">CIS</button>
+      <button class="am-map-pin water" style="--x:35.3;--y:54.3" title="Planta de tratamiento de aguas residuales">PT</button>
+    </div></div>
+    <div class="am-map-legend"><span class="water">CIS · Cisternas y tratamiento</span><span class="water">PT · PTAR</span></div>
+  </div>
+  <div class="am-directive"><div class="am-directive-label">Al llegar al punto</div><div class="am-directive-body"><strong>Identificar el sistema antes de intervenir.</strong> CIS corresponde al abastecimiento y tratamiento de agua; PT corresponde a aguas residuales. Fotografiar el punto, registrar hora y condición, y no operar equipos eléctricos si existe humedad o derrame.</div></div>`;
+}
+
+function mapEnergy(){
+  return `<div class="am-map">
+    <div class="am-map-head"><div><strong>Tableros y transformadores</strong><span>Los tableros están detrás de las escaleras de cada edificio; los transformadores son subterráneos.</span></div></div>
+    <div class="am-map-scroll"><div class="am-map-stage">
+      <img src="../Assets/Mapa_Operacion_Aldea_Mayab_Muelle_Real.jpg" alt="Mapa técnico de tableros y transformadores eléctricos de Aldea Mayab">
+      <button class="am-map-pin energy" style="--x:22;--y:45.5" title="Tablero T1 Chaká, detrás de la escalera">T1</button>
+      <button class="am-map-pin energy" style="--x:29.3;--y:43.5" title="Tablero T2 Chechén, detrás de la escalera">T2</button>
+      <button class="am-map-pin energy" style="--x:37;--y:43.8" title="Tablero T3 Yaxché, detrás de la escalera">T3</button>
+      <button class="am-map-pin energy" style="--x:44;--y:46" title="Tablero T4 Balché, detrás de la escalera">T4</button>
+      <button class="am-map-pin energy" style="--x:52.4;--y:43.2" title="Tablero T5 Jabín, detrás de la escalera">T5</button>
+      <button class="am-map-pin energy" style="--x:59.8;--y:45" title="Tablero T6 Kitanché, detrás de la escalera">T6</button>
+      <button class="am-map-pin energy" style="--x:67.3;--y:43" title="Tablero T7 Pich, detrás de la escalera">T7</button>
+      <button class="am-map-pin energy" style="--x:75.8;--y:44.4" title="Tablero T8 Chit, detrás de la escalera">T8</button>
+      <button class="am-map-pin energy" style="--x:28.1;--y:40.7" title="Transformador subterráneo del camino peatonal de Chechén">TR1</button>
+      <button class="am-map-pin energy" style="--x:47;--y:44.6" title="Transformador subterráneo al lado del camino, detrás de edificios">TR2</button>
+      <button class="am-map-pin energy" style="--x:34;--y:58.2" title="Transformador subterráneo cerca de la entrada del estacionamiento Fase 1">TR3</button>
+    </div></div>
+    <div class="am-map-legend"><span class="energy">T1–T8 · Tablero detrás de escalera</span><span class="energy">TR1 · Camino peatonal Chechén</span><span class="energy">TR2 · Camino posterior</span><span class="energy">TR3 · Entrada estacionamiento Fase 1</span></div>
+  </div>
+  <div class="am-directive critical"><div class="am-directive-label">Antes de abrir</div><div class="am-directive-body"><strong>Identificar edificio y circuito, avisar al Jefe de Mantenimiento y aislar el área.</strong> Un disyuntor sólo se rearma una vez. Si vuelve a dispararse, hay olor a quemado, humedad o calentamiento: no intervenir y solicitar electricista.</div></div>`;
 }
 
 // ── PAGES ──
@@ -596,7 +627,17 @@ PAGES.p11=()=>`
 
 PAGES.p12=()=>`
 <div class="card"><div class="ey">1.0 Marco General · 1.2</div><h2 class="ct">Ciclo de Mantenimiento</h2><p style="color:var(--muted);font-size:13px">Detectar → registrar → priorizar → ejecutar → validar → cerrar.</p></div>
-<div class="card"><div class="st"><span class="n">1</span>Flujograma — Orden de Trabajo</div><div class="fw">${flowOrderCycle()}<div class="fw-legend"><b>Cómo leer este diagrama</b><span><span class="fw-diamond"></span>Punto de decisión</span><span><span class="fw-dot" style="background:var(--g2)"></span>Continuar / Sí</span><span><span class="fw-dot" style="background:var(--r2)"></span>Detener / No</span><span><span class="fw-dot" style="background:var(--a2)"></span>Ruta alterna</span></div></div></div>
+<div class="card"><div class="st"><span class="n">1</span>Ciclo de la orden de trabajo</div>
+  <div class="am-flow" aria-label="Ciclo de mantenimiento">
+    <div class="am-flow-row" style="--cols:4">
+      <div class="am-flow-step"><span class="am-flow-kicker">1 · Detectar</span><strong>Registrar la condición</strong><span>Área, hora, descripción y foto antes de intervenir.</span></div>
+      <div class="am-flow-step warn"><span class="am-flow-kicker">2 · Priorizar</span><strong>Definir riesgo y responsable</strong><span>Crítica, alta, media o preventiva; escalar según monto y afectación.</span></div>
+      <div class="am-flow-step"><span class="am-flow-kicker">3 · Ejecutar</span><strong>Intervenir con autorización</strong><span>Asignar personal o proveedor y documentar el trabajo.</span></div>
+      <div class="am-flow-step"><span class="am-flow-kicker">4 · Validar</span><strong>Probar y cerrar</strong><span>Confirmar función, adjuntar evidencia y programar seguimiento.</span></div>
+    </div>
+    <div class="am-flow-critical">No cerrar una orden si falta prueba funcional, evidencia final, responsable o fecha de seguimiento.</div>
+  </div>
+</div>
 <div class="card"><div class="st"><span class="n">2</span>Frecuencias de Mantenimiento Preventivo</div>
   <div class="tw"><table>
     <thead><tr><th>Frecuencia</th><th>Actividades principales</th><th>Responsable</th><th>Registro</th></tr></thead>
@@ -688,7 +729,18 @@ PAGES.p21=()=>`
     <div class="kp" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.15)"><div class="v" style="color:#f87e7e">&lt;2 hrs</div><div class="l" style="color:rgba(255,255,255,.6)">Respuesta anomalía</div></div>
   </div>
 </div>
-<div class="card"><div class="st"><span class="n">1</span>Flujograma — Inspección PTAR</div><div class="fw">${flowPTAR()}<div class="fw-legend"><b>Cómo leer este diagrama</b><span><span class="fw-diamond"></span>Punto de decisión</span><span><span class="fw-dot" style="background:var(--g2)"></span>Continuar / Sí</span><span><span class="fw-dot" style="background:var(--r2)"></span>Detener / No</span><span><span class="fw-dot" style="background:var(--a2)"></span>Ruta alterna</span></div></div></div>
+${mapWater()}
+<div class="card"><div class="st"><span class="n">1</span>Ruta de inspección PTAR</div>
+  <div class="am-flow" aria-label="Ruta de inspección diaria de PTAR">
+    <div class="am-flow-row" style="--cols:4">
+      <div class="am-flow-step"><span class="am-flow-kicker">08:00 · Observar</span><strong>Revisar ambas fases</strong><span>Niveles, color, espuma, olor, fuga y sonido de equipos.</span></div>
+      <div class="am-flow-step warn"><span class="am-flow-kicker">Clasificar</span><strong>Normal, alerta o crítico</strong><span>No continuar como rutina si hay desborde, agua negra u olor intenso.</span></div>
+      <div class="am-flow-step"><span class="am-flow-kicker">Actuar</span><strong>Corregir o escalar</strong><span>Aplicar acción segura y avisar al Jefe de Mantenimiento según nivel.</span></div>
+      <div class="am-flow-step"><span class="am-flow-kicker">Antes de 09:00</span><strong>Registrar evidencia</strong><span>Foto, hora, condición, acción y responsable en el sistema.</span></div>
+    </div>
+    <div class="am-flow-critical">Desborde o riesgo hacia la laguna: contener sin exponerse, notificar Gerencia y activar el protocolo ambiental.</div>
+  </div>
+</div>
 <div class="card"><div class="st"><span class="n">2</span>Checklist 08:00 AM</div>
   <ul class="cl">
     <li><div class="cb2"></div><span>Inspección visual cámaras Fase 1 y Fase 2 — niveles de lodos</span></li>
@@ -883,6 +935,7 @@ PAGES.p34=()=>`
 
 PAGES.p41=()=>`
 <div class="card"><div class="ey">4.0 Infraestructura · 4.1</div><h2 class="ct">Sistema Eléctrico</h2></div>
+${mapEnergy()}
 <div class="card"><div class="st"><span class="n a">1</span>Circuitos Prioritarios</div>
   <div class="g2">
     <div class="kp" style="border-top:3px solid var(--r2)"><div class="v" style="color:var(--r2)">Prioridad 1</div><div class="l">Nunca apagar</div><div class="s">PTAR · Caseta/barrera CAME · Iluminación emergencia</div></div>
@@ -1409,7 +1462,17 @@ PAGES.p83=()=>`
 
 PAGES.p84=()=>`
 <div class="card card-new"><div class="ey">8.0 Mantenimiento Correctivo · 8.4</div><h2 class="ct">Ejecución, Evidencia y Cierre</h2></div>
-<div class="card"><div class="st"><span class="n">1</span>Flujograma — Mantenimiento Correctivo Completo</div><div class="fw">${flowCorrectivo()}<div class="fw-legend"><b>Cómo leer este diagrama</b><span><span class="fw-diamond"></span>Punto de decisión</span><span><span class="fw-dot" style="background:var(--g2)"></span>Continuar / Sí</span><span><span class="fw-dot" style="background:var(--r2)"></span>Detener / No</span><span><span class="fw-dot" style="background:var(--a2)"></span>Ruta alterna</span></div></div></div>
+<div class="card"><div class="st"><span class="n">1</span>Mantenimiento correctivo completo</div>
+  <div class="am-flow" aria-label="Flujo de mantenimiento correctivo">
+    <div class="am-flow-row" style="--cols:4">
+      <div class="am-flow-step"><span class="am-flow-kicker">1 · Asegurar</span><strong>Contener el riesgo</strong><span>Señalizar, aislar y fotografiar antes de tocar el equipo.</span></div>
+      <div class="am-flow-step warn"><span class="am-flow-kicker">2 · Autorizar</span><strong>Clasificar monto y urgencia</strong><span>Jefe ≤$20K · Gerencia $20K–$50K · Dirección &gt;$50K.</span></div>
+      <div class="am-flow-step"><span class="am-flow-kicker">3 · Reparar</span><strong>Ejecutar el trabajo</strong><span>Controlar acceso del proveedor y conservar evidencia durante la intervención.</span></div>
+      <div class="am-flow-step"><span class="am-flow-kicker">4 · Cerrar</span><strong>Probar el resultado</strong><span>Foto final, prueba funcional, costo, garantía y seguimiento.</span></div>
+    </div>
+    <div class="am-flow-critical">Una emergencia permite actuar de inmediato, pero no elimina la autorización posterior ni la obligación de documentar.</div>
+  </div>
+</div>
 <div class="card"><div class="st"><span class="n">2</span>Protocolo de Evidencia</div>
   <div class="g3">
     <div class="kp" style="border-top:3px solid var(--r2)"><div class="v" style="color:var(--r2)">Antes</div><div class="l">Estado de la falla</div><div class="s">Foto del equipo o área con la falla visible. Sin esto no hay base de comparación.</div></div>
@@ -1677,7 +1740,12 @@ function closeSB(){document.getElementById('sb').classList.remove('open');docume
 document.getElementById('ham').addEventListener('click',toggleSB);
 document.getElementById('ov').addEventListener('click',closeSB);
 // ── INIT ──
-buildNav();buildPages();show('cover');
+function handleDeepLink(){
+  const id=window.location.hash.replace('#','');
+  show(PAGES[id]?id:'cover');
+}
+buildNav();buildPages();handleDeepLink();
+window.addEventListener('hashchange',handleDeepLink);
 </script>
 </body>
 </html>
