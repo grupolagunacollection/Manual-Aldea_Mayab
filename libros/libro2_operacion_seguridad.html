@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Libro II — Operación y Seguridad | Aldea Mayab</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600&display=swap');
 :root{
   --bg:#F4F6F5;--white:#FFFFFF;--ink:#111816;--ink-soft:#2C3A30;--ink-muted:#5A6E60;
   --accent:#1F5C38;--accent-mid:#2E7D50;--accent-pale:#E8F4ED;
@@ -51,7 +51,7 @@ nav{padding:6px 0 40px;}
 .page.active{display:block;animation:fadeUp .2s ease;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 .proc-eyebrow{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent-mid);margin-bottom:5px;}
-.proc-title{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:6px;}
+.proc-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--ink);line-height:1.2;margin-bottom:6px;}
 .proc-subtitle{font-size:13.5px;color:var(--ink-muted);margin-bottom:22px;line-height:1.5;}
 .info-table{width:100%;border-collapse:collapse;border:1px solid var(--rule);margin-bottom:24px;background:var(--white);border-radius:var(--radius);overflow:hidden;}
 .info-table td{padding:10px 14px;border:1px solid var(--rule);vertical-align:top;}
@@ -172,6 +172,20 @@ nav{padding:6px 0 40px;}
 #sidebar nav::-webkit-scrollbar-thumb{background:#2A4A30;border-radius:4px;}
 #sidebar nav::-webkit-scrollbar-thumb:hover{background:#3A6040;}
 
+
+:root{--green-950:#0d302a;--green-800:#174c40;--green-700:#246454;--green-50:#f0f6f3;--gold:#b18a43;--line:#d8e2dd;--muted:#65736d}
+body{font-weight:400}.proc-title{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:500;letter-spacing:-.015em}.proc-eyebrow,.it-label,.ic-label{font-weight:600}.sec-title,.s-name,.it-value{font-weight:500}
+#content{max-width:1040px}.page{background:#fff;border:1px solid var(--line);border-radius:14px;padding:42px 46px;box-shadow:0 8px 30px rgba(13,48,42,.045)}
+.home-link,.print-button{border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--green-800);font:500 11px Inter,sans-serif;padding:7px 10px;text-decoration:none;cursor:pointer}.topbar-meta{align-items:center}
+.status-guide{margin:20px 0}.status-guide h2,.quick h2,.decision-diagram h2{font-size:15px;font-weight:500;margin:0 0 12px}.status-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.status-grid>div{border:1px solid var(--line);border-radius:10px;padding:13px}.status-grid b{font-size:10px;font-weight:600;letter-spacing:.06em}.status-grid p{margin:4px 0 0;font-size:12px;color:var(--muted)}
+.notice{border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:9px;padding:12px 14px;margin:14px 0;background:#fffaf0}.notice b{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#76591f}.notice p{margin:4px 0 0;font-size:12px;color:#5e5544}.notice.is-pending{border-left-color:#9a6922}.notice.is-reference{border-left-color:#39738f;background:#f2f8fb}.notice.is-reference b{color:#285c72}
+.quick{margin:0 0 18px;border:1px solid var(--line);border-radius:12px;background:var(--green-50);padding:16px}.quick dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0}.quick dl>div{background:#fff;border:1px solid var(--line);border-radius:9px;padding:11px;min-width:0}.quick dt{font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--green-700)}.quick dd{margin:4px 0 0;font-size:12px;color:var(--ink);overflow-wrap:anywhere}
+.decision-diagram{border:1px solid var(--line);border-radius:12px;background:#fbfdfc;padding:20px;margin:18px 0}.flow-start,.flow-end,.flow-step,.flow-decision{border:1px solid #b9d0c9;border-radius:10px;background:#fff;padding:12px 14px;text-align:center;font-size:12px;line-height:1.4}.flow-start{background:var(--green-950);color:#fff;border-color:var(--green-950);font-weight:500}.flow-end{background:var(--green-800);color:#fff;border-color:var(--green-800);font-weight:500}.flow-end.stop{background:#7d2e2a;border-color:#7d2e2a}.flow-decision{background:#fff8ea;border-color:#d9bd82;color:#654c1c;font-weight:500}.flow-arrow{text-align:center;color:var(--gold);font-size:20px;line-height:1.2}.flow-branches{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:8px 0}.flow-branch{border-left:3px solid var(--green-700);background:#f1f7f4;border-radius:8px;padding:11px;font-size:11.5px}.flow-branch.stop{border-left-color:#983a36;background:#fbefee}.flow-branch.warn{border-left-color:#9a6922;background:#fff8e9}.flow-branch b{display:block;font-size:9px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}.flow-note{font-size:10.5px;color:var(--muted);text-align:center;margin:10px 0 0}
+.alert-icon{font-size:9px!important;font-weight:600;letter-spacing:.08em;text-transform:uppercase;min-width:72px;margin-top:3px}
+.info-table,.act-table{display:block;overflow-x:auto;border-radius:10px}.info-table tbody,.act-table tbody{min-width:680px;display:table;width:100%}.act-table thead{min-width:680px;display:table;width:100%;table-layout:fixed}
+@media(max-width:900px){.page{padding:30px 24px}.proc-title{font-size:34px}.status-grid{grid-template-columns:1fr}}
+@media(max-width:768px){#content{padding:18px 12px 72px}.page{padding:24px 16px;border-radius:12px}.proc-title{font-size:30px}.quick dl,.flow-branches{grid-template-columns:1fr}.home-link,.print-button{display:none}.alert{display:block}.alert-icon{display:block;margin-bottom:5px}}
+@media print{#sidebar,#hamburger,#overlay,#topbar{display:none!important}#main{margin:0!important}#content{max-width:none;padding:0}.page{display:block!important;border:0;box-shadow:none;page-break-after:always;padding:18mm}.decision-diagram,.quick,.notice{break-inside:avoid}}
 </style>
 </head>
 <body>
@@ -183,13 +197,13 @@ nav{padding:6px 0 40px;}
     <div class="sb-book">Libro II</div>
     <div class="sb-title">Operación y Seguridad</div>
   </div>
-  <div class="sb-search"><input type="text" placeholder="Buscar sección..." oninput="searchNav(this.value)"/></div>
+  <div class="sb-search"><input type="text" placeholder="Buscar sección..." oninput="searchNav(this.value)"></div>
   <nav>
     <!-- 1.0 -->
     <div class="nav-group open">
       <div class="nav-group-btn active" onclick="toggleGroup(this)">
         <span class="nav-group-label">1.0 Sistema Integral de Seguridad</span>
-        <span class="nav-arrow">&#9654;</span>
+        <span class="nav-arrow">▶</span>
       </div>
       <div class="nav-items">
         <a class="nav-link active" onclick="show('p-cover')">Portada e Introducción</a>
@@ -216,7 +230,7 @@ nav{padding:6px 0 40px;}
     <div class="nav-group">
       <div class="nav-group-btn" onclick="toggleGroup(this)">
         <span class="nav-group-label">2.0 Atención a Residentes y Huéspedes</span>
-        <span class="nav-arrow">&#9654;</span>
+        <span class="nav-arrow">▶</span>
       </div>
       <div class="nav-items">
         <a class="nav-link" onclick="show('p-21-solicitudes')">2.1 Recepción de Solicitudes</a>
@@ -230,9 +244,12 @@ nav{padding:6px 0 40px;}
 </aside>
 <div id="main">
   <div id="topbar">
-    <div id="breadcrumb">Libro II &rsaquo; <strong>Portada e Introducción</strong></div>
-    <div class="topbar-meta"><span class="meta-code">PR-AM-SEG-OPE-001</span><span>v1.0 · 2026</span></div>
-  </div>
+    <div id="breadcrumb">Libro II › <strong>Portada e Introducción</strong>
+</div>
+    <div>
+<a class="home-link" href="../index.html">Centro operativo</a><span class="meta-code">LIB-AM-02</span><span>v13.0 · 1 oct 2026</span><button class="print-button" type="button" onclick="window.print()">Imprimir</button>
+</div>
+</div>
   <div id="content">
 
 <!-- ══ PORTADA ══ -->
@@ -240,23 +257,107 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">Aldea Mayab · Bacalar · Libro II</div>
   <h1 class="proc-title">Operación y Seguridad</h1>
   <p class="proc-subtitle">Sistema integral de seguridad, control de accesos, gestión de incidentes y atención a residentes</p>
-  <table class="info-table">
+  <aside class="notice is-pending"><b>Borrador en validación</b><p>Los horarios, tiempos máximos, facultades, retención de grabaciones, criterios de reincidencia y autorizaciones se conservan como REFERENCIA hasta contrastarlos con contratos, avisos de privacidad, reglamento y nombramientos vigentes.</p></aside><table class="info-table">
     <tr>
-      <td><span class="it-label">Código</span><span class="it-value">PR-AM-SEG-OPE-001</span></td>
-      <td><span class="it-label">Versión</span><span class="it-value">1.0</span></td>
-      <td><span class="it-label">Fecha de emisión</span><span class="it-value">Enero 2026</span></td>
+      <td>
+<span class="it-label">Código</span><span class="it-value">LIB-AM-02</span>
+</td>
+      <td>
+<span class="it-label">Versión</span><span class="it-value">13.0</span>
+</td>
+      <td>
+<span class="it-label">Fecha de emisión</span><span class="it-value">1 de octubre de 2026</span>
+</td>
     </tr>
     <tr>
-      <td><span class="it-label">Elaboró</span><span class="it-value">Consultoría Administrativa</span></td>
-      <td><span class="it-label">Revisó</span><span class="it-value">Jefe de Seguridad</span></td>
-      <td><span class="it-label">Aprobó</span><span class="it-value">Gerencia Administrativa</span></td>
+      <td>
+<span class="it-label">Elaboró</span><span class="it-value">Equipo de Operación</span>
+</td>
+      <td>
+<span class="it-label">Revisó</span><span class="it-value">Responsables de Seguridad y Recepción</span>
+</td>
+      <td>
+<span class="it-label">Aprobó</span><span class="it-value">PENDIENTE de evidencia formal</span>
+</td>
     </tr>
     <tr>
-      <td class="it-accent" colspan="3"><span class="it-label">Principio rector</span><span class="it-value">El personal no discute reglas, no negocia seguridad y no toma decisiones discrecionales fuera del manual. "Si no está en el sistema, no entró." Sin excepciones.</span></td>
+      <td class="it-accent" colspan="3">
+<span class="it-label">Principio rector</span><span class="it-value">El personal no discute reglas, no negocia seguridad y no toma decisiones discrecionales fuera del manual. "Si no está en el sistema, no entró." Sin excepciones.</span>
+</td>
     </tr>
   </table>
-  <div class="cover-toc-grid"><div class="toc-item" onclick="show('p-11-gov')"><div class="toc-item-num">1.1</div><div class="toc-item-body"><div class="toc-item-title">Gobierno de Seguridad</div><div class="toc-item-desc">Modelo mixto, empresa de seguridad y capacitación</div></div></div><div class="toc-item" onclick="show('p-12-accesos')"><div class="toc-item-num">1.2</div><div class="toc-item-body"><div class="toc-item-title">Control de Accesos</div><div class="toc-item-desc">8 procedimientos: residentes, huéspedes, proveedores, CCTV</div></div></div><div class="toc-item" onclick="show('p-13-incidentes')"><div class="toc-item-num">1.3</div><div class="toc-item-body"><div class="toc-item-title">Gestión de Incidentes</div><div class="toc-item-desc">Registro, clasificación por nivel y escalamiento</div></div></div><div class="toc-item" onclick="show('p-21-solicitudes')"><div class="toc-item-num">2.1</div><div class="toc-item-body"><div class="toc-item-title">Solicitudes de Servicio</div><div class="toc-item-desc">Recepción, priorización y seguimiento</div></div></div><div class="toc-item" onclick="show('p-22-quejas')"><div class="toc-item-num">2.2</div><div class="toc-item-body"><div class="toc-item-title">Quejas y Reclamaciones</div><div class="toc-item-desc">Gestión formal, tiempos de respuesta y cierre</div></div></div><div class="toc-item" onclick="show('p-23-mediacion')"><div class="toc-item-num">2.3</div><div class="toc-item-body"><div class="toc-item-title">Mediación de Conflictos</div><div class="toc-item-desc">Protocolo de mediación entre residentes</div></div></div><div class="toc-item" onclick="show('p-24-paqueteria')"><div class="toc-item-num">2.4</div><div class="toc-item-body"><div class="toc-item-title">Paquetería y Entregas</div><div class="toc-item-desc">Recepción, custodia y notificación al residente</div></div></div><div class="toc-item" onclick="show('p-25-comunicacion')"><div class="toc-item-num">2.5</div><div class="toc-item-body"><div class="toc-item-title">Comunicación Oficial</div><div class="toc-item-desc">Canales, tonos y plantillas de comunicación</div></div></div></div>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · Portada</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <section class="status-guide"><h2>Jerarquía de la información</h2>
+<div class="status-grid">
+<div>
+<b>AUTORIZADA</b><p>Existe aprobación y evidencia vigente.</p>
+</div>
+<div>
+<b>REFERENCIA</b><p>Orienta la operación, pero requiere contraste.</p>
+</div>
+<div>
+<b>PENDIENTE</b><p>No habilita acceso, sanción ni divulgación.</p>
+</div>
+</div></section><div class="cover-toc-grid">
+<div class="toc-item" onclick="show('p-11-gov')">
+<div class="toc-item-num">1.1</div>
+<div class="toc-item-body">
+<div class="toc-item-title">Gobierno de Seguridad</div>
+<div class="toc-item-desc">Modelo mixto, empresa de seguridad y capacitación</div>
+</div>
+</div>
+<div class="toc-item" onclick="show('p-12-accesos')">
+<div class="toc-item-num">1.2</div>
+<div class="toc-item-body">
+<div class="toc-item-title">Control de Accesos</div>
+<div class="toc-item-desc">8 procedimientos: residentes, huéspedes, proveedores, CCTV</div>
+</div>
+</div>
+<div class="toc-item" onclick="show('p-13-incidentes')">
+<div class="toc-item-num">1.3</div>
+<div class="toc-item-body">
+<div class="toc-item-title">Gestión de Incidentes</div>
+<div class="toc-item-desc">Registro, clasificación por nivel y escalamiento</div>
+</div>
+</div>
+<div class="toc-item" onclick="show('p-21-solicitudes')">
+<div class="toc-item-num">2.1</div>
+<div class="toc-item-body">
+<div class="toc-item-title">Solicitudes de Servicio</div>
+<div class="toc-item-desc">Recepción, priorización y seguimiento</div>
+</div>
+</div>
+<div class="toc-item" onclick="show('p-22-quejas')">
+<div class="toc-item-num">2.2</div>
+<div class="toc-item-body">
+<div class="toc-item-title">Quejas y Reclamaciones</div>
+<div class="toc-item-desc">Gestión formal, tiempos de respuesta y cierre</div>
+</div>
+</div>
+<div class="toc-item" onclick="show('p-23-mediacion')">
+<div class="toc-item-num">2.3</div>
+<div class="toc-item-body">
+<div class="toc-item-title">Mediación de Conflictos</div>
+<div class="toc-item-desc">Protocolo de mediación entre residentes</div>
+</div>
+</div>
+<div class="toc-item" onclick="show('p-24-paqueteria')">
+<div class="toc-item-num">2.4</div>
+<div class="toc-item-body">
+<div class="toc-item-title">Paquetería y Entregas</div>
+<div class="toc-item-desc">Recepción, custodia y notificación al residente</div>
+</div>
+</div>
+<div class="toc-item" onclick="show('p-25-comunicacion')">
+<div class="toc-item-num">2.5</div>
+<div class="toc-item-body">
+<div class="toc-item-title">Comunicación Oficial</div>
+<div class="toc-item-desc">Canales, tonos y plantillas de comunicación</div>
+</div>
+</div>
+</div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · Portada</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 1.1 GOBIERNO DE SEGURIDAD ══ -->
@@ -265,53 +366,173 @@ nav{padding:6px 0 40px;}
   <h1 class="proc-title">1.1 Gobierno de Seguridad</h1>
   <p class="proc-subtitle">Modelo mixto de operación, evaluación de empresa externa y capacitación del personal</p>
 
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">1.1.1 Modelo Mixto — Empresa Externa + Supervisión Interna</div></div>
+  <section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Inicio de turno o supervisión</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Jefe de Seguridad / responsable de turno</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Confirmar cobertura, mando y novedades</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Escalar ausencia, contradicción o incumplimiento</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Bitácora, asistencia y evaluación</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">1.1.1 Modelo Mixto — Empresa Externa + Supervisión Interna</div>
+</div>
   <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:12px;">La seguridad del residencial opera bajo un modelo mixto donde una empresa externa provee los guardias operativos, pero la supervisión, auditoría de registros y coordinación de protocolos recae en el Jefe de Seguridad interno del residencial.</p>
   <table class="act-table">
-    <thead><tr><th style="width:180px">Responsabilidad</th><th>Empresa externa de seguridad</th><th style="width:200px">Jefe de Seguridad interno</th></tr></thead>
+    <thead><tr>
+<th style="width:180px">Responsabilidad</th>
+<th>Empresa externa de seguridad</th>
+<th style="width:200px">Jefe de Seguridad interno</th>
+</tr></thead>
     <tbody>
-      <tr><td><strong>Personal operativo</strong></td><td>Provee y administra a los guardias · Cubre bajas y ausencias</td><td>Supervisa presencia y desempeño</td></tr>
-      <tr><td><strong>Protocolos</strong></td><td>Ejecuta los procedimientos del manual</td><td>Define y actualiza los protocolos</td></tr>
-      <tr><td><strong>Registros</strong></td><td>Captura en el sistema según procedimiento</td><td>Audita registros diariamente</td></tr>
-      <tr><td><strong>Emergencias</strong></td><td>Ejecuta el protocolo indicado</td><td>Coordina y decide en campo</td></tr>
-      <tr><td><strong>Capacitación</strong></td><td>Asiste a capacitaciones convocadas</td><td>Coordina y evalúa el aprendizaje</td></tr>
+      <tr>
+<td><strong>Personal operativo</strong></td>
+<td>Provee y administra a los guardias · Cubre bajas y ausencias</td>
+<td>Supervisa presencia y desempeño</td>
+</tr>
+      <tr>
+<td><strong>Protocolos</strong></td>
+<td>Ejecuta los procedimientos del manual</td>
+<td>Define y actualiza los protocolos</td>
+</tr>
+      <tr>
+<td><strong>Registros</strong></td>
+<td>Captura en el sistema según procedimiento</td>
+<td>Audita registros diariamente</td>
+</tr>
+      <tr>
+<td><strong>Emergencias</strong></td>
+<td>Ejecuta el protocolo indicado</td>
+<td>Coordina y decide en campo</td>
+</tr>
+      <tr>
+<td><strong>Capacitación</strong></td>
+<td>Asiste a capacitaciones convocadas</td>
+<td>Coordina y evalúa el aprendizaje</td>
+</tr>
     </tbody>
   </table>
-  <div class="alert a-amber"><div class="alert-icon">⚠️</div><div class="alert-body"><strong>Línea de mando clara</strong>Los guardias de la empresa externa siguen instrucciones operativas del Jefe de Seguridad interno del residencial en todo momento. Cualquier conflicto entre instrucciones de la empresa y los protocolos del manual se resuelve aplicando el manual del residencial y notificando a la empresa.</div></div>
+  <div class="alert a-amber">
+<div class="alert-icon">VALIDAR</div>
+<div class="alert-body">
+<strong>Línea de mando clara</strong>Los guardias de la empresa externa siguen instrucciones operativas del Jefe de Seguridad interno del residencial en todo momento. Cualquier conflicto entre instrucciones de la empresa y los protocolos del manual se resuelve aplicando el manual del residencial y notificando a la empresa.</div>
+</div>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">1.1.2 Evaluación de Empresa de Seguridad</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">1.1.2 Evaluación de Empresa de Seguridad</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:160px">Criterio de evaluación</th><th>Descripción</th><th style="width:100px">Frecuencia</th></tr></thead>
+    <thead><tr>
+<th style="width:160px">Criterio de evaluación</th>
+<th>Descripción</th>
+<th style="width:100px">Frecuencia</th>
+</tr></thead>
     <tbody>
-      <tr><td><strong>Cumplimiento de protocolos</strong></td><td>Porcentaje de registros completos y correctos en el sistema · Incidentes mal documentados · Llegadas tarde a turno</td><td>Mensual</td></tr>
-      <tr><td><strong>Tiempo de respuesta</strong></td><td>Tiempo promedio desde detección hasta notificación al Jefe de Seguridad (&lt;3 minutos como objetivo)</td><td>Por incidente</td></tr>
-      <tr><td><strong>Presentación y conducta</strong></td><td>Uniforme completo · Trato profesional con residentes · Cero confrontaciones no autorizadas</td><td>Mensual</td></tr>
-      <tr><td><strong>Evaluación formal</strong></td><td>Evaluación trimestral documentada · Calificación mínima de 80 puntos para continuar el contrato</td><td>Trimestral</td></tr>
+      <tr>
+<td><strong>Cumplimiento de protocolos</strong></td>
+<td>Porcentaje de registros completos y correctos en el sistema · Incidentes mal documentados · Llegadas tarde a turno</td>
+<td>Mensual</td>
+</tr>
+      <tr>
+<td><strong>Tiempo de respuesta</strong></td>
+<td>Tiempo promedio desde detección hasta notificación al Jefe de Seguridad (&lt;3 minutos como objetivo)</td>
+<td>Por incidente</td>
+</tr>
+      <tr>
+<td><strong>Presentación y conducta</strong></td>
+<td>Uniforme completo · Trato profesional con residentes · Cero confrontaciones no autorizadas</td>
+<td>Mensual</td>
+</tr>
+      <tr>
+<td><strong>Evaluación formal</strong></td>
+<td>Evaluación trimestral documentada · Calificación mínima de 80 puntos para continuar el contrato</td>
+<td>Trimestral</td>
+</tr>
     </tbody>
   </table>
 
-  <div class="sec-h"><div class="sec-num">3</div><div class="sec-title">1.1.3 Capacitación del Personal</div></div>
+  <div class="sec-h">
+<div class="sec-num">3</div>
+<div class="sec-title">1.1.3 Capacitación del Personal</div>
+</div>
   <div class="info-grid">
-    <div class="info-card"><div class="ic-label">Inducción obligatoria (al ingreso)</div><div class="ic-body">Lectura completa del manual · Recorrido por instalaciones · Práctica en el sistema · Simulación de 5 escenarios de acceso · Firma de acuse de conocimiento del reglamento</div></div>
-    <div class="info-card"><div class="ic-label">Certificación obligatoria</div><div class="ic-body">Primeros auxilios — Cruz Roja Mexicana o institución autorizada · Vigencia: 2 años · Mínimo 8 horas presenciales</div></div>
-    <div class="info-card"><div class="ic-label">Jefe de Seguridad (adicional)</div><div class="ic-body">RCP con DEA · Coordinación de Brigadas de Protección Civil · Mínimo 16 horas · Vigencia: 2 años</div></div>
-    <div class="info-card"><div class="ic-label">Capacitación continua</div><div class="ic-body">Simulacros bimestrales obligatorios · Capacitación anual en fauna local con biólogo especialista · Actualización de protocolos en cada versión del manual</div></div>
+    <div class="info-card">
+<div class="ic-label">Inducción obligatoria (al ingreso)</div>
+<div class="ic-body">Lectura completa del manual · Recorrido por instalaciones · Práctica en el sistema · Simulación de 5 escenarios de acceso · Firma de acuse de conocimiento del reglamento</div>
+</div>
+    <div class="info-card">
+<div class="ic-label">Certificación obligatoria</div>
+<div class="ic-body">Primeros auxilios — Cruz Roja Mexicana o institución autorizada · Vigencia: 2 años · Mínimo 8 horas presenciales</div>
+</div>
+    <div class="info-card">
+<div class="ic-label">Jefe de Seguridad (adicional)</div>
+<div class="ic-body">RCP con DEA · Coordinación de Brigadas de Protección Civil · Mínimo 16 horas · Vigencia: 2 años</div>
+</div>
+    <div class="info-card">
+<div class="ic-label">Capacitación continua</div>
+<div class="ic-body">Simulacros bimestrales obligatorios · Capacitación anual en fauna local con biólogo especialista · Actualización de protocolos en cada versión del manual</div>
+</div>
   </div>
 
-  <div class="sec-h"><div class="sec-num">4</div><div class="sec-title">1.1.4 Protocolo de Relevo — Guardia sin Sustituto</div></div>
+  <div class="sec-h">
+<div class="sec-num">4</div>
+<div class="sec-title">1.1.4 Protocolo de Relevo — Guardia sin Sustituto</div>
+</div>
   <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:12px;">La caseta de seguridad nunca puede quedar desatendida. Si el guardia entrante no se presenta a la hora acordada, aplica el siguiente protocolo escalonado:</p>
   <table class="act-table">
-    <thead><tr><th style="width:120px">Tiempo sin relevo</th><th>Acción obligatoria</th><th style="width:140px">Responsable</th></tr></thead>
+    <thead><tr>
+<th style="width:120px">Tiempo sin relevo</th>
+<th>Acción obligatoria</th>
+<th style="width:140px">Responsable</th>
+</tr></thead>
     <tbody>
-      <tr><td><strong>+15 minutos</strong></td><td>Guardia en turno notifica por WhatsApp al Jefe de Seguridad indicando que el relevo no se ha presentado. Permanece en caseta.</td><td>Guardia en turno</td></tr>
-      <tr><td><strong>+30 minutos</strong></td><td>Jefe de Seguridad contacta a la empresa externa de seguridad para solicitar sustitución urgente. Si no hay respuesta en 15 minutos: notifica a Gerencia Administrativa.</td><td>Jefe de Seguridad</td></tr>
-      <tr><td><strong>+60 minutos</strong></td><td>Si la empresa no ha enviado sustituto: Gerencia Administrativa autoriza el cierre parcial de acceso vehicular (barrera en modo manual). El guardia permanece en caseta bajo protocolo de bitácora física hasta que llegue el relevo.</td><td>Gerencia Administrativa</td></tr>
-      <tr><td><strong>+2 horas</strong></td><td>Gerencia informa a Dirección General. Se activa procedimiento de sanción contractual a la empresa externa. Dirección General decide si se convoca a personal interno de guardia o se contrata servicio de emergencia.</td><td>Dirección General</td></tr>
+      <tr>
+<td><strong>+15 minutos</strong></td>
+<td>Guardia en turno notifica por WhatsApp al Jefe de Seguridad indicando que el relevo no se ha presentado. Permanece en caseta.</td>
+<td>Guardia en turno</td>
+</tr>
+      <tr>
+<td><strong>+30 minutos</strong></td>
+<td>Jefe de Seguridad contacta a la empresa externa de seguridad para solicitar sustitución urgente. Si no hay respuesta en 15 minutos: notifica a Gerencia Administrativa.</td>
+<td>Jefe de Seguridad</td>
+</tr>
+      <tr>
+<td><strong>+60 minutos</strong></td>
+<td>Si la empresa no ha enviado sustituto: Gerencia Administrativa autoriza el cierre parcial de acceso vehicular (barrera en modo manual). El guardia permanece en caseta bajo protocolo de bitácora física hasta que llegue el relevo.</td>
+<td>Gerencia Administrativa</td>
+</tr>
+      <tr>
+<td><strong>+2 horas</strong></td>
+<td>Gerencia informa a Dirección General. Se activa procedimiento de sanción contractual a la empresa externa. Dirección General decide si se convoca a personal interno de guardia o se contrata servicio de emergencia.</td>
+<td>Dirección General</td>
+</tr>
     </tbody>
   </table>
-  <div class="alert a-red"><div class="alert-icon">🚫</div><div class="alert-body"><strong>Prohibido absoluto:</strong> El guardia no puede abandonar la caseta por ningún motivo hasta que haya un relevo físicamente presente. La ausencia no justificada del puesto es causa de rescisión del contrato con la empresa proveedora.</div></div>
+  <div class="alert a-red">
+<div class="alert-icon">CRÍTICO</div>
+<div class="alert-body">
+<strong>Prohibido absoluto:</strong> El guardia no puede abandonar la caseta por ningún motivo hasta que haya un relevo físicamente presente. La ausencia no justificada del puesto es causa de rescisión del contrato con la empresa proveedora.</div>
+</div>
 
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 1.1 Gobierno de Seguridad</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 1.1 Gobierno de Seguridad</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 1.2 CONTROL DE ACCESOS (1.2.1–1.2.3) ══ -->
@@ -319,47 +540,158 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">1.0 Sistema Integral de Seguridad · 1.2</div>
   <h1 class="proc-title">1.2 Control de Accesos</h1>
   <p class="proc-subtitle">Registro digital, validación de identidad y registro de salida — 100% digital, sin excepciones</p>
-<div class="fc-wrap"><svg width="760" height="490" viewBox="0 0 760 490" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="230" y="10" width="300" height="32" rx="16" fill="#C0392B"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">LLEGADA DE VISITANTE</text><polygon points="380,62 530,92 380,122 230,92" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="88" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Invitación registrada</text><text x="380" y="100" text-anchor="middle" fill="#C87D0A" font-size="8">en Vivook?</text><rect x="530" y="70" width="200" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="630" y="85" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">¿PM autoriza</text><text x="630" y="97" text-anchor="middle" fill="#6B1A14" font-size="8">por WhatsApp ahora?</text><rect x="555" y="126" width="175" height="30" rx="15" fill="#C0392B"/><text x="642" y="145" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ NO ENTRA — DENEGADO</text><rect x="280" y="130" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="145" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Escanear QR en Vivook</text><text x="380" y="157" text-anchor="middle" fill="#111816" font-size="8">Validar código de acceso</text><polygon points="380,190 530,220 380,250 230,220" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="224" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿QR válido?</text><rect x="535" y="198" width="200" height="30" rx="15" fill="#C0392B"/><text x="635" y="217" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ QR Inválido — NO ENTRA</text><rect x="280" y="258" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="273" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Solicitar ID oficial</text><text x="380" y="285" text-anchor="middle" fill="#111816" font-size="8">INE · Pasaporte · Licencia</text><polygon points="380,318 530,348 380,378 230,348" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="352" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿ID oficial válida?</text><rect x="535" y="326" width="180" height="30" rx="15" fill="#C0392B"/><text x="625" y="345" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ Sin ID = NO ENTRA</text><rect x="280" y="386" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="401" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Fotografiar ID</text><text x="380" y="413" text-anchor="middle" fill="#111816" font-size="8">Registrar en el sistema</text><rect x="305" y="442" width="152" height="30" rx="15" fill="#1F5C38"/><text x="381" y="461" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ ACCESO AUTORIZADO</text><line x1="380" y1="42" x2="380" y2="61" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="122" x2="380" y2="129" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="126" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="530" y1="92" x2="529" y2="89" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="530" y="86" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><polyline points="630,108 630,118 380,118 380,129" fill="none" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="612" y="115" text-anchor="end" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="630" y1="108" x2="642" y2="125" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="650" y="122" text-anchor="start" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="168" x2="380" y2="189" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="250" x2="380" y2="257" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="254" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="530" y1="220" x2="534" y2="213" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="532" y="214" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="296" x2="380" y2="317" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="378" x2="380" y2="385" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="382" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="530" y1="348" x2="534" y2="341" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="532" y="342" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="424" x2="381" y2="441" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-  <table class="info-table">
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Persona solicita ingreso</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Seguridad</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Verificar registro antes de abrir</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Denegar si no existe autorización verificable</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Vivook, identidad, entrada y salida</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Acceso de visitantes"><h2>Acceso de visitantes</h2>
+<div class="flow-start">Llegada de visitante</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">¿Existe invitación vigente en Vivook?</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Sí</b>Validar QR e identidad oficial</div>
+<div class="flow-branch stop">
+<b>No</b>Solicitar autorización verificable al responsable; sin ella, denegar</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Registrar entrada y evidencia</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Acceso autorizado</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><table class="info-table">
     <tr>
-      <td class="it-red" colspan="3"><span class="it-label">Regla de oro</span><span class="it-value">"Si no está en el sistema, no entró." — Sin registro en el sistema o Vivook no se autoriza ningún acceso, sin importar el nivel de insistencia del visitante o la urgencia alegada.</span></td>
+      <td class="it-red" colspan="3">
+<span class="it-label">Regla de oro</span><span class="it-value">"Si no está en el sistema, no entró." — Sin registro en el sistema o Vivook no se autoriza ningún acceso, sin importar el nivel de insistencia del visitante o la urgencia alegada.</span>
+</td>
     </tr>
   </table>
 
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">1.2.1 Registro Digital Obligatorio en Vivook</div></div>
+  <div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">1.2.1 Registro Digital Obligatorio en Vivook</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:180px">Actividad</th><th>Detalle</th><th style="width:120px">Responsable</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:180px">Actividad</th>
+<th>Detalle</th>
+<th style="width:120px">Responsable</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Validar QR en Vivook</div></td><td>Escanear QR del huésped/residente con tablet en recepción. El sistema verifica automáticamente: vigencia del QR, estatus de moroso de la unidad y si el visitante está habilitado.</td><td><span class="resp resp-g">Recepcionista</span></td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Capturar en el sistema</div></td><td>Registrar: unidad de destino, nombre del visitante, hora de ingreso, número de personas. El registro debe completarse antes de permitir el paso.</td><td><span class="resp resp-g">Recepcionista</span></td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Digitalización matutina</div></td><td>Todos los registros físicos nocturnos deben estar en el sistema antes de las 10:00 AM del día siguiente. La tasa de digitalización objetivo es 100%.</td><td><span class="resp resp-g">Recepcionista diurno</span></td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Validar QR en Vivook</div></td>
+<td>Escanear QR del huésped/residente con tablet en recepción. El sistema verifica automáticamente: vigencia del QR, estatus de moroso de la unidad y si el visitante está habilitado.</td>
+<td><span class="resp resp-g">Recepcionista</span></td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Capturar en el sistema</div></td>
+<td>Registrar: unidad de destino, nombre del visitante, hora de ingreso, número de personas. El registro debe completarse antes de permitir el paso.</td>
+<td><span class="resp resp-g">Recepcionista</span></td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Digitalización matutina</div></td>
+<td>Todos los registros físicos nocturnos deben estar en el sistema antes de las 10:00 AM del día siguiente. La tasa de digitalización objetivo es 100%.</td>
+<td><span class="resp resp-g">Recepcionista diurno</span></td>
+</tr>
     </tbody>
   </table>
-  <div class="alert a-green"><div class="alert-icon">✓</div><div class="alert-body"><strong>Política "Cero Papel"</strong>La bitácora física nocturna es temporal. El 100% de los registros debe digitalizarse en el sistema antes de las 10:00 AM. Un registro que no está en el sistema no ocurrió operativamente.</div></div>
+  <div class="alert a-green">
+<div class="alert-icon">ACCIÓN</div>
+<div class="alert-body">
+<strong>Política "Cero Papel"</strong>La bitácora física nocturna es temporal. El 100% de los registros debe digitalizarse en el sistema antes de las 10:00 AM. Un registro que no está en el sistema no ocurrió operativamente.</div>
+</div>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">1.2.2 Validación de Identidad</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">1.2.2 Validación de Identidad</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:180px">Actividad</th><th>Detalle</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:180px">Actividad</th>
+<th>Detalle</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Solicitar identificación oficial</div></td><td>INE, Pasaporte o documento oficial con fotografía. Sin excepción y sin importar el horario, la edad aparente o el insistencia del visitante.</td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Fotografiar identificación</div></td><td>Tomar foto clara de ambas caras de la identificación. Guardar en carpeta cifrada de Google Drive. Las fotos se eliminan 72 horas después del check-out.</td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Capturar firma digital</div></td><td>El huésped firma en tablet como constancia de haber recibido y aceptado las reglas del residencial. Sin firma no se autoriza el acceso.</td></tr>
-      <tr><td class="sn">4</td><td><div class="s-name">Negativa a identificarse</div></td><td>Sin identificación NO se autoriza el acceso — 24/7, sin excepciones. Frase obligatoria: "Por normativa de seguridad y reglamento interno, la identificación oficial es obligatoria para autorizar el acceso."</td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Solicitar identificación oficial</div></td>
+<td>INE, Pasaporte o documento oficial con fotografía. Sin excepción y sin importar el horario, la edad aparente o el insistencia del visitante.</td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Fotografiar identificación</div></td>
+<td>Tomar foto clara de ambas caras de la identificación. Guardar en carpeta cifrada de Google Drive. Las fotos se eliminan 72 horas después del check-out.</td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Capturar firma digital</div></td>
+<td>El huésped firma en tablet como constancia de haber recibido y aceptado las reglas del residencial. Sin firma no se autoriza el acceso.</td>
+</tr>
+      <tr>
+<td class="sn">4</td>
+<td><div class="s-name">Negativa a identificarse</div></td>
+<td>Sin identificación NO se autoriza el acceso — 24/7, sin excepciones. Frase obligatoria: "Por normativa de seguridad y reglamento interno, la identificación oficial es obligatoria para autorizar el acceso."</td>
+</tr>
     </tbody>
   </table>
-  <div class="alert a-red"><div class="alert-icon">🔒</div><div class="alert-body"><strong>Privacidad de datos</strong>Las fotos de IDs son confidenciales. Prohibido compartirlas fuera del grupo operativo, enviarlas por WhatsApp personal o conservarlas más de 72 horas tras el check-out. El incumplimiento es causa de rescisión.</div></div>
+  <div class="alert a-red">
+<div class="alert-icon">CRÍTICO</div>
+<div class="alert-body">
+<strong>Privacidad de datos</strong>Las fotos de IDs son confidenciales. Prohibido compartirlas fuera del grupo operativo, enviarlas por WhatsApp personal o conservarlas más de 72 horas tras el check-out. El incumplimiento es causa de rescisión.</div>
+</div>
 
-  <div class="sec-h"><div class="sec-num">3</div><div class="sec-title">1.2.3 Registro de Salida</div></div>
+  <div class="sec-h">
+<div class="sec-num">3</div>
+<div class="sec-title">1.2.3 Registro de Salida</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:180px">Actividad</th><th>Detalle</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:180px">Actividad</th>
+<th>Detalle</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Check-out en el sistema</div></td><td>Registrar hora de salida del huésped. El sistema cierra automáticamente el QR si era de uso único o si venció la vigencia.</td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Verificar estado de unidad</div></td><td>Si aplica (rentas vacacionales): coordinar con PM/Propietario la confirmación de salida completa antes de cerrar el registro.</td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Eliminar fotos a las 72h</div></td><td>El sistema o el responsable de turno elimina las fotos de ID de la carpeta de Google Drive a las 72 horas exactas del check-out registrado.</td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Check-out en el sistema</div></td>
+<td>Registrar hora de salida del huésped. El sistema cierra automáticamente el QR si era de uso único o si venció la vigencia.</td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Verificar estado de unidad</div></td>
+<td>Si aplica (rentas vacacionales): coordinar con PM/Propietario la confirmación de salida completa antes de cerrar el registro.</td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Eliminar fotos a las 72h</div></td>
+<td>El sistema o el responsable de turno elimina las fotos de ID de la carpeta de Google Drive a las 72 horas exactas del check-out registrado.</td>
+</tr>
     </tbody>
   </table>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 1.2 Control de Accesos (1.2.1–1.2.3)</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 1.2 Control de Accesos (1.2.1–1.2.3)</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 1.2.4 VEHICULAR ══ -->
@@ -367,29 +699,105 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">1.0 Sistema Integral de Seguridad · 1.2.4</div>
   <h1 class="proc-title">1.2.4 Control Vehicular y Barrera</h1>
   <p class="proc-subtitle">Operación de la pluma, registro de placas y protocolo de fallo mecánico</p>
-<div class="fc-wrap"><svg width="760" height="308" viewBox="0 0 760 308" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="230" y="10" width="300" height="32" rx="16" fill="#C0392B"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">VEHÍCULO EN BARRERA</text><polygon points="380,62 540,92 380,122 220,92" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="88" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Pluma responde</text><text x="380" y="100" text-anchor="middle" fill="#C87D0A" font-size="8">al control remoto?</text><rect x="10" y="70" width="150" height="38" rx="6" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="85" y="85" text-anchor="middle" fill="#5A3A0A" font-weight="700" font-size="9">Botón emergencia caseta</text><text x="85" y="97" text-anchor="middle" fill="#5A3A0A" font-size="8">Barrera manual</text><polygon points="380,140 540,170 380,200 220,170" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="166" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Placas registradas</text><text x="380" y="178" text-anchor="middle" fill="#C87D0A" font-size="8">en Vivook?</text><rect x="530" y="148" width="200" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="630" y="163" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">¿Residente autoriza</text><text x="630" y="175" text-anchor="middle" fill="#6B1A14" font-size="8">por app/WhatsApp?</text><rect x="555" y="204" width="165" height="30" rx="15" fill="#C0392B"/><text x="637" y="223" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ DENEGAR ACCESO</text><rect x="280" y="208" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="223" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Registrar placa</text><text x="380" y="235" text-anchor="middle" fill="#111816" font-size="8">y hora en el sistema</text><rect x="305" y="264" width="152" height="30" rx="15" fill="#1F5C38"/><text x="381" y="283" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ PASO AUTORIZADO</text><line x1="380" y1="42" x2="380" y2="61" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="92" x2="161" y2="89" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><text x="190" y="86" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="8">NO</text><polyline points="85,108 85,140 380,139" fill="none" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><line x1="380" y1="122" x2="380" y2="139" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="131" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="540" y1="170" x2="529" y2="167" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="535" y="164" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="630" y1="186" x2="637" y2="203" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="639" y="195" fill="#C0392B" font-weight="700" font-size="8">NO</text><polyline points="630,186 630,196 380,196 380,207" fill="none" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="600" y="194" text-anchor="end" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="200" x2="380" y2="207" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="204" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="246" x2="381" y2="263" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Procedimiento de Ingreso Vehicular</div></div>
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Vehículo llega a la barrera</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Seguridad</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Detener y validar placa/autorización</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Usar contingencia sin perder control del acceso</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Placa, hora y responsable</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Control vehicular"><h2>Control vehicular</h2>
+<div class="flow-start">Vehículo en barrera</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">¿La barrera responde y la placa está autorizada?</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Sí</b>Registrar placa y permitir paso</div>
+<div class="flow-branch warn">
+<b>No</b>Aplicar contingencia de barrera y validar autorización antes de abrir</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Registrar hora y responsable</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Paso autorizado</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Procedimiento de Ingreso Vehicular</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:180px">Actividad</th><th>Detalle</th><th style="width:120px">Responsable</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:180px">Actividad</th>
+<th>Detalle</th>
+<th style="width:120px">Responsable</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Detección de vehículo</div></td><td>Recepcionista verifica QR/identidad del conductor desde tablet. Guardia observa aproximación en cámara 1 (acceso principal).</td><td><span class="resp resp-g">Recepcionista / Guardia</span></td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Validar acceso</div></td><td>Validar QR en Vivook o verificar registro en el sistema. Capturar número de placas en el registro de ingreso.</td><td><span class="resp resp-g">Recepcionista</span></td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Abrir barrera</div></td><td>Solo al confirmar acceso válido: activar apertura de barrera. El vehículo debe cruzar el sensor de paso en máx. 30 segundos. Si no avanza: bajar pluma y solicitar avanzar.</td><td><span class="resp resp-g">Guardia</span></td></tr>
-      <tr><td class="sn">4</td><td><div class="s-name">Monitorear ingreso completo</div></td><td>Vigilar en cámara hasta que el vehículo complete el ingreso. Bajar pluma inmediatamente tras el paso confirmado por sensor.</td><td><span class="resp resp-g">Guardia</span></td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Detección de vehículo</div></td>
+<td>Recepcionista verifica QR/identidad del conductor desde tablet. Guardia observa aproximación en cámara 1 (acceso principal).</td>
+<td><span class="resp resp-g">Recepcionista / Guardia</span></td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Validar acceso</div></td>
+<td>Validar QR en Vivook o verificar registro en el sistema. Capturar número de placas en el registro de ingreso.</td>
+<td><span class="resp resp-g">Recepcionista</span></td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Abrir barrera</div></td>
+<td>Solo al confirmar acceso válido: activar apertura de barrera. El vehículo debe cruzar el sensor de paso en máx. 30 segundos. Si no avanza: bajar pluma y solicitar avanzar.</td>
+<td><span class="resp resp-g">Guardia</span></td>
+</tr>
+      <tr>
+<td class="sn">4</td>
+<td><div class="s-name">Monitorear ingreso completo</div></td>
+<td>Vigilar en cámara hasta que el vehículo complete el ingreso. Bajar pluma inmediatamente tras el paso confirmado por sensor.</td>
+<td><span class="resp resp-g">Guardia</span></td>
+</tr>
     </tbody>
   </table>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">Protocolo de Fallo de Barrera</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">Protocolo de Fallo de Barrera</div>
+</div>
   <ol class="step-list">
-    <li><span class="step-n step-n-r">1</span><div>Activar botón de emergencia (lado izquierdo de caseta) para bloquear el sistema automático</div></li>
-    <li><span class="step-n step-n-r">2</span><div>Bajar pluma manualmente con llave física ubicada en caja fuerte de caseta</div></li>
-    <li><span class="step-n step-n-r">3</span><div>Colocar cono de seguridad "PLUMA FUERA DE SERVICIO" frente al acceso</div></li>
-    <li><span class="step-n step-n-r">4</span><div>Notificar inmediatamente al Jefe de Seguridad y a la Gerencia Administrativa</div></li>
-    <li><span class="step-n step-n-r">5</span><div>Mientras se repara: control manual de accesos con guardia físico en acceso, registro en bitácora física</div></li>
+    <li>
+<span class="step-n step-n-r">1</span><div>Activar botón de emergencia (lado izquierdo de caseta) para bloquear el sistema automático</div>
+</li>
+    <li>
+<span class="step-n step-n-r">2</span><div>Bajar pluma manualmente con llave física ubicada en caja fuerte de caseta</div>
+</li>
+    <li>
+<span class="step-n step-n-r">3</span><div>Colocar cono de seguridad "PLUMA FUERA DE SERVICIO" frente al acceso</div>
+</li>
+    <li>
+<span class="step-n step-n-r">4</span><div>Notificar inmediatamente al Jefe de Seguridad y a la Gerencia Administrativa</div>
+</li>
+    <li>
+<span class="step-n step-n-r">5</span><div>Mientras se repara: control manual de accesos con guardia físico en acceso, registro en bitácora física</div>
+</li>
   </ol>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 1.2.4 Control Vehicular y Barrera</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 1.2.4 Control Vehicular y Barrera</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 1.2.5 PROVEEDORES ══ -->
@@ -397,26 +805,91 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">1.0 Sistema Integral de Seguridad · 1.2.5</div>
   <h1 class="proc-title">1.2.5 Control de Proveedores</h1>
   <p class="proc-subtitle">Registro, zona de estacionamiento permitida y supervisión durante el servicio</p>
-<div class="fc-wrap"><svg width="760" height="426" viewBox="0 0 760 426" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="230" y="10" width="300" height="32" rx="16" fill="#C0392B"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">PROVEEDOR EN ACCESO</text><polygon points="380,62 540,92 380,122 220,92" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="88" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Cita registrada</text><text x="380" y="100" text-anchor="middle" fill="#C87D0A" font-size="8">en Vivook?</text><rect x="535" y="70" width="190" height="30" rx="15" fill="#C0392B"/><text x="630" y="89" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ SIN CITA — NO ENTRA</text><polygon points="380,130 540,160 380,190 220,160" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="156" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿ID oficial</text><text x="380" y="168" text-anchor="middle" fill="#C87D0A" font-size="8">presentada?</text><rect x="535" y="138" width="180" height="30" rx="15" fill="#C0392B"/><text x="625" y="157" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ SIN ID — NO ENTRA</text><rect x="280" y="198" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="213" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Fotografiar ID</text><text x="380" y="225" text-anchor="middle" fill="#111816" font-size="8">Emitir pase temporal</text><polygon points="380,258 540,288 380,318 220,288" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="284" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Estacionamiento de</text><text x="380" y="296" text-anchor="middle" fill="#C87D0A" font-size="8">proveedores disponible?</text><rect x="530" y="266" width="200" height="38" rx="6" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="630" y="281" text-anchor="middle" fill="#5A3A0A" font-weight="700" font-size="9">Indicar área</text><text x="630" y="293" text-anchor="middle" fill="#5A3A0A" font-size="8">alternativa autorizada</text><rect x="280" y="326" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="341" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Registrar entrada</text><text x="380" y="353" text-anchor="middle" fill="#111816" font-size="8">placa y hora en sistema</text><rect x="305" y="382" width="152" height="30" rx="15" fill="#1F5C38"/><text x="381" y="401" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ ACCESO AUTORIZADO</text><line x1="380" y1="42" x2="380" y2="61" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="540" y1="92" x2="534" y2="85" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="537" y="86" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="122" x2="380" y2="129" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="126" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="540" y1="160" x2="534" y2="153" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="537" y="154" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="190" x2="380" y2="197" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="194" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="236" x2="380" y2="257" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="540" y1="288" x2="529" y2="285" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><text x="535" y="282" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="8">NO — otro</text><polyline points="630,304 630,326 379,326" fill="none" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><line x1="380" y1="318" x2="380" y2="325" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="322" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="364" x2="381" y2="381" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-  <table class="info-table">
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Proveedor o contratista llega</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Seguridad</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Confirmar cita e identidad</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>No permitir ingreso sin autorización vigente</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Empresa, persona, placa, entrada y salida</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Ingreso de proveedores"><h2>Ingreso de proveedores</h2>
+<div class="flow-start">Proveedor en acceso</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">¿Cuenta con cita vigente e identificación?</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Sí</b>Emitir pase temporal e indicar estacionamiento autorizado</div>
+<div class="flow-branch stop">
+<b>No</b>No permitir ingreso; contactar al responsable de la cita</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Registrar entrada, placa y salida</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Acceso autorizado</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><table class="info-table">
     <tr>
-      <td class="it-accent" colspan="2"><span class="it-label">Política base</span><span class="it-value">Ningún proveedor accede sin registro previo en el sistema y sin que la unidad que solicitó el servicio haya confirmado la cita. Los proveedores solo pueden estacionar en el área designada de proveedores.</span></td>
+      <td class="it-accent" colspan="2">
+<span class="it-label">Política base</span><span class="it-value">Ningún proveedor accede sin registro previo en el sistema y sin que la unidad que solicitó el servicio haya confirmado la cita. Los proveedores solo pueden estacionar en el área designada de proveedores.</span>
+</td>
     </tr>
   </table>
 
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Procedimiento de Acceso para Proveedores</div></div>
+  <div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Procedimiento de Acceso para Proveedores</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:180px">Actividad</th><th>Detalle</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:180px">Actividad</th>
+<th>Detalle</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Verificar cita previa</div></td><td>Contactar a la unidad solicitante para confirmar que efectivamente tiene cita con ese proveedor a esa hora. Sin confirmación de la unidad: no se autoriza el acceso.</td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Identificar al proveedor</div></td><td>Solicitar identificación oficial y fotografiarla. Registrar nombre de la empresa, tipo de servicio y unidad a la que va. Capturar en el sistema.</td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Entregar pase de proveedor</div></td><td>Pase físico temporal que indica: fecha, hora de ingreso, unidad de destino y hora límite de salida. Debe ser visible en todo momento.</td></tr>
-      <tr><td class="sn">4</td><td><div class="s-name">Indicar estacionamiento</div></td><td>Dirigir al área de estacionamiento exclusiva para proveedores. Prohibido estacionar en cajones de residentes.</td></tr>
-      <tr><td class="sn">5</td><td><div class="s-name">Registro de salida</div></td><td>Al salir: recoger el pase temporal, registrar hora de salida en el sistema y verificar que no sale con pertenencias del residencial.</td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Verificar cita previa</div></td>
+<td>Contactar a la unidad solicitante para confirmar que efectivamente tiene cita con ese proveedor a esa hora. Sin confirmación de la unidad: no se autoriza el acceso.</td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Identificar al proveedor</div></td>
+<td>Solicitar identificación oficial y fotografiarla. Registrar nombre de la empresa, tipo de servicio y unidad a la que va. Capturar en el sistema.</td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Entregar pase de proveedor</div></td>
+<td>Pase físico temporal que indica: fecha, hora de ingreso, unidad de destino y hora límite de salida. Debe ser visible en todo momento.</td>
+</tr>
+      <tr>
+<td class="sn">4</td>
+<td><div class="s-name">Indicar estacionamiento</div></td>
+<td>Dirigir al área de estacionamiento exclusiva para proveedores. Prohibido estacionar en cajones de residentes.</td>
+</tr>
+      <tr>
+<td class="sn">5</td>
+<td><div class="s-name">Registro de salida</div></td>
+<td>Al salir: recoger el pase temporal, registrar hora de salida en el sistema y verificar que no sale con pertenencias del residencial.</td>
+</tr>
     </tbody>
   </table>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 1.2.5 Control de Proveedores</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 1.2.5 Control de Proveedores</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 1.2.6 HUÉSPEDES AIRBNB ══ -->
@@ -424,32 +897,100 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">1.0 Sistema Integral de Seguridad · 1.2.6</div>
   <h1 class="proc-title">1.2.6 Gestión de Huéspedes (Airbnb / Rentas)</h1>
   <p class="proc-subtitle">Check-in de huéspedes de plataformas de renta vacacional — responsabilidad del Property Manager</p>
-<div class="fc-wrap"><svg width="760" height="394" viewBox="0 0 760 394" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="210" y="10" width="340" height="32" rx="16" fill="#C0392B"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">HUÉSPED AIRBNB EN ACCESO</text><polygon points="380,62 540,92 380,122 220,92" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="88" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Horario diurno?</text><text x="380" y="100" text-anchor="middle" fill="#C87D0A" font-size="8">08:00 – 20:00 hrs</text><rect x="10" y="70" width="150" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="85" y="85" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Check-in presencial</text><text x="85" y="97" text-anchor="middle" fill="#111816" font-size="8">PM o residente presente</text><rect x="590" y="70" width="160" height="38" rx="6" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="670" y="85" text-anchor="middle" fill="#5A3A0A" font-weight="700" font-size="9">Protocolo híbrido</text><text x="670" y="97" text-anchor="middle" fill="#5A3A0A" font-size="8">PM remoto + guardia</text><polygon points="380,148 540,178 380,208 220,178" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="174" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿QR Vivook</text><text x="380" y="186" text-anchor="middle" fill="#C87D0A" font-size="8">válido?</text><rect x="10" y="156" width="150" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="85" y="171" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">Contactar PM</text><text x="85" y="183" text-anchor="middle" fill="#6B1A14" font-size="8">reenvío de QR</text><polygon points="380,226 540,256 380,286 220,256" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="252" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿ID oficial</text><text x="380" y="264" text-anchor="middle" fill="#C87D0A" font-size="8">válida?</text><rect x="535" y="234" width="180" height="30" rx="15" fill="#C0392B"/><text x="625" y="253" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ SIN ID — NO ENTRA</text><rect x="280" y="294" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="309" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Fotografiar ID</text><text x="380" y="321" text-anchor="middle" fill="#111816" font-size="8">Registrar en el sistema</text><rect x="305" y="350" width="152" height="30" rx="15" fill="#1F5C38"/><text x="381" y="369" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ ACCESO AUTORIZADO</text><line x1="380" y1="42" x2="380" y2="61" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="92" x2="161" y2="89" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="190" y="86" text-anchor="middle" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="540" y1="92" x2="589" y2="89" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><text x="565" y="86" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="8">NO</text><polyline points="85,108 85,148 380,147" fill="none" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><polyline points="670,108 670,148 380,147" fill="none" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><line x1="380" y1="208" x2="380" y2="225" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="217" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="220" y1="178" x2="161" y2="175" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="190" y="172" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><polyline points="85,194 85,208 380,208 380,209" fill="none" stroke="#C0392B" stroke-width="1.75"/><text x="105" y="206" text-anchor="start" fill="#C0392B" font-weight="700" font-size="8">reintentar</text><line x1="540" y1="256" x2="534" y2="249" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="537" y="250" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="286" x2="380" y2="293" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="290" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="332" x2="381" y2="349" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-  <table class="info-table">
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Huésped llega al residencial</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Recepción y Seguridad</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Validar QR, identidad y unidad</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Contactar al PM; no improvisar autorizaciones</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Reserva, QR, identidad y hora</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Ingreso de huéspedes"><h2>Ingreso de huéspedes</h2>
+<div class="flow-start">Huésped en acceso</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">¿QR Vivook e identidad coinciden con la reserva?</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Sí</b>Registrar y orientar al huésped</div>
+<div class="flow-branch stop">
+<b>No</b>Contactar al property manager; sin validación, no permitir ingreso</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Conservar evidencia de la validación</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Acceso autorizado</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><table class="info-table">
     <tr>
-      <td class="it-accent" colspan="2"><span class="it-label">Responsabilidad PM</span><span class="it-value">El Property Manager es responsable solidario de la conducta de sus huéspedes. Debe generar el QR de acceso en Vivook y enviar el mensaje de bienvenida antes de la llegada del huésped.</span></td>
+      <td class="it-accent" colspan="2">
+<span class="it-label">Responsabilidad PM</span><span class="it-value">El Property Manager es responsable solidario de la conducta de sus huéspedes. Debe generar el QR de acceso en Vivook y enviar el mensaje de bienvenida antes de la llegada del huésped.</span>
+</td>
     </tr>
   </table>
 
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Check-in Diurno (07:00–21:00 hrs)</div></div>
+  <div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Check-in Diurno (07:00–21:00 hrs)</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:160px">Actividad</th><th>Detalle</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:160px">Actividad</th>
+<th>Detalle</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Validar QR</div></td><td>Escanear QR generado por el PM en Vivook. Verificar: vigencia, unidad correspondiente, estatus de la unidad (sin adeudo).</td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Identificar al huésped</div></td><td>Solicitar y fotografiar INE o Pasaporte. Tomar biometría (firma en tablet). Registrar número de personas en el grupo.</td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Entregar reglamento</div></td><td>Entregar o mostrar el reglamento del residencial. Destacar verbalmente: horario de silencio, restricciones en laguna y normas de amenidades.</td></tr>
-      <tr><td class="sn">4</td><td><div class="s-name">Asignar brazalete o credencial</div></td><td>Si el residencial usa sistema de identificación visual (brazalete de color por torre o tipo de estancia): entregar y explicar su uso.</td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Validar QR</div></td>
+<td>Escanear QR generado por el PM en Vivook. Verificar: vigencia, unidad correspondiente, estatus de la unidad (sin adeudo).</td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Identificar al huésped</div></td>
+<td>Solicitar y fotografiar INE o Pasaporte. Tomar biometría (firma en tablet). Registrar número de personas en el grupo.</td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Entregar reglamento</div></td>
+<td>Entregar o mostrar el reglamento del residencial. Destacar verbalmente: horario de silencio, restricciones en laguna y normas de amenidades.</td>
+</tr>
+      <tr>
+<td class="sn">4</td>
+<td><div class="s-name">Asignar brazalete o credencial</div></td>
+<td>Si el residencial usa sistema de identificación visual (brazalete de color por torre o tipo de estancia): entregar y explicar su uso.</td>
+</tr>
     </tbody>
   </table>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">Check-in Nocturno (21:00–07:00 hrs)</div></div>
-  <div class="alert a-amber"><div class="alert-icon">🌙</div><div class="alert-body"><strong>Protocolo Híbrido Nocturno</strong>El guardia nocturno gestiona los ingresos con bitácora física + fotografías en celular de respaldo. Todo debe digitalizarse en el sistema antes de las 10:00 AM del día siguiente por el recepcionista diurno.</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">Check-in Nocturno (21:00–07:00 hrs)</div>
+</div>
+  <div class="alert a-amber">
+<div class="alert-icon">VALIDAR</div>
+<div class="alert-body">
+<strong>Protocolo Híbrido Nocturno</strong>El guardia nocturno gestiona los ingresos con bitácora física + fotografías en celular de respaldo. Todo debe digitalizarse en el sistema antes de las 10:00 AM del día siguiente por el recepcionista diurno.</div>
+</div>
   <div class="script-box">
-    <div class="script-label">📢 Mensaje de bienvenida para PM — enviar antes de llegada del huésped</div>
+    <div class="script-label">Mensaje de bienvenida para PM — enviar antes de llegada del huésped</div>
     "Estimado Huésped, bienvenido a Aldea Mayab. Para agilizar su acceso, le informamos que nuestro horario de recepción es de 07:00 a 21:00 hrs. Si su llegada es posterior, nuestro oficial de seguridad realizará un registro manual y tomará fotografías de su identificación y placas vehiculares. Agradecemos su cooperación para mantener la seguridad del complejo."
   </div>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 1.2.6 Gestión de Huéspedes</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 1.2.6 Gestión de Huéspedes</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 1.2.7 CCTV ══ -->
@@ -457,37 +998,125 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">1.0 Sistema Integral de Seguridad · 1.2.7</div>
   <h1 class="proc-title">1.2.7 CCTV — Retención Mínima 30 Días</h1>
   <p class="proc-subtitle">Gestión del sistema de videovigilancia, acceso a grabaciones y custodia de evidencias</p>
-<div class="fc-wrap"><svg width="760" height="298" viewBox="0 0 760 298" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="210" y="10" width="340" height="32" rx="16" fill="#1F5C38"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">SOLICITUD ACCESO A GRABACIÓN</text><polygon points="380,62 540,92 380,122 220,92" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="88" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Solicitante autorizado?</text><text x="380" y="100" text-anchor="middle" fill="#C87D0A" font-size="8">Dirección o autoridad</text><rect x="535" y="70" width="165" height="30" rx="15" fill="#C0392B"/><text x="617" y="89" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ ACCESO DENEGADO</text><polygon points="380,130 540,160 380,190 220,160" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="156" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Grabación dentro</text><text x="380" y="168" text-anchor="middle" fill="#C87D0A" font-size="8">de los 30 días?</text><rect x="10" y="138" width="150" height="30" rx="15" fill="#C0392B"/><text x="85" y="157" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ NO DISPONIBLE</text><rect x="280" y="198" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="213" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Generar copia con fecha</text><text x="380" y="225" text-anchor="middle" fill="#111816" font-size="8">Registrar entrega en sistema</text><rect x="305" y="254" width="165" height="30" rx="15" fill="#1F5C38"/><text x="387" y="273" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ GRABACIÓN ENTREGADA</text><line x1="380" y1="42" x2="380" y2="61" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="540" y1="92" x2="534" y2="85" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="537" y="86" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="122" x2="380" y2="129" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="126" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="220" y1="160" x2="161" y2="153" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="190" y="154" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="190" x2="380" y2="197" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="194" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="236" x2="387" y2="253" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Política de Retención y Acceso</div></div>
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Se solicita revisar o extraer video</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Responsable autorizado</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Preservar evidencia y verificar autorización</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Escalar toda solicitud externa o de datos personales</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Solicitud, autorización, copia y entrega</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Solicitud de grabaciones"><h2>Solicitud de grabaciones</h2>
+<div class="flow-start">Solicitud de acceso a grabación</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">¿Existe autorización y el material está disponible?</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Sí</b>Preservar, generar copia controlada y registrar entrega</div>
+<div class="flow-branch stop">
+<b>No</b>Denegar o escalar; no compartir datos ni imágenes</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Mantener cadena de custodia</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Entrega controlada</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Política de Retención y Acceso</div>
+</div>
   <div class="info-grid">
-    <div class="info-card"><div class="ic-label">Retención mínima</div><div class="ic-body">30 días corridos de grabación continua en todas las cámaras activas. No se pueden sobrescribir grabaciones con menos de 30 días de antigüedad.</div></div>
-    <div class="info-card"><div class="ic-label">Acceso autorizado</div><div class="ic-body">Jefe de Seguridad · Gerencia Administrativa · Dirección General · Autoridades con orden oficial. Ningún otro personal tiene acceso al sistema DVR/NVR.</div></div>
-    <div class="info-card"><div class="ic-label">Conservación extendida</div><div class="ic-body">Grabaciones vinculadas a un incidente registrado deben preservarse por 90 días adicionales al cierre del caso, o hasta resolución legal si aplica.</div></div>
-    <div class="info-card"><div class="ic-label">Cámaras mínimas</div><div class="ic-body">Acceso principal · Caseta de seguridad · Estacionamientos A y B · Acceso a torres · Lobby · PTAR · Casa Club · Áreas de amenidades</div></div>
+    <div class="info-card">
+<div class="ic-label">Retención mínima</div>
+<div class="ic-body">30 días corridos de grabación continua en todas las cámaras activas. No se pueden sobrescribir grabaciones con menos de 30 días de antigüedad.</div>
+</div>
+    <div class="info-card">
+<div class="ic-label">Acceso autorizado</div>
+<div class="ic-body">Jefe de Seguridad · Gerencia Administrativa · Dirección General · Autoridades con orden oficial. Ningún otro personal tiene acceso al sistema DVR/NVR.</div>
+</div>
+    <div class="info-card">
+<div class="ic-label">Conservación extendida</div>
+<div class="ic-body">Grabaciones vinculadas a un incidente registrado deben preservarse por 90 días adicionales al cierre del caso, o hasta resolución legal si aplica.</div>
+</div>
+    <div class="info-card">
+<div class="ic-label">Cámaras mínimas</div>
+<div class="ic-body">Acceso principal · Caseta de seguridad · Estacionamientos A y B · Acceso a torres · Lobby · PTAR · Casa Club · Áreas de amenidades</div>
+</div>
   </div>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">Procedimiento ante Solicitud de Grabaciones</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">Procedimiento ante Solicitud de Grabaciones</div>
+</div>
   <ol class="step-list">
-    <li><span class="step-n">1</span><div>Solicitud escrita al Jefe de Seguridad indicando: fecha/hora del evento, cámara aproximada y motivo de la solicitud</div></li>
-    <li><span class="step-n">2</span><div>Jefe de Seguridad verifica que quien solicita tiene autorización para acceder a las grabaciones</div></li>
-    <li><span class="step-n">3</span><div>Si la solicitud proviene de autoridades (Ministerio Público, policía): notificar a Gerencia Administrativa y Dirección General antes de cualquier entrega</div></li>
-    <li><span class="step-n">4</span><div>Registrar en bitácora: quién solicitó, qué período, quién entregó y fecha de entrega</div></li>
+    <li>
+<span class="step-n">1</span><div>Solicitud escrita al Jefe de Seguridad indicando: fecha/hora del evento, cámara aproximada y motivo de la solicitud</div>
+</li>
+    <li>
+<span class="step-n">2</span><div>Jefe de Seguridad verifica que quien solicita tiene autorización para acceder a las grabaciones</div>
+</li>
+    <li>
+<span class="step-n">3</span><div>Si la solicitud proviene de autoridades (Ministerio Público, policía): notificar a Gerencia Administrativa y Dirección General antes de cualquier entrega</div>
+</li>
+    <li>
+<span class="step-n">4</span><div>Registrar en bitácora: quién solicitó, qué período, quién entregó y fecha de entrega</div>
+</li>
   </ol>
 
-  <div class="sec-h"><div class="sec-num">3</div><div class="sec-title">Protocolo ante Falla de Grabación (Gap en CCTV)</div></div>
+  <div class="sec-h">
+<div class="sec-num">3</div>
+<div class="sec-title">Protocolo ante Falla de Grabación (Gap en CCTV)</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:200px">Situación</th><th>Acción requerida</th><th style="width:140px">Responsable</th></tr></thead>
+    <thead><tr>
+<th style="width:200px">Situación</th>
+<th>Acción requerida</th>
+<th style="width:140px">Responsable</th>
+</tr></thead>
     <tbody>
-      <tr><td><strong>Falla detectada en revisión rutinaria</strong></td><td>Registrar en el sistema: cámara afectada, período sin grabación (hora inicio – hora fin estimada), causa si se conoce. Notificar a Jefe de Seguridad en máx. 1 hora.</td><td>Guardia / Recepcionista</td></tr>
-      <tr><td><strong>Falla coincide con un incidente registrado</strong></td><td>Notificación inmediata a Gerencia Administrativa y Dirección General. Se levanta acta formal documentando el gap: fecha, duración, cámara, incidente relacionado. El acta se resguarda en el expediente del incidente y puede ser relevante como evidencia en procesos legales.</td><td>Jefe de Seguridad + Gerencia</td></tr>
-      <tr><td><strong>Falla por fallo técnico del DVR/NVR</strong></td><td>Contactar al proveedor técnico del sistema en máx. 2 horas. Si la falla persiste más de 4 horas: activar guardia adicional en las áreas no cubiertas hasta restaurar la grabación. Registrar en el sistema cada hora el estado del sistema.</td><td>Jefe de Mantenimiento + Jefe de Seguridad</td></tr>
-      <tr><td><strong>Falla recurrente en la misma cámara</strong></td><td>Si una cámara falla más de 2 veces en un mes: orden de trabajo correctiva obligatoria con plazo máximo de 5 días hábiles. Incluir en el reporte mensual al Comité Operativo.</td><td>Jefe de Mantenimiento</td></tr>
+      <tr>
+<td><strong>Falla detectada en revisión rutinaria</strong></td>
+<td>Registrar en el sistema: cámara afectada, período sin grabación (hora inicio – hora fin estimada), causa si se conoce. Notificar a Jefe de Seguridad en máx. 1 hora.</td>
+<td>Guardia / Recepcionista</td>
+</tr>
+      <tr>
+<td><strong>Falla coincide con un incidente registrado</strong></td>
+<td>Notificación inmediata a Gerencia Administrativa y Dirección General. Se levanta acta formal documentando el gap: fecha, duración, cámara, incidente relacionado. El acta se resguarda en el expediente del incidente y puede ser relevante como evidencia en procesos legales.</td>
+<td>Jefe de Seguridad + Gerencia</td>
+</tr>
+      <tr>
+<td><strong>Falla por fallo técnico del DVR/NVR</strong></td>
+<td>Contactar al proveedor técnico del sistema en máx. 2 horas. Si la falla persiste más de 4 horas: activar guardia adicional en las áreas no cubiertas hasta restaurar la grabación. Registrar en el sistema cada hora el estado del sistema.</td>
+<td>Jefe de Mantenimiento + Jefe de Seguridad</td>
+</tr>
+      <tr>
+<td><strong>Falla recurrente en la misma cámara</strong></td>
+<td>Si una cámara falla más de 2 veces en un mes: orden de trabajo correctiva obligatoria con plazo máximo de 5 días hábiles. Incluir en el reporte mensual al Comité Operativo.</td>
+<td>Jefe de Mantenimiento</td>
+</tr>
     </tbody>
   </table>
-  <div class="alert a-red"><div class="alert-icon">⚠️</div><div class="alert-body"><strong>Un gap no documentado es un pasivo legal.</strong> Toda interrupción de grabación debe quedar registrada en el sistema con acta, independientemente de si hubo o no un incidente durante ese período.</div></div>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 1.2.7 CCTV</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="alert a-red">
+<div class="alert-icon">CRÍTICO</div>
+<div class="alert-body">
+<strong>Un gap no documentado es un pasivo legal.</strong> Toda interrupción de grabación debe quedar registrada en el sistema con acta, independientemente de si hubo o no un incidente durante ese período.</div>
+</div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 1.2.7 CCTV</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 1.2.8 ALERTA ══ -->
@@ -495,33 +1124,92 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">1.0 Sistema Integral de Seguridad · 1.2.8</div>
   <h1 class="proc-title">1.2.8 Activación de Nivel de Seguridad Elevado</h1>
   <p class="proc-subtitle">Niveles verde / naranja / rojo — criterios de activación y medidas por nivel</p>
-<div class="fc-wrap"><svg width="760" height="406" viewBox="0 0 760 406" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="210" y="10" width="340" height="32" rx="16" fill="#C0392B"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">INCIDENTE O ALERTA DETECTADA</text><polygon points="380,62 540,92 380,122 220,92" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="88" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">Clasificar nivel</text><text x="380" y="100" text-anchor="middle" fill="#C87D0A" font-size="8">1 · 2 · 3</text><rect x="10" y="70" width="150" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="85" y="85" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">VERDE — Nivel 1</text><text x="85" y="97" text-anchor="middle" fill="#111816" font-size="8">Gestionar en sitio</text><rect x="305" y="140" width="150" height="38" rx="6" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="155" text-anchor="middle" fill="#5A3A0A" font-weight="700" font-size="9">NARANJA — Nivel 2</text><text x="380" y="167" text-anchor="middle" fill="#5A3A0A" font-size="8">Notificar Jefe Seg.</text><rect x="590" y="70" width="160" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="670" y="85" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">ROJO — Nivel 3</text><text x="670" y="97" text-anchor="middle" fill="#6B1A14" font-size="8">911 + cadena completa</text><polygon points="380,228 540,258 380,288 220,258" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="254" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Incidente</text><text x="380" y="266" text-anchor="middle" fill="#C87D0A" font-size="8">controlado?</text><rect x="280" y="306" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="321" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Documentar en sistema</text><text x="380" y="333" text-anchor="middle" fill="#111816" font-size="8">Volver a Nivel VERDE</text><rect x="305" y="362" width="152" height="30" rx="15" fill="#1F5C38"/><text x="381" y="381" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ NORMALIZADO</text><line x1="380" y1="42" x2="380" y2="61" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="92" x2="161" y2="89" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="190" y="86" text-anchor="middle" fill="#1F5C38" font-weight="700" font-size="8">Nivel 1</text><line x1="380" y1="122" x2="380" y2="139" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><text x="386" y="131" fill="#C87D0A" font-weight="700" font-size="8">Nivel 2</text><line x1="540" y1="92" x2="589" y2="89" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="565" y="86" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">Nivel 3</text><polyline points="85,108 85,228 380,227" fill="none" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><polyline points="380,178 380,228 380,227" fill="none" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><polyline points="670,108 670,228 380,227" fill="none" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><line x1="380" y1="288" x2="380" y2="305" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="297" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><polyline points="540,258 720,258 720,89 751,89" fill="none" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="710" y="252" text-anchor="end" fill="#C0392B" font-weight="700" font-size="8">NO — escalar</text><line x1="380" y1="344" x2="381" y2="361" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Semáforo de Seguridad</div></div>
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Se detecta una condición anormal</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Seguridad</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Clasificar nivel y proteger personas</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Llamar al 911 ante riesgo grave o delito</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Hora, nivel, decisiones y normalización</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Nivel de seguridad"><h2>Nivel de seguridad</h2>
+<div class="flow-start">Alerta detectada</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">Clasificar el nivel por riesgo real</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Nivel 1</b>Gestionar en sitio y monitorear</div>
+<div class="flow-branch warn">
+<b>Nivel 2</b>Notificar al responsable de seguridad</div>
+<div class="flow-branch stop">
+<b>Nivel 3</b>Proteger personas, llamar al 911 y activar cadena</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Documentar decisiones y normalización</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Condición controlada</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Semáforo de Seguridad</div>
+</div>
   <div class="level lv1">
-    <div class="level-hdr">🟢 Nivel Verde — Operación Normal</div>
+    <div class="level-hdr">Nivel Verde — Operación Normal</div>
     <div class="level-body">Operación estándar. Todos los procedimientos del manual en vigor. Sin medidas adicionales. Monitoreo rutinario de cámaras.</div>
   </div>
   <div class="level lv2">
-    <div class="level-hdr">🟡 Nivel Naranja — Alerta Preventiva</div>
-    <div class="level-body">Activa cuando: hay reporte de incidente en residenciales vecinos · Alerta meteorológica activa · Visitante conflictivo el día anterior · Evento masivo no autorizado detectado.<br/><br/><strong>Medidas adicionales:</strong> Dos guardias en acceso simultáneamente · Verificación de ID doble en ingresos · Monitoreo de cámaras cada 30 minutos · Notificar a todos los turnos del estado de alerta.</div>
+    <div class="level-hdr">Nivel Naranja — Alerta Preventiva</div>
+    <div class="level-body">Activa cuando: hay reporte de incidente en residenciales vecinos · Alerta meteorológica activa · Visitante conflictivo el día anterior · Evento masivo no autorizado detectado.<br><br><strong>Medidas adicionales:</strong> Dos guardias en acceso simultáneamente · Verificación de ID doble en ingresos · Monitoreo de cámaras cada 30 minutos · Notificar a todos los turnos del estado de alerta.</div>
   </div>
   <div class="level lv3">
-    <div class="level-hdr">🔴 Nivel Rojo — Emergencia Activa</div>
-    <div class="level-body">Activa cuando: intrusión confirmada · Persona agresiva en instalaciones · Alerta de huracán categoría 1 o superior · Emergencia médica crítica en curso.<br/><br/><strong>Medidas adicionales:</strong> Cierre de accesos secundarios · Llamar al 911 si corresponde · Notificar a Gerencia y Dirección de inmediato · Activar protocolo específico del Libro III · Registro continuo de novedades cada 30 minutos.</div>
+    <div class="level-hdr">Nivel Rojo — Emergencia Activa</div>
+    <div class="level-body">Activa cuando: intrusión confirmada · Persona agresiva en instalaciones · Alerta de huracán categoría 1 o superior · Emergencia médica crítica en curso.<br><br><strong>Medidas adicionales:</strong> Cierre de accesos secundarios · Llamar al 911 si corresponde · Notificar a Gerencia y Dirección de inmediato · Activar protocolo específico del Libro III · Registro continuo de novedades cada 30 minutos.</div>
   </div>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">Autorización para Activar</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">Autorización para Activar</div>
+</div>
   <table class="act-table">
-    <thead><tr><th>Nivel</th><th style="width:200px">¿Quién puede activar?</th><th>¿Quién debe ser notificado?</th></tr></thead>
+    <thead><tr>
+<th>Nivel</th>
+<th style="width:200px">¿Quién puede activar?</th>
+<th>¿Quién debe ser notificado?</th>
+</tr></thead>
     <tbody>
-      <tr><td><span class="badge b-g">Verde</span></td><td>Estado por defecto</td><td>N/A</td></tr>
-      <tr><td><span class="badge b-a">Naranja</span></td><td>Jefe de Seguridad o Guardia en turno</td><td>Jefe de Seguridad + Gerencia Administrativa</td></tr>
-      <tr><td><span class="badge b-r">Rojo</span></td><td>Cualquier personal ante emergencia inmediata</td><td>Jefe de Seguridad + Gerencia + Dirección General + 911 si aplica</td></tr>
+      <tr>
+<td><span class="badge b-g">Verde</span></td>
+<td>Estado por defecto</td>
+<td>N/A</td>
+</tr>
+      <tr>
+<td><span class="badge b-a">Naranja</span></td>
+<td>Jefe de Seguridad o Guardia en turno</td>
+<td>Jefe de Seguridad + Gerencia Administrativa</td>
+</tr>
+      <tr>
+<td><span class="badge b-r">Rojo</span></td>
+<td>Cualquier personal ante emergencia inmediata</td>
+<td>Jefe de Seguridad + Gerencia + Dirección General + 911 si aplica</td>
+</tr>
     </tbody>
   </table>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 1.2.8 Activación de Nivel de Seguridad Elevado</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 1.2.8 Activación de Nivel de Seguridad Elevado</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 1.3 GESTIÓN DE INCIDENTES ══ -->
@@ -529,29 +1217,105 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">1.0 Sistema Integral de Seguridad · 1.3</div>
   <h1 class="proc-title">1.3 Gestión de Incidentes</h1>
   <p class="proc-subtitle">Registro formal, clasificación por nivel y escalamiento — todo incidente queda documentado</p>
-<div class="fc-wrap"><svg width="760" height="464" viewBox="0 0 760 464" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="210" y="10" width="340" height="32" rx="16" fill="#C0392B"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">INCIDENTE DETECTADO</text><rect x="280" y="60" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="75" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Registrar en el sistema</text><text x="380" y="87" text-anchor="middle" fill="#111816" font-size="8">7 campos obligatorios</text><polygon points="380,120 540,150 380,180 220,150" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="146" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">Clasificar nivel</text><text x="380" y="158" text-anchor="middle" fill="#C87D0A" font-size="8">1 · 2 · 3</text><rect x="10" y="128" width="150" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="85" y="143" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Gestionar en sitio</text><text x="85" y="155" text-anchor="middle" fill="#111816" font-size="8">Monitorear</text><rect x="305" y="198" width="150" height="38" rx="6" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="213" text-anchor="middle" fill="#5A3A0A" font-weight="700" font-size="9">Notificar Jefe Seg.</text><text x="380" y="225" text-anchor="middle" fill="#5A3A0A" font-size="8">Resp. &lt;15 min</text><rect x="590" y="128" width="160" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="670" y="143" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">911 + Cadena mando</text><text x="670" y="155" text-anchor="middle" fill="#6B1A14" font-size="8">&lt; 3 min</text><polygon points="380,286 540,316 380,346 220,316" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="312" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Incidente</text><text x="380" y="324" text-anchor="middle" fill="#C87D0A" font-size="8">resuelto?</text><rect x="10" y="294" width="150" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="85" y="309" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">Escalar un nivel</text><text x="85" y="321" text-anchor="middle" fill="#6B1A14" font-size="8">Re-evaluar</text><rect x="280" y="364" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="379" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Cerrar en el sistema</text><text x="380" y="391" text-anchor="middle" fill="#111816" font-size="8">Documentar resolución</text><rect x="305" y="420" width="152" height="30" rx="15" fill="#1F5C38"/><text x="381" y="439" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ INCIDENTE CERRADO</text><line x1="380" y1="42" x2="380" y2="59" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="98" x2="380" y2="119" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="150" x2="161" y2="147" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="190" y="144" text-anchor="middle" fill="#1F5C38" font-weight="700" font-size="8">Nivel 1</text><line x1="380" y1="180" x2="380" y2="197" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><text x="386" y="189" fill="#C87D0A" font-weight="700" font-size="8">Nivel 2</text><line x1="540" y1="150" x2="589" y2="147" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="565" y="144" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">Nivel 3</text><polyline points="85,166 85,286 380,285" fill="none" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><polyline points="380,236 380,286 380,285" fill="none" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><polyline points="670,166 670,286 380,285" fill="none" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><line x1="220" y1="316" x2="161" y2="313" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="190" y="310" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><polyline points="85,294 85,150 220,150" fill="none" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><line x1="380" y1="346" x2="380" y2="363" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="355" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="402" x2="381" y2="419" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-  <table class="info-table">
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Ocurre o se reporta un incidente</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Quien detecta / Seguridad</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Proteger, registrar y clasificar</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Escalar si aumenta el riesgo o no se controla</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Folio, evidencia, responsables y cierre</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Gestión de incidentes"><h2>Gestión de incidentes</h2>
+<div class="flow-start">Incidente detectado</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">Registrar hechos y clasificar nivel</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Controlable</b>Gestionar en sitio y monitorear</div>
+<div class="flow-branch warn">
+<b>Requiere apoyo</b>Notificar al responsable y coordinar respuesta</div>
+<div class="flow-branch stop">
+<b>Riesgo grave</b>911 y cadena de mando inmediata</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Verificar resolución y evidencia</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Incidente cerrado</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><table class="info-table">
     <tr>
-      <td class="it-accent" colspan="2"><span class="it-label">Principio</span><span class="it-value">Un incidente no documentado no existe operativamente. El registro en el sistema es obligatorio para TODO incidente, sin importar si parece menor. La bitácora es la única defensa legal y administrativa del residencial.</span></td>
+      <td class="it-accent" colspan="2">
+<span class="it-label">Principio</span><span class="it-value">Un incidente no documentado no existe operativamente. El registro en el sistema es obligatorio para TODO incidente, sin importar si parece menor. La bitácora es la única defensa legal y administrativa del residencial.</span>
+</td>
     </tr>
   </table>
 
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">1.3.1 Registro Formal de Incidente</div></div>
+  <div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">1.3.1 Registro Formal de Incidente</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:180px">Campo obligatorio</th><th>Descripción</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:180px">Campo obligatorio</th>
+<th>Descripción</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Fecha y hora exacta</div></td><td>Hora de detección del incidente, no de cuando se reporta. Si hay diferencia entre ambas, registrar ambas con nota explicativa.</td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Ubicación</div></td><td>Área específica: número de cámara que lo captó, torre, área común, estacionamiento, muelle, etc.</td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Descripción del evento</div></td><td>Descripción objetiva de los hechos. Sin opiniones ni juicios. Solo lo observado: "Se observó a persona X haciendo Y en lugar Z a las HH:MM."</td></tr>
-      <tr><td class="sn">4</td><td><div class="s-name">Personas involucradas</div></td><td>Nombre si se conoce, unidad, descripción física si es desconocido. Número de personas.</td></tr>
-      <tr><td class="sn">5</td><td><div class="s-name">Acciones tomadas</div></td><td>Qué hizo el personal: notificó, llamó al 911, aplicó primer respondiente, evacuó el área, etc.</td></tr>
-      <tr><td class="sn">6</td><td><div class="s-name">Nombre del personal</div></td><td>Nombre completo y cargo de quien registra y de quien intervino en el incidente.</td></tr>
-      <tr><td class="sn">7</td><td><div class="s-name">Evidencia adjunta</div></td><td>Número de cámara y timestamp de grabación relevante. Fotos si aplica. Links a archivos en Google Drive.</td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Fecha y hora exacta</div></td>
+<td>Hora de detección del incidente, no de cuando se reporta. Si hay diferencia entre ambas, registrar ambas con nota explicativa.</td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Ubicación</div></td>
+<td>Área específica: número de cámara que lo captó, torre, área común, estacionamiento, muelle, etc.</td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Descripción del evento</div></td>
+<td>Descripción objetiva de los hechos. Sin opiniones ni juicios. Solo lo observado: "Se observó a persona X haciendo Y en lugar Z a las HH:MM."</td>
+</tr>
+      <tr>
+<td class="sn">4</td>
+<td><div class="s-name">Personas involucradas</div></td>
+<td>Nombre si se conoce, unidad, descripción física si es desconocido. Número de personas.</td>
+</tr>
+      <tr>
+<td class="sn">5</td>
+<td><div class="s-name">Acciones tomadas</div></td>
+<td>Qué hizo el personal: notificó, llamó al 911, aplicó primer respondiente, evacuó el área, etc.</td>
+</tr>
+      <tr>
+<td class="sn">6</td>
+<td><div class="s-name">Nombre del personal</div></td>
+<td>Nombre completo y cargo de quien registra y de quien intervino en el incidente.</td>
+</tr>
+      <tr>
+<td class="sn">7</td>
+<td><div class="s-name">Evidencia adjunta</div></td>
+<td>Número de cámara y timestamp de grabación relevante. Fotos si aplica. Links a archivos en Google Drive.</td>
+</tr>
     </tbody>
   </table>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">1.3.2 Clasificación por Nivel</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">1.3.2 Clasificación por Nivel</div>
+</div>
   <div class="level lv1">
     <div class="level-hdr">Nivel 1 — Menor (registrar y monitorear)</div>
     <div class="level-body">Ejemplos: queja por ruido resuelta en sitio · vehículo mal estacionado corregido · visitante sin QR que tenía acceso válido por otro medio. Requiere registro en el sistema. No requiere notificación a Jefe de Seguridad si se resolvió sin escalamiento.</div>
@@ -565,16 +1329,41 @@ nav{padding:6px 0 40px;}
     <div class="level-body">Ejemplos: intrusión activa · emergencia médica grave · incendio · derrame en laguna · persona agresiva física. Requiere activar 911, notificar a Jefe de Seguridad, Gerencia y Dirección simultáneamente. Activar protocolo específico del Libro III.</div>
   </div>
 
-  <div class="sec-h"><div class="sec-num">3</div><div class="sec-title">1.3.3 Escalamiento</div></div>
+  <div class="sec-h">
+<div class="sec-num">3</div>
+<div class="sec-title">1.3.3 Escalamiento</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:100px">Nivel</th><th>Primer contacto</th><th>Si no responde en 5 min</th><th style="width:160px">Tiempo objetivo de respuesta</th></tr></thead>
+    <thead><tr>
+<th style="width:100px">Nivel</th>
+<th>Primer contacto</th>
+<th>Si no responde en 5 min</th>
+<th style="width:160px">Tiempo objetivo de respuesta</th>
+</tr></thead>
     <tbody>
-      <tr><td><span class="badge b-g">Nivel 1</span></td><td>Guardia en turno resuelve</td><td>Registrar y monitorear</td><td>Resolución inmediata</td></tr>
-      <tr><td><span class="badge b-a">Nivel 2</span></td><td>Jefe de Seguridad</td><td>Gerencia Administrativa</td><td>&lt; 15 minutos de respuesta</td></tr>
-      <tr><td><span class="badge b-r">Nivel 3</span></td><td>911 + Jefe Seguridad simultáneo</td><td>Dirección General</td><td>&lt; 3 minutos de activación</td></tr>
+      <tr>
+<td><span class="badge b-g">Nivel 1</span></td>
+<td>Guardia en turno resuelve</td>
+<td>Registrar y monitorear</td>
+<td>Resolución inmediata</td>
+</tr>
+      <tr>
+<td><span class="badge b-a">Nivel 2</span></td>
+<td>Jefe de Seguridad</td>
+<td>Gerencia Administrativa</td>
+<td>&lt; 15 minutos de respuesta</td>
+</tr>
+      <tr>
+<td><span class="badge b-r">Nivel 3</span></td>
+<td>911 + Jefe Seguridad simultáneo</td>
+<td>Dirección General</td>
+<td>&lt; 3 minutos de activación</td>
+</tr>
     </tbody>
   </table>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 1.3 Gestión de Incidentes</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 1.3 Gestión de Incidentes</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 2.1 SOLICITUDES ══ -->
@@ -582,38 +1371,136 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">2.0 Atención a Residentes y Huéspedes · 2.1</div>
   <h1 class="proc-title">2.1 Recepción de Solicitudes</h1>
   <p class="proc-subtitle">Canal oficial, registro, tiempo de respuesta y seguimiento hasta cierre</p>
-<div class="fc-wrap"><svg width="760" height="524" viewBox="0 0 760 524" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="230" y="10" width="300" height="32" rx="16" fill="#1F5C38"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">SOLICITUD RECIBIDA</text><rect x="280" y="60" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="75" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Acusar recibo &lt;30 min</text><text x="380" y="87" text-anchor="middle" fill="#111816" font-size="8">WhatsApp o correo</text><rect x="280" y="116" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="131" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Registrar en el sistema</text><text x="380" y="143" text-anchor="middle" fill="#111816" font-size="8">Tipo · Unidad · Hora</text><polygon points="380,174 540,204 380,234 220,204" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="208" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Es emergencia?</text><rect x="10" y="182" width="150" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="85" y="197" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">Activar protocolo</text><text x="85" y="209" text-anchor="middle" fill="#6B1A14" font-size="8">de emergencia</text><rect x="280" y="242" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="257" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Turnar a responsable</text><text x="380" y="269" text-anchor="middle" fill="#111816" font-size="8">&lt; 1 hora</text><polygon points="380,300 540,330 380,360 220,330" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="326" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Responden</text><text x="380" y="338" text-anchor="middle" fill="#C87D0A" font-size="8">en tiempo?</text><rect x="530" y="308" width="195" height="38" rx="6" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="627" y="323" text-anchor="middle" fill="#5A3A0A" font-weight="700" font-size="9">Escalar al Jefe</text><text x="627" y="335" text-anchor="middle" fill="#5A3A0A" font-size="8">del área</text><rect x="280" y="368" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="383" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Notificar resolución</text><text x="380" y="395" text-anchor="middle" fill="#111816" font-size="8">al solicitante</text><rect x="280" y="424" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="439" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Cerrar en el sistema</text><text x="380" y="451" text-anchor="middle" fill="#111816" font-size="8">con evidencia</text><rect x="305" y="480" width="152" height="30" rx="15" fill="#1F5C38"/><text x="381" y="499" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ SOLICITUD CERRADA</text><line x1="380" y1="42" x2="380" y2="59" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="98" x2="380" y2="115" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="154" x2="380" y2="173" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="204" x2="161" y2="201" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="190" y="198" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="234" x2="380" y2="241" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="238" fill="#1F5C38" font-weight="700" font-size="8">NO</text><line x1="380" y1="280" x2="380" y2="299" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="540" y1="330" x2="529" y2="327" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><text x="535" y="324" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="8">NO</text><polyline points="627,346 627,387 481,387" fill="none" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><line x1="380" y1="360" x2="380" y2="367" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="364" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="406" x2="380" y2="423" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="462" x2="381" y2="479" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-  <table class="info-table">
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Se recibe una petición de servicio</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Recepción</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Registrar y asignar responsable</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Escalar emergencia o falta de respuesta</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Folio, prioridad, asignación y cierre</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Solicitud de servicio"><h2>Solicitud de servicio</h2>
+<div class="flow-start">Solicitud recibida</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">Registrar y determinar prioridad</div>
+<div class="flow-branches">
+<div class="flow-branch stop">
+<b>Emergencia</b>Activar protocolo aplicable</div>
+<div class="flow-branch">
+<b>Operativa</b>Asignar responsable y plazo de atención</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Dar seguimiento y notificar resolución</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Solicitud cerrada</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><table class="info-table">
     <tr>
-      <td class="it-accent" colspan="2"><span class="it-label">Canal oficial</span><span class="it-value">WhatsApp del grupo operativo oficial · Correo de administración · Presencial en recepción. Las solicitudes recibidas por canales no oficiales (WhatsApp personal del personal, llamadas a celular personal) deben redirigirse al canal oficial antes de procesarse.</span></td>
+      <td class="it-accent" colspan="2">
+<span class="it-label">Canal oficial</span><span class="it-value">WhatsApp del grupo operativo oficial · Correo de administración · Presencial en recepción. Las solicitudes recibidas por canales no oficiales (WhatsApp personal del personal, llamadas a celular personal) deben redirigirse al canal oficial antes de procesarse.</span>
+</td>
     </tr>
   </table>
 
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Procedimiento</div></div>
+  <div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Procedimiento</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:180px">Actividad</th><th>Detalle</th><th style="width:130px">Tiempo objetivo</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:180px">Actividad</th>
+<th>Detalle</th>
+<th style="width:130px">Tiempo objetivo</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Recibir y acusar recibo</div></td><td>Confirmar recepción al residente/PM con un mensaje de acuse: "Recibimos su solicitud. La turnaremos al área responsable."</td><td>Máx. 30 minutos</td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Registrar en el sistema</div></td><td>Capturar: tipo de solicitud, unidad, fecha/hora de recepción, nombre del solicitante, descripción y área responsable de atender.</td><td>Inmediato</td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Turnar al área responsable</div></td><td>Mantenimiento · Gerencia · Seguridad · Limpieza — según el tipo de solicitud. El área responsable recibe la solicitud por el canal operativo.</td><td>Máx. 1 hora</td></tr>
-      <tr><td class="sn">4</td><td><div class="s-name">Seguimiento</div></td><td>Si no hay respuesta del área responsable en el tiempo acordado, el recepcionista escala al Jefe del área correspondiente.</td><td>Según tipo</td></tr>
-      <tr><td class="sn">5</td><td><div class="s-name">Cierre y notificación</div></td><td>Al resolver: notificar al solicitante con la solución aplicada. Registrar el cierre en el sistema con evidencia si aplica.</td><td>Post-resolución</td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Recibir y acusar recibo</div></td>
+<td>Confirmar recepción al residente/PM con un mensaje de acuse: "Recibimos su solicitud. La turnaremos al área responsable."</td>
+<td>Máx. 30 minutos</td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Registrar en el sistema</div></td>
+<td>Capturar: tipo de solicitud, unidad, fecha/hora de recepción, nombre del solicitante, descripción y área responsable de atender.</td>
+<td>Inmediato</td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Turnar al área responsable</div></td>
+<td>Mantenimiento · Gerencia · Seguridad · Limpieza — según el tipo de solicitud. El área responsable recibe la solicitud por el canal operativo.</td>
+<td>Máx. 1 hora</td>
+</tr>
+      <tr>
+<td class="sn">4</td>
+<td><div class="s-name">Seguimiento</div></td>
+<td>Si no hay respuesta del área responsable en el tiempo acordado, el recepcionista escala al Jefe del área correspondiente.</td>
+<td>Según tipo</td>
+</tr>
+      <tr>
+<td class="sn">5</td>
+<td><div class="s-name">Cierre y notificación</div></td>
+<td>Al resolver: notificar al solicitante con la solución aplicada. Registrar el cierre en el sistema con evidencia si aplica.</td>
+<td>Post-resolución</td>
+</tr>
     </tbody>
   </table>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">Tiempos de Respuesta por Tipo de Solicitud</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">Tiempos de Respuesta por Tipo de Solicitud</div>
+</div>
   <table class="act-table">
-    <thead><tr><th>Tipo de solicitud</th><th style="width:140px">Tiempo de respuesta</th><th style="width:130px">Área responsable</th></tr></thead>
+    <thead><tr>
+<th>Tipo de solicitud</th>
+<th style="width:140px">Tiempo de respuesta</th>
+<th style="width:130px">Área responsable</th>
+</tr></thead>
     <tbody>
-      <tr><td>Emergencia (fuga de agua, falla eléctrica, seguridad)</td><td><strong style="color:var(--red);">Inmediato</strong></td><td><span class="resp resp-r">Mantenimiento / Seguridad</span></td></tr>
-      <tr><td>Solicitud de mantenimiento urgente</td><td>Mismo día hábil</td><td><span class="resp resp-a">Mantenimiento</span></td></tr>
-      <tr><td>Solicitud de mantenimiento ordinario</td><td>Máx. 48 horas hábiles</td><td><span class="resp resp-a">Mantenimiento</span></td></tr>
-      <tr><td>Solicitud administrativa (estados de cuenta, convenios)</td><td>Máx. 24 horas hábiles</td><td><span class="resp resp-g">Gerencia</span></td></tr>
-      <tr><td>Consulta de información general</td><td>Máx. 2 horas en horario de oficina</td><td><span class="resp resp-g">Recepción</span></td></tr>
+      <tr>
+<td>Emergencia (fuga de agua, falla eléctrica, seguridad)</td>
+<td><strong style="color:var(--red);">Inmediato</strong></td>
+<td><span class="resp resp-r">Mantenimiento / Seguridad</span></td>
+</tr>
+      <tr>
+<td>Solicitud de mantenimiento urgente</td>
+<td>Mismo día hábil</td>
+<td><span class="resp resp-a">Mantenimiento</span></td>
+</tr>
+      <tr>
+<td>Solicitud de mantenimiento ordinario</td>
+<td>Máx. 48 horas hábiles</td>
+<td><span class="resp resp-a">Mantenimiento</span></td>
+</tr>
+      <tr>
+<td>Solicitud administrativa (estados de cuenta, convenios)</td>
+<td>Máx. 24 horas hábiles</td>
+<td><span class="resp resp-g">Gerencia</span></td>
+</tr>
+      <tr>
+<td>Consulta de información general</td>
+<td>Máx. 2 horas en horario de oficina</td>
+<td><span class="resp resp-g">Recepción</span></td>
+</tr>
     </tbody>
   </table>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 2.1 Recepción de Solicitudes</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 2.1 Recepción de Solicitudes</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 2.2 QUEJAS ══ -->
@@ -621,26 +1508,89 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">2.0 Atención a Residentes y Huéspedes · 2.2</div>
   <h1 class="proc-title">2.2 Gestión de Quejas</h1>
   <p class="proc-subtitle">Recepción, documentación, respuesta y registro de quejas de residentes y huéspedes</p>
-<div class="fc-wrap"><svg width="760" height="412" viewBox="0 0 760 412" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="230" y="10" width="300" height="32" rx="16" fill="#C87D0A"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">QUEJA RECIBIDA</text><rect x="280" y="60" width="200" height="38" rx="6" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="75" text-anchor="middle" fill="#5A3A0A" font-weight="700" font-size="9">Escuchar sin interrumpir</text><text x="380" y="87" text-anchor="middle" fill="#5A3A0A" font-size="8">Registrar en sistema + folio</text><polygon points="380,118 540,148 380,178 220,148" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="144" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Resolvible</text><text x="380" y="156" text-anchor="middle" fill="#C87D0A" font-size="8">en sitio?</text><rect x="10" y="126" width="150" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="85" y="141" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Resolver en sitio</text><text x="85" y="153" text-anchor="middle" fill="#111816" font-size="8">Documentar solución</text><rect x="280" y="186" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="201" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Turnar área responsable</text><text x="380" y="213" text-anchor="middle" fill="#111816" font-size="8">Gerencia notifica cierre</text><polygon points="380,244 540,274 380,304 220,274" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="270" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Reincidente</text><text x="380" y="282" text-anchor="middle" fill="#C87D0A" font-size="8">3+ en 30 días?</text><rect x="10" y="252" width="150" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="85" y="267" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">Escalar a</text><text x="85" y="279" text-anchor="middle" fill="#6B1A14" font-size="8">Comité Operativo</text><rect x="280" y="312" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="327" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Notificar resolución</text><text x="380" y="339" text-anchor="middle" fill="#111816" font-size="8">al quejoso</text><rect x="305" y="368" width="152" height="30" rx="15" fill="#1F5C38"/><text x="381" y="387" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ QUEJA CERRADA</text><line x1="380" y1="42" x2="380" y2="59" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="98" x2="380" y2="117" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="148" x2="161" y2="145" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="190" y="142" text-anchor="middle" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="178" x2="380" y2="185" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="386" y="182" fill="#C0392B" font-weight="700" font-size="8">NO</text><polyline points="85,164 85,244 380,243" fill="none" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="224" x2="380" y2="243" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="274" x2="161" y2="271" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="190" y="268" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">SÍ</text><polyline points="85,290 85,331 279,331" fill="none" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><line x1="380" y1="304" x2="380" y2="311" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="308" fill="#1F5C38" font-weight="700" font-size="8">NO</text><line x1="380" y1="350" x2="381" y2="367" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Procedimiento</div></div>
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Se recibe inconformidad formal</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Recepción / Gerencia</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Escuchar, registrar y contener</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Escalar reincidencia o afectación relevante</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Folio, respuesta, evidencia y cierre</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Gestión de quejas"><h2>Gestión de quejas</h2>
+<div class="flow-start">Queja recibida</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">Escuchar y registrar con folio</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Resolvible</b>Atender en sitio y documentar</div>
+<div class="flow-branch warn">
+<b>No resoluble</b>Asignar al área responsable y escalar</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Notificar resolución y revisar reincidencia</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Queja cerrada</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Procedimiento</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:180px">Actividad</th><th>Detalle</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:180px">Actividad</th>
+<th>Detalle</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Escuchar sin interrumpir</div></td><td>Permitir que el residente/huésped exponga completamente su queja antes de responder. No argumentar ni justificar durante la exposición.</td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Registrar la queja</div></td><td>Capturar en el sistema: unidad/nombre del quejoso, fecha/hora, descripción exacta de la queja (en sus propias palabras), área involucrada.</td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Acusar recibo y dar seguimiento</div></td><td>Informar al quejoso: "Su queja fue registrada con folio [número]. La turnaremos al área responsable y le informaremos la resolución en [plazo según tipo]."</td></tr>
-      <tr><td class="sn">4</td><td><div class="s-name">Turnar y resolver</div></td><td>El área responsable investiga, aplica la medida correctiva y notifica a Gerencia. Gerencia cierra el caso con el quejoso.</td></tr>
-      <tr><td class="sn">5</td><td><div class="s-name">Cierre formal</div></td><td>Notificar al quejoso la resolución. Registrar el cierre en el sistema con la solución aplicada. Si no hubo resolución: documentar la razón.</td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Escuchar sin interrumpir</div></td>
+<td>Permitir que el residente/huésped exponga completamente su queja antes de responder. No argumentar ni justificar durante la exposición.</td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Registrar la queja</div></td>
+<td>Capturar en el sistema: unidad/nombre del quejoso, fecha/hora, descripción exacta de la queja (en sus propias palabras), área involucrada.</td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Acusar recibo y dar seguimiento</div></td>
+<td>Informar al quejoso: "Su queja fue registrada con folio [número]. La turnaremos al área responsable y le informaremos la resolución en [plazo según tipo]."</td>
+</tr>
+      <tr>
+<td class="sn">4</td>
+<td><div class="s-name">Turnar y resolver</div></td>
+<td>El área responsable investiga, aplica la medida correctiva y notifica a Gerencia. Gerencia cierra el caso con el quejoso.</td>
+</tr>
+      <tr>
+<td class="sn">5</td>
+<td><div class="s-name">Cierre formal</div></td>
+<td>Notificar al quejoso la resolución. Registrar el cierre en el sistema con la solución aplicada. Si no hubo resolución: documentar la razón.</td>
+</tr>
     </tbody>
   </table>
 
   <div class="alert a-amber">
-    <div class="alert-icon">⚠️</div>
-    <div class="alert-body"><strong>Quejas recurrentes</strong>Si una misma unidad o situación genera más de 3 quejas en 30 días, el caso se escala automáticamente al Comité Operativo para análisis y decisión de medidas correctivas de fondo.</div>
+    <div class="alert-icon">VALIDAR</div>
+    <div class="alert-body">
+<strong>Quejas recurrentes</strong>Si una misma unidad o situación genera más de 3 quejas en 30 días, el caso se escala automáticamente al Comité Operativo para análisis y decisión de medidas correctivas de fondo.</div>
   </div>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 2.2 Gestión de Quejas</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 2.2 Gestión de Quejas</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 2.3 MEDIACIÓN ══ -->
@@ -648,15 +1598,56 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">2.0 Atención a Residentes y Huéspedes · 2.3</div>
   <h1 class="proc-title">2.3 Mediación de Conflictos</h1>
   <p class="proc-subtitle">Protocolo para conflictos entre residentes, huéspedes o con el personal del residencial</p>
-<div class="fc-wrap"><svg width="760" height="406" viewBox="0 0 760 406" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="230" y="10" width="300" height="32" rx="16" fill="#C87D0A"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">CONFLICTO REPORTADO</text><polygon points="380,62 540,92 380,122 220,92" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="88" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">Nivel de conflicto</text><text x="380" y="100" text-anchor="middle" fill="#C87D0A" font-size="8">Leve · Moderado · Grave</text><rect x="10" y="70" width="150" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="85" y="85" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Escucha activa</text><text x="85" y="97" text-anchor="middle" fill="#111816" font-size="8">Frase de límite</text><rect x="305" y="140" width="150" height="38" rx="6" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="155" text-anchor="middle" fill="#5A3A0A" font-weight="700" font-size="9">Notificar Jefe Seg.</text><text x="380" y="167" text-anchor="middle" fill="#5A3A0A" font-size="8">Documento de acuerdo</text><rect x="590" y="70" width="160" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="670" y="85" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">Llamar al 911</text><text x="670" y="97" text-anchor="middle" fill="#6B1A14" font-size="8">Alejar al personal</text><polygon points="380,228 540,258 380,288 220,258" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="254" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Se alcanzó</text><text x="380" y="266" text-anchor="middle" fill="#C87D0A" font-size="8">un acuerdo?</text><rect x="280" y="306" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="321" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Documentar acuerdo</text><text x="380" y="333" text-anchor="middle" fill="#111816" font-size="8">Firmas si es posible</text><rect x="305" y="362" width="165" height="30" rx="15" fill="#1F5C38"/><text x="387" y="381" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ CONFLICTO RESUELTO</text><rect x="540" y="306" width="200" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="640" y="321" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">Sin acuerdo</text><text x="640" y="333" text-anchor="middle" fill="#6B1A14" font-size="8">Escalar a Dirección</text><line x1="380" y1="42" x2="380" y2="61" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="92" x2="161" y2="89" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="190" y="86" text-anchor="middle" fill="#1F5C38" font-weight="700" font-size="8">Leve</text><line x1="380" y1="122" x2="380" y2="139" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><text x="386" y="131" fill="#C87D0A" font-weight="700" font-size="8">Moderado</text><line x1="540" y1="92" x2="589" y2="89" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="565" y="86" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">Grave</text><polyline points="85,108 85,228 380,227" fill="none" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><polyline points="380,178 380,228 380,227" fill="none" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><polyline points="670,108 670,228 380,227" fill="none" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><line x1="380" y1="288" x2="380" y2="305" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="297" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="540" y1="258" x2="539" y2="325" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="540" y="252" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="344" x2="387" y2="361" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-  <table class="info-table">
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Existe conflicto entre personas</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Responsable de turno</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Separar, escuchar y reducir tensión</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>911 si hay amenaza, violencia o riesgo</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Personas, hechos, acuerdos y escalamiento</dd>
+</div>
+</dl></section><figure class="decision-diagram" aria-label="Mediación de conflictos"><h2>Mediación de conflictos</h2>
+<div class="flow-start">Conflicto reportado</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">Clasificar: leve, moderado o grave</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Leve</b>Escucha activa y límites claros</div>
+<div class="flow-branch warn">
+<b>Moderado</b>Notificar al responsable y documentar acuerdo</div>
+<div class="flow-branch stop">
+<b>Grave</b>Alejar al personal y llamar al 911</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Registrar acuerdo o escalamiento</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Conflicto controlado</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><table class="info-table">
     <tr>
-      <td class="it-red" colspan="2"><span class="it-label">Límite del personal</span><span class="it-value">El personal del residencial NO es árbitro ni juez. Su rol en un conflicto es contener, documentar y escalar — nunca tomar partido ni emitir resoluciones vinculantes sobre disputas entre residentes.</span></td>
+      <td class="it-red" colspan="2">
+<span class="it-label">Límite del personal</span><span class="it-value">El personal del residencial NO es árbitro ni juez. Su rol en un conflicto es contener, documentar y escalar — nunca tomar partido ni emitir resoluciones vinculantes sobre disputas entre residentes.</span>
+</td>
     </tr>
   </table>
 
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Procedimiento según Nivel de Conflicto</div></div>
+  <div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Procedimiento según Nivel de Conflicto</div>
+</div>
   <div class="level lv1">
     <div class="level-hdr">Conflicto verbal leve — ruido, estacionamiento, áreas comunes</div>
     <div class="level-body">El recepcionista o guardia en turno interviene como intermediario neutral. Recuerda a ambas partes las normas del reglamento aplicables al caso. Si se resuelve en sitio: documentar en el sistema como "conflicto resuelto en sitio". Si no se resuelve: escalar a Gerencia.</div>
@@ -670,18 +1661,43 @@ nav{padding:6px 0 40px;}
     <div class="level-body">Llamar al 911 de inmediato. No intentar mediar en situaciones de riesgo físico. Activar Nivel Rojo de seguridad. Documentar todo en el sistema. Notificar a Dirección General. El reglamento prevé la posibilidad de rescisión de contrato de arrendamiento en casos graves.</div>
   </div>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">Seguimiento Post-Acuerdo</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">Seguimiento Post-Acuerdo</div>
+</div>
   <p style="font-size:13.5px;color:var(--ink-soft);line-height:1.7;margin-bottom:12px;">Un acuerdo documentado tiene valor formal y genera obligaciones de seguimiento. Cerrar el caso en el sistema sin verificar su cumplimiento anula ese valor.</p>
   <table class="act-table">
-    <thead><tr><th style="width:120px">Plazo</th><th>Acción de seguimiento</th><th style="width:140px">Responsable</th></tr></thead>
+    <thead><tr>
+<th style="width:120px">Plazo</th>
+<th>Acción de seguimiento</th>
+<th style="width:140px">Responsable</th>
+</tr></thead>
     <tbody>
-      <tr><td><strong>48 horas</strong></td><td>Gerencia contacta brevemente a las partes para confirmar que el acuerdo se está respetando. Si ambas partes confirman: se registra "acuerdo cumplido" en el sistema y el caso se cierra.</td><td>Gerencia Administrativa</td></tr>
-      <tr><td><strong>Si hay incumplimiento</strong></td><td>Se reabre el expediente en el sistema con nota de incumplimiento. Se notifica a Dirección General. El acuerdo previo se anexa como antecedente y puede usarse como base para aplicar sanción según el reglamento.</td><td>Gerencia Administrativa</td></tr>
-      <tr><td><strong>Reincidencia del mismo conflicto</strong></td><td>Si el mismo conflicto entre las mismas partes ocurre por segunda vez dentro de los 30 días siguientes al acuerdo, se escala directamente a Dirección General sin pasar por mediación. El historial documentado en el sistema es el respaldo formal.</td><td>Dirección General</td></tr>
+      <tr>
+<td><strong>48 horas</strong></td>
+<td>Gerencia contacta brevemente a las partes para confirmar que el acuerdo se está respetando. Si ambas partes confirman: se registra "acuerdo cumplido" en el sistema y el caso se cierra.</td>
+<td>Gerencia Administrativa</td>
+</tr>
+      <tr>
+<td><strong>Si hay incumplimiento</strong></td>
+<td>Se reabre el expediente en el sistema con nota de incumplimiento. Se notifica a Dirección General. El acuerdo previo se anexa como antecedente y puede usarse como base para aplicar sanción según el reglamento.</td>
+<td>Gerencia Administrativa</td>
+</tr>
+      <tr>
+<td><strong>Reincidencia del mismo conflicto</strong></td>
+<td>Si el mismo conflicto entre las mismas partes ocurre por segunda vez dentro de los 30 días siguientes al acuerdo, se escala directamente a Dirección General sin pasar por mediación. El historial documentado en el sistema es el respaldo formal.</td>
+<td>Dirección General</td>
+</tr>
     </tbody>
   </table>
-  <div class="alert a-amber"><div class="alert-icon">📋</div><div class="alert-body"><strong>El acuerdo documentado tiene peso reglamentario.</strong> Si una parte incumple un acuerdo firmado, ese incumplimiento se clasifica como infracción moderada o grave según el daño causado, y aplica la escala de sanciones del Libro VI sección 2.2.</div></div>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 2.3 Mediación de Conflictos</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="alert a-amber">
+<div class="alert-icon">VALIDAR</div>
+<div class="alert-body">
+<strong>El acuerdo documentado tiene peso reglamentario.</strong> Si una parte incumple un acuerdo firmado, ese incumplimiento se clasifica como infracción moderada o grave según el daño causado, y aplica la escala de sanciones del Libro VI sección 2.2.</div>
+</div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 2.3 Mediación de Conflictos</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 2.4 PAQUETERÍA ══ -->
@@ -689,34 +1705,118 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">2.0 Atención a Residentes y Huéspedes · 2.4</div>
   <h1 class="proc-title">2.4 Gestión de Paquetería</h1>
   <p class="proc-subtitle">Recepción, custodia, notificación y entrega de paquetes y correspondencia</p>
-<div class="fc-wrap"><svg width="760" height="524" viewBox="0 0 760 524" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="230" y="10" width="300" height="32" rx="16" fill="#1F5C38"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">PAQUETE LLEGA A RECEPCIÓN</text><polygon points="380,62 540,92 380,122 220,92" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="88" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Destinatario</text><text x="380" y="100" text-anchor="middle" fill="#C87D0A" font-size="8">en padrón Vivook?</text><rect x="10" y="70" width="140" height="30" rx="15" fill="#C0392B"/><text x="80" y="89" text-anchor="middle" fill="white" font-weight="800" font-size="10">✗ NO RECIBIR</text><rect x="280" y="130" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="145" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Fotografiar paquete</text><text x="380" y="157" text-anchor="middle" fill="#111816" font-size="8">con N.º de guía visible</text><rect x="280" y="186" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="201" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Registrar en sistema</text><text x="380" y="213" text-anchor="middle" fill="#111816" font-size="8">Guardar en custodia</text><rect x="280" y="242" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="257" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Notificar PM/Residente</text><text x="380" y="269" text-anchor="middle" fill="#111816" font-size="8">con foto &lt;30 min</text><polygon points="380,300 540,330 380,360 220,330" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="326" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Reclamado</text><text x="380" y="338" text-anchor="middle" fill="#C87D0A" font-size="8">en 7 días?</text><rect x="530" y="308" width="200" height="38" rx="6" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="630" y="323" text-anchor="middle" fill="#5A3A0A" font-weight="700" font-size="9">2.ª notificación</text><text x="630" y="335" text-anchor="middle" fill="#5A3A0A" font-size="8">Si +15d → Dirección</text><rect x="280" y="368" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="383" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Entregar con firma</text><text x="380" y="395" text-anchor="middle" fill="#111816" font-size="8">o confirmación escrita</text><rect x="280" y="424" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="439" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Registrar entrega</text><text x="380" y="451" text-anchor="middle" fill="#111816" font-size="8">Cerrar en el sistema</text><rect x="305" y="480" width="160" height="30" rx="15" fill="#1F5C38"/><text x="385" y="499" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ PAQUETE ENTREGADO</text><line x1="380" y1="42" x2="380" y2="61" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="92" x2="151" y2="85" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="185" y="86" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">NO</text><line x1="380" y1="122" x2="380" y2="129" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="126" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="168" x2="380" y2="185" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="224" x2="380" y2="241" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="280" x2="380" y2="299" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="540" y1="330" x2="529" y2="327" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><text x="535" y="324" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="8">NO aún</text><polyline points="630,346 630,387 481,387" fill="none" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><line x1="380" y1="360" x2="380" y2="367" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="364" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="406" x2="380" y2="423" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="462" x2="385" y2="479" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Procedimiento</div></div>
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Mensajería entrega un paquete</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Recepción</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Verificar destinatario antes de recibir</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>No recibir si no puede identificarse o resguardarse</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Foto, guía, custodia, aviso y firma</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Custodia de paquetería"><h2>Custodia de paquetería</h2>
+<div class="flow-start">Paquete llega a recepción</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">¿Destinatario identificable y custodia disponible?</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Sí</b>Fotografiar guía, registrar y resguardar</div>
+<div class="flow-branch stop">
+<b>No</b>No recibir; explicar el motivo al mensajero</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Notificar, entregar con firma y cerrar</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Paquete entregado</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Procedimiento</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:36px">#</th><th style="width:180px">Actividad</th><th>Detalle</th></tr></thead>
+    <thead><tr>
+<th style="width:36px">#</th>
+<th style="width:180px">Actividad</th>
+<th>Detalle</th>
+</tr></thead>
     <tbody>
-      <tr><td class="sn">1</td><td><div class="s-name">Recibir el paquete</div></td><td>Verificar que el nombre del destinatario coincide con un residente registrado. No recibir paquetes sin destinatario identificado o con nombres que no corresponden al padrón.</td></tr>
-      <tr><td class="sn">2</td><td><div class="s-name">Registrar en el sistema</div></td><td>Capturar: descripción del paquete (tamaño, empresa de paquetería, número de guía si visible), unidad destinataria, fecha y hora de recepción, nombre de quien lo recibió.</td></tr>
-      <tr><td class="sn">3</td><td><div class="s-name">Fotografiar y custodiar</div></td><td>Tomar foto del paquete con número de guía visible. Guardar en área de custodia segura (no dejar en área abierta o sin supervisión).</td></tr>
-      <tr><td class="sn">4</td><td><div class="s-name">Notificar al destinatario</div></td><td>Notificar por WhatsApp oficial del residencial al PM/Propietario de la unidad con foto del paquete. Máx. 30 minutos tras la recepción.</td></tr>
-      <tr><td class="sn">5</td><td><div class="s-name">Entrega y cierre</div></td><td>Entregar solo al residente/PM registrado en Vivook o a la persona que el PM designe explícitamente por escrito. Registrar entrega en el sistema con firma o confirmación escrita del receptor.</td></tr>
+      <tr>
+<td class="sn">1</td>
+<td><div class="s-name">Recibir el paquete</div></td>
+<td>Verificar que el nombre del destinatario coincide con un residente registrado. No recibir paquetes sin destinatario identificado o con nombres que no corresponden al padrón.</td>
+</tr>
+      <tr>
+<td class="sn">2</td>
+<td><div class="s-name">Registrar en el sistema</div></td>
+<td>Capturar: descripción del paquete (tamaño, empresa de paquetería, número de guía si visible), unidad destinataria, fecha y hora de recepción, nombre de quien lo recibió.</td>
+</tr>
+      <tr>
+<td class="sn">3</td>
+<td><div class="s-name">Fotografiar y custodiar</div></td>
+<td>Tomar foto del paquete con número de guía visible. Guardar en área de custodia segura (no dejar en área abierta o sin supervisión).</td>
+</tr>
+      <tr>
+<td class="sn">4</td>
+<td><div class="s-name">Notificar al destinatario</div></td>
+<td>Notificar por WhatsApp oficial del residencial al PM/Propietario de la unidad con foto del paquete. Máx. 30 minutos tras la recepción.</td>
+</tr>
+      <tr>
+<td class="sn">5</td>
+<td><div class="s-name">Entrega y cierre</div></td>
+<td>Entregar solo al residente/PM registrado en Vivook o a la persona que el PM designe explícitamente por escrito. Registrar entrega en el sistema con firma o confirmación escrita del receptor.</td>
+</tr>
     </tbody>
   </table>
 
-  <div class="alert a-amber"><div class="alert-icon">📦</div><div class="alert-body"><strong>Paquetes no reclamados</strong>Si un paquete no es reclamado en 7 días: segunda notificación por correo formal. Si no es reclamado en 15 días: notificar a Dirección General para decidir el destino del paquete según política del reglamento interno.</div></div>
+  <div class="alert a-amber">
+<div class="alert-icon">VALIDAR</div>
+<div class="alert-body">
+<strong>Paquetes no reclamados</strong>Si un paquete no es reclamado en 7 días: segunda notificación por correo formal. Si no es reclamado en 15 días: notificar a Dirección General para decidir el destino del paquete según política del reglamento interno.</div>
+</div>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">Paquete con Destinatario No Registrado en Vivook</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">Paquete con Destinatario No Registrado en Vivook</div>
+</div>
   <table class="act-table">
-    <thead><tr><th style="width:200px">Situación</th><th>Procedimiento</th></tr></thead>
+    <thead><tr>
+<th style="width:200px">Situación</th>
+<th>Procedimiento</th>
+</tr></thead>
     <tbody>
-      <tr><td><strong>Nombre no coincide con ningún residente</strong></td><td>No recibir. Informar al delivery que el destinatario no está en el padrón del residencial. Solicitar que se devuelva o reagende. Registrar el intento de entrega en el sistema (empresa, guía, hora). No se almacena el paquete.</td></tr>
-      <tr><td><strong>Posible residente nuevo o reciente mudanza</strong></td><td>Si el delivery indica que es para una unidad específica, el recepcionista contacta por WhatsApp al PM de esa unidad para confirmar. Si el PM confirma en 10 minutos: recibir con el proceso estándar y agregar nota en el sistema. Si no hay respuesta: no recibir, registrar intento.</td></tr>
-      <tr><td><strong>Paquete sin destinatario legible</strong></td><td>No recibir bajo ninguna circunstancia. Solicitar al delivery que aclare destinatario con su centro de distribución antes de volver.</td></tr>
-      <tr><td><strong>Delivery insiste o deja el paquete sin consentimiento</strong></td><td>Fotografiar el paquete, registrar empresa y guía en el sistema, notificar a Jefe de Seguridad y Gerencia. No mover ni abrir el paquete. Gerencia decide en máx. 2 horas si se devuelve o custodia temporalmente.</td></tr>
+      <tr>
+<td><strong>Nombre no coincide con ningún residente</strong></td>
+<td>No recibir. Informar al delivery que el destinatario no está en el padrón del residencial. Solicitar que se devuelva o reagende. Registrar el intento de entrega en el sistema (empresa, guía, hora). No se almacena el paquete.</td>
+</tr>
+      <tr>
+<td><strong>Posible residente nuevo o reciente mudanza</strong></td>
+<td>Si el delivery indica que es para una unidad específica, el recepcionista contacta por WhatsApp al PM de esa unidad para confirmar. Si el PM confirma en 10 minutos: recibir con el proceso estándar y agregar nota en el sistema. Si no hay respuesta: no recibir, registrar intento.</td>
+</tr>
+      <tr>
+<td><strong>Paquete sin destinatario legible</strong></td>
+<td>No recibir bajo ninguna circunstancia. Solicitar al delivery que aclare destinatario con su centro de distribución antes de volver.</td>
+</tr>
+      <tr>
+<td><strong>Delivery insiste o deja el paquete sin consentimiento</strong></td>
+<td>Fotografiar el paquete, registrar empresa y guía en el sistema, notificar a Jefe de Seguridad y Gerencia. No mover ni abrir el paquete. Gerencia decide en máx. 2 horas si se devuelve o custodia temporalmente.</td>
+</tr>
     </tbody>
   </table>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 2.4 Gestión de Paquetería</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 2.4 Gestión de Paquetería</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
 <!-- ══ 2.5 COMUNICACIÓN ══ -->
@@ -724,35 +1824,122 @@ nav{padding:6px 0 40px;}
   <div class="proc-eyebrow">2.0 Atención a Residentes y Huéspedes · 2.5</div>
   <h1 class="proc-title">2.5 Comunicación Oficial</h1>
   <p class="proc-subtitle">Canales autorizados, tono institucional y política de comunicación con residentes</p>
-<div class="fc-wrap"><svg width="760" height="442" viewBox="0 0 760 442" font-family="Inter,sans-serif" font-size="9" style="max-width:100%;height:auto;"><defs><marker id="mg" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#1F5C38"/></marker><marker id="mr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C0392B"/></marker><marker id="ma" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#C87D0A"/></marker></defs><rect x="230" y="10" width="300" height="32" rx="16" fill="#1F5C38"/><text x="380" y="30" text-anchor="middle" fill="white" font-weight="800" font-size="11">COMUNICACIÓN A ENVIAR</text><polygon points="380,62 540,92 380,122 220,92" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="88" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Es urgente</text><text x="380" y="100" text-anchor="middle" fill="#C87D0A" font-size="8">u operativa?</text><rect x="10" y="70" width="150" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="85" y="85" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">WhatsApp operativo</text><text x="85" y="97" text-anchor="middle" fill="#111816" font-size="8">del residencial</text><rect x="305" y="140" width="150" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="155" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Correo oficial</text><text x="380" y="167" text-anchor="middle" fill="#111816" font-size="8">o Vivook</text><polygon points="380,218 540,248 380,278 220,248" fill="#FDF3E3" stroke="#C87D0A" stroke-width="1.75"/><text x="380" y="244" text-anchor="middle" fill="#C87D0A" font-weight="700" font-size="9">¿Involucra datos</text><text x="380" y="256" text-anchor="middle" fill="#C87D0A" font-size="8">de residentes?</text><rect x="530" y="226" width="200" height="38" rx="6" fill="#FDECEA" stroke="#C0392B" stroke-width="1.75"/><text x="630" y="241" text-anchor="middle" fill="#6B1A14" font-weight="700" font-size="9">Requiere autorización</text><text x="630" y="253" text-anchor="middle" fill="#6B1A14" font-size="8">Dirección General</text><rect x="280" y="286" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="301" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Enviar por canal</text><text x="380" y="313" text-anchor="middle" fill="#111816" font-size="8">oficial únicamente</text><rect x="280" y="342" width="200" height="38" rx="6" fill="#E8F4ED" stroke="#1F5C38" stroke-width="1.75"/><text x="380" y="357" text-anchor="middle" fill="#111816" font-weight="700" font-size="9">Registrar en el sistema</text><text x="380" y="369" text-anchor="middle" fill="#111816" font-size="8">si es comunicado formal</text><rect x="305" y="398" width="165" height="30" rx="15" fill="#1F5C38"/><text x="387" y="417" text-anchor="middle" fill="white" font-weight="800" font-size="10">✓ COMUNICADO ENVIADO</text><line x1="380" y1="42" x2="380" y2="61" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="220" y1="92" x2="161" y2="89" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="190" y="86" text-anchor="middle" fill="#1F5C38" font-weight="700" font-size="8">SÍ</text><line x1="380" y1="122" x2="380" y2="139" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="386" y="131" fill="#C0392B" font-weight="700" font-size="8">NO — formal</text><polyline points="85,108 85,218 380,217" fill="none" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><polyline points="380,178 380,218 380,217" fill="none" stroke="#C87D0A" stroke-width="1.75" marker-end="url(#ma)"/><line x1="540" y1="248" x2="529" y2="245" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><text x="535" y="242" text-anchor="middle" fill="#C0392B" font-weight="700" font-size="8">SÍ</text><polyline points="630,264 630,305 481,305" fill="none" stroke="#C0392B" stroke-width="1.75" marker-end="url(#mr)"/><line x1="380" y1="278" x2="380" y2="285" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><text x="386" y="282" fill="#1F5C38" font-weight="700" font-size="8">NO</text><line x1="380" y1="324" x2="380" y2="341" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/><line x1="380" y1="380" x2="387" y2="397" stroke="#1F5C38" stroke-width="1.75" marker-end="url(#mg)"/></svg><div class="fc-legend"><b>Cómo leer este diagrama</b><span><span class="fc-diamond"></span>Punto de decisión</span><span><span class="fc-dot" style="background:var(--accent)"></span>Continuar / Sí</span><span><span class="fc-dot" style="background:var(--red)"></span>Detener / No</span><span><span class="fc-dot" style="background:var(--amber)"></span>Ruta alterna</span></div></div>
-
-
-  <div class="sec-h"><div class="sec-num">1</div><div class="sec-title">Canales Oficiales del Residencial</div></div>
+<section class="quick" aria-label="Consulta rápida"><h2>Consulta rápida</h2>
+<dl>
+<div>
+<dt>Cuándo usarlo</dt>
+<dd>Debe emitirse un aviso</dd>
+</div>
+<div>
+<dt>Responsable</dt>
+<dd>Área responsable / Gerencia</dd>
+</div>
+<div>
+<dt>Primera acción</dt>
+<dd>Elegir canal y validar contenido</dd>
+</div>
+<div>
+<dt>Escalar si…</dt>
+<dd>Escalar datos personales o postura institucional</dd>
+</div>
+<div>
+<dt>Registrar</dt>
+<dd>Versión, autorización, canal y evidencia</dd>
+</div>
+</dl></section><aside class="notice is-reference"><b>Validación obligatoria</b><p>Los plazos, horarios, autorizaciones, retenciones y criterios de esta sección son REFERENCIA hasta vincularlos con la política, contrato, aviso de privacidad o nombramiento vigente.</p></aside><figure class="decision-diagram" aria-label="Comunicación oficial"><h2>Comunicación oficial</h2>
+<div class="flow-start">Comunicación por emitir</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-decision">Definir urgencia, audiencia y datos incluidos</div>
+<div class="flow-branches">
+<div class="flow-branch">
+<b>Operativa</b>Usar canal institucional autorizado</div>
+<div class="flow-branch warn">
+<b>Formal o con datos</b>Obtener autorización antes de enviar</div>
+</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-step">Registrar versión y evidencia del envío</div>
+<div class="flow-arrow">↓</div>
+<div class="flow-end">Comunicado enviado</div>
+<p class="flow-note">Si una condición cambia o aumenta el riesgo, detener la ruta y escalar al nivel correspondiente.</p></figure><div class="sec-h">
+<div class="sec-num">1</div>
+<div class="sec-title">Canales Oficiales del Residencial</div>
+</div>
   <div class="info-grid-3" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;">
-    <div class="info-card"><div class="ic-label">WhatsApp Operativo</div><div class="ic-title">Grupo oficial del residencial</div><div class="ic-body">Para comunicaciones urgentes y operativas. Solo personal autorizado puede publicar. Residentes no responden en este canal — es de transmisión.</div></div>
-    <div class="info-card"><div class="ic-label">Correo Electrónico</div><div class="ic-title"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b0d1d4ddd9ded9c3c4c2d1d3d9dfdef0d1dcd4d5d1ddd1c9d1d29eddc8">[email&#160;protected]</a></div><div class="ic-body">Para comunicaciones formales, estados de cuenta, convenios y documentos. Tiempo de respuesta: máx. 24h hábiles.</div></div>
-    <div class="info-card"><div class="ic-label">Vivook</div><div class="ic-title">Notificaciones automáticas</div><div class="ic-body">QRs de acceso, estados de cuenta, alertas de moroso y confirmaciones de reservas. Canal automático del sistema.</div></div>
+    <div class="info-card">
+<div class="ic-label">WhatsApp Operativo</div>
+<div class="ic-title">Grupo oficial del residencial</div>
+<div class="ic-body">Para comunicaciones urgentes y operativas. Solo personal autorizado puede publicar. Residentes no responden en este canal — es de transmisión.</div>
+</div>
+    <div class="info-card">
+<div class="ic-label">Correo Electrónico</div>
+<div class="ic-title"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b0d1d4ddd9ded9c3c4c2d1d3d9dfdef0d1dcd4d5d1ddd1c9d1d29eddc8">[email protected]</a></div>
+<div class="ic-body">Para comunicaciones formales, estados de cuenta, convenios y documentos. Tiempo de respuesta: máx. 24h hábiles.</div>
+</div>
+    <div class="info-card">
+<div class="ic-label">Vivook</div>
+<div class="ic-title">Notificaciones automáticas</div>
+<div class="ic-body">QRs de acceso, estados de cuenta, alertas de moroso y confirmaciones de reservas. Canal automático del sistema.</div>
+</div>
   </div>
 
-  <div class="sec-h"><div class="sec-num">2</div><div class="sec-title">Política de Comunicación Institucional</div></div>
+  <div class="sec-h">
+<div class="sec-num">2</div>
+<div class="sec-title">Política de Comunicación Institucional</div>
+</div>
   <table class="act-table">
-    <thead><tr><th>Tipo de comunicación</th><th>Canal</th><th style="width:160px">Quién autoriza</th></tr></thead>
+    <thead><tr>
+<th>Tipo de comunicación</th>
+<th>Canal</th>
+<th style="width:160px">Quién autoriza</th>
+</tr></thead>
     <tbody>
-      <tr><td>Aviso de mantenimiento programado en áreas comunes</td><td>WhatsApp operativo + Vivook</td><td>Gerencia Administrativa</td></tr>
-      <tr><td>Cobros, adeudos y estados de cuenta</td><td>Correo oficial + Vivook</td><td>Gerencia Administrativa</td></tr>
-      <tr><td>Convocatoria a Asamblea</td><td>Correo oficial + escrito físico</td><td>Dirección General</td></tr>
-      <tr><td>Alertas de seguridad (emergencias, intrusos)</td><td>WhatsApp operativo inmediato</td><td>Jefe de Seguridad</td></tr>
-      <tr><td>Cambios al reglamento o tarifas</td><td>Correo oficial + escrito físico</td><td>Dirección General post-Asamblea</td></tr>
-      <tr><td>Respuesta a quejas individuales</td><td>Correo o WhatsApp al PM/Propietario</td><td>Gerencia Administrativa</td></tr>
+      <tr>
+<td>Aviso de mantenimiento programado en áreas comunes</td>
+<td>WhatsApp operativo + Vivook</td>
+<td>Gerencia Administrativa</td>
+</tr>
+      <tr>
+<td>Cobros, adeudos y estados de cuenta</td>
+<td>Correo oficial + Vivook</td>
+<td>Gerencia Administrativa</td>
+</tr>
+      <tr>
+<td>Convocatoria a Asamblea</td>
+<td>Correo oficial + escrito físico</td>
+<td>Dirección General</td>
+</tr>
+      <tr>
+<td>Alertas de seguridad (emergencias, intrusos)</td>
+<td>WhatsApp operativo inmediato</td>
+<td>Jefe de Seguridad</td>
+</tr>
+      <tr>
+<td>Cambios al reglamento o tarifas</td>
+<td>Correo oficial + escrito físico</td>
+<td>Dirección General post-Asamblea</td>
+</tr>
+      <tr>
+<td>Respuesta a quejas individuales</td>
+<td>Correo o WhatsApp al PM/Propietario</td>
+<td>Gerencia Administrativa</td>
+</tr>
     </tbody>
   </table>
 
-  <div class="alert a-red"><div class="alert-icon">🚫</div><div class="alert-body"><strong>Prohibido</strong>El personal no puede emitir comunicaciones institucionales desde canales personales (WhatsApp personal, correo personal, redes sociales). Tampoco puede comprometer posiciones del residencial en conversaciones informales con residentes sobre temas regulatorios o legales.</div></div>
-  <div class="proc-footer"><span>PR-AM-SEG-OPE-001 · Libro II · 2.5 Comunicación Oficial</span><span>Confidencial — Residencial Aldea Mayab</span></div>
+  <div class="alert a-red">
+<div class="alert-icon">CRÍTICO</div>
+<div class="alert-body">
+<strong>Prohibido</strong>El personal no puede emitir comunicaciones institucionales desde canales personales (WhatsApp personal, correo personal, redes sociales). Tampoco puede comprometer posiciones del residencial en conversaciones informales con residentes sobre temas regulatorios o legales.</div>
+</div>
+  <div class="proc-footer">
+<span>LIB-AM-02 · v13.0 · Libro II · 2.5 Comunicación Oficial</span><span>Confidencial — Residencial Aldea Mayab</span>
+</div>
 </div>
 
-  </div><!-- /content -->
-</div><!-- /main -->
+  </div>
+<!-- /content -->
+</div>
+<!-- /main -->
 
 
 
@@ -773,7 +1960,7 @@ const PAGES = {
   'p-24-paqueteria':     '2.0 Atención a Residentes · 2.4 Paquetería y Entregas',
   'p-25-comunicacion':   '2.0 Atención a Residentes · 2.5 Comunicación Oficial',
 };
-function show(id){
+function show(id,updateHash=true){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-link,.nav-sub').forEach(n=>n.classList.remove('active'));
   const page=document.getElementById(id);
@@ -785,6 +1972,7 @@ function show(id){
   document.querySelectorAll('.nav-link,.nav-sub').forEach(el=>{
     if((el.getAttribute('onclick')||'').includes("'"+id+"'"))el.classList.add('active');
   });
+  if(updateHash&&location.hash!=='#'+id)history.pushState(null,'','#'+id);
   window.scrollTo({top:0,behavior:'smooth'});
   if(window.innerWidth<=768&&window.closeSidebar)window.closeSidebar();
 }
@@ -846,7 +2034,7 @@ document.addEventListener('keydown',e=>{
     if(hash){
       var id = hash.replace('#','');
       if(document.getElementById(id)){
-        show(id);
+        show(id,false);
       }
     }
   }
@@ -858,6 +2046,8 @@ document.addEventListener('keydown',e=>{
 
 })();
 
+
+window.addEventListener('popstate',()=>{const id=location.hash.slice(1);if(document.getElementById(id))show(id,false);});
 </script>
 </body>
 </html>
